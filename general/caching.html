@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Web Page Caching : Podręcznik użytkownika CodeIgniter</title>
+
+<style type='text/css' media='all'>@import url('../userguide.css');</style>
+<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
+
+<script type="text/javascript" src="../nav/nav.js"></script>
+<script type="text/javascript" src="../nav/prototype.lite.js"></script>
+<script type="text/javascript" src="../nav/moo.fx.js"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
+
+<meta http-equiv='expires' content='-1' />
+<meta http-equiv= 'pragma' content='no-cache' />
+<meta name='robots' content='all' />
+<meta name='author' content='ExpressionEngine Dev Team' />
+<meta name='description' content='CodeIgniter Podręcznik' />
+
+</head>
+<body>
+
+<!-- START NAVIGATION -->
+<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="masthead">
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td><h1>CodeIgniter Przewodnik - wersja 2.0.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści przewodnika</a></td>
+</tr>
+</table>
+</div>
+<!-- END NAVIGATION -->
+
+
+<!-- START BREADCRUMB -->
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td id="breadcrumb">
+<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Spis treści przewodnika</a> &nbsp;&#8250;&nbsp;
+Buforowanie
+</td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Przeszukaj podręcznik&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+</tr>
+</table>
+<!-- END BREADCRUMB -->
+
+<br clear="all" />
+
+
+<!-- START CONTENT -->
+<div id="content">
+
+
+<h1>Buforowanie treści - Caching</h1>
+
+<p>CodeIgniter pozwala buforować treść dla zwiekszenia wydajności skryptów.</p>
+
+<p>Choć CodeIgniter jest szybki to warto pamiętać, że wydajność twojej aplikacji będzie uzależniona  od złożoności i jakości kodu, a przede wszystkim od wydajności serwera.
+Poprzez proces buforowania generowanych dynamicznie treści możliwe jest ich zapisywanie w stanie wygenerowanym tj finalnym. Tak zapisane dane mogą być oferowane odbiorcom 
+pomijając tym samym wielokrotne powtarzanie procesu generowania treści każdemu z nich. Buforowanie pozwala na zwieszanie wydajności niemal do poziomu stron statycznych.</p>
+
+
+<h2>Jak działa Buforowanie?</h2>
+
+<p>Buforowanie może zostać uaktywnione dla każdej z podstron jednocześnie mając określony czas następnego odświeżenia pliku bufora. 
+Kiedy strona zostanie załadowana pierwszy raz plik bufora zostanie zapisany w folderze <dfn>application/cache</dfn>. 
+Następne załadowania strony będą używały owego pliku by wyświetlić daną treść strony. Jeśli czas odświeżenia bufora zostanie 
+osiągnięty to plik buforowania zostanie nadpisany. </p>
+
+<p>Nota: Znacznik wydajności - Benchmark - nie jest buforowany więc możliwe jest określenie szybkości wywołania nawet z włączonym buforowaniem.</p>
+
+<h2>Włączenie buforowania</h2>
+
+<p>By włączyć buforowanie należy umieścić poniższy znacznik w metodzie kontrolera:</p>
+
+<code>$this->output->cache(<var>n</var>);</code>
+
+<p>Zmienna <var>n</var> jest ilością <strong>minut</strong> wyrażająca czas odświeżenia pliku bufora.</p>
+
+<p>Powyższy znacznik może być umieszczony gdziekolwiek w metodzie kontrolera tj. najlogiczniejszym, wybranym przez programistę miejscu. 
+Po umieszczeniu znacznika rozpocznie się buforowanie strony.</p>
+
+<p class="important"><strong>Ostrzeżenie:</strong> Przez sposób w jaki CodeIgniter magazynuje dane, buforowanie będzie działać tylko z użyciem <a href="./views.html">'widoku'</a>.</p>
+<p class="important"><strong>Nota:</strong> Zanim pliki bufora mogą być zapisane musisz nadać folderowi
+<dfn>application/cache</dfn> uprawnienia zapisu.</p>
+
+<h2>Usuwanie plików bufora</h2>
+
+<p>Jeśli nie chcesz już buforować wybranej treści usuń znacznik, a plik buforowania nie będzie dłużej odświeżany.  
+Usunięcie znacznika nie usunie pliku natychmiastowo. Będzie musiał się przedawnić w normalny sposób. </p>
+<p class="important" ><strong>Nota:</strong> Jeśli musisz usunąć go natychmiast musisz to zrobić ręcznie lub pisząc stosowną instrukcję.</p>
+
+
+
+</div>
+<!-- END CONTENT -->
+
+
+<div id="footer">
+<p>
+Poprzedni temat:&nbsp;&nbsp;<a href="errors.html">Obsługa błędów</a>
+&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Spis treści przewodnika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="profiling.html">Profilowanie aplikacji</a>
+</p>
+<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+</div>
+<!-- Piwik -->
+<script type="text/javascript">
+	var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
+	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+	try {
+		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
+		piwikTracker.trackPageView();
+		piwikTracker.enableLinkTracking();
+	} catch( err ) {}
+</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+</body>
+</html>

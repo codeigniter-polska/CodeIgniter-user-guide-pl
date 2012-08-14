@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Instrukcja instalacji : CodeIgniter podręcznik użytkownika</title>
+
+<style type='text/css' media='all'>@import url('../userguide.css');</style>
+<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
+
+<script type="text/javascript" src="../nav/nav.js"></script>
+<script type="text/javascript" src="../nav/prototype.lite.js"></script>
+<script type="text/javascript" src="../nav/moo.fx.js"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
+
+<meta name='robots' content='all' />
+<meta name='author' content='ExpressionEngine Dev Team' />
+<meta name='description' content='Podręcznik użytkownika CodeIgniter' />
+
+</head>
+<body>
+
+<!-- START NAVIGATION -->
+<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="masthead">
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td><h1>CodeIgniter podręcznik użytkownika wersja 2.0.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">spis treści</a></td>
+</tr>
+</table>
+</div>
+<!-- END NAVIGATION -->
+
+
+<!-- START BREADCRUMB -->
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td id="breadcrumb">
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Instrukcja instalacji
+</td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
+</tr>
+</table>
+<!-- END BREADCRUMB -->
+
+<br clear="all" />
+
+
+<!-- START CONTENT -->
+<div id="content">
+
+<h1>Instrukcja instalacji</h1>
+
+<p>CodeIgniter może zostać zainstalowany w czterech prostych krokach:</p>
+
+<ol>
+<li>Rozpakuj paczkę CodeIgniter.</li>
+<li>Wgraj foldery CodeIgniter na serwer. Plik index.php będzie rozpoznawany jako folder root.</li>
+<li>Otwórz plik <dfn>application/config/config.php</dfn> i ustaw swój bazowy URL. Jeżeli chcesz używać kodowania dla plików sesji, ustaw klucz kodowania.</li>
+<li>Jeżeli planujesz korzystać z baz danych otwórz plik <dfn>application/config/database.php</dfn> i ustaw dane bazy danych.</li>
+</ol>
+
+<p>Jeżeli chesz zwiększyć poziom bezpieczeństwa przez ukrycie lokalizacji plików CodeIgniter możesz zmienić nazwy folderów <dfn>system</dfn> i <dfn>application</dfn> na coś bardziej unikalnego. Jak tylko je zmienisz edytuj plik <kbd>index.php</kbd> i ustaw zmienną <samp>$system_folder</samp> i <samp>$application_folder</samp> na nowe nazwy.</p>
+
+<p>Najlepszą praktyką jest jednak umieszczenie obu folderów <dfn>system</dfn> i <dfn>application</dfn> poza katalogiem root, tak aby nie były dostępne z poziomu przeglądarki. Pliki .htaccess w każdym folderze ograniczają bezpośredni dostęp do każdego folderu, ale najlepszym rozwiązaniem jest ich umieszczenie poza strukturą katalogów przeglądarki.</p>
+
+<p>
+    Na systemach produkcyjnych bardzo dobrą praktyką jest wyłączenie raportowania błędów 
+    PHP oraz wyłączenie wszystkch operacji przyjaznych developerowi. W CodeIgniter,
+    możesz to zrobić przez ustawienie zmiennej <kbd>ENVIRONMENT</kbd> która jest dokładnie opisana na stronie <a href="../general/security.html">bezpieczeństwo</a>.
+</p>
+
+<p>To wszystko!</p>
+
+<p>Jeżeli dopiero rozpoczynasz pracę z CodeIgniter, zapoznaj się z rozdziałem <a href="../overview/getting_started.html">rozpoczęcie pracy</a> przewodnika użytkownika aby nauczyć się budowania dynamicznych aplikacji w PHP.</p>
+
+
+
+</div>
+<!-- END CONTENT -->
+
+
+<div id="footer">
+<p>
+Poprzedni rozdział:&nbsp;&nbsp;<a href="../general/credits.html">Credits</a>
+&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny rozdział:&nbsp;&nbsp;<a href="upgrading.html">Aktualizacja z poprzedniej wersji</a>
+</p>
+
+<p><a href="http://www.codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+
+</div>
+<!-- Piwik --> 
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Alternatywna składnia w plikach Widoku : CodeIgniter podręcznik użytkownika</title>
+
+<style type='text/css' media='all'>@import url('../userguide.css');</style>
+<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
+
+<script type="text/javascript" src="../nav/nav.js"></script>
+<script type="text/javascript" src="../nav/prototype.lite.js"></script>
+<script type="text/javascript" src="../nav/moo.fx.js"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
+
+<meta http-equiv='expires' content='-1' />
+<meta http-equiv= 'pragma' content='no-cache' />
+<meta name='robots' content='all' />
+<meta name='author' content='ExpressionEngine Dev Team' />
+<meta name='description' content='Podręcznik użytkownika CodeIgniter' />
+
+</head>
+<body>
+
+<!-- START NAVIGATION -->
+<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="pokaz spis treści" /></a></div>
+<div id="masthead">
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td><h1>CodeIgniter Przewodnik - wersja 2.0.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści przewodnika</a></td>
+</tr>
+</table>
+</div>
+<!-- END NAVIGATION -->
+
+
+<!-- START BREADCRUMB -->
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td id="breadcrumb">
+<a href="http://codeigniter.org.pl/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Spis treści przewodnika</a> &nbsp;&#8250;&nbsp;
+Składnia alternatywna
+</td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+</tr>
+</table>
+<!-- END BREADCRUMB -->
+
+<br clear="all" />
+
+
+<!-- START CONTENT -->
+<div id="content">
+
+<h1>Alternatywna składnia w plikach Widoku</h1>
+
+<p>Jesli nie używasz silnika <a href="../libraries/parser.html">szablonów</a> CodeIgnitera, z pewnością będziesz używał "czytego PHP" w Widokach.  
+By zminimalizować kod potrzebny do prawidłowego działania używaj alternatywnej składni, 
+a także eliminuj polecenia "echo". Przede wszystkim pamiętaj o tym by <strong>dbać o czytelność kodu</strong>
+. Jeśli nie zaznajomiłeś się wcześniej z tymi zagadnieniami niżej przedstawiono je nieco dokładniej.</p>
+
+<h2>Automatyczne skracanie tagów</h2>
+
+<p>Jeśli na twoim serwerze nie działaja którkie tagi prawdopodobnie zostały one wyłączone w poliku "PHP ini"
+CodeIgniter opcjonalnie może nadpisywać je w locie pozwlając Ci na ich korzystanie - nawet jeśli twój serwer ich nie obsługuję. Ta opcja
+jest możliwa do urochomienia w pliku <dfn>"config/config.php"</dfn>.</p>
+
+<p class="important"><strong>Nota:</strong> Należy pamietać podczas stosowania tej funkcji, iż raporty błędów PHP (zwłaszcza odwołanie do linii) mogą nie być dokładne. 
+Dzieje sie tak dlatego, iż błędy zostają przedstawione z pomocą funkcji <kbd>eval()</kbd>.</p>
+
+
+<h2>Alternatywne wywołanie "echo"</h2>
+
+<p>Zazwyczaj instrukcja "echo" stosowana jest nastepująco:</p>
+
+<code>&lt;?php echo $zmienna; ?></code>
+
+<p>Jednak istnieje możliwość przedstawienia tej funkcjonalności w odmienny sposób: </p>
+
+<code>&lt;?=$zmienna ?></code>
+
+<p class="important"><strong>Nota:</strong> Wyżej wymieniona składnia nie jest zawsze obsługiwana przez serwer. Należy sprawdzić, przetestować
+konfigurację serwera przed podjęciem działań. Warto wiedzieć: PHP w wersji 5.4 gwarantuję ich obsługę.</p>
+
+<h2>Alternatywna składnia kontroli</h2>
+
+<p>Instrukcje warunków i pętli: <var>if</var>, <var>for</var>, <var>foreach</var>, and <var>while</var> 
+mogą być wyrażone w alternatwynej formie tj. :</p>
+
+<code>
+&lt;ul><br />
+<br />
+<var>&lt;?php foreach ($macierz as $moj_string): ?></var><br />
+<br />
+&lt;li><var>&lt;?=$moj_string?></var>&lt;/li><br />
+<br />
+<var>&lt;?php endforeach; ?></var><br />
+<br />
+&lt;/ul></code>
+
+<p>Warto zauważyć, iż ta forma nie posiada typowych nawiasów " { ". Zamiast tego jest instrukcją kończącą zasięg pętli np: <var>endforeach</var>.
+Analogicznie dla innych instrukcji wystepują:
+<var>endif</var>, <var>endfor</var>, <var>endforeach</var> oraz <var>endwhile</var></p>
+
+<p>Należy pamiętać, iż w alternatynym zapisie wystepuje znak " : " - po nawiasach zawierąjacych warunek. Instrukcja ograniczająca zawiera natomiast typowy znak końca instrukcji PHP " ; ". </p>
+
+<p>Poniżej przedstawiono alternatywny zapis instrukcji if/elseif/else. Należy tutaj zwrócić uwagę na stosowanie znaków " : " oraz " ; ".</p>
+
+
+<code><var>&lt;?php if ($pseudonim == 'chudy'): ?></var><br />
+<br />
+&nbsp;&nbsp;&nbsp;&lt;h3>Hej chudy&lt;/h3><br />
+<br />
+<var>&lt;?php elseif ($pseudonim == 'rudy'): ?></var><br />
+<br />
+&nbsp;&nbsp;&nbsp;&lt;h3>Hej rudy&lt;/h3><br />
+<br />
+<var>&lt;?php else: ?></var><br />
+<br />
+&nbsp;&nbsp;&nbsp;&lt;h3>hej nowy &lt;/h3><br />
+<br />
+<var>&lt;?php endif; ?></var></code>
+
+
+
+</div>
+<!-- END CONTENT -->
+
+
+<div id="footer">
+<p>
+Poprzedni Temat:&nbsp;&nbsp;<a href="managing_apps.html">Zarządzanie aplikacjami.</a>
+&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Spis treści przewodnika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="security.html">Bezpieczeństwo</a>
+</p>
+<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+</div>
+<!-- Piwik -->
+<script type="text/javascript">
+	var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
+	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+	try {
+		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
+		piwikTracker.trackPageView();
+		piwikTracker.enableLinkTracking();
+	} catch( err ) {}
+</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+</body>
+</html>
