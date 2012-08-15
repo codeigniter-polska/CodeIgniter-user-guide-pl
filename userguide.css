@@ -85,7 +85,7 @@ a:hover {
  margin: 0 0 10px 0;
 }
 #nav_inner ul {
- list-style-image: url(/user_guide/images/arrow.gif);
+ list-style-image: url(images/arrow.gif);
  padding: 0 0 0 18px;
  margin: 8px 0 12px 0;
 }
