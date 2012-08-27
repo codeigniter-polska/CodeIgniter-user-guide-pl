@@ -22,11 +22,11 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Toggle Spis tresci" alt="Toggle Spis tresci" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter podręcznik użytkownika wersja 2.1.0</h1></td>
+<td><h1>CodeIgniter podręcznik użytkownika wersja 2.1.2</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
@@ -40,7 +40,7 @@
 <td id="breadcrumb">
 <a href="http://www.codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
-Views
+Widoki
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
@@ -85,11 +85,9 @@ Właściwie każdy widok może być dowolnie osadzony w innych widokach jeżeli 
 
 <code>$this->load->view('<var>name</var>');</code>
 
-<p>Where <var>name</var> is the name of your view file.  Note: The .php file extension does not need to be specified unless you use something other than <kbd>.php</kbd>.</p>
+<p>Gdzie <var>name</var> to nazwa pliku widoku. Uwaga: Nie trzeba dodawać rozszerzenia .php dopóki nasz plik nie używa innego rozszerzenia niż <kbd>.php</kbd>.</p>
 
-
-<p>Now, open the controller file you made earlier called <dfn>blog.php</dfn>, and replace the echo statement with the view loading function:</p>
-
+<p>Teraz otwórz kontroler, który utworzyłeś wcześniej o nazwie <dfn>blog.php</dfn> i zamień wywołanie echo na metodę ładującą widok:</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
 &lt;?php
@@ -104,19 +102,20 @@ class Blog extends CI_Controller {
 </textarea>
 
 
-<p>If you visit your site using the URL you did earlier you should see your new view.  The URL was similar to this:</p>
+<p>Jeśli przeglądasz stronę za pomocą adresu URL, z którego korzystałeś wcześniej powinieneś zobaczyć nowy widok. Adres URL był taki sam jak ten:</p>
 
 <code>example.com/index.php/<var>blog</var>/</code>
 
-<h2>Loading multiple views</h2>
-<p>CodeIgniter will intelligently handle  multiple calls to $this-&gt;load-&gt;view from within a controller.  If more than one call happens they will be appended together. For example, you may wish to have a header view, a menu view, a content view, and a footer view. That might look something like this:</p>
+<h2>Ładowanie wielu widoków</h2>
+<p>CodeIgniter będzie inteligentnie obsługiwał wiele odwołań do $this-&gt;load-&gt;view z kontrolera. Jeśli pojawi się więcej niż jedno odwołanie, zostaną one połączone w jedno. 
+Dla przykładu, możesz chcieć posiadać widok nagłówka, menu, treści oraz stopki. Może to wyglądać w ten sposób:</p>
 <p><code>&lt;?php<br />
 <br />
 class Page extends CI_Controller {<br /><br />
 
  &nbsp;&nbsp;&nbsp;function index()<br />
 &nbsp;&nbsp;&nbsp;{<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data['page_title'] =  'Your title';<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$data['page_title'] =  'Twój tytuł';<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('header');<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('menu');<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;load-&gt;view('content', $data);<br />
@@ -125,36 +124,37 @@ class Page extends CI_Controller {<br /><br />
 <br />
 }<br />
 	?&gt;</code></p>
-<p>In the example above, we are using &quot;dynamically added data&quot;, which you will see below.</p>
-<h2>Storing Views within Sub-folders</h2>
-<p>Your view files can also be stored within sub-folders if you prefer that type of organization.  When doing so you will need
-to include the folder name loading the view.  Example:</p>
+<p>W powyższym przykładzie używamy &quot;dynamicznie dodanej zmiennej data&quot;, którą wykorzystamy poniżej.</p>
 
-<code>$this->load->view('<kbd>folder_name</kbd>/<var>file_name</var>');</code>
+<h2>Przechowywanie widoków w podkatalogach</h2>
+<p>Twoje widoki mogą być także przechowywane w podkatalogach, jeśli lubisz ten rodzaj organizacji. Kiedy korzystasz z takiej opcji
+musisz dołączyć nazwę katalogu do metody ładującej widok. Przykład:</p>
+
+<code>$this->load->view('<kbd>nazwa_katalogu</kbd>/<var>nazwa_pliku</var>');</code>
 
 
-<h2>Adding Dynamic Data to the View</h2>
+<h2>Dodawanie dynamicznych zmiennych do widoku</h2>
 
-<p>Data is passed from the controller to the view by way of an <strong>array</strong> or an <strong>object</strong> in the second
-parameter of the view loading function. Here is an example using an array:</p>
+<p>Zmienne są przypisywane z kontrolera do widoku za pomocą <strong>tablicy</strong> lub <strong>obiektu</strong> w drugim parametrze metody view.
+Tutaj mamy przykład wykorzystujący tablicę:</p>
 
 <code>$data = array(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'My Title',<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'heading' => 'My Heading',<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'message' => 'My Message'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'Mój tytuł',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'heading' => 'Mój nagłówek',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'message' => 'Moja wiadomość'<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
 $this->load->view('blogview', <var>$data</var>);</code>
 
-<p>And here's an example using an object:</p>
+<p>A tutaj mamy przykład wykorzystujący obiekt:</p>
 
-<code>$data = new Someclass();<br />
+<code>$data = new Jakasklasa();<br />
 $this->load->view('blogview', <var>$data</var>);</code>
 
-<p>Note: If you use an object, the class variables will be turned into array elements.</p>
+<p>Uwaga: W przypadku korzystania z obiektu, zmienne klasy zostaną zamienione na elementy tablicy.</p>
 
 
-<p>Let's try it with your controller file.  Open it add this code:</p>
+<p>Spróbujmy tego z Twoim kontrolerem.  Otwórz go i podaj kod:</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="14">
 &lt;?php
@@ -162,8 +162,8 @@ class Blog extends CI_Controller {
 
 	function index()
 	{
-		$data['title'] = "My Real Title";
-		$data['heading'] = "My Real Heading";
+		$data['title'] = "Mój prawdziwy tytuł";
+		$data['heading'] = "Mój prawdziwy nagłówek";
 
 		$this->load->view('blogview', $data);
 	}
@@ -171,8 +171,7 @@ class Blog extends CI_Controller {
 ?&gt;
 </textarea>
 
-
-<p>Now open your view file and change the text to variables that correspond to the array keys in your data:</p>
+<p>Teraz otwórz plik widoku i zmień tekst na zmienne, odpowiadające kluczom tablicy data:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
@@ -186,15 +185,15 @@ class Blog extends CI_Controller {
 &lt;/html>
 </textarea>
 
-<p>Then load the page at the URL you've been using and you should see the variables replaced.</p>
+<p>Teraz przeładuj adres w przeglądarce. Powinieneś zobaczyć zastąpione zmienne.</p>
 
-<h2>Creating Loops</h2>
+<h2>Tworzenie pętli</h2>
 
-<p>The data array you pass to your view files is not limited to simple variables.  You can
-pass multi dimensional arrays, which can be looped to generate multiple rows.  For example, if you
-pull data from your database it will typically be in the form of a multi-dimensional array.</p>
+<p>Tablice, które przekazujesz do widoków, nie są ograniczone do prostych zmiennych. Możesz przypisywać 
+wielowymiarowe tablice, które później możesz zapętlać aby uzystać wiele wierszy.
+Dla przykładu, jeśli wczytasz dane z bazy danych, będą one zazwyczaj w formie wielowymiarowej tablicy.</p>
 
-<p>Here's a simple example. Add this to your controller:</p>
+<p>Tutaj mamy prosty przykład. Dodaj to do Twojego kontrolera:</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="17">
 &lt;?php
@@ -202,10 +201,10 @@ class Blog extends CI_Controller {
 
 	function index()
 	{
-		$data['todo_list'] = array('Clean House', 'Call Mom', 'Run Errands');
+		$data['todo_list'] = array('Posprzątać dom', 'Zadzwonić do mamy', 'Przebiec maraton');
 
-		$data['title'] = "My Real Title";
-		$data['heading'] = "My Real Heading";
+		$data['title'] = "Mój prawdziwy tytuł";
+		$data['heading'] = "Mój prawdziwy nagłówek";
 
 		$this->load->view('blogview', $data);
 	}
@@ -214,7 +213,7 @@ class Blog extends CI_Controller {
 </textarea>
 
 
-<p>Now open your view file and create a loop:</p>
+<p>Teraz otwórz plik widoku i utwórz pętlę:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="24">
@@ -225,7 +224,7 @@ class Blog extends CI_Controller {
 &lt;body>
 &lt;h1>&lt;?php echo $heading;?>&lt;/h1>
 
-&lt;h3>My Todo List&lt;/h3>
+&lt;h3>Moja Todo Lista&lt;/h3>
 
 &lt;ul>
 &lt;?php foreach ($todo_list as $item):?>
@@ -238,15 +237,14 @@ class Blog extends CI_Controller {
 &lt;/body>
 &lt;/html>
 </textarea>
-<p><strong>Note:</strong> You'll notice that in the example above we are using PHP's alternative syntax.  If you
-are not familiar with it you can read about it <a href="alternative_php.html">here</a>.</p>
+<p><strong>Uwaga:</strong> Zauważyłeś, że w przykłądzie powyżej używamy alternatywnej składni PHP.
+Jeśli nie jesteś z nią zaznajomiony, możesz poczytać o niej <a href="alternative_php.html">tutaj</a>.</p>
 
-<h2>Returning views as data</h2>
+<h2>Zwracanie widoków jako danych</h2>
 
-<p>There is a third <strong>optional</strong> parameter lets you change the behavior of the function so that it returns data as a string
-rather than sending it to your browser.  This can be useful if you want to process the data in some way.  If you
-set the parameter to <kbd>true</kbd> (boolean) it will return data.  The default behavior is <kbd>false</kbd>, which sends it
-to your browser.  Remember to assign it to a variable if you want the data returned:</p>
+<p>Istnieje trzeci <strong>opcjonalny</strong> parametr, który pozwala zmienić zachowanie funkcji, która w tym wypadku zwraca dane jako ciąg znaków, 
+zamiast zwracać go do przeglądarki. To może być użyteczne jeśli chcemy przetworzyć te dane w jakiś sposób. Jeśli ustawisz parametr na <kbd>true</kbd> (boolean)
+zwróci on dane. Domyślnym ustawieniem jest <kbd>false</kbd>, co powoduje wysłanie danych do przeglądarki. Pamiętaj o przekazaniu danych do zmiennej, jeśli chcesz ich później użyć:</p>
 
 <code>$string = $this->load->view('<var>myfile</var>', '', <kbd>true</kbd>);</code>
 
