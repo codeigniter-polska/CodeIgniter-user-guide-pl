@@ -47,7 +47,7 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/reserved_names.html">Zarezerwowane nazwy</a></li>' +
 			'<li><a href="'+base+'general/views.html">Widoki</a></li>' +
 			'<li><a href="'+base+'general/models.html">Modele</a></li>' +
-			'<li><a href="'+base+'general/helpers.html">Pomocnicy</a></li>' +
+			'<li><a href="'+base+'general/helpers.html">Helpery</a></li>' +
 			'<li><a href="'+base+'general/libraries.html">Korzystanie z bibliotek CodeIgniter</a></li>' +
 			'<li><a href="'+base+'general/creating_libraries.html">Creating Your Own Libraries</a></li>' +
 			'<li><a href="'+base+'general/drivers.html">Using CodeIgniter Drivers</a></li>' +
@@ -117,7 +117,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/javascript.html">Javascript Class</a></li>' +
 		'</ul>' +
 
-		'<h3>Opisy pomocników</h3>' +
+		'<h3>Opisy helperów</h3>' +
 		'<ul>' +
 		'<li><a href="'+base+'helpers/array_helper.html">Array Helper</a></li>' +
 		'<li><a href="'+base+'helpers/captcha_helper.html">CAPTCHA Helper</a></li>' +
