@@ -38,11 +38,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://www.codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
 Widoki
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -102,7 +102,7 @@ class Blog extends CI_Controller {
 </textarea>
 
 
-<p>Jeśli przeglądasz stronę za pomocą adresu URL, z którego korzystałeś wcześniej powinieneś zobaczyć nowy widok. Adres URL był taki sam jak ten:</p>
+<p>Jeśli przeglądasz stronę za pomocą adresu URL, z którego korzystałeś wcześniej, powinieneś zobaczyć nowy widok. Adres URL był taki sam jak ten:</p>
 
 <code>example.com/index.php/<var>blog</var>/</code>
 
@@ -127,7 +127,7 @@ class Page extends CI_Controller {<br /><br />
 <p>W powyższym przykładzie używamy &quot;dynamicznie dodanej zmiennej data&quot;, którą wykorzystamy poniżej.</p>
 
 <h2>Przechowywanie widoków w podkatalogach</h2>
-<p>Twoje widoki mogą być także przechowywane w podkatalogach, jeśli lubisz ten rodzaj organizacji. Kiedy korzystasz z takiej opcji
+<p>Twoje widoki mogą być także przechowywane w podkatalogach, jeśli lubisz ten rodzaj organizacji. Kiedy korzystasz z takiej opcji,
 musisz dołączyć nazwę katalogu do metody ładującej widok. Przykład:</p>
 
 <code>$this->load->view('<kbd>nazwa_katalogu</kbd>/<var>nazwa_pliku</var>');</code>
@@ -190,7 +190,7 @@ class Blog extends CI_Controller {
 <h2>Tworzenie pętli</h2>
 
 <p>Tablice, które przekazujesz do widoków, nie są ograniczone do prostych zmiennych. Możesz przypisywać 
-wielowymiarowe tablice, które później możesz zapętlać aby uzystać wiele wierszy.
+wielowymiarowe tablice, które później możesz zapętlać, aby uzystać wiele wierszy.
 Dla przykładu, jeśli wczytasz dane z bazy danych, będą one zazwyczaj w formie wielowymiarowej tablicy.</p>
 
 <p>Tutaj mamy prosty przykład. Dodaj to do Twojego kontrolera:</p>
@@ -224,7 +224,7 @@ class Blog extends CI_Controller {
 &lt;body>
 &lt;h1>&lt;?php echo $heading;?>&lt;/h1>
 
-&lt;h3>Moja Todo Lista&lt;/h3>
+&lt;h3>Moja lista zadań&lt;/h3>
 
 &lt;ul>
 &lt;?php foreach ($todo_list as $item):?>
@@ -237,7 +237,7 @@ class Blog extends CI_Controller {
 &lt;/body>
 &lt;/html>
 </textarea>
-<p><strong>Uwaga:</strong> Zauważyłeś, że w przykłądzie powyżej używamy alternatywnej składni PHP.
+<p><strong>Uwaga:</strong> Zauważyłeś, że w przykładzie powyżej używamy alternatywnej składni PHP.
 Jeśli nie jesteś z nią zaznajomiony, możesz poczytać o niej <a href="alternative_php.html">tutaj</a>.</p>
 
 <h2>Zwracanie widoków jako danych</h2>
@@ -246,7 +246,7 @@ Jeśli nie jesteś z nią zaznajomiony, możesz poczytać o niej <a href="altern
 zamiast zwracać go do przeglądarki. To może być użyteczne jeśli chcemy przetworzyć te dane w jakiś sposób. Jeśli ustawisz parametr na <kbd>true</kbd> (boolean)
 zwróci on dane. Domyślnym ustawieniem jest <kbd>false</kbd>, co powoduje wysłanie danych do przeglądarki. Pamiętaj o przekazaniu danych do zmiennej, jeśli chcesz ich później użyć:</p>
 
-<code>$string = $this->load->view('<var>myfile</var>', '', <kbd>true</kbd>);</code>
+<code>$string = $this->load->view('<var>mojplik</var>', '', <kbd>true</kbd>);</code>
 
 </div>
 <!-- END CONTENT -->
@@ -254,7 +254,7 @@ zwróci on dane. Domyślnym ustawieniem jest <kbd>false</kbd>, co powoduje wysł
 
 <div id="footer">
 <p>
-Poprzedni temat:&nbsp;&nbsp;<a href="reserved_names.html">Reserved Names</a>
+Poprzedni temat:&nbsp;&nbsp;<a href="reserved_names.html">Nazwy zarezerwowane</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
