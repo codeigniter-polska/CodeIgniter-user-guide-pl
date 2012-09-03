@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Connecting to your Database : Podręcznik użytkownika CodeIgniter</title>
+<title>Łączenie z bazą danych : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis Treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,12 +40,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Connecting
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+<a href="index.html">Biblioteka bazy danych</a> &nbsp;&#8250;&nbsp;
+Łączenie z bazą danych
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -58,56 +58,56 @@ Connecting
 <div id="content">
 
 
-<h1>Connecting to your Database</h1>
+<h1>Łączenie z bazą danych</h1>
 
-<p>There are two ways to connect to a database:</p>
+<p>Są dwa sposoby na połączenie się z bazą danych:</p>
 
-<h2>Automatically Connecting</h2>
+<h2>Połączenie automatyczne</h2>
 
-<p>The "auto connect" feature will load and instantiate the database class with every page load.
-To enable "auto connecting", add the word <var>database</var> to the library array, as indicated in the following file:</p>
+<p>"Połączenie automatyczne" spowoduje załadowanie i inicjalizację klasy bazy danych przy każdym przeładowaniu strony. 
+Aby włączyć "połączenie automatyczne" dodaj słowo <var>database</var> do tablicy library w poniższym pliku:</p>
 
 <p><kbd>application/config/autoload.php</kbd></p>
 
-<h2>Manually Connecting</h2>
+<h2>Łączenie manualne</h2>
 
-<p>If only some of your pages require database connectivity you can manually connect to your database by adding this
-line of code in any function where it is needed, or in your class constructor to make the database
-available globally in that class.</p>
+<p>Jeśli tylko niektóre ze stron wymagają połączenia z bazą danych, możesz ręcznie wykonać połączenie, poprzez 
+dodanie poniższej linii kodu do każdej funkcji, która tego wymaga lub dodanie jej do konstruktora, 
+aby udostępnić połączenie z bazą danych globalnie, w obrębie całej klasy.</p>
 
 <code>$this->load->database();</code>
 
-<p class="important">If the above function does <strong>not</strong> contain any information in the first parameter it will connect
-to the group specified in your database config file. For most people, this is the preferred method of use.</p>
+<p class="important">Jeśli powyższa funkcja <strong>nie</strong> zawiera żadnej informacji w pierwszym parametrze, to 
+połączenie zostanie wykonane do domyślnej grupy ustalonej w pliku konfiguracyjnym bazy danych.</p>
 
-<h3>Available Parameters</h3>
+<h3>Dostępne parametry</h3>
 
 <ol>
-	<li>The database connection values, passed either as an array or a DSN string.</li>
-	<li>TRUE/FALSE (boolean).  Whether to return the connection ID (see Connecting to Multiple Databases below).</li>
-	<li>TRUE/FALSE (boolean).  Whether to enable the Active Record class.  Set to TRUE by default.</li>
+	<li>Wartości konfiguracyjne dla połączenia przypisane za pomocą tablicy lub ciągu DSN.</li>
+	<li>TRUE/FALSE (boolean).  Czy zwrócić ID połączenia (zobacz łączenie się z wieloma bazami danych poniżej).</li>
+	<li>TRUE/FALSE (boolean).  Czy używać klasy Active Record.  Domyślnie wartośc ustawiona na TRUE.</li>
 </ol>
 
 
-<h3>Manually Connecting to a Database</h3>
+<h3>Manualne łączenie się z bazą danych</h3>
 
-<p>The first parameter of this function can <strong>optionally</strong> be used to specify a particular database group
-from your config file, or you can even submit connection values for a database that is not specified in your config file.
-Examples:</p>
+<p>Pierwszy parametr tej funkcji może być <strong>opcjonalnie</strong> użyty, aby określić grupę bazy danych z pliku konfiguracyjnego.
+Można również wysłać w nim wartości potrzebne do połączenia z bazą, które nie są określone w pliku konfiguracyjnym.
+Przykłady:</p>
 
-<p>To choose a specific group from your config file you can do this:</p>
+<p>Aby wybrać konkretną grupę z pliku konfiguracyjnego, można zrobić tak:</p>
 
-<code>$this->load->database('<samp>group_name</samp>');</code>
+<code>$this->load->database('<samp>nazwa_grupy</samp>');</code>
 
-<p>Where <samp>group_name</samp> is the name of the connection group from your config file.</p>
+<p>Gdzie <samp>nazwa_grupy</samp> jest nazwą grupy odpowiedzialnej za połączenie w pliku konfiguracyjnym.</p>
 
 
-<p>To connect manually to a desired database you can pass an array of values:</p>
+<p>Aby połączyć się ręcznie do pożądanej bazy danych, możesz przypisać tablicę wartości:</p>
 
 <code>$config['hostname'] = "localhost";<br />
-$config['username'] = "myusername";<br />
-$config['password'] = "mypassword";<br />
-$config['database'] = "mydatabase";<br />
+$config['username'] = "mojanazwauzytkownika";<br />
+$config['password'] = "mojehaslo";<br />
+$config['database'] = "mojabazadanych";<br />
 $config['dbdriver'] = "mysql";<br />
 $config['dbprefix'] = "";<br />
 $config['pconnect'] = FALSE;<br />
@@ -119,54 +119,54 @@ $config['dbcollat'] = "utf8_general_ci";<br />
 <br />
 $this->load->database(<samp>$config</samp>);</code>
 
-<p>For information on each of these values please see the <a href="configuration.html">configuration page</a>.</p>
+<p>Aby uzyskać informacje na temat każdej z powyższych wartości odwiedź stronę objaśniającą <a href="configuration.html">konfigurację</a>.</p>
 
-<p>Or you can submit your database values as a Data Source Name. DSNs must have this prototype:</p>
+<p>Możesz również wysłać wartości konfiguracyjne dla bazy danych jako ciąg DSN (Data Source Name). Musi mieć on taką postać:</p>
 
-<code>$dsn = 'dbdriver://username:password@hostname/database';<br />
+<code>$dsn = 'dbdriver://nazwauzytkownika:haslo@nazwahosta/bazadanych';<br />
 <br />
 $this->load->database(<samp>$dsn</samp>);</code>
 
-<p>To override default config values when connecting with a DSN string, add the config variables as a query string.</p>
+<p>Aby nadpisać domyślne wartości konfiguracyjne przy połączeniu za pomocą ciągu DSN, należy postąpić jak przedstawiono poniżej.</p>
 
-<code>$dsn = 'dbdriver://username:password@hostname/database?char_set=utf8&amp;dbcollat=utf8_general_ci&amp;cache_on=true&amp;cachedir=/path/to/cache';<br />
+<code>$dsn = 'dbdriver://nazwauzytkownika:haslo@nazwahosta/bazadanych?char_set=utf8&amp;dbcollat=utf8_general_ci&amp;cache_on=true&amp;cachedir=/path/to/cache';<br />
 <br />
 $this->load->database(<samp>$dsn</samp>);</code>
 
-<h2>Connecting to Multiple Databases</h2>
+<h2>Połączenie z wieloma bazami danych</h2>
 
-<p>If you need to connect to more than one database simultaneously you can do so as follows:</p>
+<p>Jeśli musisz połączyć się z więcej niż jedną bazą danych na raz, możesz to osiągnąć w następujący sposób:</p>
 
 
-<code>$DB1 = $this->load->database('group_one', TRUE);<br />
-$DB2 = $this->load->database('group_two', TRUE);
+<code>$DB1 = $this->load->database('grupa_pierwsza', TRUE);<br />
+$DB2 = $this->load->database('grupa_druga', TRUE);
 </code>
 
-<p>Note: Change the words "group_one" and "group_two" to the specific group names you are connecting to (or
-you can pass the connection values as indicated above).</p>
+<p>Uwaga: Zamień słowa "grupa_pierwsza i "grupa_druga", na nazwy grup z których chcesz skorzystać (możesz również przypisać wartości konfiguracyjne, jak przedstawiono to wyżej).</p>
 
-<p>By setting the second parameter to TRUE (boolean) the function will return the database object.</p>
+<p>Jeśli ustawimy drugi parametr na TRUE (boolean), funkcja zwróci obiekt bazy danych.</p>
 
 <div class="important">
-<p>When you connect this way, you will use your object name to issue commands rather than the syntax used throughout this guide.  In other words, rather than issuing commands with:</p>
+<p>Jeśli połączysz się w ten sposób, będziesz używać nazwy obiektu przy wywoływaniu funkcji, w przeciwieństwie do składni używanej w typ podręczniku. Innymi słowy, zamiast używać sładni:</p>
 
-<p>$this->db->query();<br />$this->db->result();<br /> etc...</p>
+<p>$this->db->query();<br />$this->db->result();<br /> itd...</p>
 
-<p>You will instead use:</p>
+<p>Będziesz musiał używać:</p>
 
-<p>$DB1->query();<br />$DB1->result();<br /> etc...</p>
+<p>$DB1->query();<br />$DB1->result();<br /> idt...</p>
 
 </div>
 
-<h2>Reconnecting / Keeping the Connection Alive</h2>
+<h2>Ponowne połączenie / Utrzymywanie stałego połączenia</h2>
 
-<p>If the database server's idle timeout is exceeded while you're doing some heavy PHP lifting (processing an image, for instance), you should consider pinging the server by using the <dfn>reconnect()</dfn> method before sending further queries, which can gracefully keep the connection alive or re-establish it.</p>
+<p>Jeśli limit czasu bezczynności serwera bazy danych zostanie przekroczony, podczas gdy wykonujesz jakieś skomplikowane operacje w PHP (np. przetwarzanie obrazu), powinieneś rozważyć pingowanie serwera za pomocą metody
+<dfn>reconnect()</dfn>, co może spowodować, że połączenie zostanie utrzymane lub nawiązane ponownie, zanim wyślesz kolejne zapytanie.</p>
 
 <code>$this->db->reconnect();</code>
 
-<h2>Manually closing the Connection</h2>
+<h2>Manualne zamykanie połączenia</h2>
 
-<p>While CodeIgniter intelligently takes care of closing your database connections, you can explicitly close the connection.</p>
+<p>CodeIgniter sam inteligentnie zajmuje się zamykaniem połączenia z bazą danych, ale możesz to zrobić również samodzielnie.</p>
 
 <code>$this->db->close();</code>
 </div>
@@ -175,14 +175,25 @@ you can pass the connection values as indicated above).</p>
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="configuration.html">Database Configuration</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="configuration.html">Konfiguracja bazy danych</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="queries.html">Queries</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="queries.html">Zapytania</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
-
+<!-- Piwik -->
+<script type="text/javascript">
+	var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
+	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+	try {
+		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
+		piwikTracker.trackPageView();
+		piwikTracker.enableLinkTracking();
+	} catch( err ) {}
+</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
 </body>
 </html>

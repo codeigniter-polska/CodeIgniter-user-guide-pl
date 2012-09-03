@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Field Data : Podręcznik użytkownika CodeIgniter</title>
+<title>Dane kolumn : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis Treści</a></td>
 </tr>
 </table>
 </div>
@@ -39,12 +39,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Field Names
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+<a href="index.html">Biblioteka bazy danych</a> &nbsp;&#8250;&nbsp;
+Dane kolumn
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -57,17 +57,17 @@ Field Names
 <div id="content">
 
 
-<h1>Field Data</h1>
+<h1>Dane kolumn</h1>
 
 
 <h2>$this->db->list_fields()</h2>
-<p>Returns an array containing the field names. This query can be called two ways:</p>
+<p>Zwraca tablicę zawierającą nazwy kolumn. To zapytanie może być uruchomione na dwa sposoby:</p>
 
 
-<p>1. You can supply the table name and call it from the <dfn>$this->db-></dfn> object:</p>
+<p>1. Możesz dostarczyć nazwę tabeli i wywołać ją z obiektu <dfn>$this->db-></dfn>:</p>
 
 <code>
-$fields = $this->db->list_fields('table_name');<br /><br />
+$fields = $this->db->list_fields('nazwa_tabeli');<br /><br />
 
 foreach ($fields as $field)<br />
 {<br />
@@ -75,11 +75,10 @@ foreach ($fields as $field)<br />
 }
 </code>
 
-<p>2. You can gather the field names associated with any query you run by calling the function
-from your query result object:</p>
+<p>2. Możesz zebrać nazwy kolumn powiązane z zapytaniem, które wykonałeś poprzez wywołanie funkcji z obiektu wyników:</p>
 
 <code>
-$query = $this->db->query('SELECT * FROM some_table');
+$query = $this->db->query('SELECT * FROM nazwa_tabeli');
 <br /><br />
 
 foreach ($query->list_fields() as $field)<br />
@@ -91,31 +90,31 @@ foreach ($query->list_fields() as $field)<br />
 
 <h2>$this->db->field_exists()</h2>
 
-<p>Sometimes it's helpful to know whether a particular field exists before performing an action.
-Returns a boolean TRUE/FALSE.  Usage example:</p>
+<p>Czasami wygodnie jest wiedzieć, czy dane pole istnieje, nim wykonamy na nim jakąkolwiek operację.
+Zwraca TRUE/FALSE (boolean). Przykład użycia:</p>
 
 <code>
-if ($this->db->field_exists('field_name', 'table_name'))<br />
+if ($this->db->field_exists('nazwa_pola', 'nazwa_tabeli'))<br />
 {<br />
-&nbsp;&nbsp; // some code...<br />
+&nbsp;&nbsp; // jakiś kod...<br />
 }
 </code>
 
-<p>Note:  Replace <em>field_name</em> with the name of the column you are looking for, and replace
-<em>table_name</em> with the name of the table you are looking for.</p>
+<p>Uwaga:  Zamień <em>nazwa_pola</em> z nazwą kolumny której szukasz oraz
+<em>nazwa_tabeli</em> nazwą tabeli, której szukasz.</p>
 
 
 <h2>$this->db->field_data()</h2>
-<p>Returns an array of objects containing field information.</p>
-<p>Sometimes it's helpful to gather the field names or other metadata, like the column type, max length, etc.</p>
+<p>Zwraca tablicę lub obiekt zawierający informacje o kolumnie.</p>
+<p>Czasami wygodnie jest zebrać informacje o nazwie kolumny lub inne dane, jak: typ kolumny, maksymalna długość itd.</p>
 
 
-<p class="important">Note: Not all databases provide meta-data.</p>
+<p class="important">Uwaga: Nie wszystkie bazy danych udostępniają takie informacje.</p>
 
-<p>Usage example:</p>
+<p>Przykład użycia:</p>
 
 <code>
-$fields = $this->db->field_data('table_name');<br /><br />
+$fields = $this->db->field_data('nazwa_tabeli');<br /><br />
 
 foreach ($fields as $field)<br />
 {<br />
@@ -126,21 +125,21 @@ foreach ($fields as $field)<br />
 }
 </code>
 
-<p>If you have run a query already you can use the result object instead of supplying the table name:</p>
+<p>Jeśli uruchomiłeś już zapytanie, możesz użyć obiektu wyników, zamiast podawać nazwę tabeli:</p>
 
 <code>
-$query = $this->db->query("YOUR QUERY");<br />
+$query = $this->db->query("TWOJE ZAPYTANIE");<br />
 $fields = $query->field_data();
 </code>
 
 
-<p>The following data is available from this function if supported by your database:</p>
+<p>Jeśli Twoja baza danych wspiera takie rozwiązanie, to funkcja ta może dostarczyć następujące informacje:</p>
 
 <ul>
-<li>name - column name</li>
-<li>max_length - maximum length of the column</li>
-<li>primary_key - 1 if the column is a primary key</li>
-<li>type - the type of the column</li>
+<li>name - nazwa kolumny (pola)</li>
+<li>max_length - maksymalna długość pola</li>
+<li>primary_key - 1 jeśli kolumna jest typu primary key</li>
+<li>type - typ pola</li>
 </ul>
 
 
@@ -150,14 +149,25 @@ $fields = $query->field_data();
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="table_data.html"> Table Data</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="table_data.html">Dane tabel</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="call_function.html">Custom Function Calls</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="call_function.html">Niestandardowe wywołania funkcji</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
-
+<!-- Piwik -->
+<script type="text/javascript">
+	var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
+	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+	try {
+		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
+		piwikTracker.trackPageView();
+		piwikTracker.enableLinkTracking();
+	} catch( err ) {}
+</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
 </body>
 </html>

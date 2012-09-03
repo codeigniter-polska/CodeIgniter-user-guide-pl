@@ -113,7 +113,7 @@ function create_menu(basepath)
 		'<h3>Opisy sterowników</h3>' +
 		'<ul>' +
 		'<li><a href="'+base+'libraries/caching.html">Caching Class</a></li>' +
-		'<li><a href="'+base+'database/index.html">Database Class</a></li>' +
+		'<li><a href="'+base+'database/index.html">Klasa bazy danych</a></li>' +
 		'<li><a href="'+base+'libraries/javascript.html">Javascript Class</a></li>' +
 		'</ul>' +
 

@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Database Quick Start : Podręcznik użytkownika CodeIgniter</title>
+<title>Baza danych - szybki start : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -22,12 +22,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis Treści</a></td>
 </tr>
 </table>
 </div>
@@ -37,12 +37,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://www.codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Database Example Code
+<a href="index.html">Biblioteka bazy danych</a> &nbsp;&#8250;&nbsp;
+Baza danych, przykłady użycia
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.pl/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -55,24 +55,24 @@ Database Example Code
 <div id="content">
 
 
-<h1>Database Quick Start: Example Code</h1>
+<h1>Baza danych - szybki start: Przykłady użycia</h1>
 
-<p>The following page contains example code showing how the database class is used.  For complete details please
-read the individual pages describing each function.</p>
+<p>Na tej stronie znajdziesz przykłady tego w jaki sposób używać klasy Database. Jeśli chcesz poznać szczegóły
+przeczytaj każdą ze stron, która odnosi się do poszczególnych funkcjonalności.</p>
 
 
-<h2>Initializing the Database Class</h2>
+<h2>Inicjalizowanie klasy Database</h2>
 
-<p>The following code loads and initializes the database class based on your <a href="configuration.html">configuration</a> settings:</p>
+<p>Poniższy kod ładuje i inicjalizuje klasę bazy danych w oparciu o ustawienia <a href="configuration.html">konfiguracyjne</a>:</p>
 
 <code>$this->load->database();</code>
 
-<p>Once loaded the class is ready to be used as described below.</p>
+<p>Raz załadowana klasa jest gotowa do wykorzystania, tak jak opisano poniżej.</p>
 
-<p>Note: If all your pages require database access you can connect automatically.  See the <a href="connecting.html">connecting</a> page for details.</p>
+<p>Uwaga: Jeśli na wszystkich stronach aplikacji będziesz wymagał połączenia z bazą danych, możesz łączyć się automatycznie. Po szczegóły zajrzyj na stronę o <a href ="connecting.html">łączeniu się z bazą danych</a>.</p>
 
 
-<h2>Standard Query With Multiple Results (Object Version)</h2>
+<h2>Standardowe zapytanie z wieloma wynikami (wersja obiektowa)</h2>
 
 <code>$query = $this->db->query('SELECT name, title, email FROM my_table');<br />
 <br />
@@ -83,13 +83,13 @@ foreach ($query->result() as $row)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $row->email;<br />
 }<br />
 <br />
-echo 'Total Results: ' . $query->num_rows();
+echo 'Łączna liczba wyników: ' . $query->num_rows();
 </code>
 
-<p>The above <dfn>result()</dfn> function returns an array of <strong>objects</strong>.  Example:  $row->title</p>
+<p>Powyższa funkcja <dfn>result()</dfn> zwraca tablicę <strong>obiektów</strong>. Przykład: $row->title</p>
 
 
-<h2>Standard Query With Multiple Results (Array Version)</h2>
+<h2>Standardowe zapytanie z wieloma wynikami (wersja z tablicą)</h2>
 
 <code>$query = $this->db->query('SELECT name, title, email FROM my_table');<br />
 <br />
@@ -100,16 +100,16 @@ foreach ($query->result_array() as $row)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $row['email'];<br />
 }</code>
 
-<p>The above <dfn>result_array()</dfn> function returns an array of standard array indexes.  Example:  $row['title']</p>
+<p>Powyższa funkcja <dfn>result_array()</dfn> zwraca tablicę z tablicą indeksów.  Przykład:  $row['title']</p>
 
 
-<h2>Testing for Results</h2>
+<h2>Sprawdzanie wyników</h2>
 
-<p>If you run queries that might <strong>not</strong> produce a result, you are encouraged to test for a result first
-using the <dfn>num_rows()</dfn> function:</p>
+<p>Jeśli wywołujesz zapytanie, które może <strong>nie</strong> zwrócić wyniku, powinieneś przetestować, czy wynik rzeczywiście jest zwracany 
+za pomocą funkcji <dfn>num_rows()</dfn>:</p>
 
 <code>
-$query = $this->db->query("YOUR QUERY");<br />
+$query = $this->db->query("TWOJE ZAPYTANIE");<br />
 <br />
 if ($query->num_rows() > 0)<br />
 {<br />
@@ -125,7 +125,7 @@ if ($query->num_rows() > 0)<br />
 
 
 
-<h2>Standard Query With Single Result</h2>
+<h2>Standardowe zapytanie z jednym wynikiem</h2>
 
 <code>$query = $this->db->query('SELECT name FROM my_table LIMIT 1');<br />
 <br />
@@ -133,10 +133,10 @@ $row = $query->row();<br />
 echo $row->name;<br />
 </code>
 
-<p>The above <dfn>row()</dfn> function returns an <strong>object</strong>.  Example:  $row->name</p>
+<p>Powyższa funkcja <dfn>row()</dfn> zwraca <strong>obiekt</strong>.  Przykład:  $row->name</p>
 
 
-<h2>Standard Query With Single Result (Array version)</h2>
+<h2>Standardowe zapytanie z jednym wynikiem (wersja z tablicą)</h2>
 
 <code>$query = $this->db->query('SELECT name FROM my_table LIMIT 1');<br />
 <br />
@@ -144,10 +144,10 @@ $row = $query->row_array();<br />
 echo $row['name'];<br />
 </code>
 
-<p>The above <dfn>row_array()</dfn> function returns an <strong>array</strong>.  Example:  $row['name']</p>
+<p>Powyższa funkcja <dfn>row_array()</dfn> zwraca <strong>tablicę</strong>.  Przykład:  $row['name']</p>
 
 
-<h2>Standard Insert</h2>
+<h2>Standardowe dodawanie</h2>
 
 <code>
 $sql = "INSERT INTO mytable (title, name) <br />
@@ -161,9 +161,9 @@ echo $this->db->affected_rows();
 
 
 
-<h2>Active Record Query</h2>
+<h2>Zapytania Active Record</h2>
 
-<p>The <a href="active_record.html">Active Record Pattern</a> gives you a simplified means of retrieving data:</p>
+<p>Wzorzec <a href="active_record.html">Active Record</a> umożliwia prostszy sposób pobierania danych:</p>
 
 <code>
 $query = $this->db->get('table_name');<br />
@@ -173,12 +173,11 @@ foreach ($query->result() as $row)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $row->title;<br />
 }</code>
 
-<p>The above <dfn>get()</dfn> function retrieves all the results from the supplied table.
-The <a href="active_record.html">Active Record</a> class contains a full compliment of functions
-for working with data.</p>
+<p>Powyższa funkcja <dfn>get()</dfn> zwraca wszystkie wyniki z podanej tabeli.
+Klasa <a href="active_record.html">Active Record</a> zawiera pełen zestaw funkcji do pracy z bazą danych i danymi.</p>
 
 
-<h2>Active Record Insert</h2>
+<h2>Dodawanie za pomocą Active Record</h2>
 
 <code>
 $data = array(<br />
@@ -189,7 +188,7 @@ $data = array(<br />
 <br />
 $this->db->insert('mytable', $data);
 <br /><br />
-// Produces: INSERT INTO mytable (title, name, date) VALUES ('{$title}', '{$name}', '{$date}')</code>
+// Daje zapytanie: INSERT INTO mytable (title, name, date) VALUES ('{$title}', '{$name}', '{$date}')</code>
 
 
 </div>
@@ -198,7 +197,7 @@ $this->db->insert('mytable', $data);
 
 <div id="footer">
 <p>
-Poprzedni rozdział:&nbsp;&nbsp;<a href="index.html">Database Class</a>
+Poprzedni rozdział:&nbsp;&nbsp;<a href="index.html">Klasa bazy danych</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
