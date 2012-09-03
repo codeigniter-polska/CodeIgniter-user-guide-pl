@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Helper Functions : Podręcznik użytkownika CodeIgniter</title>
+<title>Helpery : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Podręcznik użytkownika</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Helper Functions
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Helpery
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -55,80 +55,75 @@ Helper Functions
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Helper Functions</h1>
+<h1>Helpery</h1>
 
-<p>Helpers, as the name suggests, help you with tasks.  Each helper file is simply a collection of functions in a particular
-category.  There are <dfn>URL Helpers</dfn>, that assist in creating links, there are <dfn>Form Helpers</dfn>
-that help you create form elements, <dfn>Text Helpers</dfn> perform various text formatting routines,
-<dfn>Cookie Helpers</dfn> set and read cookies, <dfn>File Helpers</dfn> help you deal with files, etc.
-</p>
+<p>Helpery, jak sama nazwa wskazuje, mają pomagać w różnych sytuacjach. Każdy helper jest kolekcją funkcji z danej kategorii.
+Mamy <dfn>helper URL</dfn>, który pomaga w tworzeniu linków, <dfn>helper Form</dfn> który pomaga przy tworzeniu elementów formularzy, <dfn>helper Text</dfn> odpowiadający za różne typy formatowania,
+<dfn>helper Cookie</dfn> który pomaga w tworzeniu i odczycie ciasteczek, <dfn>helper File</dfn> który można wykorzystać przy operacjach na plikach itd.</p>
 
-<p>Unlike most other systems in CodeIgniter, Helpers are not written in an Object Oriented format.  They are simple, procedural functions.
-Each helper function performs one specific task, with no dependence on other functions.</p>
+<p>W przeciwieństwie do innych systemów, w CodeIgniterze helpery nie mają postaci zorientowanej obiektowo. Są prostymi proceduralnymi funkcjami.
+Każda funkcja helpera spełnia jedno specyficzne zadanie, przy jednoczesnym braku zależności od innych funkcji.</p>
 
-<p>CodeIgniter does not load Helper Files by default, so the first step in using
-a Helper is to load it.  Once loaded, it becomes globally available in your <a href="../general/controllers.html">controller</a> and <a href="../general/views.html">views</a>.</p>
+<p>CodeIgniter nie ładuje helperów domyślnie, więc pierwszym krokiem przy korzystaniu z nich jest ich załadowanie.
+Raz załadowany helper jest globalnie dostępny w obrębie <a href="../general/controllers.html">kontrolerów</a> i <a href="../general/views.html">widoków</a>.</p>
 
-<p>Helpers are typically stored in your <dfn>system/helpers</dfn>, or <dfn>application/helpers </dfn>directory.	CodeIgniter will look first in your <dfn>application/helpers</dfn>
-directory.  If the directory does not exist or the specified helper is not located there CI will instead look in your global
-<dfn>system/helpers</dfn> folder.</p>
+<p>Helpery znajdują się zazwyczaj w folderze <dfn>system/helpers</dfn> lub <dfn>application/helpers</dfn>. CodeIgniter najpierw sprawdzi folder <dfn>application/helpers</dfn>. 
+Jeśli ten katalog nie istnieje, albo pożądanego przez nas helpera tam nie ma, następnym miejscem które zostanie sprawdzone będzie folder <dfn>system/helpers</dfn>.</p>
 
 
-<h2>Loading a Helper</h2>
+<h2>Ładowanie helperów</h2>
 
-<p>Loading a helper file is quite simple using the following function:</p>
+<p>Ładowanie helpera odbywa się w prosty sposób, za pomocą następującej funkcji:</p>
 
-<code>$this->load->helper('<var>name</var>');</code>
+<code>$this->load->helper('<var>nazwa</var>');</code>
 
-<p>Where <var>name</var> is the file name of the helper, without the .php file extension or the "helper" part.</p>
+<p>Gdzie <var>nazwa</var> jest nazwą pliku helpera, bez rozszerzenia .php oraz bez częsci "helper" w nazwie.</p>
 
-<p>For example, to load the <dfn>URL Helper</dfn> file, which is named <var>url_helper.php</var>, you would do this:</p>
+<p>Dla przykładu, aby załadować <dfn>helper URL</dfn>, którego nazwa pliku to <var>url_helper.php</var>, należy wykonać następującą funkcję:</p>
 
 <code>$this->load->helper('<var>url</var>');</code>
 
-<p>A helper can be loaded anywhere within your controller functions (or even within your View files, although that's not a good practice),
-as long as you load it before you use it.  You can load your helpers in your controller constructor so that they become available
-automatically in any function, or you can load a helper in a specific function that needs it.</p>
+<p>Helper może być załadowany gdziekolwiek w kontrolerze (lub nawet w widoku, chociaż nie jest to dobrą praktyką), ważne jednak aby został załadowany przed skorzystaniem z niego.
+Można załadować helper w konstruktorze kontrolera, w ten sposób stanie się on dostępny dla każdej z funkcji lub załadować go tylko w wybranej funkcji, która będzie z niego korzystała.</p>
 
-<p class="important">Note: The Helper loading function above does not return a value, so don't try to assign it to a variable.  Just use it as shown.</p>
+<p class="important">Uwaga: Funkcja przedstawiona powyżej - ładująca helper - nie zwraca żadnej wartości. Dlatego nie próbuj przypisywać jej do żadnej zmiennej. Używaj jej tak jak pokazano.</p>
 
 
-<h2>Loading Multiple Helpers</h2>
+<h2>Ładowanie wielu helperów</h2>
 
-<p>If you need to load more than one helper you can specify them in an array, like this:</p>
+<p>Jeśli musisz załadować więcej niż jeden helper na raz, umieść je w tablicy w następujący sposób:</p>
 
 <code>$this->load->helper( <samp>array(</samp>'<var>helper1</var>', '<var>helper2</var>', '<var>helper3</var>'<samp>)</samp> );</code>
 
-<h2>Auto-loading Helpers</h2>
+<h2>Automatyczne ładowanie helperów</h2>
 
-<p>If you find that you need a particular helper globally throughout your application, you can tell CodeIgniter to auto-load it during system initialization.
-This is done by opening the <var>application/config/autoload.php</var> file and adding the helper to the autoload array.</p>
+<p>Jeśli okaże się, że potrzebujesz jakiegoś helpera globalnie, w obrębie całej aplikacji, możesz kazać CodeIgniterowi ładować go automatycznie podczas inicjalizacji systemu.
+Można to zrobić otwierając plik <var>application/config/autoload.php</var> i dodając dany helper do tablicy autoload.</p>
 
 
-<h2>Using a Helper</h2>
+<h2>Korzystanie z helpera</h2>
 
-<p>Once you've loaded the Helper File containing the function you intend to use, you'll call it the way you would a standard PHP function.</p>
+<p>Jeśli załadujesz helper, który zawiera funkcje, z których zamierzasz skorzystać, wywołuj je tak jak standardowe funkcje PHP.</p>
 
-<p>For example, to create a link using the <dfn>anchor()</dfn> function in one of your view files you would do this:</p>
+<p>Dla przykładu, aby utworzyć link za pomocą funkcji <dfn>anchor()</dfn> w widoku, należy zrobić tak:</p>
 
-<code>&lt;?php echo anchor('blog/comments', 'Click Here');?&gt;</code>
+<code>&lt;?php echo anchor('blog/comments', 'Kliknij tutaj');?&gt;</code>
 
-<p>Where "Click Here" is the name of the link, and "blog/comments" is the URI to the controller/function you wish to link to.</p>
+<p>Gdzie "Kliknij tutaj" jest nazwą dla linku, a "blog/comments" jest adresem URI do kontrolera/funkcji, do którego linkujemy.</p>
 
-<h2>"Extending" Helpers</h2>
+<h2>"Rozszerzanie" helperów</h2>
 
-<p>To "extend" Helpers, create a file in your <dfn>application/helpers/</dfn> folder with an identical name to the existing Helper, but prefixed with <kbd>MY_</kbd> (this item is configurable.  See below.).</p>
+<p>Aby "rozszerzyć" helper, utwórz plik w folderze <dfn>application/helpers/</dfn> o nazwie identycznej jak istniejący helper, ale poprzedzonej prefixem <kbd>MY_</kbd> (ten element jest konfigurowalny. Zobacz poniżej.).</p>
 
-<p>If all you need to do is add some functionality to an existing helper - perhaps add a function or two, or change how a particular
-	helper function operates - then it's overkill to replace the entire helper with your version.  In this case it's better to simply
-	"extend" the Helper.  The term "extend" is used loosely since Helper functions are procedural and discrete and cannot be extended
-	in the traditional programmatic sense.  Under the hood, this gives you the ability to add to the functions a Helper provides,
-	or to modify how the native Helper functions operate.</p>
+<p>Jeśli chcesz dodać tylko konkretną funkcjonalność do istniejącego helpera - np. dodać funkcję lub dwie, 
+albo zmienić zachowanie konkretnej funkcji - to nadpisywanie całego helpera swoją wersją jest zdecydowanie złym rozwiązanie. W takim wypadku o wiele prostszym rozwiązaniem jest "rozszerzenie" helpera.
+Pojęcie "rozszerzania" w tym kontekście jest oczywiście użyte w dosyć luźny sposób, ponieważ funkcje helperów są proceduralne i nie mogą być rozszerzane w tradycyjnym programistycznym znaczeniu.
+W każdym razie otrzymujemy możliwość dodawania funkcjonalności lub nawet zmieniania natywnego sposobu działania funkcji helperów.</p>
 
-<p>For example, to extend the native <kbd>Array Helper</kbd> you'll create a file named <dfn>application/helpers/</dfn><kbd>MY_array_helper.php</kbd>, and add or override functions:</p>
+<p>Dla przykładu, aby rozszerzyć natywną funkcjonalność <kbd>helpera Array</kbd>, musimy utworzyć plik <dfn>application/helpers/</dfn><kbd>MY_array_helper.php</kbd> i dodać lub nadpisać funkcje:</p>
 
 <code>
-// any_in_array() is not in the Array Helper, so it defines a new function<br />
+// funkcja any_in_array() nie znajduje się w pliku helpera Array, więc jest definicją nowej funkcji<br />
 function any_in_array($needle, $haystack)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$needle = (is_array($needle)) ? $needle : array($needle);<br />
@@ -144,7 +139,7 @@ function any_in_array($needle, $haystack)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;return FALSE;<br />
 }<br />
 <br />
-// random_element() is included in Array Helper, so it overrides the native function<br />
+// funkcja random_element() znajduje się w pliku helpera Array, dlatego nadpisuje funkcję natywną<br />
 function random_element($array)<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;shuffle($array);<br />
@@ -152,18 +147,18 @@ function random_element($array)<br />
 }<br />
 </code>
 
-<h3>Setting Your Own Prefix</h3>
+<h3>Ustanawianie własnego prefixu</h3>
 
-<p>The filename prefix for "extending" Helpers is the same used to extend libraries and Core classes.  To set your own prefix, open your <dfn>application/config/config.php</dfn> file and look for this item:</p>
+<p>Prefix dla "rozszerzanych" helperów jest tym samym, którego używamy do rozszerzania bibliotek i klas Core. Aby ustanowić swój własny prefix otwórz plik <dfn>application/config/config.php</dfn> i poszukaj tego elementu:</p>
 
 <code>$config['subclass_prefix'] = 'MY_';</code>
 
-<p>Please note that all native CodeIgniter libraries are prefixed with <kbd>CI_</kbd> so DO NOT use that as your prefix.</p>
+<p>Zauważ, że wszystkie natywne biblioteki CodeIgnitera mają prefix <kbd>CI_</kbd>, dlatego NIE UŻYWAJ go jako własnego prefixu.</p>
 
 
-<h2>Now What?</h2>
+<h2>Co teraz?</h2>
 
-<p>In the Table of Contents you'll find a list of all the available Helper Files.  Browse each one to see what they do.</p>
+<p>W spisie treści znajdziesz listę wszystkich dostępnych helperów. Przejrzyj każdy z nich, aby dowiedzieć się co oferują.</p>
 
 
 </div>
@@ -172,13 +167,13 @@ function random_element($array)<br />
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="models.html">Models</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="models.html">Modele</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="libraries.html">Using Libraries</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="libraries.html">Używanie bibliotek</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+<p><a href="http://codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 <!-- Piwik -->
 <script type="text/javascript">

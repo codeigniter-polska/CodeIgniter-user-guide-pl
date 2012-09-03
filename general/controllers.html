@@ -157,7 +157,7 @@ class Blog extends CI_Controller {
 
 <h2>Funkcje</h2>
 
-<p>W powyższym przykłądzie nazwa funkcji, to <dfn>index()</dfn>. Funkcja "index" jest zawsze ładowana domyślnie, 
+<p>W powyższym przykładzie nazwa funkcji, to <dfn>index()</dfn>. Funkcja "index" jest zawsze ładowana domyślnie, 
 jeśli <strong>drugi segment</strong> ciągu URI jest pusty. Innymi słowy, kolejnym sposobem aby zobaczyć wiadomość "Hello World", będzie wpisanie adresu:
 </p>
 
@@ -229,7 +229,7 @@ Aby zdefiniować domyślny kontroler, otwórz plik <dfn>application/config/route
 
 <code>$route['default_controller'] = '<var>Blog</var>';</code>
 
-<p>Gdzie <var>Blog</var> jest nazwą klasy kontolera, którego chcesz użyć. Teraz, jeśli wywołasz główny plik index.php 
+<p>Gdzie <var>Blog</var> jest nazwą klasy kontrolera, którego chcesz użyć. Teraz, jeśli wywołasz główny plik index.php 
 bez określania żadnego segmentu URI, domyślnie zobaczysz wiadomość Hello World.</p>
 
 
@@ -245,8 +245,8 @@ CodeIgniter pozwala na przesłonienie tego zachowania, poprzez użycie funkcji <
 	&nbsp;&nbsp;&nbsp;&nbsp;// Jakiś kod...<br/>
 	}</code>
 
-<p class="important"><strong>Ważne:</strong>&nbsp; Jeśli Twój kontroler posiada funkcję o nazwie <kbd>_remap()</kbd>, to zostanie ona wywołana 
-<strong>zawsze</strong>, niezależnie od tego, jaki ciąg URI zawiera. Funkcja ta przesłania normalne zachowanie, w którym to URI decyduje o tym, która funkcja zostanie wywołana. 
+<p class="important"><strong>Ważne:</strong>&nbsp; Jeśli Twój kontroler posiada funkcję o nazwie <kbd>_remap()</kbd>, będzie ona wywoływana 
+<strong>zawsze</strong>, niezależnie ciągu URI dla tego kontrolera. Funkcja ta przesłania normalne zachowanie, w którym to URI decyduje o tym, która funkcja zostanie wywołana. 
 Dzięki temu można samodzielnie określić zasady routingu dla funkcji w kontrolerze.</p>
 
 <p>Przesłonione wywołanie funcji (zazwyczaj drugi segment adresu URI), będzie przekazane jako parametr do funkcji <kbd>_remap()</kbd>:</p>
@@ -282,8 +282,8 @@ może być użyta w połączeniu z funkcją PHP <a href="http://php.net/call_use
 <h2>Kontrolowanie danych wyjściowych</h2>
 
 <p>CodeIgniter ma klasę wyjścia, która zajmuje się automatycznie wysyłaniem przetworzonych danych do przeglądarki.
-	Więcej informacji na ten temat, można znaleźć na stronach o <a href="views.html">Widokach</a> oraz <a href="../libraries/output.html">Klasie wyjścia</a>.
-W niektórych przypadkach możesz jednak chcieć przetworzyć w jakiś sposób końcowe dane i samodzielnie wysłać je do przeglądarki. CodeIgniter pozwala na dodanie do kontrolera funkcji
+	Więcej informacji na ten temat, można znaleźć na stronach o <a href="views.html">Widokach</a> oraz <a href="../libraries/output.html">klasie Output</a>.
+W niektórych przypadkach, możesz jednak chcieć przetworzyć dane końcowe i samodzielnie wysłać je do przeglądarki. CodeIgniter pozwala na dodanie do kontrolera funkcji
 <dfn>_output()</dfn>, która będzie otrzymywać końcowe dane wyjściowe.</p>
 
 <p><strong>Ważne:</strong>&nbsp; Jeśli Twój kontroler posiada funkcję o nazwie <dfn>_output()</dfn>, będzie ona <strong>zawsze</strong>
@@ -302,7 +302,7 @@ wywoływana przez klasę wyjścia, zamiast zwracać bezpośrednio dane końcowe.
 	pliki cache zapisane (jeśli cacheowanie było włączone), a nagłówki zostaną wysłane (jeśli używasz tej <a
 			href="../libraries/output.html">funkcjonalności</a>), zanim zostaną przekazane do funkcji _output().<br/>
 	<br/>
-	Aby Twoje kontrolery wykonywały operacje cacheowania prawidłowo, metoda <dfn>_output()</dfn>, moze użyć:<br/>
+	Aby Twoje kontrolery wykonywały operacje cacheowania prawidłowo, metoda <dfn>_output()</dfn>, może użyć:<br/>
 
 	<code>if ($this-&gt;output-&gt;cache_expiration &gt; 0)<br/>
 		{<br/>
@@ -310,7 +310,7 @@ wywoływana przez klasę wyjścia, zamiast zwracać bezpośrednio dane końcowe.
 		}</code>
 
 	Jeśli używasz tej metody, czas ładowania strony oraz zużycie pamięci, mogą nie do końca odpowiadać rzeczywistości, ponieważ nie zostają one uaktualnione podczas przetwarzania, które wykonujesz dodatkowo samodzielnie.	
-Jako alternatywną drogę do kontrolowania wyjścia <em>przed</em> tym jak jakiekolwiek końcowe przetwarzanie ma miejsce, proszę zapoznać się z metodami dostępnymi w <a href="../libraries/output.html">Klasie wyjścia</a>.</p>
+Jako alternatywną drogę do kontrolowania wyjścia <em>przed</em> tym jak jakiekolwiek końcowe przetwarzanie ma miejsce, proszę zapoznać się z metodami dostępnymi w <a href="../libraries/output.html">klasie Output</a>.</p>
 
 <a name="private"></a>
 
@@ -398,8 +398,8 @@ Sprawdź pełną listę <a href="reserved_names.html">zarezerwowanych nazw</a>.<
 		Poprzedni Temat:&nbsp;&nbsp;<a href="urls.html">CodeIgniter URLs</a>
 		&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 		<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-		<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-		Następny temat:&nbsp;&nbsp;<a href="reserved_names.html">Zarezerwowane Nazwy</a></p>
+		<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+		Następny temat:&nbsp;&nbsp;<a href="reserved_names.html">Nazwy zarezerwowane</a></p>
 
 	<p><a href="http://codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp;
 		<a href="http://ellislab.com/">EllisLab, Inc.</a></p>
