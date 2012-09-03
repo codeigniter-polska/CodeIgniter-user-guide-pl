@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Database Forge Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa Database Forge : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis Treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,12 +40,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Database Forge Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+<a href="index.html">Biblioteka bazy danych</a> &nbsp;&#8250;&nbsp;
+Klasa Database Forge
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -57,63 +57,63 @@ Database Forge Class
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Database Forge Class</h1>
+<h1>Klasa Database Forge</h1>
 
-<p>The Database Forge Class contains functions that help you manage your database.</p>
+<p>Klasa Database Forge zawiera funkcje, które pomogą Ci zarządzać bazą danych.</p>
 
-<h3>Table of Contents</h3>
+<h3>Spis treści</h3>
 
 <ul>
-<li><a href="#init">Initializing the Forge Class</a></li>
-<li><a href="#create">Creating a Database</a></li>
-<li><a href="#drop">Dropping a Database</a></li>
-<li><a href="#add_field">Adding Fields</a></li>
-<li><a href="#add_key">Adding Keys</a></li>
-<li><a href="#create_table">Creating a Table</a></li>
-<li><a href="#drop_table">Dropping a Table</a></li>
-<li><a href="#rename_table">Renaming a Table</a></li>
-<li><a href="#modifying_tables">Modifying a Table</a></li>
+<li><a href="#init">Ładowanie klasy Forge</a></li>
+<li><a href="#create">Tworzenie bazy danych</a></li>
+<li><a href="#drop">Usuwanie bazy danych</a></li>
+<li><a href="#add_field">Dodawanie kolumn (pól)</a></li>
+<li><a href="#add_key">Dodawania kluczy</a></li>
+<li><a href="#create_table">Tworzenie tabeli</a></li>
+<li><a href="#drop_table">Usuwanie tabeli</a></li>
+<li><a href="#rename_table">Zmiana nazwy tabeli</a></li>
+<li><a href="#modifying_tables">Modyfikowanie tabeli</a></li>
 </ul>
 
 
-<h2><a name="init"></a>Initializing the Forge Class</h2>
+<h2><a name="init"></a>Ładowanie klasy Forge</h2>
 
-<p class="important"><strong>Important:</strong>&nbsp; In order to initialize the Forge class, your database driver must
-already be running, since the forge class relies on it.</p>
+<p class="important"><strong>Ważne:</strong>&nbsp; Podczas ładowania klasy Forge, driver dla bazy danych musi być już załadowany, ponieważ klasa Forge zależy od niego.</p>
 
-<p>Load the Forge Class as follows:</p>
+<p>Załaduj klasę Forge w ten sposób:</p>
 
 <code>$this->load->dbforge()</code>
 
-<p>Once initialized you will access the functions using the <dfn>$this->dbforge</dfn> object:</p>
+<p>Po załadowaniu klasy, będziesz miał dostęp do jej funkcji za pomocą obiektu <dfn>$this->dbforge</dfn>:</p>
 
-<code>$this->dbforge->some_function()</code>
-<h2><a name="create"></a>$this->dbforge->create_database('db_name')</h2>
+<code>$this->dbforge->jakas_funkcja()</code>
+<h2><a name="create"></a>$this->dbforge->create_database('nazwa_bd')</h2>
 
-<p>Permits you to create the database specified in the first parameter. Returns TRUE/FALSE based on success or failure:</p>
+<p>Pozwala na utworzenie tabeli określonej w pierwszym paramatrze. Zwraca TRUE/FALSE zależnie od sukcesu lub porażki:</p>
 
-<code>if ($this->dbforge->create_database('my_db'))<br />
+<code>if ($this->dbforge->create_database('moja_bd'))<br />
 {<br />
-&nbsp;&nbsp;&nbsp; echo 'Database created!';<br />
+&nbsp;&nbsp;&nbsp; echo 'Utworzono bazę danych!';<br />
 }</code>
 
 
 
 
-<h2><a name="drop"></a>$this->dbforge->drop_database('db_name')</h2>
+<h2><a name="drop"></a>$this->dbforge->drop_database('moja_bd')</h2>
 
-<p>Permits you to drop the database specified in the first parameter. Returns TRUE/FALSE based on success or failure:</p>
+<p>Pozwala na usunięcie bazy danych, określonej w pierwszym parametrze. Zwraca TRUE/FALSE zależnie od sukcesu lub porażki:</p>
 
-<code>if ($this->dbforge->drop_database('my_db'))<br />
+<code>if ($this->dbforge->drop_database('moja_bd'))<br />
 {<br />
-&nbsp;&nbsp;&nbsp; echo 'Database deleted!';<br />
+&nbsp;&nbsp;&nbsp; echo 'Baza danych usunięta!';<br />
 }</code>
 
 
-<h1>Creating and Dropping Tables</h1>
-<p>There are several things you may wish to do when creating tables. Add fields, add keys to the table, alter columns. CodeIgniter provides a mechanism for this.</p>
-<h2><a name="add_field" id="add_field"></a>Adding fields</h2>
-<p>Fields are created via an associative array. Within the array you must include a 'type' key that relates to the datatype of the field. For example, INT, VARCHAR, TEXT, etc. Many datatypes (for example VARCHAR) also require a 'constraint' key.</p>
+<h1>Tworzenie i usuwanie tabel</h1>
+<p>Jest kilka rzeczy, które chciałbyś robić podczas tworzenia tabel. Dodawanie kolumn, dodawanie kluczy do tabeli, zmiana kolumn. CodeIgniter dostarcza do tego mechanizmy.</p>
+<h2><a name="add_field" id="add_field"></a>Dodawanie kolumn</h2>
+<p>Kolumny są tworzone poprzez tablicę asocjacyjną. Taka tablica musi zawierać klucz 'type', który określa typ danych dla kolumny. Dla przykładu: INT, VARCHAR, TEXT, itd.
+Wiele typów danych (np. VARCHAR), wymaga dodatkowo klucza 'constraint'.</p>
 <p><code>$fields = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'users' =&gt; array(<br />
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'type' =&gt; 'VARCHAR',<br />
@@ -121,13 +121,13 @@ already be running, since the forge class relies on it.</p>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 	<br />
-// will translate to &quot;users VARCHAR(100)&quot; when the field is added.</code></p>
-<p>Additionally, the following key/values can be used:</p>
+// zamieni się w &quot;users VARCHAR(100)&quot; kiedy pole zostanie dodane.</code></p>
+<p>Dodatkowo, następujące klucze/wartości mogą zostać użyte:</p>
 <ul>
-	<li>unsigned/true : to generate &quot;UNSIGNED&quot; in the field definition.</li>
-	<li>default/value : to generate a default value in the field definition.</li>
-	<li>null/true : to generate &quot;NULL&quot; in the field definition. Without this, the field will default to &quot;NOT NULL&quot;.</li>
-	<li>auto_increment/true : generates an auto_increment flag on the field. Note that the field type must be a type that supports this, such as integer.</li>
+	<li>unsigned/true : aby utworzyć &quot;UNSIGNED&quot; w definicji pola.</li>
+	<li>default/value : aby utworzyć domyślną wartość w definicji pola.</li>
+	<li>null/true : aby utworzyć &quot;NULL&quot; w definicji pola. Bez tego, pole będzie domyślnie ustawione na &quot;NOT NULL&quot;.</li>
+	<li>auto_increment/true : aby utworzyć flagę auto_increment dla pola. Zauważ, że pole musi posiadać typ, który wspiera taką właściwość, np. integer.</li>
 	</ul>
 <p><code>$fields = array(<br />
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'blog_id' =&gt; array(<br />
@@ -151,61 +151,64 @@ already be running, since the forge class relies on it.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 </code></p>
-<p>After the fields have been defined, they can  be added  using <dfn>$this-&gt;dbforge-&gt;add_field($fields);</dfn> followed by a call to the <dfn>create_table()</dfn> function.</p>
+<p>Po tym jak kolumny zostaną zdefiniowane, mogą zostać dodane za pomocą funkcji <dfn>$this-&gt;dbforge-&gt;add_field($fields);</dfn>, która musi być poprzedzona wywołaniem funkcji <dfn>create_table()</dfn>.</p>
 <h3>$this-&gt;dbforge-&gt;add_field()</h3>
-<p>The add fields function will accept the above array.</p>
-<h3>Passing strings as fields</h3>
-<p>If you know exactly how you want a field to be created, you can pass the string into the field definitions with add_field()</p>
+<p>Funkcja dodająca kolumny akceptuje powyższą tablicę.</p>
+<h3>Przypisywanie ciągu znaków jako kolumn</h3>
+<p>Jeśli wiesz dokładnie, w jaki sposób kolumna ma zostać stworzona, do funkcji add_field(), możesz przypisać ciąg znaków dla definicji kolumny.</p>
 <p><code>$this-&gt;dbforge-&gt;add_field(&quot;label varchar(100) NOT NULL DEFAULT 'default label'&quot;);</code></p>
-<p class="important">Note: Multiple calls to <dfn>add_field()</dfn> are cumulative.</p>
-<h3>Creating an id field</h3>
-<p>There is a special exception for creating id fields. A field with type id will automatically be assinged as an INT(9) auto_incrementing Primary Key.</p>
+<p class="important">Uwaga: Wiele odwołań do <dfn>add_field()</dfn> jest łączonych w jedno.</p>
+<h3>Tworzenie kolumny id</h3>
+<p>Istnieje specjalny wyjątek dla tworzenia kolumny id. Kolumna o typie id będzie automatycznie przypisana jako INT(9) auto_incrementing Primary Key.</p>
 <p><code>$this-&gt;dbforge-&gt;add_field('id');<br />
-	// gives id INT(9) NOT NULL AUTO_INCREMENT</code></p>
-<h2><a name="add_key" id="add_key"></a>Adding Keys</h2>
-<p>Generally speaking, you'll want your table to have Keys. This is accomplished with <dfn>$this-&gt;dbforge-&gt;add_key('field')</dfn>. An optional second parameter set to TRUE will make it a primary key. Note that <dfn>add_key()</dfn> must be followed by a call to <dfn>create_table()</dfn>.</p>
-<p>Multiple column non-primary keys must be sent as an array.  Sample output below is for MySQL.</p>
+	// daje id INT(9) NOT NULL AUTO_INCREMENT</code></p>
+<h2><a name="add_key" id="add_key"></a>Dodawanie kluczy</h2>
+<p>Zazwyczaj, będziesz chciał aby Twoja tabela miała klucze. Można to osiągnąć dzięki funkcji <dfn>$this-&gt;dbforge-&gt;add_key('field')</dfn>.
+Opcjonalny drugi parametr ustawiony na TRUE, sprawi że wartość zostanie ustawiona na primary key.
+Zauważ, że wywołanie funkcji <dfn>add_key()</dfn> musi zostać poprzedzone wywołaniem funkcji <dfn>create_table()</dfn>.</p>
+<p>Wiele kolumn z kluczem non-primary musi zostać wysłanych jako tablica. Poniżej przykład dla MySQL.</p>
 <p><code>$this-&gt;dbforge-&gt;add_key('blog_id', TRUE);<br />
-	// gives PRIMARY KEY `blog_id` (`blog_id`)<br />
+	// daje PRIMARY KEY `blog_id` (`blog_id`)<br />
 	<br />
 	$this-&gt;dbforge-&gt;add_key('blog_id', TRUE);<br />
 	$this-&gt;dbforge-&gt;add_key('site_id', TRUE);<br />
-	// gives PRIMARY KEY `blog_id_site_id` (`blog_id`, `site_id`)<br />
+	// daje PRIMARY KEY `blog_id_site_id` (`blog_id`, `site_id`)<br />
 	<br />
 	$this-&gt;dbforge-&gt;add_key('blog_name');<br />
-	// gives KEY `blog_name` (`blog_name`)<br />
+	// daje KEY `blog_name` (`blog_name`)<br />
 	<br />
 	$this-&gt;dbforge-&gt;add_key(array('blog_name', 'blog_label'));<br />
-	// gives KEY `blog_name_blog_label` (`blog_name`, `blog_label`)</code></p>
-<h2><a name="create_table" id="create_table"></a>Creating a table</h2>
-<p>After fields and keys have been declared, you can create a new table with</p>
+	// daje KEY `blog_name_blog_label` (`blog_name`, `blog_label`)</code></p>
+<h2><a name="create_table" id="create_table"></a>Tworzenie tabeli</h2>
+<p>Po tym jak zostały stworzone kolumny i klucze, możesz stworzyć tabelę za pomocą funkcji</p>
 <p><code>$this-&gt;dbforge-&gt;create_table('table_name');<br />
-// gives CREATE TABLE table_name</code></p>
-<p>An optional second parameter set to TRUE adds an &quot;IF NOT EXISTS&quot; clause into the definition</p>
+// daje CREATE TABLE table_name</code></p>
+<p>Opcjonalny drugi parametr ustawiony na TRUE, dodaje klauzulę &quot;IF NOT EXISTS&quot; do definicji tabeli</p>
 <p><code>$this-&gt;dbforge-&gt;create_table('table_name', TRUE);<br />
-// gives CREATE TABLE IF NOT EXISTS table_name</code></p>
-<h2><a name="drop_table" id="drop_table"></a>Dropping a table</h2>
-<p>Executes a DROP TABLE sql</p>
+// daje CREATE TABLE IF NOT EXISTS table_name</code></p>
+<h2><a name="drop_table" id="drop_table"></a>Usuwanie tabeli</h2>
+<p>Funkcja wykonuje DROP TABLE nazwa_tabeli</p>
 <p><code>$this-&gt;dbforge-&gt;drop_table('table_name');<br />
-	// gives DROP TABLE IF EXISTS  table_name</code></p>
-<h2><a name="rename_table" id="rename_table"></a>Renaming a table</h2>
-<p>Executes a TABLE rename</p>
+	// daje DROP TABLE IF EXISTS  table_name</code></p>
+<h2><a name="rename_table" id="rename_table"></a>Zmiana nazwy tabeli</h2>
+<p>Funkcja wykonuje zmianę nazwy tabeli</p>
 <p><code>$this-&gt;dbforge-&gt;rename_table('old_table_name', 'new_table_name');<br />
-	// gives ALTER TABLE old_table_name RENAME TO new_table_name</code></p>
-<h1><a name="modifying_tables" id="modifying_tables"></a>Modifying Tables</h1>
+	// daje ALTER TABLE old_table_name RENAME TO new_table_name</code></p>
+<h1><a name="modifying_tables" id="modifying_tables"></a>Modyfikowanie tabel</h1>
 <h2>$this-&gt;dbforge-&gt;add_column()</h2>
-<p>The add_column() function is used to modify an existing table. It accepts the same field array as above, and can be used for an unlimited number of additional fields.</p>
+<p>Funkcja add_column() jest używana, aby dokonać zmian w istniejącej tabeli. Akceptuje te same pola w postaci tablicy jak powyżej i może zostać użyta dla nieograniczonej ilości kolumn.</p>
 <p><code>$fields = array(<br />
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'preferences' =&gt; array('type' =&gt; 'TEXT')<br />
 );<br />
 $this-&gt;dbforge-&gt;add_column('table_name', $fields);<br />
 <br />
-// gives ALTER TABLE table_name ADD   	preferences TEXT</code></p>
+// daje ALTER TABLE table_name ADD   	preferences TEXT</code></p>
 <h2>$this-&gt;dbforge-&gt;drop_column()</h2>
-<p>Used to remove a column from a table. </p>
+<p>Funkcja jest używana do usuwania kolumn z tabeli. </p>
 <p><code>$this-&gt;dbforge-&gt;drop_column('table_name', 'column_to_drop');</code></p>
 <h2>$this-&gt;dbforge-&gt;modify_column()</h2>
-<p>The usage of this function is identical to add_column(), except it alters an existing column rather than adding a new one. In order to change the name you can add a &quot;name&quot; key into the field defining array.</p>
+<p>Zasada działania tej funkcji taka sama jak funkcji add_column(), z tą różnicą, że nadpisuje ona istniejącą kolumnę, a nie dodaje nową.
+Aby zmienić nazwę kolumny mozesz dodać klucz &quot;name&quot; do tablicy definicji.</p>
 <p><code>$fields = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'old_name' =&gt; array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' =&gt; 'new_name',<br />
@@ -214,7 +217,7 @@ $this-&gt;dbforge-&gt;add_column('table_name', $fields);<br />
 );<br />
 $this-&gt;dbforge-&gt;modify_column('table_name', $fields);<br />
 	<br />
-	// gives ALTER TABLE table_name CHANGE   	old_name new_name TEXT </code></p>
+	// daje ALTER TABLE table_name CHANGE   	old_name new_name TEXT </code></p>
 <p>&nbsp;</p>
 </div>
 <!-- END CONTENT -->
@@ -222,13 +225,24 @@ $this-&gt;dbforge-&gt;modify_column('table_name', $fields);<br />
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="caching.html">DB Caching Class</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="caching.html">Cache'owanie zapytań bazy danych</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="utilities.html">Database Utilities Class</a><a href="../libraries/email.html"></a></p>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="utilities.html">Klasa narzędziowa bazy danych</a><a href="../libraries/email.html"></a></p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
-
+<!-- Piwik -->
+<script type="text/javascript">
+	var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
+	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+	try {
+		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
+		piwikTracker.trackPageView();
+		piwikTracker.enableLinkTracking();
+	} catch( err ) {}
+</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
 </body>
 </html>

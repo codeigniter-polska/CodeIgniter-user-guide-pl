@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>The Database Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Biblioteka bazy danych : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis Treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Database Library
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Biblioteka bazy danych
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -57,26 +57,25 @@ Database Library
 <div id="content">
 
 
-<h1>The Database Class</h1>
+<h1>Klasa bazy danych</h1>
 
-<p>CodeIgniter comes with a full-featured and very fast abstracted database class that supports both traditional
-structures and Active Record patterns. The database functions offer clear, simple syntax.</p>
+<p>CodeIgniter ma abstarkcyjną klasę bazy danych, która jest bardzo szybka i posiada wiele możliwości. Klasa wspiera tradycyjny sposób komunikacji oraz wzorzec Active Record, oferując przy tym prostą i czytelną składnię.</p>
 
 	<ul>
-		<li><a href="examples.html">Quick Start:  Usage Examples</a></li>
-		<li><a href="configuration.html">Database Configuration</a></li>
-		<li><a href="connecting.html">Connecting to a Database</a></li>
-		<li><a href="queries.html">Running Queries</a></li>
-		<li><a href="results.html">Generating Query Results</a></li>
-		<li><a href="helpers.html">Query Helper Functions</a></li>
-		<li><a href="active_record.html">Active Record Class</a></li>
-		<li><a href="transactions.html">Transactions</a></li>
-		<li><a href="table_data.html">Table MetaData</a></li>
-		<li><a href="fields.html">Field MetaData</a></li>
-		<li><a href="call_function.html">Custom Function Calls</a></li>
-		<li><a href="caching.html">Query Caching</a></li>
-		<li><a href="forge.html">Database manipulation with Database Forge</a></li>
-		<li><a href="utilities.html">Database Utilities Class</a></li>
+		<li><a href="examples.html">Szybki start: przykłady użycia</a></li>
+		<li><a href="configuration.html">Konfiguracja bazy danych</a></li>
+		<li><a href="connecting.html">Łączenie z bazą danych</a></li>
+		<li><a href="queries.html">Zapytania</a></li>
+		<li><a href="results.html">Generowanie wyników zapytań</a></li>
+		<li><a href="helpers.html">Funkcje pomocnicze zapytań</a></li>
+		<li><a href="active_record.html">Klasa Active Record</a></li>
+		<li><a href="transactions.html">Transakcje</a></li>
+		<li><a href="table_data.html">Dane tabel</a></li>
+		<li><a href="fields.html">Dane kolumn</a></li>
+		<li><a href="call_function.html">Niestandardowe wywołania funkcji</a></li>
+		<li><a href="caching.html">Cache'owanie zapytań</a></li>
+		<li><a href="forge.html">Operacje za pomocą klasy Database Forge</a></li>
+		<li><a href="utilities.html">Klasa narzędziowa bazy danych</a></li>
 	</ul>
 
 
@@ -86,11 +85,11 @@ structures and Active Record patterns. The database functions offer clear, simpl
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="../libraries/caching.html">Caching Class</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="../libraries/caching.html">Klasa cache'owania</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="examples.html">Quick Start: Usage Examples</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="examples.html">Szybki start: przykłady użycia</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>

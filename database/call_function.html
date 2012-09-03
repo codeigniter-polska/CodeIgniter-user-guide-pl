@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Custom Function Calls : Podręcznik użytkownika CodeIgniter</title>
+<title>Niestandardowe wywołania funkcji : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis Treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,12 +40,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Custom Function Calls
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+<a href="index.html">Biblioteka bazy danych</a> &nbsp;&#8250;&nbsp;
+Niestandardowe wywołania funkcji
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -57,33 +57,32 @@ Custom Function Calls
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Custom Function Calls</h1>
+<h1>Niestandardowe wywołania funkcji</h1>
 
 <h2>$this->db->call_function();</h2>
 
-<p>This function enables you to call PHP database functions that are not natively included in CodeIgniter, in a platform independent manner.
-For example, lets say you want to call the <dfn>mysql_get_client_info()</dfn> function, which is <strong>not</strong> natively supported
-by CodeIgniter.  You could do so like this:
-</p>
+<p>Ta funkcja pozwala na wywołanie bazodanowych funkcji PHP, które nie są natywnie dołączone do CodeIgnitera, w sposób niezależny od platformy.
+Dla przykładu, powiedzmy że chcesz wykonać funkcję <dfn>mysql_get_client_info()</dfn>, która <strong>nie</strong> jest wspierana natywnie przez
+CodeIgnitera. Możesz to zrobić w ten sposób:</p>
 
 <code>$this->db->call_function('<var>get_client_info</var>');</code>
 
-<p>You must supply the name of the function, <strong>without</strong> the <var>mysql_</var> prefix, in the first parameter.  The prefix is added
-automatically based on which database driver is currently being used.  This permits you to run the same function on different database platforms.
-Obviously not all function calls are identical between platforms, so there are limits to how useful this function can be in terms of portability.</p>
+<p>Musisz podać nazwę funkcji <strong>bez</strong> prefixu <var>mysql_</var> w pierwszym parametrze. Prefix jest dodawany automatycznie, zależnie od tego
+jakiej bazy danych używasz. To pozwala na uruchamianie tej samej funkcji na różnych platformach bazodanowych.
+Oczywiście nie wszystkie wywołania funkcji na różnych platformach są identyczne, tak więc istnieją ograniczenia w użyteczności tej funkcji w kontekście przenośności.</p>
 
-<p>Any parameters needed by the function you are calling will be added to the second parameter.</p>
+<p>Wszystkie zmienne, których może wymagać funkcja, którą chcesz wywołać, należy podać w drugim parametrze.</p>
 
-<code>$this->db->call_function('<var>some_function</var>', $param1, $param2, etc..);</code>
+<code>$this->db->call_function('<var>jakaś_funkcja</var>', $param1, $param2, itd..);</code>
 
 
-<p>Often, you will either need to supply a database connection ID or a database result ID.  The connection ID can be accessed using:</p>
+<p>Często będziesz musiał dostarczyć ID połączenia z bazą danych albo ID wyniku. Do ID połączenia, można się dostać za pomocą:</p>
 
 <code>$this->db->conn_id;</code>
 
-<p>The result ID can be accessed from within your result object, like this:</p>
+<p>Do ID wyniku moża się dostać za pomocą obiektu wyniku, w ten sposób:</p>
 
-<code>$query = $this->db->query("SOME QUERY");<br />
+<code>$query = $this->db->query("JAKIEŚ ZAPYTANIE");<br />
 <br />
 <var>$query->result_id;</var></code>
 
@@ -105,14 +104,25 @@ Obviously not all function calls are identical between platforms, so there are l
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="fields.html">Field MetaData</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="fields.html">Dane kolumn</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="caching.html">Query Caching</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="caching.html">Cache'owanie zapytań</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
-
+<!-- Piwik -->
+<script type="text/javascript">
+	var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
+	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+	try {
+		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
+		piwikTracker.trackPageView();
+		piwikTracker.enableLinkTracking();
+	} catch( err ) {}
+</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
 </body>
 </html>

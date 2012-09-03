@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Transactions : Podręcznik użytkownika CodeIgniter</title>
+<title>Transakcje : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis Treści</a></td>
 </tr>
 </table>
 </div>
@@ -41,12 +41,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Transactions
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+<a href="index.html">Biblioteka bazy danych</a> &nbsp;&#8250;&nbsp;
+Transakcje
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -59,110 +59,107 @@ Transactions
 <div id="content">
 
 
-<h1>Transactions</h1>
+<h1>Transakcje</h1>
 
-<p>CodeIgniter's database abstraction allows you to use <dfn>transactions</dfn> with databases that support transaction-safe table types.  In MySQL, you'll need
-to be running InnoDB or BDB table types rather than the more common MyISAM.  Most other database platforms support transactions natively.</p>
+<p>CodeIgniter pozwala na używanie <dfn>transakcji</dfn> dla baz danych, których typy tabel wspierają transakcje. W MySQL będziesz musiał używać
+ tabel typu InnoDB lub BDB, a nie bardziej powszechnych MyISAM. Większość innych platform bazodanowych wspiera transakcje natywnie.</p>
 
-<p>If you are not familiar with
-transactions we recommend you find a good online resource to learn about them for your particular database.  The information below assumes you
-have a basic understanding of transactions.
+<p>Jeśli nie jesteś zaznajomiony z transakcjami, zalecamy abyś znalazł dobre źródło online i poznał transakcje w kontekście bazy danych, której używasz. 
+Informacje przedstawione poniżej, zakładają, że masz podstawową wiedzę związaną z transakcjami.
 </p>
 
-<h2>CodeIgniter's Approach to Transactions</h2>
+<h2>Podejście do transakcji w CodeIgniterze</h2>
 
-<p>CodeIgniter utilizes an approach to transactions that is very similar to the process used by the popular database class ADODB.  We've chosen that approach
-because it greatly simplifies the process of running transactions.  In most cases all that is required are two lines of code.</p>
+<p>CodeIgniter wykorzystuje podejście do transakcji, które jest bardzo podobne do tego stosowanego w popularnej klasie bazodanowej ADODB. Wybraliśmy to podejście
+ponieważ bardzo upraszcza proces stosowania transakcji. W większości przypadków, wszystko czego potrzebujemy, to dwie linijki kodu.</p>
 
-<p>Traditionally, transactions have required a fair amount of work to implement since they demand that you to keep track of your queries
-and determine whether to <dfn>commit</dfn> or <dfn>rollback</dfn> based on the success or failure of your queries. This is particularly cumbersome with
-nested queries. In contrast,
-we've implemented a smart transaction system that does all this for you automatically (you can also manage your transactions manually if you choose to,
-but there's really no benefit).</p>
+<p>Zwyczajowo, implementacja transakcji wymaga od nas sporych nakładów pracy, ponieważ wymagane jest śledzenie zapytań i zależnie od ich wyniku, wykonanie
+operacji <dfn>commit</dfn> lub <dfn>rollback</dfn>. Jest to szczególnie uciążliwe jeśli mamy do czynienia z zagnieżdżonymi zapytaniami.
+Nam udało się zaimplementować mądry system transakcji, który całą tę pracę wykonuje za Ciebie automatycznie (możesz również zarządzać transakcjami ręcznie jeśli chcesz, ale 
+właściwie nie niesie to za sobą żadnych dodatkowych korzyści).</p>
 
-<h2>Running Transactions</h2>
+<h2>Uruchamianie transakcji</h2>
 
-<p>To run your queries using transactions you will use the <dfn>$this->db->trans_start()</dfn> and <dfn>$this->db->trans_complete()</dfn> functions as follows:</p>
+<p>Aby wykonywać zapytania używając transakcji, musisz użyć funkcji <dfn>$this->db->trans_start()</dfn> i <dfn>$this->db->trans_complete()</dfn>, jak pokazano poniżej:</p>
 
 <code>
 <kbd>$this->db->trans_start();</kbd><br />
-$this->db->query('AN SQL QUERY...');<br />
-$this->db->query('ANOTHER QUERY...');<br />
-$this->db->query('AND YET ANOTHER QUERY...');<br />
+$this->db->query('PIERWSZE ZAPYTANIE...');<br />
+$this->db->query('KOLEJNE ZAPYTANIE...');<br />
+$this->db->query('I JESZCZE JEDNO ZAPYTANIE...');<br />
 <kbd>$this->db->trans_complete();</kbd>
 </code>
 
-<p>You can run as many queries as you want between the start/complete functions and they will all be committed or rolled back based on success or failure
-of any given query.</p>
+<p>Pomiędzy funkcjami start/complete, możesz uruchomić tak wiele zapytań, ile tylko chcesz - zostaną one zatwierdzone lub cofnięte na podstawie sukcesu lub porażki wykonywanych zapytań.</p>
 
 
 <h2>Strict Mode</h2>
 
-<p>By default CodeIgniter runs all transactions in <dfn>Strict Mode</dfn>.  When strict mode is enabled, if you are running multiple groups of
-transactions, if one group fails all groups will be rolled back. If strict mode is disabled, each group is treated independently, meaning
-a failure of one group will not affect any others.</p>
+<p>Domyślnie CodeIgniter uruchamia wszystkie transakcje w trybie <dfn>Strict Mode</dfn>. Kiedy ten tryb jest włączony i uruchamiasz wiele grup transakcji, 
+a jedna z tych grup zakończy się porażką - transakcje dla wszystkich grupy zostaną cofnięte.
+Jeśli tryb strict mode jest wyłączony, każda z grup jest traktowana oddzielnie, co oznacza, że porażka jednej z grup je wpłynie na inne.</p>
 
-<p>Strict Mode can be disabled as follows:</p>
+<p>Strict Mode może zostać wyłączony w ten sposób:</p>
 
 <code>$this->db->trans_strict(FALSE);</code>
 
 
-<h2>Managing Errors</h2>
+<h2>Zarządzanie błędami</h2>
 
-<p>If you have error reporting enabled in your <dfn>config/database.php</dfn> file you'll see a standard error message if the commit was unsuccessful. If debugging is turned off, you can
-manage your own errors like this:</p>
+<p>Jeśli masz włączone raportowanie błędów w pliku <dfn>config/database.php</dfn>, zobaczysz standardowe wiadomości o błędzie, jeśli transakcja zakończy się niepowodzeniem. Jeśli debugowanie jest wyłączone,
+możesz zarządzać własnymi błędami w ten sposób:</p>
 
 <code>
 $this->db->trans_start();<br />
-$this->db->query('AN SQL QUERY...');<br />
-$this->db->query('ANOTHER QUERY...');<br />
+$this->db->query('ZAPYTANIE...');<br />
+$this->db->query('KOLEJNE ZAPYTANIE...');<br />
 $this->db->trans_complete();<br />
 <br />
 if (<kbd>$this->db->trans_status()</kbd> === FALSE)<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;// generate an error... or use the log_message() function to log your error<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// zwróć błąd... lub użyj funkcji log_message() aby umieścić błąd w logu<br />
 }
 </code>
 
 
-<h2>Enabling Transactions</h2>
+<h2>Uruchamianie transakcji</h2>
 
-<p>Transactions are enabled automatically the moment you use <dfn>$this->db->trans_start()</dfn>.  If you would like to disable transactions you
-can do so using <dfn>$this->db->trans_off()</dfn>:</p>
+<p>Transakcje są uruchamiane automatycznie, w momencie użycia <dfn>$this->db->trans_start()</dfn>. Jeśli chcesz zakończyć transakcję,
+możesz to zrobić za pomocą <dfn>$this->db->trans_off()</dfn>:</p>
 
 <code>
 <kbd>$this->db->trans_off()</kbd><br /><br />
 
 $this->db->trans_start();<br />
-$this->db->query('AN SQL QUERY...');<br />
+$this->db->query('ZAPYTANIE...');<br />
 $this->db->trans_complete();
 </code>
 
-<p class="important">When transactions are disabled, your queries will be auto-commited, just as they are when running queries without transactions.</p>
+<p class="important">Kiedy transakcje są wyłączone, Twoje zapytania będą automatycznie zatwierdzane, dokładnie w taki sam sposób, jak kiedy uruchamiasz je bez transakcji.</p>
 
 
-<h2>Test Mode</h2>
+<h2>Tryb testowy</h2>
 
-<p>You can optionally put the transaction system into "test mode", which will cause your queries to be rolled back -- even if the queries produce a valid result.
-To use test mode simply set the first parameter in the <dfn>$this->db->trans_start()</dfn> function to <samp>TRUE</samp>:</p>
+<p>Opcjonalnie możesz włączyć transakcje w trybie testowym, co spowoduje że Twoje zapytania będą cofane -- nawet wtedy, gdy są wykonywane poprawnie.
+Aby skorzystać z trybu testowego, wystarczy ustawić pierwszy parametr w funkcji <dfn>$this->db->trans_start()</dfn> na <samp>TRUE</samp>:</p>
 
 <code>
-$this->db->trans_start(<samp>TRUE</samp>); // Query will be rolled back<br />
-$this->db->query('AN SQL QUERY...');<br />
+$this->db->trans_start(<samp>TRUE</samp>); // zapytanie zostanie cofnięte<br />
+$this->db->query('ZAPYTANIE...');<br />
 $this->db->trans_complete();
 </code>
 
 
-<h2>Running Transactions Manually</h2>
+<h2>Manualne uruchamianie transakcji</h2>
 
-<p>If you would like to run transactions manually you can do so as follows:</p>
+<p>Jeśli chciałbyś uruchomić transakcje ręcznie, możesz to zrobić w następujący sposób:</p>
 
 <code>
 $this->db->trans_begin();<br /><br />
 
-$this->db->query('AN SQL QUERY...');<br />
-$this->db->query('ANOTHER QUERY...');<br />
-$this->db->query('AND YET ANOTHER QUERY...');<br />
+$this->db->query('ZAPYTANIE...');<br />
+$this->db->query('KOLEJNE ZAPYTANIE...');<br />
+$this->db->query('JESZCZE JEDNO ZAPYTANIE...');<br />
 
 <br />
 
@@ -176,7 +173,7 @@ else<br />
 }<br />
 </code>
 
-<p class="important"><strong>Note:</strong> Make sure to use <kbd>$this->db->trans_begin()</kbd> when running manual transactions, <strong>NOT</strong>
+<p class="important"><strong>Uwaga:</strong> Kiedy ręcznie uruchamiasz transakcje, upewnij się, że używasz funkcji <kbd>$this->db->trans_begin()</kbd> a <strong>NIE</strong>
 <dfn>$this->db->trans_start()</dfn>.</p>
 
 
@@ -188,10 +185,10 @@ else<br />
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp; <a href="fields.html">Field MetaData</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Poprzedni Temat:&nbsp;&nbsp; <a href="fields.html">Dane kolumn</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="table_data.html">Table Metadata</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="table_data.html">Dane tabel</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
