@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Query Helper Functions : Podręcznik użytkownika CodeIgniter</title>
+<title>Funkcje pomocnicze zapytań : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis Treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,12 +40,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Query Helpers
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+<a href="index.html">Biblioteka bazy danych</a> &nbsp;&#8250;&nbsp;
+Funkcje pomocnicze zapytań
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -59,77 +59,77 @@ Query Helpers
 <div id="content">
 
 
-<h1>Query Helper Functions</h1>
+<h1>Funkcje pomocnicze zapytań</h1>
 
 
 <h2>$this->db->insert_id()</h2>
-<p>The insert ID number when performing database inserts.</p>
+<p>Zwraca numer ID, kiedy wykonujemy dodanie do bazy danych.</p>
 
 <h2>$this->db->affected_rows()</h2>
-<p>Displays the number of affected rows, when doing "write" type queries (insert, update, etc.).</p>
-<p>Note:  In MySQL "DELETE FROM TABLE" returns 0 affected rows. The database class has a small hack that allows it to return the
-correct number of affected rows.  By default this hack is enabled but it can be turned off in the database driver file.</p>
+<p>Pokazuje liczbę zmienionych wierszy, podczas wykonywania zapytań "zapisu" (insert, update, itd.).</p>
+<p>Uwaga:  W MySQL zapytanie "DELETE FROM TABLE" zwraca 0 zmienionych wierszy. Klasa bazy danych posiada mały hack, który pozwala na
+zwrócenie poprawniej ilości zmienionych wierszy. Domyślnie hack ten jest włączony, ale może zostać wyłączony w pliku drivera bazy danych.</p>
 
 
 <h2>$this->db->count_all();</h2>
-<p>Permits you to determine the number of rows in a particular table.  Submit the table name in the first parameter. Example:</p>
-<code>echo $this->db->count_all('<var>my_table</var>');<br />
+<p>Pozwala na określenie ilości wierszy w konkretnej tabeli. W pierwszym parametrze podajemy nazwę tabeli. Przykład:</p>
+<code>echo $this->db->count_all('<var>moja_tabela</var>');<br />
 <br />
-// Produces an integer, like 25
+// Zwraca wartość typu integer, np. 25
 </code>
 
 
 <h2>$this->db->platform()</h2>
-<p>Outputs the database platform you are running (MySQL, MS SQL, Postgres, etc...):</p>
+<p>Zwraca nazwę platformy bazy danych, z której korzystasz (MySQL, MS SQL, Postgres, itd...):</p>
 <code>echo $this->db->platform();</code>
 
 
 <h2>$this->db->version()</h2>
-<p>Outputs the database version you are running:</p>
+<p>Zwraca numer wersji bazy danych, z której korzystasz:</p>
 <code>echo $this->db->version();</code>
 
 
 <h2>$this->db->last_query();</h2>
-<p>Returns the last query that was run (the query string, not the result).  Example:</p>
+<p>Zwraca ostatnie zapytanie, jakie zostało uruchomione (samo zapytanie, nie rezultat). Przykład:</p>
 
 <code>$str = $this->db->last_query();<br />
 <br />
-// Produces:  SELECT * FROM sometable....
+// Daje:  SELECT * FROM jakastabela....
 </code>
 
 
-<p>The following two functions help simplify the process of writing database INSERTs and UPDATEs.</p>
+<p>Te dwie funkcje pomagają ułatwić proces pisania poleceń typu INSERT i UPDATE.</p>
 
 
 <h2>$this->db->insert_string(); </h2>
-<p>This function simplifies the process of writing database inserts. It returns a correctly formatted SQL insert string. Example:</p>
+<p>Ta funkcja upraszcza proces pisania zapytań dodawania do bazy danych. Zwraca poprawnie sformatowane zapytanie SQL typu INSERT. Przykład:</p>
 
 <code>$data = array('name' => $name, 'email' => $email, 'url' => $url);<br />
 <br />
-$str = $this->db->insert_string('table_name', $data);
+$str = $this->db->insert_string('nazwa_tabeli', $data);
 </code>
 
-<p>The first parameter is the table name, the second is an associative array with the data to be inserted.  The above example produces:</p>
-<code>INSERT INTO table_name (name, email, url) VALUES ('Rick', 'rick@example.com', 'example.com')</code>
+<p>Pierwszy parametr jest nazwą tabeli, kolejny natomiast tablicą asocjacyjną z danymi, które mają zostać dodane. Powyższy przykład daje zapytanie:</p>
+<code>INSERT INTO nazwa_tabeli (name, email, url) VALUES ('Rick', 'rick@example.com', 'example.com')</code>
 
-<p class="important">Note: Values are automatically escaped, producing safer queries.</p>
+<p class="important">Uwaga: Wartości są automatycznie escapowane, powstaje więc bezpieczniejsze zapytanie.</p>
 
 
 
 <h2>$this->db->update_string(); </h2>
-<p>This function simplifies the process of writing database updates. It returns a correctly formatted SQL update string. Example:</p>
+<p>Ta funkcja upraszcza proces pisania zapytań aktualizacji do bazy danych. Zwraca poprawnie sformatowane zapytanie SQL typu UPDATE. Przykład:</p>
 
 <code>$data = array('name' => $name, 'email' => $email, 'url' => $url);<br />
 <br />
 $where = "author_id = 1 AND status = 'active'";
 <br /><br />
-$str = $this->db->update_string('table_name', $data, $where);
+$str = $this->db->update_string('nazwa_tabeli', $data, $where);
 </code>
 
-<p>The first parameter is the table name, the second is an associative array with the data to be updated, and the third parameter is the "where" clause. The above example produces:</p>
-<code> UPDATE table_name SET name = 'Rick', email = 'rick@example.com', url = 'example.com' WHERE author_id = 1 AND status = 'active'</code>
+<p>Pierwszy parametr jest nazwą tabeli, kolejny jest tablicą asocjacyjną z danymi, które mają zostać zaktualizowane, natomiast trzeci parametr jest klauzulą "where" dla zapytania. Powyższy przykład daje zapytanie:</p>
+<code> UPDATE nazwa_tabeli SET name = 'Rick', email = 'rick@example.com', url = 'example.com' WHERE author_id = 1 AND status = 'active'</code>
 
-<p class="important">Note: Values are automatically escaped, producing safer queries.</p>
+<p class="important">Uwaga: Wartości są automatycznie escapowane, powstaje więc bezpieczniejsze zapytanie.</p>
 
 
 </div>
@@ -138,14 +138,25 @@ $str = $this->db->update_string('table_name', $data, $where);
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="results.html">Query Results</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="results.html">Generowanie wyników zapytań</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="active_record.html">Active Record Pattern</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="active_record.html">Klasa Active Record</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
-
+<!-- Piwik -->
+<script type="text/javascript">
+	var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
+	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+	try {
+		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
+		piwikTracker.trackPageView();
+		piwikTracker.enableLinkTracking();
+	} catch( err ) {}
+</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Database Utility Class : CodeIgniter podręcznik użytkownika</title>
+<title>Klasa narzędziowa bazy danych : CodeIgniter podręcznik użytkownika</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -22,12 +22,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>CodeIgniter podręcznik użytkownika wersja 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis Treści</a></td>
 </tr>
 </table>
 </div>
@@ -38,12 +38,12 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://www.codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
-<a href="index.html">Database Library</a> &nbsp;&#8250;&nbsp;
-Database Utility Class
+<a href="index.html">Biblioteka bazy danych</a> &nbsp;&#8250;&nbsp;
+Klasa narzędziowa bazy danych
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="www.codeigniter.org.pl/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -55,41 +55,40 @@ Database Utility Class
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Database Utility Class</h1>
+<h1>Klasa narzędziowa bazy danych</h1>
 
-<p>The Database Utility Class contains functions that help you manage your database.</p>
+<p>Klasa narzędziowa bazy danych zawiera funkcje, które pomagają zarządzać Twoją bazą danych.</p>
 
-<h3>Table of Contents</h3>
+<h3>Spis treści</h3>
 
 <ul>
-<li><a href="#init">Initializing the Utility Class</a></li>
-<li><a href="#list">Listing your Databases</a></li>
-<li><a href="#exists">Checking for a specific Database</a></li>
-<li><a href="#opttb">Optimizing your Tables</a></li>
-<li><a href="#repair">Repairing your Databases</a></li>
-<li><a href="#optdb">Optimizing your Database</a></li>
-<li><a href="#csv">CSV Files from a Database Result</a></li>
-<li><a href="#xml">XML Files from a Database Result</a></li>
-<li><a href="#backup">Backing up your Database</a></li>
+<li><a href="#init">Ładowanie klasy narzędziowej</a></li>
+<li><a href="#list">Listowanie baz danych</a></li>
+<li><a href="#exists">Sprawdzanie konkretnej bazy danych</a></li>
+<li><a href="#opttb">Optymalizacja tabel</a></li>
+<li><a href="#repair">Naprawa bazy danych</a></li>
+<li><a href="#optdb">Optymalizacja bazy danych</a></li>
+<li><a href="#csv">Eksport wyników do pliku CSV</a></li>
+<li><a href="#xml">Eksport wyników do pliku XML</a></li>
+<li><a href="#backup">Tworzenie kopii zapasowej</a></li>
 </ul>
 
 
 
-<h2><a name="init"></a>Initializing the Utility Class</h2>
+<h2><a name="init"></a>Ładowanie klasy narzędziowej</h2>
 
-<p class="important"><strong>Important:</strong>&nbsp; In order to initialize the Utility class, your database driver must
-already be running, since the utilities class relies on it.</p>
+<p class="important"><strong>Ważne:</strong>&nbsp; Podczas ładowania klasy narzędziowej, driver dla bazy danych musi być już załadowany, ponieważ klasa narzędziowa zależy od niego.</p>
 
-<p>Load the Utility Class as follows:</p>
+<p>Załaduj klasę narzędziową w ten sposób:</p>
 
 <code>$this->load->dbutil()</code>
 
-<p>Once initialized you will access the functions using the <dfn>$this->dbutil</dfn> object:</p>
+<p>Po załadowaniu klasy, będziesz miał dostęp do jej funkcji za pomocą obiektu <dfn>$this->dbutil</dfn>:</p>
 
-<code>$this->dbutil->some_function()</code>
+<code>$this->dbutil->jakas_funkcja()</code>
 
 <h2><a name="list"></a>$this->dbutil->list_databases()</h2>
-<p>Returns an array of database names:</p>
+<p>Zwraca tablicę z nazwami baz danych:</p>
 
 <code>
 $dbs = $this->dbutil->list_databases();<br />
@@ -102,59 +101,62 @@ foreach ($dbs as $db)<br />
 
 <h2><a name="exists"></a>$this->dbutil->database_exists();</h2>
 
-<p>Sometimes it's helpful to know whether a particular database exists.
-Returns a boolean TRUE/FALSE.  Usage example:</p>
+<p>Czasami dobrze jest wiedzieć, czy konkretna baza danych istnieje.
+Zwraca TRUE/FALSE (boolean). Przykład użycia:</p>
 
 <code>
-if ($this->dbutil->database_exists('database_name'))<br />
+if ($this->dbutil->database_exists('nazwa_bazy_danych'))<br />
 {<br />
-&nbsp;&nbsp; // some code...<br />
+&nbsp;&nbsp; // jakiś kod...<br />
 }
 </code>
 
-<p>Note:  Replace <em>database_name</em> with the name of the table you are looking for. This function is case sensitive.</p>
+<p>Uwaga:  Zamień <em>nazwa_bazy_danych</em> na nazwę bazy danych, której szukasz. Wielkość liter parametru ma znaczenie.</p>
 
 
 
-<h2><a name="opttb"></a>$this->dbutil->optimize_table('table_name');</h2>
+<h2><a name="opttb"></a>$this->dbutil->optimize_table('nazwa_tabeli');</h2>
 
-<p class="important"><strong>Note:</strong>&nbsp; This features is only available for MySQL/MySQLi databases.</p>
+<p class="important"><strong>Uwaga:</strong>&nbsp; Ta funkcja jest dostępna tylko dla driverów MySQL/MySQLi.</p>
 
 
-<p>Permits you to optimize a table using the table name specified in the first parameter. Returns TRUE/FALSE based on success or failure:</p>
+<p>Pozwala na optymalizację tabeli, przyjmując jej nazwę jako pierwszy parametr.
+Zwraca TRUE/FALSE zależnie od sukcesu lub porażki:</p>
 
 <code>
-if ($this->dbutil->optimize_table('table_name'))<br />
+if ($this->dbutil->optimize_table('nazwa_tabeli'))<br />
 {<br />
-&nbsp;&nbsp;&nbsp; echo 'Success!';<br />
+&nbsp;&nbsp;&nbsp; echo 'Sukces!';<br />
 }
 </code>
 
-<p><strong>Note:</strong> Not all database platforms support table optimization.</p>
+<p><strong>Uwaga:</strong> Nie wszystkie platformy bazodanowe wspierają optymalizację tabel.</p>
 
 
-<h2><a name="repair"></a>$this->dbutil->repair_table('table_name');</h2>
+<h2><a name="repair"></a>$this->dbutil->repair_table('nazwa_tabeli');</h2>
 
-<p class="important"><strong>Note:</strong>&nbsp; This features is only available for MySQL/MySQLi databases.</p>
+<p class="important"><strong>Uwaga:</strong>&nbsp; Ta funkcja jest dostępna tylko dla driverów MySQL/MySQLi.</p>
 
 
-<p>Permits you to repair a table using the table name specified in the first parameter. Returns TRUE/FALSE based on success or failure:</p>
+<p>Pozwala na naprawę tabeli, przyjmując jej nazwę jako pierwszy parametr.
+Zwraca TRUE/FALSE zależnie od sukcesu lub porażki:</p>
 
 <code>
-if ($this->dbutil->repair_table('table_name'))<br />
+if ($this->dbutil->repair_table('nazwa_tabeli'))<br />
 {<br />
-&nbsp;&nbsp;&nbsp; echo 'Success!';<br />
+&nbsp;&nbsp;&nbsp; echo 'Sukces!';<br />
 }
 </code>
 
-<p><strong>Note:</strong> Not all database platforms support table repairs.</p>
+<p><strong>Uwaga:</strong> Nie wszystkie platformy bazodanowe wspierają naprawę tabel.</p>
 
 
 <h2><a name="optdb"></a>$this->dbutil->optimize_database();</h2>
 
-<p class="important"><strong>Note:</strong>&nbsp; This features is only available for MySQL/MySQLi databases.</p>
+<p class="important"><strong>Uwaga:</strong>&nbsp; Ta funkcja jest dostępna tylko dla driverów MySQL/MySQLi.</p>
 
-<p>Permits you to optimize the database your DB class is currently connected to. Returns an array containing the DB status messages or FALSE on failure.</p>
+<p>Pozwala na optymalizację bazy danych, do której jesteś aktualnie podłaczony.
+Zwraca tablicę zawierającą wiadomość ze statusem z bazy danych lub wartość FALSE w przypadku niepowodzenia.</p>
 
 <code>
 $result = $this->dbutil->optimize_database();<br />
@@ -165,24 +167,24 @@ if ($result !== FALSE)<br />
 }
 </code>
 
-<p><strong>Note:</strong> Not all database platforms support table optimization.</p>
+<p><strong>Uwaga:</strong> Nie wszystkie platformy bazodanowe wspierają optymalizację bazy danych.</p>
 
 
 <h2><a name="csv"></a>$this->dbutil->csv_from_result($db_result)</h2>
 
-<p>Permits you to generate a CSV file from a query result. The first parameter of the function must contain the result object from your query.
-Example:</p>
+<p>Pozwala na wygenerowanie pliku CSV z wyniku zapytania. Pierwszy parametr funkcji musi zawierać obiekt wyniku zapytania.
+Przykład:</p>
 
 <code>
 $this->load->dbutil();<br />
 <br />
-$query = $this->db->query("SELECT * FROM mytable");<br />
+$query = $this->db->query("SELECT * FROM mojatabela");<br />
 <br />
 echo $this->dbutil->csv_from_result($query);
 </code>
 
-<p>The second and third parameters allows you to
-set the delimiter and newline character.  By default tabs are used as the delimiter and "\n" is used as a new line.  Example:</p>
+<p>Drugi i trzeci parametr pozwalają na ustalenie znaku separatora i nowej linii.
+Domyślnie znak tab jest ustawiony jako separator, a znak "\n" jako nowa linia. Przykład:</p>
 
 <code>
 $delimiter = ",";<br />
@@ -191,19 +193,19 @@ $newline = "\r\n";<br />
 echo $this->dbutil->csv_from_result($query, $delimiter, $newline);
 </code>
 
-<p><strong>Important:</strong>&nbsp; This function will NOT write the CSV file for you.  It simply creates the CSV layout.
-If you need to write the file use the <a href="../helpers/file_helper.html">File Helper</a>.</p>
+<p><strong>Ważne:</strong>&nbsp; Ta funkcja NIE zapisze za Ciebie pliku CSV. Tworzy tylko układ CSV.
+Jeśli chcesz zapisać plik, użyj <a href="../helpers/file_helper.html">helpera File</a>.</p>
 
 
 <h2><a name="xml"></a>$this->dbutil->xml_from_result($db_result)</h2>
 
-<p>Permits you to generate an XML file from a query result. The first parameter expects a query result object, the second
-may contain an optional array of config parameters.  Example:</p>
+<p>Pozwala na wygenerowanie pliku XML z wyniku zapytania. Pierwszy parametr funkcji musi zawierać obiekt wyniku zapytania. 
+Drugi może zawierać opcjonalną tablicę konfiguracyjną. Przykład:</p>
 
 <code>
 $this->load->dbutil();<br />
 <br />
-$query = $this->db->query("SELECT * FROM mytable");<br />
+$query = $this->db->query("SELECT * FROM mojatabela");<br />
 <br />
 $config = array (<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'root'&nbsp;&nbsp;&nbsp; => 'root',<br />
@@ -215,59 +217,59 @@ $config = array (<br />
 echo $this->dbutil->xml_from_result($query, $config);
 </code>
 
-<p><strong>Important:</strong>&nbsp; This function will NOT write the XML file for you.  It simply creates the XML layout.
-If you need to write the file use the <a href="../helpers/file_helper.html">File Helper</a>.</p>
+<p><strong>Ważne:</strong>&nbsp; Ta funkcja NIE zapisze za Ciebie pliku XML. Tworzy tylko układ XML.
+Jeśli chcesz zapisać plik, użyj <a href="../helpers/file_helper.html">helpera File</a>.</p>
 
 
 <h2><a name="backup"></a>$this->dbutil->backup()</h2>
 
-<p>Permits you to backup your full database or individual tables.  The backup data can be compressed in either Zip or Gzip format.</p>
+<p>Pozwala na wykonanie kopii całej bazy danych lub pojedynczej tabeli. Kopia zapasowa może zostać skopresowana do formatu Zip lub Gzip.</p>
 
-<p class="important"><strong>Note:</strong>&nbsp; This features is only available for MySQL databases.</p>
+<p class="important"><strong>Uwaga:</strong>&nbsp; Ta funkcja jest dostępna tylko dla baz MySQL.</p>
 
-<p>Note: Due to the limited execution time and memory available to PHP, backing up very large
-databases may not be possible.  If your database is very large you might need to backup directly from your SQL server
-via the command line, or have your server admin do it for you if you do not have root privileges.</p>
+<p>Uwaga: W związku z limitem czasu wykonywania i dostępnej ilości pamięci dla PHP, wykonywanie kopii bardzo dużej
+bazy danych może nie być możliwe. Jeśli Twoja baza danych jest bardzo duża, być może będziesz zmuszony wykonać kopię zapasową bezpośrednio
+z serwera SQL, za pomocą linii komend lub poprosić, aby zrobił to za Ciebie administrator serwera, jeśli nie dysponujesz uprawnieniami roota.</p>
 
-<h3>Usage Example</h3>
+<h3>Przykłady użycia</h3>
 
 <code>
-<dfn>// Load the DB utility class</dfn><br />
+<dfn>// Ładuje klasę narzędziową</dfn><br />
 $this->load->dbutil();<br /><br />
 
-<dfn>// Backup your entire database and assign it to a variable</dfn><br />
+<dfn>// Wykonuje kopię zapasową Twojej całej bazy danych i przypisuje ją do zmiennej</dfn><br />
 $backup =& $this->dbutil->backup();
 
 <br /><br />
-<dfn>// Load the file helper and write the file to your server</dfn><br />
+<dfn>// Ładuje helper file i zapisuje plik na Twoim serwerze</dfn><br />
 $this->load->helper('file');<br />
 write_file('/path/to/mybackup.gz', $backup);
 
 <br /><br />
-<dfn>// Load the download helper and send the file to your desktop</dfn><br />
+<dfn>// Ładuje helper download i wysyła plik na Twój komputer</dfn><br />
 $this->load->helper('download');<br />
 force_download('mybackup.gz', $backup);
 </code>
 
-<h3>Setting Backup Preferences</h3>
+<h3>Ustawianie preferencji kopii zapasowej</h3>
 
-<p>Backup preferences are set by submitting an array of values to the first parameter of the backup function. Example:</p>
+<p>Preferencje kopii zapasowej są ustalane poprzez wysłanie tablicy wartości do pierwszego parametru funkcji. Przykład:</p>
 
 <code>$prefs = array(<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tables'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> array('table1', 'table2'),&nbsp;&nbsp;// Array of tables to backup.<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ignore'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> array(),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// List of tables to omit from the backup<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'tables'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> array('table1', 'table2'),&nbsp;&nbsp;// Tablica tabel do wykonania kopii zapasowej.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ignore'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> array(),&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Lista tabel, które mają zostać pominięte w procesie wykonywania kopii zapasowej<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'format'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'txt',&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// gzip, zip, txt<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'filename'&nbsp;&nbsp;&nbsp;&nbsp;=> 'mybackup.sql',&nbsp;&nbsp;&nbsp;&nbsp;// File name - NEEDED ONLY WITH ZIP FILES<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'add_drop'&nbsp;&nbsp;&nbsp;&nbsp;=> TRUE,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Whether to add DROP TABLE statements to backup file<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'add_insert'&nbsp;&nbsp;=> TRUE,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Whether to add INSERT data to backup file<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'newline'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> "\n"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Newline character used in backup file<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'filename'&nbsp;&nbsp;&nbsp;&nbsp;=> 'mybackup.sql',&nbsp;&nbsp;&nbsp;&nbsp;// nazwa pliku - POTRZEBNA TYLKO PRZY PLIKACH ZIP<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'add_drop'&nbsp;&nbsp;&nbsp;&nbsp;=> TRUE,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Czy dodać polecenie DROP TABLE do kopii zapasowej<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'add_insert'&nbsp;&nbsp;=> TRUE,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Czy dodać polecenie INSERT do kopii zapasowej<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'newline'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> "\n"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Znak nowej linni używany w pliku kopii zapasowej<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 <br />
 $this->dbutil->backup($prefs);
 </code>
 
 
-<h3>Description of Backup Preferences</h3>
+<h3>Opis preferencji kopii zapasowej</h3>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
@@ -276,19 +278,19 @@ $this->dbutil->backup($prefs);
 <th>Options</th>
 <th>Description</th>
 </tr><tr>
-<td class="td"><strong>tables</strong></td><td class="td">empty array</td><td class="td">None</td><td class="td">An array of tables you want backed up.  If left blank all tables will be exported.</td>
+<td class="td"><strong>tables</strong></td><td class="td">empty array</td><td class="td">None</td><td class="td">Tablica z listą tabel, z których ma być wykonana kopia zapasowa. Pozostawiona pust, bierze pod uwagę wszystkie tabele.</td>
 </tr><tr>
-<td class="td"><strong>ignore</strong></td><td class="td">empty array</td><td class="td">None</td><td class="td">An array of tables you want the backup routine to ignore.</td>
+<td class="td"><strong>ignore</strong></td><td class="td">empty array</td><td class="td">None</td><td class="td">Tablica z listą tabel, które mają zostać pominięte w procesie wykonywania kopii zapasowej.</td>
 </tr><tr>
-<td class="td"><strong>format</strong></td><td class="td">gzip</td><td class="td">gzip, zip, txt</td><td class="td">The file format of the export file.</td>
+<td class="td"><strong>format</strong></td><td class="td">gzip</td><td class="td">gzip, zip, txt</td><td class="td">Format pliku dla eksportowanego pliku.</td>
 </tr><tr>
-<td class="td"><strong>filename</strong></td><td class="td">the current date/time</td><td class="td">None</td><td class="td">The name of the backed-up file. The name is needed only if you are using zip compression.</td>
+<td class="td"><strong>filename</strong></td><td class="td">the current date/time</td><td class="td">None</td><td class="td">Nazwa dla pliku z kopią zapasową. Nazwa jest potrzebna tylko, jeśli używasz kompresii zip.</td>
 </tr><tr>
-<td class="td"><strong>add_drop</strong></td><td class="td">TRUE</td><td class="td">TRUE/FALSE</td><td class="td">Whether to include DROP TABLE statements in your SQL export file.</td>
+<td class="td"><strong>add_drop</strong></td><td class="td">TRUE</td><td class="td">TRUE/FALSE</td><td class="td">Czy dodać polecenia DROP TABLE do pliku SQL kopii zapasowej.</td>
 </tr><tr>
-<td class="td"><strong>add_insert</strong></td><td class="td">TRUE</td><td class="td">TRUE/FALSE</td><td class="td">Whether to include INSERT statements in your SQL export file.</td>
+<td class="td"><strong>add_insert</strong></td><td class="td">TRUE</td><td class="td">TRUE/FALSE</td><td class="td">Czy dodać polecenia INSERT do pliku SQL kopii zapasowej.</td>
 </tr><tr>
-<td class="td"><strong>newline</strong></td><td class="td">"\n"</td><td class="td">"\n", "\r", "\r\n"</td><td class="td">Type of newline to use in your SQL export file.</td>
+<td class="td"><strong>newline</strong></td><td class="td">"\n"</td><td class="td">"\n", "\r", "\r\n"</td><td class="td">Typ znaku nowej linii używany w pliku SQL kopii zapasowej.</td>
 
 </tr>
 </table>
@@ -300,11 +302,11 @@ $this->dbutil->backup($prefs);
 
 <div id="footer">
 <p>
-Poprzedni rozdział:&nbsp;&nbsp;<a href="forge.html">DB Forge Class</a>
+Poprzedni rozdział:&nbsp;&nbsp;<a href="forge.html">Operacje za pomocą klasy Database Forge</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następy rozdział:&nbsp;&nbsp;<a href="../libraries/javascript.html">Javascript Class</a></p>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następy rozdział:&nbsp;&nbsp;<a href="../libraries/javascript.html">Klasa Javascript</a></p>
 <p><a href="http://www.codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 <!-- Piwik -->
