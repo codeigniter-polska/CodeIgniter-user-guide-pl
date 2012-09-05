@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>File Helper : Podręcznik użytkownika CodeIgniter</title>
+<title>Helper File: Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -23,12 +23,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -39,11 +39,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-File Helper
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Helper File
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -57,96 +57,95 @@ File Helper
 
 <h1>File Helper</h1>
 
-<p>The File Helper file contains functions that assist in working with files.</p>
+<p>Helper File zawiera funkcje pomagające w pracy z plikami.</p>
 
+<h2>Ładowanie helpera</h2>
 
-<h2>Loading this Helper</h2>
-
-<p>This helper is loaded using the following code:</p>
+<p>Ten helper jest ładowany za pomocą poniższego kodu:</p>
 <code>$this->load->helper('file');</code>
 
-<p>The following functions are available:</p>
+<p>Dostępne są następujące funkcje:</p>
 
-<h2>read_file('<var>path</var>')</h2>
+<h2>read_file('<var>ścieżka</var>')</h2>
 
-<p>Returns the data contained in the file specified in the path.  Example:</p>
+<p>Zwraca dane otrzymane z pliku, który został określony w pierwszym parametrze. Przykład:</p>
 
-<code>$string = read_file('./path/to/file.php');</code>
+<code>$string = read_file('./sciezka/do/pliku.php');</code>
 
-<p>The path can be a relative or full server path.  Returns FALSE (boolean) on failure.</p>
+<p>Ścieżka do pliku może być relatywna lub pełna. Zwraca FALSE (boolean) w przypadku niepowodzenia.</p>
 
-<p class="important"><strong>Note:</strong> The path is relative to your main site index.php file, NOT your controller or view files.
-CodeIgniter uses a front controller so paths are always relative to the main site index.</p>
+<p class="important"><strong>Uwaga:</strong> Ścieżka jest relatywna do Twojego głównego pliku index.php, NIE do Twoich kontrolerów lub plików widoku.
+CodeIgniter używa front kontrolera, dlatego ścieżki są zawsze relatywne do głównego indeksu strony.</p>
 
-<p>If your server is running an open_basedir restriction this function
-might not work if you are trying to access a file above the calling script.</p>
+<p>Jeśli Twój serwer ma włączoną opcję open_basedir, to ta funkcja może nie działać, jeśli będziesz chciał uzyskać dostęp do pliku znajdującego się powyżej pliku wywołującego go.</p>
 
-<h2>write_file('<var>path</var>', <kbd>$data</kbd>)</h2>
+<h2>write_file('<var>ścieżka</var>', <kbd>$dane</kbd>)</h2>
 
-<p>Writes data to the file specified in the path.  If the file does not exist the function will create it. Example:</p>
+<p>Zapisuje dane do pliku określonego w ścieżce. Jeśli plik nie istnieje, zostanie utworzony. Przykład:</p>
 
 <code>
-$data = 'Some file data';<br />
+$data = 'Dane pliku';<br />
 <br />
-if ( ! write_file('./path/to/file.php', $data))<br />
+if ( ! write_file('./sciezka/do/pliku.php', $data))<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp; echo 'Unable to write the file';<br />
+&nbsp;&nbsp;&nbsp;&nbsp; echo 'Nie można zapisać pliku';<br />
 }<br />
 else<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp; echo 'File written!';<br />
+&nbsp;&nbsp;&nbsp;&nbsp; echo 'Plik zapisany!';<br />
 }</code>
 
-<p>You can optionally set the write mode via the third parameter:</p>
+<p>Opcjonalnie możesz ustawić tryb zapisu poprzez trzeci parametr:</p>
 
-<code>write_file('./path/to/file.php', $data, <var>'r+'</var>);</code>
+<code>write_file('./sciezka/do/pliku.php', $data, <var>'r+'</var>);</code>
 
-<p>The default mode is <kbd>wb</kbd>.  Please see the <a href="http://php.net/fopen">PHP user guide</a> for mode options.</p>
+<p>Domyślnym trybem jest <kbd>wb</kbd>. Odwiedź <a href="http://php.net/fopen">dokumentację PHP</a> po więcej opcji.</p>
 
-<p>Note: In order for this function to write data to a file its file permissions must be set such that it is writable (666, 777, etc.).
-If the file does not already exist, the directory containing it must be writable.</p>
+<p>Uwaga: Aby ta funkca mogła zapisać dane do pliku, uprawnienia do niego muszą być ustawione jako "do zapisu" (666, 777, itd.).
+Jeśli plik jeszcze nie istnieje, folder w którym będzie umieszczony plik, musi mieć prawa zapisu.</p>
 
-<p class="important"><strong>Note:</strong> The path is relative to your main site index.php file, NOT your controller or view files.
-CodeIgniter uses a front controller so paths are always relative to the main site index.</p>
+<p class="important"><strong>Uwaga:</strong> Ścieżka jest relatywna do Twojego głównego plku index.php, NIE do Twoich kontrolerów lub plików widoku.
+CodeIgniter używa front kontrolera, dlatego ścieżki są zawsze relatywne do głównego indeksu strony.</p>
 
-<h2>delete_files('<var>path</var>')</h2>
+<h2>delete_files('<var>ścieżka</var>')</h2>
 
-<p>Deletes ALL files contained in the supplied path.  Example:</p>
-<code>delete_files('./path/to/directory/');</code>
+<p>Usuwa WSZYSTKIE pliki znajdujące się w danej ścieżce. Przykład:</p>
+<code>delete_files('./sciezka/do/katalogu/');</code>
 
-<p>If the second parameter is set to <kbd>true</kbd>, any directories contained within the supplied root path will be deleted as well. Example:</p>
+<p>Jeśli drugi parametr jest ustawiony na <kbd>true</kbd>, wszystkie katalogi znajdujące się poniżej głównej ścieżki, która została określona, zostaną usunięte. Przykład:</p>
 
-<code>delete_files('./path/to/directory/', TRUE);</code>
+<code>delete_files('./sciezka/do/katalogu/', TRUE);</code>
 
-<p class="important"><strong>Note:</strong> The files must be writable or owned by the system in order to be deleted.</p>
+<p class="important"><strong>Uwaga:</strong> Aby pliki zostały usunięte, muszą mieć prawa zapisu lub ich właścicielem musi być system.</p>
 
-<h2>get_filenames('<var>path/to/directory/</var>')</h2>
+<h2>get_filenames('<var>sciezka/do/katalogu/</var>')</h2>
 
-<p>Takes a server path as input and returns an array containing the names of all files contained within it. The file path
-can optionally be added to the file names by setting the second parameter to TRUE.</p>
+<p>Funkcja jako pierwszy parametr przyjmuje ścieżkę, a z wraca tablicę z nazwami wszystkich plików, które się w niej znajdują. Ścieżka może być opcjonalnie dodana do nazw zwracanych plików,
+poprzez ustawioenie drugiego parametru na TRUE.</p>
 
-<h2>get_dir_file_info('<var>path/to/directory/</var>', <kbd>$top_level_only</kbd> = TRUE)</h2>
+<h2>get_dir_file_info('<var>scizka/do/katalogu/</var>', <kbd>$top_level_only</kbd> = TRUE)</h2>
 
-<p>Reads the specified directory and builds an array containing the filenames, filesize, dates, and permissions.  Sub-folders contained within the specified path are only read if forced
-	by sending the second parameter, <kbd>$top_level_only</kbd> to <samp>FALSE</samp>, as this can be an intensive operation.</p>
+<p>Skanuje określony katalog i tworzy tablicę zawierającą nazwę pliku, typ pliku, daty i uprawnienia dla każdego pliku. Subfoldery dla danej ścieżki są sprawdzane tylko wtedy, kiedy
+drugi parametr <kbd>$top_level_only</kbd> jest ustawiony na <samp>FALSE</samp>, ponieważ może być to czasochłonna operacja.</p>
 
-<h2>get_file_info('<var>path/to/file</var>', <kbd>$file_information</kbd>)</h2>
+<h2>get_file_info('<var>sciezka/do/pliku</var>', <kbd>$file_information</kbd>)</h2>
 
-<p>Given a file and path, returns the name, path, size, date modified. Second parameter allows you to explicitly declare what information you want returned; options are: name, server_path, size, date, readable, writable, executable, fileperms.  Returns FALSE if the file cannot be found.</p>
+<p>Jako parametr przyjmuje ścieżkę do pliku, a zwraca nazwę pliku, ścieżkę i datę modyfikacji. Drugi parametr pozwala na rozszerzenie zakresu informacji jakie chcesz otrzymać o pliku. Opcje są następujące: name, server_path, size, date, readable, writable, executable, fileperms. 
+Funkcja zwraca FALSE jeśli plik nie możne zostać znaleziony.</p>
 
-<p class="important"><strong>Note:</strong> The &quot;writable&quot; uses the PHP function is_writable() which is known to have issues on the IIS webserver. Consider using fileperms instead, which returns information from PHP's fileperms() function.</p>
-<h2>get_mime_by_extension('<var>file</var>')</h2>
+<p class="important"><strong>Uwaga:</strong> Opcja &quot;writable&quot; funkcji PHP is_writable(), ma problemy z poprawnym działąniem na serwerach IIS. Rozważ więc w zamian użycie opcji fileperm, która zwraca informacje z funkcji PHP fileperms().</p>
+<h2>get_mime_by_extension('<var>plik</var>')</h2>
 
-<p>Translates a file extension into a mime type based on config/mimes.php. Returns FALSE if it can't determine the type, or open the mime config file.</p>
+<p>Przekształca rozszerzenie pliku na typ mime, bazując na ustawieniach zawartych w config/mimes.php. Zwraca FALSE jeśli nie może określić typu lub otworzyć pliku konfiguracyjnego z typami mime.</p>
 <p>
-<code>$file = &quot;somefile.png&quot;;<br />
-echo $file . ' is has a mime type of ' . get_mime_by_extension($file);</code>
+<code>$file = &quot;jakisplik.png&quot;;<br />
+echo $file . ' ma typ mime ' . get_mime_by_extension($file);</code>
 </p>
-<p class="critical"><strong>Note:</strong> This is not an accurate way of determining file mime types, and is here strictly as a convenience. It should not be  used for security.</p>
+<p class="critical"><strong>Uwaga:</strong> Nie jest to poprawna droga na określanie typu mime dla pliku, istnieje tylko dla wygody. Nie powinniśmy polegać na tej funkcji, jeśli tworzymy zabezpieczenia.</p>
 
 <h2>symbolic_permissions(<kbd>$perms</kbd>)</h2>
 
-<p>Takes numeric permissions (such as is returned by <kbd>fileperms()</kbd> and returns standard symbolic notation of file permissions.</p>
+<p>Przyjmuje za parametr numeryczną wersję uprawnień (taką, jaką zwraca funkcja <kbd>fileperms()</kbd>) i zwraca standardową, symboliczną notację uprawnień dla pliku.</p>
 
 <code>echo symbolic_permissions(fileperms('./index.php'));<br />
 <br />
@@ -154,7 +153,7 @@ echo $file . ' is has a mime type of ' . get_mime_by_extension($file);</code>
 
 <h2>octal_permissions(<kbd>$perms</kbd>)</h2>
 
-<p>Takes numeric permissions (such as is returned by <kbd>fileperms()</kbd> and returns a three character octal notation of file permissions.</p>
+<p>Przyjmuje za parametr numeryczną wersję uprawnień (taką, jaką zwraca funkcja <kbd>fileperms()</kbd>) i zwraca trójznakową, oktalną notację uprawnień dla pliku.</p>
 
 <code>echo octal_permissions(fileperms('./index.php'));<br />
 <br />
@@ -167,11 +166,11 @@ echo $file . ' is has a mime type of ' . get_mime_by_extension($file);</code>
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="email_helper.html">Email Helper</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="email_helper.html">Helper Email</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="form_helper.html">Form Helper</a></p>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="form_helper.html">Helper Form</a></p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 <!-- Piwik -->
