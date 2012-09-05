@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Form Helper : Podręcznik użytkownika CodeIgniter</title>
+<title>Helper Form: Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Form Helper
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Helper Form
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,59 +56,57 @@ Form Helper
 <div id="content">
 
 
-<h1>Form Helper</h1>
+<h1>Helper Form</h1>
 
-<p>The Form Helper file contains functions that assist in working with forms.</p>
+<p>Helper Form zawiera funkcje pomagające w pracy z formularzami.</p>
 
+<h2>Ładowanie helpera</h2>
 
-<h2>Loading this Helper</h2>
-
-<p>This helper is loaded using the following code:</p>
+<p>Ten helper jest ładowany za pomocą poniższego kodu:</p>
 <code>$this->load->helper('form');</code>
 
-<p>The following functions are available:</p>
+<p>Dostępne są następujące funkcje:</p>
 
 
 
 <h2>form_open()</h2>
 
-<p>Creates an opening form tag with a base URL <strong>built from your config preferences</strong>.  It will optionally let you
-add form attributes and hidden input fields, and will always add the attribute <kbd>accept-charset</kbd> based on the charset value in your config file.</p>
+<p>Tworzy tag otwierający formularz z bazowym adresem URL <strong>stworzonym na podstawie Twoich ustawień konfiguracyjnych</strong>.
+Pozwala opcjonalnie na dodanie atrybutów i ukrytych pól formularza. Zawsze dodaje atrybut <kbd>accept-charset</kbd>, który oparty jest o charset z Twojego pliku konfiguracyjnego.</p>
 
-<p>The main benefit of using this tag rather than hard coding your own HTML is that it permits your site to be more portable
-in the event your URLs ever change.</p>
+<p>Główną korzyścią płynącą z używania tego tagu, zamiast pisania własnego kodu HTML, jest to, że strona staje się bardziej elatyczna w przypadku gdy adresy URL na stronie ulegną zmianie.</p>
 
-<p>Here's a simple example:</p>
+<p>Prosty przykład:</p>
 
 <code>echo form_open('email/send');</code>
 
-<p>The above example would create a form that points to your base URL plus the "email/send" URI segments, like this:</p>
+<p>Powyższy przykład tworzy formularz, który kieruje na główny adres strony i dodaje segment URI "email/send":</p>
 
 <code>&lt;form method="post" accept-charset="utf-8" action="http:/example.com/index.php/email/send" /></code>
 
-<h4>Adding Attributes</h4>
+<h4>Dodawanie atrybutów</h4>
 
-<p>Attributes can be added by passing an associative array to the second parameter, like this:</p>
+<p>Atrybuty mogą zostac dodane poprzez przypisanie tablicy asocjacyjnej do drugiego parametru:</p>
 
 <code>
 $attributes = array('class' => 'email', 'id' => 'myform');<br />
 <br />
 echo form_open('email/send', $attributes);</code>
 
-<p>The above example would create a form similar to this:</p>
+<p>Powyższy przykład tworzy formularz podobny do tego:</p>
 
 <code>&lt;form method="post" accept-charset="utf-8" action="http:/example.com/index.php/email/send" &nbsp;class="email" &nbsp;id="myform" /></code>
 
-<h4>Adding Hidden Input Fields</h4>
+<h4>Dodawanie ukrytych pól do formularza</h4>
 
-<p>Hidden fields can be added by passing an associative array to the third parameter, like this:</p>
+<p>Ukryte pola mogą zostać dodane, poprzez przypisanie tablicy asocjacyjnej do trzeciego parametru:</p>
 
 <code>
 $hidden = array('username' => 'Joe', 'member_id' => '234');<br />
 <br />
 echo form_open('email/send', '', $hidden);</code>
 
-<p>The above example would create a form similar to this:</p>
+<p>Powyższy przykład tworzy formularz podobny do tego:</p>
 
 <code>&lt;form method="post" accept-charset="utf-8" action="http:/example.com/index.php/email/send"><br />
 &lt;input type="hidden" name="username" value="Joe" /><br />
@@ -117,19 +115,18 @@ echo form_open('email/send', '', $hidden);</code>
 
 <h2>form_open_multipart()</h2>
 
-<p>This function is absolutely identical to the <dfn>form_open()</dfn> tag above except that it adds a multipart attribute,
-which is necessary if you would like to use the form to upload files with.</p>
+<p>Ta funkcja działa identycznie jak <dfn>form_open()</dfn>, z tą różnicą że dodaje atrybut multipart, który jest niezbędny jeśli chcesz przesłąć plik za pomocą formularza.</p>
 
 <h2>form_hidden()</h2>
 
-<p>Lets you generate hidden input fields.  You can either submit a name/value string to create one field:</p>
+<p>Pozwala na wygenerowanie ukrytego pola input. Możesz też przesłać ciąg nazwa/wartość, aby utworzyć pole:</p>
 
 <code>form_hidden('username', 'johndoe');<br />
 <br />
-// Would produce:<br /><br />
+// Da nam:<br /><br />
 &lt;input type="hidden" name="username" value="johndoe" /></code>
 
-<p>Or you can submit an associative array to create multiple fields:</p>
+<p>Możesz też przesłać tablicę asocjacyjną aby utworzyć wiele pól:</p>
 
 <code>$data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name'&nbsp;&nbsp;=> 'John Doe',<br />
@@ -139,7 +136,7 @@ which is necessary if you would like to use the form to upload files with.</p>
 <br />
 echo form_hidden($data);<br />
 <br />
-// Would produce:<br /><br />
+// Da nam:<br /><br />
 &lt;input type="hidden" name="name" value="John Doe" /><br />
 &lt;input type="hidden" name="email" value="john@example.com" /><br />
 &lt;input type="hidden" name="url" value="http://example.com" /></code>
@@ -149,12 +146,11 @@ echo form_hidden($data);<br />
 
 <h2>form_input()</h2>
 
-<p>Lets you generate a standard text input field.  You can minimally pass the field name and value in the first
-and second parameter:</p>
+<p>Pozwala na wygenerowanie standardowego, tekstowego pola input. Możesz przypisać nazwę pola i jego wartość, kolejno w pierwszym i drugim parametrze:</p>
 
 <code>echo form_input('username', 'johndoe');</code>
 
-<p>Or you can pass an associative array containing any data you wish your form to contain:</p>
+<p>Możesz też przesłać tablicę asocjacyjną zawierającą jakiekolwiek dane, jakie chcesz żeby pola posiadały:</p>
 
 <code>$data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'username',<br />
@@ -167,38 +163,33 @@ and second parameter:</p>
 <br />
 echo form_input($data);<br />
 <br />
-// Would produce:<br /><br />
+// Da nam:<br /><br />
 &lt;input type="text" name="username" id="username" value="johndoe" maxlength="100" size="50" style="width:50%" /></code>
 
-<p>If you would like your form to contain some additional data, like Javascript, you can pass it as a string in the
-third parameter:</p>
+<p>Jeśli chcesz żeby Twoje pole formularza zawierało dodatkowe dane, np. Javascript, możesz przypisać ciąg znaków jako trzeci parametr:</p>
 
-<code>$js = 'onClick="some_function()"';<br />
+<code>$js = 'onClick="jakas_funkcja()"';<br />
 <br />
 echo form_input('username', 'johndoe', $js);</code>
 
 <h2>form_password()</h2>
 
-<p>This function is identical in all respects to the <dfn>form_input()</dfn> function above
-except that is sets it as a "password" type.</p>
+<p>Ta funkcja jest taka sama jak <dfn>form_input()</dfn>, z tym że przyjmuje jako typ wartość "password".</p>
 
 <h2>form_upload()</h2>
 
-<p>This function is identical in all respects to the <dfn>form_input()</dfn> function above
-except that is sets it as a "file" type, allowing it to be used to upload files.</p>
+<p>Ta funkcja jest taka sama jak <dfn>form_input()</dfn>, z tym że przyjmuje jako typ wartość "file", pozwalając tym samym na użycie jej do uploadu plików.</p>
 
 <h2>form_textarea()</h2>
 
-<p>This function is identical in all respects to the <dfn>form_input()</dfn> function above
-except that it generates a "textarea" type. Note: Instead of the "maxlength" and "size" attributes in the above
-example, you will instead specify "rows" and "cols".</p>
+<p>Ta funkcja jest taka sama jak <dfn>form_input()</dfn>, z tym że generuje pole o typie "textarea". Uwaga: Zamiast atrybutów "maxlength" i "size" należy używać atrybutów "rows" i "cols".</p>
 
 
 <h2>form_dropdown()</h2>
 
-<p>Lets you create a standard drop-down field.  The first parameter will contain the name of the field,
-the second parameter will contain an associative array of options, and the third parameter will contain the
-value you wish to be selected.  You can also pass an array of multiple items through the third parameter, and CodeIgniter will create a multiple select for you. Example:</p>
+<p>Pozwala na stworzenie standardowego pola drop-down. Pierwszy parametr zawiera nazwę pola,
+drugi tablicę asocjacyjną dostępnych opcji, a trzeci parametr przechowuje wartość, która ma zostać zaznaczona. 
+Możesz również przypisać tablicę wielu wartości do trzeciego parametru - wtedy CodeIgniter stworzy pole o type wielokrotnego wyboru. Przykład:</p>
 
 <code>$options = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'small'&nbsp;&nbsp;=> 'Small Shirt',<br />
@@ -211,7 +202,7 @@ $shirts_on_sale = array('small', 'large');<br />
 <br />
 echo form_dropdown('shirts', $options, 'large');<br />
 <br />
-// Would produce:<br />
+// Daje nam:<br />
 <br />
 &lt;select name=&quot;shirts&quot;&gt;<br />
 &lt;option value=&quot;small&quot;&gt;Small Shirt&lt;/option&gt;<br />
@@ -222,7 +213,7 @@ echo form_dropdown('shirts', $options, 'large');<br />
 <br />
 echo form_dropdown('shirts', $options, $shirts_on_sale);<br />
 <br />
-// Would produce:<br />
+// Daje nam:<br />
 <br />
 &lt;select name=&quot;shirts&quot; multiple=&quot;multiple&quot;&gt;<br />
 &lt;option value=&quot;small&quot; selected=&quot;selected&quot;&gt;Small Shirt&lt;/option&gt;<br />
@@ -232,69 +223,67 @@ echo form_dropdown('shirts', $options, $shirts_on_sale);<br />
 &lt;/select&gt;</code>
 
 
-<p>If you would like the opening &lt;select> to contain additional data, like an <kbd>id</kbd> attribute or JavaScript, you can pass it as a string in the
-fourth parameter:</p>
+<p>Jeśli chciałbyś aby otwierający znacznik  &lt;select> zawierał dodatkowe dane, jak atrybut <kbd>id</kbd> lub Javascript, możesz przypisać je jako ciąg znaków
+do czwartego parametru:</p>
 
-<code>$js = 'id="shirts" onChange="some_function();"';<br />
+<code>$js = 'id="shirts" onChange="jakas_funkcja();"';<br />
 <br />
 echo form_dropdown('shirts', $options, 'large', $js);</code>
 
-<p>If the array passed as $options is a multidimensional array, form_dropdown() will produce an &lt;optgroup&gt; with the array key as the label.</p>
+<p>Jeśli tablica przypisana do wartości $options jest wielowymiarowa, to funkcja form_dropdown() utworzy znacznik &lt;optgroup&gt; z kluczami tablicy jako nazwami.</p>
 
 <h2>form_multiselect()</h2>
 
-<p>Lets you create a standard multiselect field.  The first parameter will contain the name of the field,
-the second parameter will contain an associative array of options, and the third parameter will contain the
-value or values you wish to be selected.  The parameter usage is identical to using <kbd>form_dropdown()</kbd> above,
-except of course that the name of the field will need to use POST array syntax, e.g. <samp>foo[]</samp>.</p>
+<p>Pozwala na stworzenie standardowego pola multiselect. Pierwszy parametr zawiera nazwę pola,
+drugi tablicę asocjacyjną z opcjami wyboru, a trzeci parametr wartości, które mają zostać zaznaczone.
+Zasada stosowania parametrów jest taka sama jak w przypadku funkcji <kbd>form_dropdown()</kbd>, z tą różnicą, że nazwa pola musi używać składni tablicowej np. <samp>foo[]</samp>.</p>
 
 
 <h2>form_fieldset()</h2>
 
-<p>Lets you generate fieldset/legend fields.</p>
-<code>echo form_fieldset('Address Information');<br />
-echo &quot;&lt;p&gt;fieldset content here&lt;/p&gt;\n&quot;;<br />
+<p>Pozwala na stworzenie pól fieldset/legend.</p>
+<code>echo form_fieldset('Adres');<br />
+echo &quot;&lt;p&gt;zawartość formularza&lt;/p&gt;\n&quot;;<br />
 echo form_fieldset_close();
 <br />
 <br />
-// Produces<br />
+// Daje<br />
 &lt;fieldset&gt;
 <br />
-&lt;legend&gt;Address Information&lt;/legend&gt;
+&lt;legend&gt;Adres&lt;/legend&gt;
 <br />
-&lt;p&gt;form content here&lt;/p&gt;
+&lt;p&gt;zawartość formularza&lt;/p&gt;
 <br />
 &lt;/fieldset&gt;</code>
-<p>Similar to other functions, you can submit an associative array in the second parameter if you prefer to set additional attributes. </p>
+<p>Podobnie jak w innych funkcjach, możesz wysłać tablicę asocjacyjną w drugim parametrze, jeśli chcesz dodać dodatkowe atrybuty.</p>
 <p><code>$attributes = array('id' =&gt; 'address_info', 'class' =&gt; 'address_info');<br />
-    echo form_fieldset('Address Information', $attributes);<br />
-echo &quot;&lt;p&gt;fieldset content here&lt;/p&gt;\n&quot;;<br />
+    echo form_fieldset('Adres', $attributes);<br />
+echo &quot;&lt;p&gt;zawartość formularza&lt;/p&gt;\n&quot;;<br />
 echo form_fieldset_close(); <br />
 <br />
-// Produces<br />
+// Daje<br />
 &lt;fieldset id=&quot;address_info&quot; class=&quot;address_info&quot;&gt; <br />
 &lt;legend&gt;Address Information&lt;/legend&gt; <br />
-&lt;p&gt;form content here&lt;/p&gt; <br />
+&lt;p&gt;zawartość formularza&lt;/p&gt; <br />
 &lt;/fieldset&gt;</code></p>
 <h2>form_fieldset_close()</h2>
-<p>Produces a closing &lt;/fieldset&gt; tag.  The only advantage to using this function is it permits you to pass data to it
-    which will be added below the tag.  For example:</p>
+<p>Tworzy tag zamykający &lt;/fieldset&gt;. Jedyną zaletą użycia tej funkcji jest to, że pozwala na przypisanie danych, które zostaną dodane po tagu zamknięcia. Dla przykładu:</p>
 <code>$string = &quot;&lt;/div&gt;&lt;/div&gt;&quot;;<br />
 <br />
 echo form_fieldset_close($string);<br />
 <br />
-// Would produce:<br />
+// Da nam:<br />
 &lt;/fieldset&gt;<br />
 &lt;/div&gt;&lt;/div&gt;</code>
 <h2>form_checkbox()</h2>
-<p>Lets you generate a checkbox field. Simple example:</p>
+<p>Pozwala na stworzenie pola typu checkbox. Prosty przykład:</p>
 <code>echo form_checkbox('newsletter', 'accept', TRUE);<br />
 <br />
-// Would produce:<br />
+// Da nam:<br />
 <br />
 &lt;input type=&quot;checkbox&quot; name=&quot;newsletter&quot; value=&quot;accept&quot; checked=&quot;checked&quot; /&gt;</code>
-<p>The third parameter contains a boolean TRUE/FALSE to determine whether the box should be checked or not.</p>
-<p>Similar to the other form functions in this helper, you can also pass an array of attributes to the function:</p>
+<p>Trzeci parametr zawiera wartość TRUE/FALSE (boolean), która decyduje czy box powinien być zaznaczony, czy nie.</p>
+<p>Podobnie jak innych funkcjach w tym helperze, tutaj również możesz przypisać tablicę atrybutów:</p>
 
 <code>$data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;'name'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=> 'newsletter',<br />
@@ -306,62 +295,60 @@ echo form_fieldset_close($string);<br />
 <br />
 echo form_checkbox($data);<br />
 <br />
-// Would produce:<br /><br />
+// Da nam:<br /><br />
 &lt;input type="checkbox" name="newsletter" id="newsletter" value="accept" checked="checked" style="margin:10px" /></code>
 
-<p>As with other functions, if you would like the tag to contain  additional data, like JavaScript, you can pass it as a string in the
-fourth parameter:</p>
+<p>Tak jak w innych funkcjach, jeśli chciałbyś aby tag zawierał dodatkowe dane, jak Javascript, możesz przypisać je jako ciąg znaków do czwartego parametru:</p>
 
-<code>$js = 'onClick="some_function()"';<br />
+<code>$js = 'onClick="jakas_funkcja()"';<br />
 <br />
  echo form_checkbox('newsletter', 'accept', TRUE, $js)</code>
 
 
 <h2>form_radio()</h2>
-<p>This function is identical in all respects to the <dfn>form_checkbox()</dfn> function above except that is sets it as a "radio" type.</p>
+<p>Ta funkcja jest taka sama pod każdym względem jak <dfn>form_checkbox()</dfn>, z tym że ustawia dla pola typ "radio".</p>
 
 
 <h2>form_submit()</h2>
 
-<p>Lets you generate a standard submit button. Simple example:</p>
-<code>echo form_submit('mysubmit', 'Submit Post!');<br />
+<p>Pozwala na stworzenie standardowego przycisku submit. Prosty przykład:</p>
+<code>echo form_submit('mysubmit', 'Wyślij formularz!');<br />
 <br />
-// Would produce:<br />
+// Da nam:<br />
 <br />
 &lt;input type=&quot;submit&quot; name=&quot;mysubmit&quot; value=&quot;Submit Post!&quot; /&gt;</code>
-<p>Similar to other functions, you can submit an associative array in the first parameter if you prefer to set your own attributes.
-    The third parameter lets you add extra data to your form, like JavaScript.</p>
+<p>Tak jak w innych funkcjach, jeśli chcesz ustawić własne atrybuty, możesz wysłać tablicę asocjacyjną w pierwszym parametrze. Trzeci parametr pozwala na dodanie dodatkowych danych, np. Javascript.</p>
 <h2>form_label()</h2>
-<p>Lets you generate a &lt;label&gt;. Simple example:</p>
-<code>echo form_label('What is your Name', 'username');<br />
+<p>Pozwala na stworzenie tagu &lt;label&gt;. Prosty przykład:</p>
+<code>echo form_label('Jak masz na imię', 'username');<br />
 <br />
-// Would produce:
+// Da nam:
 <br />
-&lt;label for=&quot;username&quot;&gt;What is your Name&lt;/label&gt;</code>
-<p>Similar to other functions, you can submit an associative array in the third parameter if you prefer to set additional attributes.    </p>
+&lt;label for=&quot;username&quot;&gt;Jak masz na imię&lt;/label&gt;</code>
+<p>Podobnie jak w innych funkcjach, możesz wysłać tablicę asocjacyjną w trzecim parametrze, jeśli chcesz dodać dodatkowe atrybuty.</p>
 <p><code>$attributes = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;'class' =&gt; 'mycustomclass',<br />
 &nbsp;&nbsp;&nbsp;&nbsp;'style' =&gt; 'color: #000;',<br />
 );<br />
-    echo form_label('What is your Name', 'username', $attributes);<br />
+    echo form_label('Jak masz na imię', 'username', $attributes);<br />
         <br />
 // Would produce: <br />
-&lt;label for=&quot;username&quot; class=&quot;mycustomclass&quot; style=&quot;color: #000;&quot;&gt;What is your Name&lt;/label&gt;</code></p>
+&lt;label for=&quot;username&quot; class=&quot;mycustomclass&quot; style=&quot;color: #000;&quot;&gt;Jak masz na imię&lt;/label&gt;</code></p>
 <h2>form_reset()</h2>
 
-<p>Lets you generate a standard reset button. Use is identical to <dfn>form_submit()</dfn>.</p>
+<p>Pozwala na stworzenie standardowego przycisku reset. Funkcji używaj identycznie jak <dfn>form_submit()</dfn>.</p>
 
 <h2>form_button()</h2>
 
-<p>Lets you generate a standard button element. You can minimally pass the button name and content in the first and second parameter:</p>
+<p>Pozwala na stworzenie standardowego elementu button. Możesz ręcznie przypisać nazwę w pierwszym parametrze:</p>
 <code>
-echo form_button('name','content');<br />
+echo form_button('name','Content');<br />
 <br />
-// Would produce<br />
+// Da nam<br />
 &lt;button name="name" type="button"&gt;Content&lt;/button&gt;
 </code>
 
-Or you can pass an associative array containing any data you wish your form to contain:
+Możesz również przypisać tablicę asocjacyjną zawierającą dane, które chciałbyś aby zawierało pole:
 <code>
 $data = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;'name' => 'button',<br />
@@ -373,27 +360,26 @@ $data = array(<br />
 <br />
 echo form_button($data);<br />
 <br />
-// Would produce:<br />
+// Da nam:<br />
 &lt;button name="button" id="button" value="true" type="reset"&gt;Reset&lt;/button&gt;
 </code>
 
-If you would like your form to contain some additional data, like JavaScript, you can pass it as a string in the third parameter:
+Jeśli chcesz żeby Twoje pole formularza zawierało dodatkowe dane, np. Javascript, możesz przypisać ciąg znaków jako trzeci parametr:
 <code>
-$js = 'onClick="some_function()"';<br /><br />
-echo form_button('mybutton', 'Click Me', $js);
+$js = 'onClick="jakas_funkcja()"';<br /><br />
+echo form_button('mybutton', 'Kliknij mnie', $js);
 </code>
 
 
 <h2>form_close()</h2>
 
-<p>Produces a closing &lt;/form> tag.  The only advantage to using this function is it permits you to pass data to it
-which will be added below the tag.  For example:</p>
+<p>Tworzy tag zamykający &lt;/form>. Jedyną zaletą użycia tej funkcji jest to, że pozwala na przypisanie danych, które zostaną dodane po tagu zamknięcia. Dla przykładu:</p>
 
 <code>$string = "&lt;/div>&lt;/div>";<br />
 <br />
 echo form_close($string);<br />
 <br />
-// Would produce:<br />
+// Da nam:<br />
 <br />
 &lt;/form><br />
 &lt;/div>&lt;/div></code>
@@ -404,38 +390,36 @@ echo form_close($string);<br />
 
 <h2>form_prep()</h2>
 
-<p>Allows you to safely use HTML and characters such as quotes within form elements without breaking out of the form.  Consider this example:</p>
+<p>Pozwala na bezpieczne korzystanie z HTML i takich znaków jak cudzysłów w elementach formularza, bez psucia formularza. Spójrz na ten przykład:</p>
 
-<code>$string = 'Here is a string containing <strong>"quoted"</strong> text.';<br />
+<code>$string = 'To jest ciąg posiadający tekst w <strong>"cudzysłowiu"</strong>.';<br />
 <br />
 &lt;input type="text" name="myform" value="<var>$string</var>" /></code>
 
-<p>Since the above string contains a set of quotes it will cause the form to break.
-The form_prep function converts HTML so that it can be used safely:</p>
+<p>Z racji tego, że ciąg posiada cudzysłowia, formularz zostanie popsuty.
+Funkcja form_prep konwertuje HTML, więc może on zostac bezpiecznie użyty:</p>
 
 <code>&lt;input type="text" name="myform" value="<var>&lt;?php echo form_prep($string); ?></var>" /></code>
 
-<p class="important"><strong>Note:</strong> If you use any of the form helper functions listed in this page the form
-values will be prepped automatically, so there is no need to call this function. Use it only if you are
-creating your own form elements.</p>
+<p class="important"><strong>Uwaga:</strong> Jeśli używasz któregokolwiek z helperów umieszczonego na tej stronie, wartości dla formularza zostaną automatycznie przygotowane - 
+nie będzie więc potrzeby wywoływania tej funkcji. Używaj tej funkcji tylko wtedy, gdy tworzysz własne elementy formularzy.</p>
 
 
 <h2>set_value()</h2>
 
-<p>Permits you to set the value of an input form or textarea. You must supply the field name via the first parameter of the function.
-The second (optional) parameter allows you to set a default value for the form. Example:</p>
+<p>Pozwala na ustawienie wartości dla pola input lub textarea. Musisz dostarczyć nazwę pola za pomocą pierwszego parametru funkcji.
+Drugi (opcjonalny) parametr pozwala na określenie domyślnej wartości dla pola. Przykład:</p>
 
 <code>&lt;input type="text" name="quantity" value="<dfn>&lt;?php echo set_value('quantity', '0'); ?></dfn>" size="50" /></code>
 
-<p>The above form will show "0" when loaded for the first time.</p>
+<p>Pole formularza zostanie ustawione na wartość "0", kiedy formularz zostanie załadowany pierwszy raz.</p>
 
 <h2>set_select()</h2>
 
-<p>If you use a <dfn>&lt;select></dfn> menu, this function permits you to display the menu item that was selected.  The first parameter
-must contain the name of the select menu, the second parameter must contain the value of
-each item, and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE).</p>
+<p>Jeśli używasz menu <dfn>&lt;select></dfn>, ta funkcja pozwoli na określenie pozycji, która jest zaznaczona. Pierwszy parametr
+musi zawierać nazwę pola select, drugi wartości dla każdej danej, a trzeci parametr (opcjonalny) pozwala na ustawienie danej opcji jako domyślnej (boolean TRUE/FALSE).</p>
 
-<p>Example:</p>
+<p>Przykład:</p>
 
 <code>
 &lt;select name="myselect"><br />
@@ -448,8 +432,8 @@ each item, and the third (optional) parameter lets you set an item as the defaul
 
 <h2>set_checkbox()</h2>
 
-<p>Permits you to display a checkbox in the state it was submitted.  The first parameter
-must contain the name of the checkbox, the second parameter must contain its value, and the third (optional) parameter lets you set an item as the default (use boolean TRUE/FALSE). Example:</p>
+<p>Pozwala na wyświetlenie pola typu checkbox w stanie, w którym zostało wysłane. Pierwszy parametr musi zawierać nazwę pola checkbox, drugi
+jego wartość, a trzeci parametr (opcjonalny) pozwala na ustawienie danej opcji jako domyślnej (boolean TRUE/FALSE). Przykład:</p>
 
 <code>&lt;input type="checkbox" name="mycheck" value="1" <dfn>&lt;?php echo set_checkbox('mycheck', '1'); ?></dfn> /><br />
 &lt;input type="checkbox" name="mycheck" value="2" <dfn>&lt;?php echo set_checkbox('mycheck', '2'); ?></dfn> /></code>
@@ -457,7 +441,7 @@ must contain the name of the checkbox, the second parameter must contain its val
 
 <h2>set_radio()</h2>
 
-<p>Permits you to display radio buttons in the state they were submitted. This function is identical to the <strong>set_checkbox()</strong> function above.</p>
+<p>Pozwala na wyświetlenie pola radio w stanie, w którym zostało wysłane. Ta funkcja jest taka sama jak <strong>set_checkbox()</strong> powyżej.</p>
 
 <code>&lt;input type="radio" name="myradio" value="1" <dfn>&lt;?php echo  set_radio('myradio', '1', TRUE); ?></dfn> /><br />
 &lt;input type="radio" name="myradio" value="2" <dfn>&lt;?php echo  set_radio('myradio', '2'); ?></dfn> /></code>
@@ -471,11 +455,11 @@ must contain the name of the checkbox, the second parameter must contain its val
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="file_helper.html">File Helper</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="file_helper.html">Helper File</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="html_helper.html">HTML Helper</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="html_helper.html">Helper HTML</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
