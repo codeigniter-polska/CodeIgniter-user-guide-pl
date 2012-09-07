@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Text Helper : Podręcznik użytkownika CodeIgniter</title>
+<title>Helper Text : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Text Helper
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Helper Text
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -58,76 +58,76 @@ Text Helper
 
 <h1>Text Helper</h1>
 
-<p>The Text Helper file contains functions that assist in working with text.</p>
+<p>Helper Text zawiera funkcje pomagające w pracy z tekstem.</p>
 
 
-<h2>Loading this Helper</h2>
+<h2>Ładowanie helpera</h2>
 
-<p>This helper is loaded using the following code:</p>
+<p>Ten helper jest ładowany za pomocą poniższego kodu:</p>
 <code>$this->load->helper('text');</code>
 
-<p>The following functions are available:</p>
+<p>Dostępne są następujące funkcje:</p>
 
 
 <h2>word_limiter()</h2>
 
-<p>Truncates a string to the number of <strong>words</strong> specified.  Example:</p>
+<p>Przycina ciąg znaków do takiej ilości <strong>słów</strong>, jaką określono w drugim parametrze. Przykład:</p>
 
 <code>
-$string = "Here is a nice text string consisting of eleven words.";<br />
+$string = "To jest bardzo ładny ciąg znaków zawierający dziewięć wyrazów.";<br />
 <br />
 $string = word_limiter($string, 4);<br /><br />
 
-// Returns:  Here is a nice&#8230;
+// Zwraca:  To jest bardzo ładny&#8230;
 </code>
 
-<p>The third parameter is an optional suffix added to the string.  By default it adds an ellipsis.</p>
+<p>Trzeci parametr jest opcjonalnym suffixem, który zostanie dodany do ciągu. Domyślnie jest to wielokropek.</p>
 
 
 <h2>character_limiter()</h2>
 
-<p>Truncates a string to the number of <strong>characters</strong> specified.  It maintains the integrity
-of words so the character count may be slightly more or less then what you specify. Example:</p>
+<p>Przycina ciąg znaków do takiej ilości <strong>znaków</strong>, jaką określono w drugim parametrze. Funkcja bierze pod uwagę integralność całych wyrazów, więc liczba zwróconych liter może
+się nieznacznie różnić od ilości znaków, która została określona. Przykład:</p>
 
 <code>
-$string = "Here is a nice text string consisting of eleven words.";<br />
+$string = "To jest bardzo ładny ciąg znaków zawierający dziewięć wyrazów.";<br />
 <br />
-$string = character_limiter($string, 20);<br /><br />
+$string = character_limiter($string, 22);<br /><br />
 
-// Returns:  Here is a nice text string&#8230;
+// Zwraca:  To jest bardzo ładny ciąg&#8230;
 </code>
 
-<p>The third parameter is an optional suffix added to the string, if undeclared this helper uses an ellipsis.</p>
+<p>Trzeci parametr jest opcjonalnym suffixem, który zostanie dodany do ciągu. Domyślnie jest to wielokropek.</p>
 
 
 
 <h2>ascii_to_entities()</h2>
 
-<p>Converts ASCII values to character entities, including high ASCII and MS Word characters that can cause problems when used in a web page,
-so that they can be shown consistently regardless of browser settings or stored reliably in a database.
-There is some dependence on your server's supported character sets, so it may not be 100% reliable in all cases, but for the most
-part it should correctly identify characters outside the normal range (like accented characters). Example:</p>
+<p>Zamienia wartości ASCII na encje, włączając w to zaawansowane ASCII oraz znaki z MS Word, które mogą powodować problemy, kiedy używamy ich na stronach internetowych - dzięki temu mogą być one
+wyświetlane niezaleznie od ustawień przeglądarki lub zachowane poprawnie w bazie danych.
+Funkcja jest zależna w pewnym stopniu od obsługiwanego zestawu znaków na Twoim serwerze - nie można więc na niej polegać w 100%, jednak w większości przypadków
+funkcja ta powinna poprawnie identyfikować znaki spoza normalnego przedziału (włączając w to znaki dialektyczne). Przykład:</p>
 
 <code>$string = ascii_to_entities($string);</code>
 
 
 <h2>entities_to_ascii()</h2>
 
-<p>This function does the opposite of the previous one; it turns character entities back into ASCII.</p>
+<p>Ta funkcja działa odwrotnie do tej przedstawionej powyżej. Zamienia encje z powrotem na kod ASCII.</p>
 
 <h2>convert_accented_characters()</h2>
 
-<p>Transliterates high ASCII characters to low ASCII equivalents, useful when non-English characters need to be used where only standard ASCII characters are safely used, for instance, in URLs.</p>
+<p>Zamienia zaawansowane znaki ASCII na ich odpowiednik w zwykłym ASCII. Przydatne, kiedy muszą zostać użyte nie-angielskie znaki i tylko standardowy kod ASCII może być bezpiecznie stosowany, np. w przypadku adresów URL.</p>
 
 <code>$string = convert_accented_characters($string);</code>
 
-<p>This function uses a companion config file <dfn>application/config/foreign_chars.php</dfn> to define the to and from array for transliteration.</p>
+<p>Ta funkcja korzysta z pliku konfiguracyjnego <dfn>application/config/foreign_chars.php</dfn>, aby zdefiniować tablicę transliteracji.</p>
 
 <h2>word_censor()</h2>
 
-<p>Enables you to censor words within a text string.  The first parameter will contain the original string.  The
-second will contain an array of words which you disallow.  The third (optional) parameter can contain a replacement value
-for the words.  If not specified they are replaced with pound signs: ####.  Example:</p>
+<p>Pozwala na cenzurowanie słów w ciągu tekstowym. Pierwszy parametr zawiera oryginalny ciąg. Drugi, tablicę zabronionych słów. 
+Trzeci parametr (opcjonalny), może zawierać wartość, która zostanie wstawiona w miejsce cenzurowanych słów.
+Jeśli trzeci parametr nie zostanie określony, domyślnie wyrazy będą zastępowane ciągiem ####. Przykład:</p>
 
 <code>
 $disallowed = array('darn', 'shucks', 'golly', 'phooey');<br />
@@ -137,40 +137,39 @@ $string = word_censor($string, $disallowed, 'Beep!');</code>
 
 <h2>highlight_code()</h2>
 
-<p>Colorizes a string of code (PHP, HTML, etc.).  Example:</p>
+<p>Koloruje ciąg kodu (PHP, HTML, itp.).  Przykład:</p>
 
 <code>$string = highlight_code($string);</code>
 
-<p>The function uses PHP's highlight_string() function, so the colors used are the ones specified in your php.ini file.</p>
+<p>Ta funkcja używa funkcji PHP highlight_string(), więc użyte kolory są tymi, zdefiniowanymi w Twoim pliku php.ini.</p>
 
 
 <h2>highlight_phrase()</h2>
 
-<p>Will highlight a phrase within a text string.  The first parameter will contain the original string, the second will
-contain the phrase you wish to highlight.  The third and fourth parameters will contain the opening/closing HTML tags
-you would like the phrase wrapped in.  Example:</p>
+<p>Funkcja podświetla frazę w ciągu tekstowym. Pierwszy parametr zawiera oryginalny ciąg. Drugi, frazę którą chcesz podświetlić.
+Trzeci i czwarty parametr, zawierają otwierajace i zamykające tagi HTML, pomiędzy którymi ma się znaleźć fraza. Przykład:</p>
 
 <code>
-$string = "Here is a nice text string about nothing in particular.";<br />
+$string = "To jest bardzo ładny ciąg znaków o niczym.";<br />
 <br />
-$string = highlight_phrase($string, "nice text", '&lt;span style="color:#990000">', '&lt;/span>');
+$string = highlight_phrase($string, "bardzo ładny", '&lt;span style="color:#990000">', '&lt;/span>');
 </code>
 
-<p>The above text returns:</p>
+<p>Powyższa funkcja zwraca:</p>
 
-<p>Here is a <span style="color:#990000">nice text</span> string about nothing in particular.</p>
+<p>To jest <span style="color:#990000">bardzo ładny</span> ciąg znaków o niczym.</p>
 
 
 
 <h2>word_wrap()</h2>
 
-<p>Wraps text at the specified <strong>character</strong> count while maintaining complete words.  Example:</p>
+<p>Zawija tekst na określonej <strong>literze</strong>, biorąc jednak pod uwagę integralność słów. Przykład:</p>
 
 <code>$string = "Here is a simple string of text that will help us demonstrate this function.";<br />
 <br />
 echo word_wrap($string, 25);<br />
 <br />
-// Would produce:<br />
+// Zwróci nam:<br />
 <br />
 Here is a simple string<br />
 of text that will help<br />
@@ -179,15 +178,18 @@ function</code>
 
 <h2>ellipsize()</h2>
 
-<p>This function will strip tags from a string, split it at a defined maximum length, and insert an ellipsis.</p>
-<p>The first parameter is the string to ellipsize, the second is the number of characters in the final string. The third parameter is where in the string the ellipsis should appear from 0 - 1, left to right.  For example.  a value of 1 will place the ellipsis at the right of the string, .5 in the middle, and 0 at the left.</p>
-<p>An optional forth parameter is the kind of ellipsis.  By default, <samp>&amp;hellip;</samp> will be inserted.</p>
+<p>Ta funkcja przycina ciąg do określonej długości i dołącza wielokropek.</p>
+
+<p>Pierwszy parametr zawiera ciąg, do którego ma zostać dodany wielokropek. Drugi parametr określa liczbę liter, z których składać ma się finalna postać ciągu. Trzeci parametr określa, w którym miejscu ciągu
+ma znajdować się wielokropek - parametr przyjmuje wartości od 0 do 1. Dla przykładu, wartość 1 umieści wielokropek po prawej stronie, wartość .5 na środku, a 0 po lewej stronie.</p>
+
+<p>Opcjonalny czwarty parametr określa co ma zostać wstawione do ciągu. Domyślnie zostanie wstawiony znak <samp>&amp;hellip;</samp>, czyli wielokropka.</p>
 
 <code>$str = 'this_string_is_entirely_too_long_and_might_break_my_design.jpg';<br />
 <br />
 echo ellipsize($str, 32, .5);</code>
 
-Produces:
+Daje:
 
 <code>this_string_is_e&hellip;ak_my_design.jpg</code>
 
@@ -198,11 +200,11 @@ Produces:
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="string_helper.html">String Helper</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="string_helper.html">Helper String</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="typography_helper.html">Typography Helper</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="typography_helper.html">Helper Typography</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
