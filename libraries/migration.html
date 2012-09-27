@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Klasa Migration : CodeIgniter User Guide</title>
+
+<style type='text/css' media='all'>@import url('../userguide.css');</style>
+<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
+
+<script type="text/javascript" src="../nav/nav.js"></script>
+<script type="text/javascript" src="../nav/prototype.lite.js"></script>
+<script type="text/javascript" src="../nav/moo.fx.js"></script>
+<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
+
+<meta http-equiv='expires' content='-1' />
+<meta http-equiv= 'pragma' content='no-cache' />
+<meta name='robots' content='all' />
+<meta name='author' content='CodeIgniter Dev Team' />
+<meta name='description' content='CodeIgniter User Guide' />
+
+</head>
+<body>
+
+<!-- START NAVIGATION -->
+<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
+<div id="masthead">
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
+</tr>
+</table>
+</div>
+<!-- END NAVIGATION -->
+
+
+<!-- START BREADCRUMB -->
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td id="breadcrumb">
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa Migration
+</td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+</tr>
+</table>
+<!-- END BREADCRUMB -->
+
+<br clear="all" />
+
+
+<!-- START CONTENT -->
+<div id="content">
+
+
+<h1>Klasa Migration</h1>
+
+<p>Migracje są wygodnym sposobem na to, aby wprowadzać zmiany w bazie danych w zorganizowany sposób. Mógłbyś ręcznie edytować fragmenty kodu SQL, ale byłbyś wtedy też odpowiedzialny za powiadomienie innych developerów
+o zaistniałych zmianach. Musiałbyś również śledzić zmiany jakie muszą zostać wprowadzone na serwerze produkcyjnym, podczas wprowadzania nowej wersji aplikacji (lub poprawek).</p>
+
+<p>Tabela w bazie danych o nazwie <var>migration</var>, śledzi które migracje zostały już uruchomione, więc wszystko co musisz zrobić, to wgranie zmienionych plików na serwer oraz uruchomienie funkcji <dfn>$this->migrate->current()</dfn>,
+aby zobaczyć, które migracje powinny być uruchomione. Aktualna wersja migracji dla aplikacji jest zapisana w pliku <var>config/migration.php</var>.</p>
+
+<h2>Tworzenie migracji</h2>
+
+<p>To będzie pierwsza migracja dla strony, która posiada blog. Wszystkie migracje znajdują się w folderze <var>application/migrations/</var> i mają nazwy w postaci: <kbd>001_add_blog.php</kbd>.</p>
+
+<pre>
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Migration_Add_blog extends CI_Migration {
+
+	public function up()
+	{
+		$this->dbforge->add_field(array(
+			'blog_id' => array(
+				'type' => 'INT',
+				'constraint' => 5,
+				'unsigned' => TRUE,
+				'auto_increment' => TRUE
+			),
+			'blog_title' => array(
+				'type' => 'VARCHAR',
+				'constraint' => '100',
+			),
+			'blog_description' => array(
+				'type' => 'TEXT',
+				'null' => TRUE,
+			),
+		));
+		
+		$this->dbforge->create_table('blog');
+	}
+
+	public function down()
+	{
+		$this->dbforge->drop_table('blog');
+	}
+</pre>
+
+<p>W pliku <var>application/config/migration.php</var> ustaw <dfn>$config['migration_version'] = 1;</dfn>.
+
+<h2>Przykład użycia</h2>
+
+<p>W tym przykładzie, umieszczono prosty kawałek kodu w pliku <var>application/controllers/migrate.php</var>, aby zmienić schemat bazy.</p>
+
+<pre>
+$this->load->library('migration');
+
+if ( ! $this->migration->current())
+{
+	show_error($this->migration->error_string());
+}
+</pre>
+
+
+<h1>Opis funkcji</h1>
+
+<h2>$this->migration->current()</h2>
+
+<p>Zwraca wartość ustawioną w pliku <var>application/config/migration.php</var> dla zmiennej <dfn>$config['migration_version']</dfn>.</p>
+
+
+<h2>$this->migration->latest()</h2>
+
+<p>Działa w ten sam sposób jak funkcja current(), ale zamiast szukać zmiennej <dfn>$config['migration_version']</dfn>, klasa wykona najnowsze dostępne w aplikacji migracje.</p>
+
+<h2>$this->migration->version()</h2>
+
+<p>Funkcja może być użyta, aby cofnąć wprowadzone zmiany w bazie danych. Można cofnąć się do określonej wersji.</p>
+
+<pre>
+$this->load->library('migration');
+
+$this->migration->version(5);
+</pre>
+
+<h2>Preferencje migracji</h2>
+
+<p>Poniżej znajduje się pełna lista opcji konfiguracyjnych dla migracji.</p>
+
+
+<table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
+<tr>
+<th>Preferencja</th>
+<th>Domyślna&nbsp;wartość</th>
+<th>Opcje</th>
+<th>Opis</th>
+</tr><tr>
+<td class="td"><strong>migration_enabled</strong></td><td class="td">FALSE</td><td class="td">TRUE / FALSE</td><td class="td">Włącza lub wyłącza migracje.</td>
+</tr><tr>
+<td class="td"><strong>migration_version</strong></td><td class="td">0</td><td class="td">None</td><td class="td">Określa wersję do której powinna być zsynchronizowana baza danych.</td>
+</tr><tr>
+<td class="td"><strong>migration_path</strong></td><td class="td">APPPATH.'migrations/'</td><td class="td">None</td><td class="td">Ścieżka do folderu z migracjami.</td>
+</tr>
+</table>
+
+
+</div>
+<!-- END CONTENT -->
+
+
+<div id="footer">
+<p>
+Poprzedni temat:&nbsp;&nbsp;<a href="form_validation.html">Klasa Form Validation</a>
+&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="table.html">Klasa HTML Table</a>
+</p>
+<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2012 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+</div>
+<!-- Piwik -->
+<script type="text/javascript">
+	var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
+	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+	try {
+		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
+		piwikTracker.trackPageView();
+		piwikTracker.enableLinkTracking();
+	} catch( err ) {}
+</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+</body>
+</html>
