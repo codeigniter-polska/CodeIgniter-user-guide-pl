@@ -94,6 +94,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/javascript.html">Javascript Class</a></li>' +
 		'<li><a href="'+base+'libraries/loader.html">Loader Class</a></li>' +
 		'<li><a href="'+base+'libraries/language.html">Language Class</a></li>' +
+		'<li><a href="'+base+'libraries/migration.html">Klasa Migration</a></li>' +
 		'<li><a href="'+base+'libraries/output.html">Output Class</a></li>' +
 		'<li><a href="'+base+'libraries/pagination.html">Pagination Class</a></li>' +
 		'<li><a href="'+base+'libraries/security.html">Security Class</a></li>' +
@@ -102,7 +103,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/parser.html">Template Parser Class</a></li>' +
 		'<li><a href="'+base+'libraries/typography.html">Typography Class</a></li>' +
 		'<li><a href="'+base+'libraries/unit_testing.html">Unit Testing Class</a></li>' +
-		'<li><a href="'+base+'libraries/uri.html">URI Class</a></li>' +
+		'<li><a href="'+base+'libraries/uri.html">Klasa URI</a></li>' +
 		'<li><a href="'+base+'libraries/user_agent.html">User Agent Class</a></li>' +
 		'<li><a href="'+base+'libraries/xmlrpc.html">XML-RPC Class</a></li>' +
 		'<li><a href="'+base+'libraries/zip.html">Zip Encoding Class</a></li>' +
@@ -119,27 +120,27 @@ function create_menu(basepath)
 
 		'<h3>Opisy helperów</h3>' +
 		'<ul>' +
-		'<li><a href="'+base+'helpers/array_helper.html">Array Helper</a></li>' +
+		'<li><a href="'+base+'helpers/array_helper.html">Helper Array</a></li>' +
 		'<li><a href="'+base+'helpers/captcha_helper.html">CAPTCHA Helper</a></li>' +
-		'<li><a href="'+base+'helpers/cookie_helper.html">Cookie Helper</a></li>' +
-		'<li><a href="'+base+'helpers/date_helper.html">Date Helper</a></li>' +
-		'<li><a href="'+base+'helpers/directory_helper.html">Directory Helper</a></li>' +
-		'<li><a href="'+base+'helpers/download_helper.html">Download Helper</a></li>' +
-		'<li><a href="'+base+'helpers/email_helper.html">Email Helper</a></li>' +
-		'<li><a href="'+base+'helpers/file_helper.html">File Helper</a></li>' +
-		'<li><a href="'+base+'helpers/form_helper.html">Form Helper</a></li>' +
-		'<li><a href="'+base+'helpers/html_helper.html">HTML Helper</a></li>' +
-		'<li><a href="'+base+'helpers/inflector_helper.html">Inflector Helper</a></li>' +
-		'<li><a href="'+base+'helpers/language_helper.html">Language Helper</a></li>' +
-		'<li><a href="'+base+'helpers/number_helper.html">Number Helper</a></li>' +
-		'<li><a href="'+base+'helpers/path_helper.html">Path Helper</a></li>' +
-		'<li><a href="'+base+'helpers/security_helper.html">Security Helper</a></li>' +
+		'<li><a href="'+base+'helpers/cookie_helper.html">Helper Cookie</a></li>' +
+		'<li><a href="'+base+'helpers/date_helper.html">Helper Date</a></li>' +
+		'<li><a href="'+base+'helpers/directory_helper.html">Helper Directory</a></li>' +
+		'<li><a href="'+base+'helpers/download_helper.html">Helper Download</a></li>' +
+		'<li><a href="'+base+'helpers/email_helper.html">Helper Email</a></li>' +
+		'<li><a href="'+base+'helpers/file_helper.html">Helper File</a></li>' +
+		'<li><a href="'+base+'helpers/form_helper.html">Helper Form</a></li>' +
+		'<li><a href="'+base+'helpers/html_helper.html">Helper HTML</a></li>' +
+		'<li><a href="'+base+'helpers/inflector_helper.html">Helper Inflector</a></li>' +
+		'<li><a href="'+base+'helpers/language_helper.html">Helper Language</a></li>' +
+		'<li><a href="'+base+'helpers/number_helper.html">Helper Number</a></li>' +
+		'<li><a href="'+base+'helpers/path_helper.html">Helper Path</a></li>' +
+		'<li><a href="'+base+'helpers/security_helper.html">Helper Security</a></li>' +
 		'<li><a href="'+base+'helpers/smiley_helper.html">Smiley Helper</a></li>' +
-		'<li><a href="'+base+'helpers/string_helper.html">String Helper</a></li>' +
-		'<li><a href="'+base+'helpers/text_helper.html">Text Helper</a></li>' +
-		'<li><a href="'+base+'helpers/typography_helper.html">Typography Helper</a></li>' +
-		'<li><a href="'+base+'helpers/url_helper.html">URL Helper</a></li>' +
-		'<li><a href="'+base+'helpers/xml_helper.html">XML Helper</a></li>' +
+		'<li><a href="'+base+'helpers/string_helper.html">Helper String</a></li>' +
+		'<li><a href="'+base+'helpers/text_helper.html">Helper Text</a></li>' +
+		'<li><a href="'+base+'helpers/typography_helper.html">Helper Typography</a></li>' +
+		'<li><a href="'+base+'helpers/url_helper.html">Helper URL</a></li>' +
+		'<li><a href="'+base+'helpers/xml_helper.html">Helper XML</a></li>' +
 		'</ul>' +
 
 		'</td></tr></table>');
