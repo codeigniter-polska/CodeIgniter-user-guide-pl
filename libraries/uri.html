@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>URI Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa URI : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.0.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.2</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-URI Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa URI
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,21 +56,20 @@ URI Class
 <div id="content">
 
 
-<h1>URI Class</h1>
+<h1>Klasa URI</h1>
 
-<p>The URI Class provides functions that help you retrieve information from your URI strings. If you use URI routing, you can
-also retrieve information about the re-routed segments.</p>
+<p>Klasa URI dostarcza funkcje, które zwracają informacje z ciągu URI. Jeśli używasz routingu URI, możesz również otrzymać informacje na temat "zamienionych" segmentów.</p>
 
-<p class="important"><strong>Note:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>Uwaga:</strong> Ta klasa jest ładowana automatycznie przez system, dlatego nie musisz tego robić samodzielnie.</p>
 
 <h2>$this->uri->segment(<var>n</var>)</h2>
 
-<p>Permits you to retrieve a specific segment. Where <var>n</var> is the segment number you wish to retrieve.
-Segments are numbered from left to right. For example, if your full URL is this:</p>
+<p>Pozwala na zwrócenie określonego segmentu, gdzie <var>n</var> jest numerem segmentu, który ma zostać zwrócony.
+Segmenty są ponumerowane od strony lewej do prawej. Dla przykładu, jeśli Twój pełny URL to:</p>
 
 <code>http://example.com/index.php/news/local/metro/crime_is_up</code>
 
-<p>The segment numbers would be this:</p>
+<p>Numery segmentów byłyby następujące:</p>
 
 <ol>
 <li>news</li>
@@ -79,13 +78,13 @@ Segments are numbered from left to right. For example, if your full URL is this:
 <li>crime_is_up</li>
 </ol>
 
-<p>By default the function returns FALSE (boolean) if the segment does not exist. There is an optional second parameter that
-permits you to set your own default value if the segment is missing.
-For example, this would tell the function to return the number zero in the event of failure:</p>
+<p>Domyślnie funkcja zwraca wartość FALSE (boolean) jeśli dany segment nie istnieje. Funkcja przyjmuje opcjonalny drugi parametr, który pozwala na ustalenie
+własnej domyślnej wartości, na wypadek gdy podany segment nie istnieje.
+Dla przykładu, ten kod zwróci zero w przypadku niepowodzenia:</p>
 
 <code>$product_id = $this->uri->segment(3, 0);</code>
 
-<p>It helps avoid having to write code like this:</p>
+<p>Pozwala to na uniknięcie pisania kodu na kształt tego:</p>
 
 <code>if ($this->uri->segment(3) === FALSE)<br />
 {<br />
@@ -99,20 +98,20 @@ else<br />
 
 <h2>$this->uri->rsegment(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one, except that it lets you retrieve a specific segment from your
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>Ta funkcja jest identyczna jak poprzednia, za wyjątkiem tego, że pozwala na zwrócenie określonego segmentu adresu URI jeszcze przed jego "przepisaniem" - o ile używasz takiej opcji
+jak <a href="../general/routing.html">routing URL</a>.</p>
 
 
 <h2>$this->uri->slash_segment(<var>n</var>)</h2>
 
-<p>This function is almost identical to <dfn>$this->uri->segment()</dfn>, except it adds a trailing and/or leading slash based on the second
-parameter.  If the parameter is not used, a trailing slash added.  Examples:</p>
+<p>Ta funkcja również jest niemal identyczna jak <dfn>$this->uri->segment()</dfn>, za wyjątkiem tego, że dodaje końcowy i/lub początkowy slash - na podstawie drugiego parametru.
+Jeśli parametr nie jest użyty, dodawany jest tylko końcowy slash. Przykłady:</p>
 
 <code>$this->uri->slash_segment(<var>3</var>);<br />
 $this->uri->slash_segment(<var>3</var>, 'leading');<br />
 $this->uri->slash_segment(<var>3</var>, 'both');</code>
 
-<p>Returns:</p>
+<p>Daje nam:</p>
 
 <ol>
 <li>segment/</li>
@@ -123,18 +122,18 @@ $this->uri->slash_segment(<var>3</var>, 'both');</code>
 
 <h2>$this->uri->slash_rsegment(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one, except that it lets you add slashes a specific segment from your
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>Ta funkcja jest taka sama jak poprzednia, z tym że pozwala dodawać slashe do określonego segmentu z "przepisanego" adresu URI - o ile używasz takiej opcji
+jak <a href="../general/routing.html">routing URL</a>.</p>
 
 
 
 <h2>$this->uri->uri_to_assoc(<var>n</var>)</h2>
 
-<p>This function lets you turn URI segments into and associative array of key/value pairs.  Consider this URI:</p>
+<p>Ta funkcja pozwala na zamianę segmentów URI na tablicę asocjacyjną - klucz/wartość. Spójrz na ten adres URI:</p>
 
 <code>index.php/user/search/name/joe/location/UK/gender/male</code>
 
-<p>Using this function you can turn the URI into an associative array with this prototype:</p>
+<p>Używając tej funkcji, możesz zamienić adres URI na tablicę asocjacyjną o takim kształcie:</p>
 
 <code>[array]<br />
 (<br />
@@ -143,8 +142,8 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 &nbsp;&nbsp;&nbsp;&nbsp;'gender'	=> 'male'<br />
 )</code>
 
-<p>The first parameter of the function lets you set an offset.  By default it is set to <kbd>3</kbd> since your
-URI will normally contain a controller/function in the first and second segments. Example:</p>
+<p>Pierwszy parametr funkcji pozwala na ustawienie offsetu. Domyślnie jest on ustawiony na <kbd>3</kbd>, z racji tego, że Twój adres URI zazwyczaj zawiera
+kontroler w pierwszym i funkcję w drugim segmencie. Przykład:</p>
 
 <code>
 $array = $this->uri->uri_to_assoc(3);<br />
@@ -153,69 +152,66 @@ echo $array['name'];
 </code>
 
 
-<p>The second parameter lets you set default key names, so that the array returned by the function will always contain expected indexes, even if missing from the URI. Example:</p>
+<p>Drugi parametr pozwala na ustawienie domyślnych nazw kluczy. Tablica zwrócona przez funkcję będzie zawsze zawierała oczekiwane indeksy, nawet jeśli adres URI nie będzie ich zawierał. Przykład:</p>
 
 <code>
 $default = array('name', 'gender', 'location', 'type', 'sort');<br />
 <br />
 $array = $this->uri->uri_to_assoc(3, $default);</code>
 
-<p>If the URI does not contain a value in your default, an array index will be set to that name, with a value of FALSE.</p>
-
-<p>Lastly, if a corresponding value is not found for a given key (if there is an odd number of URI segments) the value will be set to FALSE (boolean).</p>
-
+<p>Jeśli adres URI nie zawiera, którejś z wartości tablicy dafault, to indeks w tablicy zostanie ustawiony na tę nazwę z wartością FALSE.</p>
 
 <h2>$this->uri->ruri_to_assoc(<var>n</var>)</h2>
 
-<p>This function is identical to the previous one, except that it creates an associative array using the
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>Ta funkcja jest taka sama jak poprzednia, z tym że tworzy tablicę asocjacyjną z użyciem "przepisanego" adresu URI - o ile używasz takiej opcji
+jak <a href="../general/routing.html">routing URL</a>.</p>
 
 
 <h2>$this->uri->assoc_to_uri()</h2>
 
-<p>Takes an associative array as input and generates a URI string from it.  The array keys will be included in the string.  Example:</p>
+<p>Za pierwszy parametr bierze tablicę i na jej podstawie generuje ciąg URI. Klucze tablicy będą włączone do ciągu. Przykład:</p>
 
 <code>$array = array('product' => 'shoes', 'size' => 'large', 'color' => 'red');<br />
 <br />
 $str = $this->uri->assoc_to_uri($array);<br />
 <br />
-// Produces:  product/shoes/size/large/color/red
+// Daje:  product/shoes/size/large/color/red
 </code>
 
 
 <h2>$this->uri->uri_string()</h2>
 
-<p>Returns a string with the complete URI.  For example, if this is your full URL:</p>
+<p>Zwraca kompletny ciąg URI. Dla przykładu, jeśli Twój pełen adres URL to:</p>
 
 <code>http://example.com/index.php/news/local/345</code>
 
-<p>The function would return this:</p>
+<p>Ta funkcja zwróci:</p>
 
 <code>/news/local/345</code>
 
 
 <h2>$this->uri->ruri_string()</h2>
 
-<p>This function is identical to the previous one, except that it returns the
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>Ta funkcja jest taka samia jak poprzednia, z tym że zwraca ciąg na podstawie "przepisanego" adresu URI - o ile używasz takiej opcji
+jak <a href="../general/routing.html">routing URL</a>.</p>
 
 
 
 <h2>$this->uri->total_segments()</h2>
 
-<p>Returns the total number of segments.</p>
+<p>Zwraca liczbę segmentów.</p>
 
 
 <h2>$this->uri->total_rsegments()</h2>
 
-<p>This function is identical to the previous one, except that it returns the total number of segments in your
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>Ta funkcja jest taka samia jak poprzednia, z tym że zwraca liczbę segmentów na podstawie "przepisanego" adresu URI - o ile używasz takiej opcji
+jak <a href="../general/routing.html">routing URL</a>.</p>
 
 
 
 <h2>$this->uri->segment_array()</h2>
 
-<p>Returns an array containing the URI segments.  For example:</p>
+<p>Zwraca tablicę zawierającą segmenty URI. Przykład:</p>
 
 <code>
 $segs = $this->uri->segment_array();<br />
@@ -228,8 +224,8 @@ foreach ($segs as $segment)<br />
 
 <h2>$this->uri->rsegment_array()</h2>
 
-<p>This function is identical to the previous one, except that it returns the array of segments in your
-re-routed URI in the event you are using CodeIgniter's <a href="../general/routing.html">URI Routing</a> feature.</p>
+<p>Ta funkcja jest taka samia jak poprzednia, z tym że zwraca tablicę zawierającą segmenty URI na podstawie "przepisanego" adresu URI - o ile używasz takiej opcji
+jak <a href="../general/routing.html">routing URL</a>.</p>
 
 
 
@@ -242,7 +238,7 @@ re-routed URI in the event you are using CodeIgniter's <a href="../general/routi
 Poprzedni Temat:&nbsp;&nbsp;<a href="unit_testing.html">Unit Testing Class</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 Następny temat:&nbsp;&nbsp;<a href="user_agent.html">User Agent Class</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
