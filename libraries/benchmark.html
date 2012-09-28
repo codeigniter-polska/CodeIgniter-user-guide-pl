@@ -63,53 +63,51 @@ Klasa Benchmark
 <p class="important"><strong>Uwaga:</strong> Ta klasa jest inicjalizowana automatycznie, nie ma więc potrzeby robienia tego samodzielnie.</p>
 
 
-<p>In addition, the benchmark is always started the moment the framework is
-invoked, and ended by the output class right before sending the final view to the browser, enabling a very accurate
-timing of the entire system execution to be shown.</p>
+<p>Klasa Benchmark startuje zawsze w momencie, kiedy uruchamiany jest framework - natomiast kończy swoje działanie zaraz przed zwróceniem ostatecznych danych do przeglądarki. Tym samym, pozwala na bardzo
+	dokładne przedstawienie czasu wykonywania całej aplikacji.</p>
 
 
-<h3>Table of Contents</h3>
+<h3>Spis treści</h3>
 
 <ul>
-<li><a href="#using">Using the Benchmark Class</a></li>
-<li><a href="#profiler">Profiling Your Benchmark Points</a></li>
-<li><a href="#execution">Displaying Total Execution Time</a></li>
-<li><a href="#memory">Displaying Memory Consumption</a></li>
+<li><a href="#using">Używanie klasy Benchmark</a></li>
+<li><a href="#profiler">Punkty z benchmarku dostępne w profilerze</a></li>
+<li><a href="#execution">Wyświetlanie całkowitego czasu wykonywania</a></li>
+<li><a href="#memory">Wyświetlanie zużycia pamięci</a></li>
 </ul>
 
 
 
 <a name="using"></a>
-<h2>Using the Benchmark Class</h2>
+<h2>Używanie klasy Benchmark</h2>
 
-<p>The Benchmark class can be used within your <a href="../general/controllers.html">controllers</a>,  <a href="../general/views.html">views</a>, or your  <a href="../general/models.html">models</a>.  The process for usage is this:</p>
+<p>Klasy Benchmark możesz używać w <a href="../general/controllers.html">kontrolerach</a>,  <a href="../general/views.html">widokach</a> lub <a href="../general/models.html">modelach</a>.  Używa się jej w ten sposób:</p>
 
 <ol>
-<li>Mark a start point</li>
-<li>Mark an end point</li>
-<li>Run the "elapsed time" function to view the results</li>
+<li>Oznacz punkt początkowy</li>
+<li>Oznacz punkt końcowy</li>
+<li>Uruchom funkcję, która obliczy ile czasu ułynęło pomiędzy punktami, aby zobaczyć wyniki</li>
 </ol>
 
-<p>Here's an example using real code:</p>
+<p>Oto przykład za pomocą kawałka kodu:</p>
 
 <code>$this->benchmark->mark('code_start');<br />
 <br />
-// Some code happens here<br />
+// w tym miejscu wykonywany jest Twój kod<br />
 <br />
 $this->benchmark->mark('code_end');<br />
 <br />
 echo $this->benchmark->elapsed_time('code_start', 'code_end');</code>
 
-<p class="important"><strong>Note:</strong> The words "code_start" and "code_end" are arbitrary.  They are simply words used to set two markers.  You can
-use any words you want, and you can set multiple sets of markers. Consider this example:</p>
+<p class="important"><strong>Uwaga:</strong> Słowa "code_start" i "code_end" są dowolne. Są to po prostu słowa użyte aby oznaczyć dwa punkty. Możesz użyć słów jakich chcesz oraz ustawić wiele punktów. Spójrz na ten przykład:</p>
 
 <code>$this->benchmark->mark('dog');<br />
 <br />
-// Some code happens here<br />
+// w tym miejscu znajduje się kod<br />
 <br />
 $this->benchmark->mark('cat');<br />
 <br />
-// More code happens here<br />
+// w tym miejscu znajduje się kolejny blok kodu<br />
 <br />
 $this->benchmark->mark('bird');<br />
 <br />
@@ -119,59 +117,56 @@ echo $this->benchmark->elapsed_time('dog', 'bird');</code>
 
 
 <a name="profiler"></a>
-<h2>Profiling Your Benchmark Points</h2>
+<h2>Punkty z benchmarku dostępne w profilerze</h2>
 
-<p>If you want your benchmark data to be available to the
-<a href="../general/profiling.html">Profiler</a> all of your marked points must be set up in pairs, and
-each mark point name must end with <kbd>_start</kbd> and <kbd>_end</kbd>.
-Each pair of points must otherwise be named identically. Example:</p>
+<p>Jeśli chcesz żeby Twoje benchmarki były dostępne z <a href="../general/profiling.html">profilera</a>, wszystkie Twoje punkty muszą tworzyć pary, 
+a w każdej z nich nazwa danego punktu musi się kończyć suffixem <kbd>_start</kbd> i <kbd>_end</kbd>. Reszta nazwy dla danej pary znaczników musi być taka sama. Przykład:</p>
 
 <code>
 $this->benchmark->mark('my_mark<kbd>_start</kbd>');<br />
 <br />
-// Some code happens here...<br />
+// w tym miejscu znajduje się kod...<br />
 <br />
 $this->benchmark->mark('my_mark<kbd>_end</kbd>');
 <br /><br />
 
 $this->benchmark->mark('another_mark<kbd>_start</kbd>');<br />
 <br />
-// Some more code happens here...<br />
+// w tym miejscu znajduje się kolejny blok kodu...<br />
 <br />
 $this->benchmark->mark('another_mark<kbd>_end</kbd>');
 </code>
 
-<p>Please read the <a href="../general/profiling.html">Profiler page</a> for more information.</p>
+<p>Po więcej informacji zapraszamy na <a href="../general/profiling.html">stronę profilera</a>.</p>
 
 
 <a name="execution"></a>
-<h2>Displaying Total Execution Time</h2>
+<h2>Wyświetlanie całkowitego czasu wykonywania</h2>
 
-<p>If you would like to display the total elapsed time from the moment CodeIgniter starts to the moment the final output
-is sent to the browser, simply place this in one of your view templates:</p>
+<p>Jeśli chciałbyś wyświetlić całkowity czas wykonywania od momentu, kiedy CodeIgniter zostanie uruchomiony, do momentu zwrócenia ostatecznych danych do przeglądarki,
+wystarczy że umieścisz poniższy kod w widoku:</p>
 
 <code>&lt;?php echo $this->benchmark->elapsed_time();?&gt;</code>
 
-<p>You'll notice that it's the same function used in the examples above to calculate the time between two point, except you are
-<strong>not</strong> using any parameters.  When the parameters are absent, CodeIgniter does not stop the benchmark until right before the final
-output is sent to the browser.  It doesn't matter where you use the function call, the timer will continue to run until the very end.</p>
+<p>Zauważyłeś chyba, że to ta sama funkcja, której używaliśmy w przykłądach powyżej, aby obliczyć czas jaki upłynął pomiędzy dwoma punktami, z tym wyjątkiem, że
+<strong>nie</strong> używa ona żadnego parametru. Kiedy nie podamy parametru dla funkcji, CodeIgniter kończy pomiar dopiero przed samym zwróceniem danych do przeglądarki.
+Nie ważne w którym miejscu wywołasz tę funkcję, czas będzie liczony do samego końca.</p>
 
-<p>An alternate way to show your elapsed time in your view files is to use this pseudo-variable, if you prefer not to use the pure PHP:</p>
+<p>Alternatywnym sposobem aby wyświetlić całkowity czas wykonywania, w plikach widoku jest użycie pseudo-zmiennej, jeśli nie preferujesz użycia czystego kodu PHP:</p>
 <code>{elapsed_time}</code>
 
-<p class="important"><strong>Note:</strong> If you want to benchmark anything within your controller
-functions you must set your own start/end points.</p>
+<p class="important"><strong>Uwaga:</strong> Jeśli chcesz dokonać pomiaru czegokolwiek tylko w kontrolerze, musisz ustawić własne punkty start/end.</p>
 
 <a name="memory"></a>
-<h2>Displaying Memory Consumption</h2>
+<h2>Wyświetlanie zużycia pamięci</h2>
 
-<p>If your PHP installation is configured with --enable-memory-limit, you can display the amount of memory consumed by the entire
-system using the following code in one of your view file:</p>
+<p>Jeśli Twoja instalacja PHP jest skonfigurowana z parametrem --enable-memory-limit, możesz wyświetlić ilość zużytej pamięci przez całą aplikację, 
+za pomocą następującego kodu  umieszczonego w pliku widoku:</p>
 
 <code>&lt;?php echo $this->benchmark->memory_usage();?&gt;</code>
-<p>Note: This function can only be used in your view files. The consumption will reflect the total memory used by the entire app.</p>
+<p>Uwaga: Ta funkcja moze być użyta tylko w Twoich plikach widoku. Zużycie pamięci, będzie odzwierciedlało całkowitą pamięć, użytą przez całą aplikację.</p>
 
-<p>An alternate way to show your memory usage in your view files is to use this pseudo-variable, if you prefer not to use the pure PHP:</p>
+<p>Alternatywnym sposobem na wyświetlenie zużycia pamięci w Twoich plikach widoku, jest użycie pseudo-zmiennej, jeśli nie preferujesz użycia czystego kodu PHP:</p>
 <code>{memory_usage}</code>
 
 
@@ -187,7 +182,7 @@ system using the following code in one of your view file:</p>
 Poprzedni Temat:&nbsp;&nbsp;<a href="../doc_style/index.html">Writing Documentaion</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 Następny temat:&nbsp;&nbsp;<a href="calendar.html">Calendar Class</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
