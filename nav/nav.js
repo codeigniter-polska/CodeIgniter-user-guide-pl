@@ -86,7 +86,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/email.html">Email Class</a></li>' +
 		'<li><a href="'+base+'libraries/encryption.html">Encryption Class</a></li>' +
 		'<li><a href="'+base+'libraries/file_uploading.html">File Uploading Class</a></li>' +
-		'<li><a href="'+base+'libraries/form_validation.html">Form Validation Class</a></li>' +
+		'<li><a href="'+base+'libraries/form_validation.html">Klasa Form Validation</a></li>' +
 		'<li><a href="'+base+'libraries/ftp.html">FTP Class</a></li>' +
 		'<li><a href="'+base+'libraries/table.html">HTML Table Class</a></li>' +
 		'<li><a href="'+base+'libraries/image_lib.html">Image Manipulation Class</a></li>' +
@@ -98,7 +98,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/output.html">Output Class</a></li>' +
 		'<li><a href="'+base+'libraries/pagination.html">Pagination Class</a></li>' +
 		'<li><a href="'+base+'libraries/security.html">Security Class</a></li>' +
-		'<li><a href="'+base+'libraries/sessions.html">Session Class</a></li>' +
+		'<li><a href="'+base+'libraries/sessions.html">Klasa Session</a></li>' +
 		'<li><a href="'+base+'libraries/trackback.html">Trackback Class</a></li>' +
 		'<li><a href="'+base+'libraries/parser.html">Template Parser Class</a></li>' +
 		'<li><a href="'+base+'libraries/typography.html">Typography Class</a></li>' +
