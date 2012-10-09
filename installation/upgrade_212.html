@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Podręcznik użytkownika CodeIgniter</title>
+<title>Upgrading from 2.1.1 to 2.1.2 : CodeIgniter User Guide</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,7 +17,7 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='Podręcznik użytkownika CodeIgniter' />
+<meta name='description' content='CodeIgniter User Guide' />
 
 </head>
 <body>
@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
+<td><h1>CodeIgniter User Guide Version 2.1.3</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
 </tr>
 </table>
@@ -42,7 +42,8 @@
 <td id="breadcrumb">
 <a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Upgrading from 1.4.0 to 1.4.1 </td>
+Upgrading from 2.1.1 to 2.1.2
+</td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
@@ -54,80 +55,15 @@ Upgrading from 1.4.0 to 1.4.1 </td>
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Upgrading from 1.4.0 to 1.4.1</h1>
-
-<p class="important"><strong>Note:</strong> The instructions on this page assume you are running version 1.4.0.  If you
-have not upgraded to that version please do so first.</p>
+<h1>Upgrading from 2.1.1 to 2.1.2</h1>
 
 <p>Before performing an update you should take your site offline by replacing the index.php file with a static one.</p>
 
-
-
 <h2>Step 1: Update your CodeIgniter files</h2>
 
-<p>Replace the following directories in your "system" folder with the new versions:</p>
+<p>Replace all files and directories in your "system" folder and replace your index.php file. If any modifications were made to your index.php they will need to be made fresh in this new one.</p>
 
 <p class="important"><strong>Note:</strong> If you have any custom developed files in these folders please make copies of them first.</p>
-
-<ul>
-<li>codeigniter</li>
-<li>drivers</li>
-<li>helpers</li>
-<li>libraries</li>
-</ul>
-
-
-<h2>Step 2: Update your config.php file</h2>
-
-<p>Open your <dfn>application/config/config.php</dfn> file and add this new item:</p>
-
-<pre>
-
-/*
-|--------------------------------------------------------------------------
-| Output Compression
-|--------------------------------------------------------------------------
-|
-| Enables Gzip output compression for faster page loads.  When enabled,
-| the output class will test whether your server supports Gzip.
-| Even if it does, however, not all browsers support compression
-| so enable only if you are reasonably sure your visitors can handle it.
-|
-| VERY IMPORTANT:  If you are getting a blank page when compression is enabled it
-| means you are prematurely outputting something to your browser. It could
-| even be a line of whitespace at the end of one of your scripts.  For
-| compression to work, nothing can be sent before the output buffer is called
-| by the output class.  Do not "echo" any values with compression enabled.
-|
-*/
-$config['compress_output'] = FALSE;
-
-</pre>
-
-
-
-<h2>Step 3: Rename an Autoload Item</h2>
-
-<p>Open the following file: <dfn>application/config/autoload.php</dfn></p>
-
-<p>Find this array item:</p>
-
-<code>$autoload['core'] = array();</code>
-
-<p>And rename it to this:</p>
-
-<code>$autoload['libraries'] = array();</code>
-
-<p>This change was made to improve clarity since some users were not sure that their own libraries could be auto-loaded.</p>
-
-
-
-
-
-
-<h2>Step 4: Update your user guide</h2>
-
-<p>Please also replace your local copy of the user guide with the new version.</p>
 
 </div>
 <!-- END CONTENT -->
@@ -135,13 +71,13 @@ $config['compress_output'] = FALSE;
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="index.html">Installation Instructions</a>
+Previous Topic:&nbsp;&nbsp;<a href="index.html">Installation Instructions</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="troubleshooting.html">Troubleshooting</a>
+Next Topic:&nbsp;&nbsp;<a href="troubleshooting.html">Troubleshooting</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2012 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 
 </body>
