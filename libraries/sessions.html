@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Session Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa sesji : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Session Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa sesji
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,60 +56,58 @@ Session Class
 <div id="content">
 
 
-<h1>Session Class</h1>
+<h1>Klasa sesji</h1>
 
-<p>The Session class permits you maintain a user's "state" and track their activity while they browse your site.
-The Session class stores session information for each user as serialized (and optionally encrypted) data in a cookie.
-It can also store the session data in a database table for added security, as this permits the session ID in the
-user's cookie to be matched against the stored session ID. By default only the cookie is saved.  If you choose to
-use the database option you'll need to create the session table as indicated below.
+<p>Klasa sesji pozwala utrzymywać "stan" użytkowników i śledzić ich aktywności podczas gdy korzystają z Twojej strony.
+Klasa sesji przechowuje informacje sesyjne dla każdego użytkonika w postaci zserializowanej (i opcjonalnie szyfrowanej) w ciasteczku.
+Dla dodatkowego bezpieczeństwa, dane sesyjne mogą być również przechowywane w bazie danych - wtedy identyfikator sesji w ciasteczku jest porównywany
+z identyfikatorem sesji zapisanym w bazie danych. Domyślnie używane są tylko ciasteczka. Jeśli zdecydujesz się na wykorzystanie bazy danych, będziesz musiał
+stworzyć w niej tabelę do zapisu sesji, co opisano na dole tej strony.
 </p>
 
-<p class="important"><strong>Note:</strong> The Session class does <strong>not</strong> utilize native PHP sessions. It
-generates its own session data, offering more flexibility for developers.</p>
+<p class="important"><strong>Uwaga:</strong> Klasa sesji <strong>nie</strong> korzysta z natywnych sesji PHP. Generuje własne dane sesyjne, które są bardziej elastyczne dla developerów.</p>
 
-<p class="important"><strong>Note:</strong> Even if you are not using encrypted sessions, you must set
-an <a href="./encryption.html">encryption key</a> in your config file which is used to aid in preventing session data manipulation.</p>
+<p class="important"><strong>Uwaga:</strong> Nawet jeśli nie używasz szyfrowania sesji, musisz ustawić <a href="./encryption.html">klucz szyfrowania</a> w pliku konfiguracyjnym,
+który jest wykorzystywany do zapobiegania manipulowaniu danymi sesyjnymi.</p>
 
-<h2>Initializing a Session</h2>
+<h2>Inicjalizacja sesji</h2>
 
-<p>Sessions will typically run globally with each page load, so the session class must either be
-<a href="../general/libraries.html">initialized</a> in your
-<a href="../general/controllers.html">controller</a> constructors, or it can be
-<a href="../general/autoloader.html">auto-loaded</a> by the system.
-For the most part the session class will run unattended in the background, so simply initializing the class
-will cause it to read, create, and update sessions.</p>
+<p>Zazwyczaj sesje będą uruchamiane przy pażdym załadowaniu strony, dlatego klasa sesji musi być
+
+<a href="../general/libraries.html">zainicjalizowana</a> w Twoim konstruktorze
+<a href="../general/controllers.html">kontrolera</a> lub 
+<a href="../general/autoloader.html">ładowana automatycznie</a> przez system.
+Przez większość czasu klasa sesji będzie działała w tle, inicjlizacja sesji pozwoli na odczyt, tworzenie i aktualizację danych sesyjnych.</p>
 
 
-<p>To initialize the Session class manually in your controller constructor, use the <dfn>$this->load->library</dfn> function:</p>
+<p>Aby zainicjować klasę sesji ręcznie w Twoim konstrukorze kontrolera, użyj funkcji <dfn>$this->load->library</dfn>:</p>
 
 <code>$this->load->library('session');</code>
-<p>Once loaded, the Sessions library object will be available using: <dfn>$this->session</dfn></p>
+<p>Raz załadowany obiekt biblioteki Session będzie dostępny przez wywołanie <dfn>$this->session</dfn></p>
 
 
-<h2>How do Sessions work?</h2>
+<h2>Jak działają sesje?</h2>
 
-<p>When a page is loaded, the session class will check to see if valid session data exists in the user's session cookie.
-If sessions data does <strong>not</strong> exist (or if it has expired) a new session will be created and saved in the cookie.
-If a session does exist, its information will be updated and the cookie will be updated. With each update, the session_id will be regenerated.</p>
+<p>Kiedy strona jest ładowana, klasa sesji sprawdza czy istnieje poprawny identyfikator sesji w ciasteczku sesji użytkownika.
+Jeśli taki identyfikator <strong>nie</strong> istnieje (lub stracił swoją ważność) zostanie stworzona nowa sesja i zapisana w ciasteczku.
+Jeśli sesja istnieje, informacje w niej zawarte zostaną zaktualizowane i zapisane w ciasteczku. Przy każdej aktualizacji session_id zostanie zregenerowane.</p>
 
-<p>It's important for you to understand that once initialized, the Session class runs automatically.  There is nothing
-you need to do to cause the above behavior to happen.  You can, as you'll see below, work with session data or
-even add your own data to a user's session, but the process of reading, writing, and updating a session is automatic.</p>
+<p>Ważne jest abyś zrozumiał, że raz zainicjowana klasa sesji działa już automatycznie. Nie musisz nic robić, aby powyżej opisane działania mialy miejsce.
+Możesz pracować z danymi zapisanymi w sesji lub dodawać do niej własne dane, ale proces proces odczytu, zapisu i aktualizacji sesji jest automatyczny.</p>
 
 
-<h2>What is Session Data?</h2>
+<h2>Czym są dane sesyjne?</h2>
 
-<p>A <em>session</em>, as far as CodeIgniter is concerned, is simply an array containing the following information:</p>
+<p><em>Sesja</em> (w przypadku CodeIgnitera), to po prostu tablica, która zawiera następujące informacje:</p>
 
 <ul>
-<li>The user's unique Session ID (this is a statistically random string with very strong entropy, hashed with MD5 for portability, and regenerated (by default) every five minutes)</li>
-<li>The user's IP Address</li>
-<li>The user's User Agent data (the first 120 characters of the browser data string)</li>
-<li>The "last activity" time stamp.</li>
+<li>Unikalny identyfikator Session ID (jest to statystycznie losowy ciąg o bardzo silnej entropii, dla ułatwienia zahashowany przy użyciu funkcji MD5 i regenerowany (domyślnie) co pięć minut)</li>
+<li>Adres IP użytkownika</li>
+<li>Nazwa przeglądarki użytkownika (pierwsze 120 znaków identyfikujących przeglądarkę użytkownika)</li>
+<li>Znacznik czasu ostatniej aktywności.</li>
 </ul>
 
-<p>The above data is stored in a cookie as a serialized array with this prototype:</p>
+<p>Powyższe dane są przechowywane w ciasteczku w postaci zserializowanej w tym kształcie:</p>
 
 <code>[array]<br />
 (<br />
@@ -119,43 +117,40 @@ even add your own data to a user's session, but the process of reading, writing,
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'last_activity' => timestamp<br />
 )</code>
 
-<p>If you have the encryption option enabled, the serialized array will be encrypted before being stored in the cookie,
-making the data highly secure and impervious to being read or altered by someone. More info regarding encryption
-can be <a href="encryption.html">found here</a>, although the Session class will take care of initializing
-and encrypting the data automatically.</p>
+<p>Jeśli masz włączoną opcję szyfrowania, to zserializowana tablica szyfrowana jest przed zapisaniem w ciasteczku. Powoduje to, że dane stają się bardziej bezpieczne
+i tym samym bardziej odporne na niepowołany odczyt lub próby manipulacji. Więcej informacji na temat szyfrowania możesz znaleźć <a href="encryption.html">tytaj</a>. 
+Oczywiście klasa sesji zajmie się inicjalizacją i szyfrowaniem danych automatycznie.</p>
 
-<p>Note: Session cookies are only updated every five minutes by default to reduce processor load.  If you repeatedly reload a page
-you'll notice that the "last activity" time only updates if five minutes or more has passed since the last time
-the cookie was written. This time is configurable by changing the $config['sess_time_to_update'] line in your system/config/config.php file.</p>
+<p>Uwaga: Ciasteczka sesji są aktualizowane domyślnie co pięć minut, aby zredukować obciążenie procesora. Jeśli ciągle będziesz odświerzał stronę,
+zauważysz, że czas "ostatniej aktywności" zmienia się tylko jeśli upłynęło pięć minut lub więcej od czasu kiedy ciasteczko było ostatnio aktualizowane.
+Czas ten jest konfigurowalny poprzez zmianę wartości dla $config['sess_time_to_update'] w pliku system/config/config.php.</p>
 
-<h2>Retrieving Session Data</h2>
+<h2>Zwracanie danych sesyjnych</h2>
 
-<p>Any piece of information from the session array is available using the following function:</p>
+<p>Każda informacja z tablicy sesji jest dostępna poprzez użycie następującej funkcji:</p>
 
 <code>$this->session->userdata('<samp>item</samp>');</code>
 
-<p>Where <samp>item</samp> is the array index corresponding to the item you wish to fetch.  For example, to fetch the session ID you
-will do this:</p>
+<p>Gdzie <samp>item</samp> jest indeksem tablicy, który chcesz otrzymać. Dla przykładu, aby uzyskać ID sesji musisz zrobić tak:</p>
 
 <code>$session_id = $this->session->userdata('<samp>session_id</samp>');</code>
 
-<p><strong>Note:</strong> The function returns FALSE (boolean) if the item you are trying to access does not exist.</p>
+<p><strong>Uwaga:</strong> Funkcja zwraca FALSE (boolean) jeśli wartość, do której chcesz dotrzeć nie istanieje.</p>
 
 
-<h2>Adding Custom Session Data</h2>
+<h2>Dodawanie własnych danych sesyjnych</h2>
 
-<p>A useful aspect of the session array is that you can add your own data to it and it will be stored in the user's cookie.
-Why would you want to do this?  Here's one example:</p>
+<p>Przydatnym aspektem tablicy sesyjnej jest to, że możesz dodać do niej własne dane, które będą przechowywane w ciasteczku użytkownika.
+Czemu chciałbyś to robić? Oto jeden z przykładów:</p>
 
-<p>Let's say a particular user logs into your site. Once authenticated,
-you could add their username and email address to the session cookie, making that data globally available to you without
-having to run a database query when you need it.</p>
+<p>Załóżmy, że jeden z użytkowników loguje się na Twoją stronę. Kiedy zostanie uwieżytelniony, możesz dodać jego nazwę i adres email, do ciasteczka sesji - powodując, że
+dane te będą dostępne globalnie bez potrzeby uruchamiania zapytania do bazy danych, za każdym razem kiedy będziesz chciał z tych danych skorzystać.</p>
 
-<p>To add your data to the session array involves passing an array containing your new data to this function:</p>
+<p>Aby dodać własne dane do tablicy sesji. musisz przypisać tablicę zawierającą nowe dane do funkcji:</p>
 
 <code>$this->session->set_userdata(<samp>$array</samp>);</code>
 
-<p>Where <samp>$array</samp> is an associative array containing your new data.  Here's an example:</p>
+<p>Gdzie <samp>$array</samp> jest tablica asocjacyjną zawierającą nowe dane.  Oto przykład:</p>
 
 
 <p><code>$newdata = array(<br />
@@ -165,16 +160,16 @@ having to run a database query when you need it.</p>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br />
 	<br />
 	$this->session->set_userdata(<samp>$newdata</samp>);</code></p>
-<p>If you want to add userdata one value at a time, set_userdata() also supports this syntax. </p>
-<p><code>$this-&gt;session-&gt;set_userdata('some_name', 'some_value');</code></p>
-<p class="important"><strong>Note:</strong> Cookies can only hold 4KB of data, so be careful not to exceed the capacity.  The
-encryption process in particular produces a longer data string than the original so keep careful track of how much data you are storing.</p>
+<p>Jeśli chcesz dodać tylko jedną wartość na raz, to funkcja set_userdata() wspiera również tę składnię:</p>
+<p><code>$this-&gt;session-&gt;set_userdata('nazwa', 'wartość');</code></p>
+<p class="important"><strong>Uwaga:</strong> Ciasteczka mogą przechowywać jedynie do 4KB danych, bądź więc ostrożny i nie przekrocz tej wartości.
+Proces szyfrowania w szczególności przyczynia się do tworzenia dłuższych ciągów niż te orginalne, dlatego bądź ostarożny i sprawdzaj ile danych przechowujesz.</p>
 
-<h2>Retrieving All Session Data</h2>
-<p>An array of all userdata can be retrieved as follows:</p>
+<h2>Zwracanie wszystkich danych sesyjnych</h2>
+<p>Cała tablica danych sesyjnych może być zwrócona za pomocą funkcji:</p>
 <code>$this-&gt;session-&gt;all_userdata()</code>
 
-<p>And returns an associative array like the following:</p>
+<p>Zwrócona tablica asocjacyjna wygląda w ten sposób:</p>
 
 <pre>
 Array
@@ -187,24 +182,26 @@ Array
 </pre>
 
 
-<h2>Removing Session Data</h2>
-<p>Just as set_userdata() can be used to add information into a session, unset_userdata() can be used to remove it, by passing the session key. For example, if you wanted to remove 'some_name' from your session information: </p>
-<p><code>$this-&gt;session-&gt;unset_userdata('some_name');</code></p>
-<p>This function can also be passed an associative array of items to unset.</p>
+<h2>Usuwanie danych sesyjnych</h2>
+<p>Tak samo jak funkcja set_userdata() może być wykorzystana do dodawania informacji do sesji, funkcja unset_userdata() może być użyta do ich usuwania, poprzez przypisanie klucza sesji. Dla przykładu, jeśli chcesz usunąć
+'jakas_nazwa' z danych sesyjnych:</p>
+<p><code>$this-&gt;session-&gt;unset_userdata('jakas_nazwa');</code></p>
+<p>Do tej funkcji można równiez przypisać tablice asocjacyjną z wartościami do usunięcia.</p>
 <p><code>$array_items = array('username' => '', 'email' => '');<br />
 <br />
 $this-&gt;session-&gt;unset_userdata(<samp>$array_items</samp>);</code></p>
 <h2>Flashdata</h2>
-<p>CodeIgniter supports &quot;flashdata&quot;, or session data that will only be available for the next server request, and are then automatically cleared. These can be very useful, and are typically used for informational or status messages (for example: &quot;record 2 deleted&quot;).</p>
-<p>Note: Flash variables are prefaced with &quot;flash_&quot; so avoid this prefix in your own session names.</p>
-<p>To add flashdata:</p>
+<p>Codeigniter wspiera &quot;flashdata&quot;, czyli dane sesyjne, które są dostępne jedynie do następnego żądania, a później są automatycznie usuwane. Ta opcja może być bardzo przydatna i zazwyczaj jest
+używana do przechowywania informacji i wiadomości (np.: &quot;usunięto 2 rekordy&quot;).</p>
+<p>Uwaga: Zmienne flash są poprzedzone wartością &quot;flash_&quot;, unikaj więc tego prefixu we własnych nazwach dla zmiennych sesyjnych.</p>
+<p>Aby dodać wartość flashdata:</p>
 <p><code>$this-&gt;session-&gt;set_flashdata('item', 'value');</code></p>
-<p>You can also pass an array to set_flashdata(), in the same manner as set_userdata(). </p>
-<p>To read a flashdata variable:</p>
+<p>Możesz również przypisać tablicę do set_flashdata(), w ten sam sposób jak w przypadku set_userdata(). </p>
+<p>Aby odczytać wartości flashdata:</p>
 <p><code>$this-&gt;session-&gt;flashdata('item');</code></p>
-<p>If you find that you need to preserve a flashdata variable through an additional request, you can do so using the keep_flashdata() function.</p>
+<p>Jeśli będziesz chciał "zatrzymać" wartości flashdata przez jeszcze jedno żądanie, możesz to zrobić za pomocą funkcji keep_flashdata().</p>
 <p><code>$this-&gt;session-&gt;keep_flashdata('item');</code></p>
-<h2>Saving Session Data to a Database</h2>
+<h2>Przechowywanie sesji w bazie danych</h2>
 <p>While the session data array stored in the user's cookie contains a Session ID,
 unless you store session data in a database there is no way to validate it.  For some applications that require little or no
 security, session ID validation may not be needed, but if your application requires security, validation is mandatory.  Otherwise, an old session
@@ -215,8 +212,7 @@ query is performed to match it.  If the session ID does not match, the session i
 be updated, they can only be generated when a new session is created.</p>
 
 
-<p>In order to store sessions, you must first create a database table for this purpose.  Here is the basic
-prototype (for MySQL) required by the session class:</p>
+<p>W celu przechowywania sesji w bazie danych, musisz najpierw utworzyć odpowiednią tabelę. Oto podstawowa struktura (dla MySQL), wymagana przez klasę sesji:</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
 CREATE TABLE IF NOT EXISTS  `ci_sessions` (
@@ -230,94 +226,93 @@ CREATE TABLE IF NOT EXISTS  `ci_sessions` (
 );
 </textarea>
 
-<p><strong>Note:</strong> By default the table is called <dfn>ci_sessions</dfn>, but you can name it anything you want
-as long as you update the <kbd>application/config/config.php</kbd> file so that it contains the name you have chosen.
-Once you have created your database table you can enable the database option in your config.php file as follows:</p>
+<p><strong>Uwaga:</strong> Domyslnie tabela nosi nazwę <dfn>ci_sessions</dfn>, ale możesz ją nazwać jak tylko chcesz, jeśli tylko dokonasz odpowiedniej zmiany w pliku
+<kbd>application/config/config.php</kbd>. Jeśli utworzysz tabelę w bazie danych, możesz uaktywnić opcję przechowywania sesji w bazie danych, zmieniając pliku config.php zmienną:</p>
 
 <code>$config['sess_use_database'] = TRUE;</code>
 
-<p>Once enabled, the Session class will store session data in the DB.</p>
+<p>W ten sposób klasa sesji będzie przechowywała zmienne sesyjne w bazie danych.</p>
 
-<p>Make sure you've specified the table name in your config file as well:</p>
+<p>Upewnij się, czy określiłeś poprawnie nazwę dla tabeli w bazie danych:</p>
 
 <code>$config['sess_table_name'] = 'ci_sessions';</code>
 
-<p class="important"><strong>Note:</strong> The Session class has built-in garbage collection which clears out expired sessions so you
-do not need to write your own routine to do it.</p>
+<p class="important"><strong>Uwaga:</strong> Klasa sesji posiada wbudowany garbage collector, który usuwa przedawnione sesje - nie musisz więc pisać własnych procedur do tego celu.</p>
 
 
-<h2>Destroying a Session </h2>
-<p>To clear the current session: </p>
+<h2>Usuwanie sesji</h2>
+<p>Aby wyczyścić obecną sesję, wykonaj funkcję: </p>
 <code>$this-&gt;session-&gt;sess_destroy();</code>
-<p class="important"><strong>Note:</strong> This function should be the last one called, and even flash variables will no longer be available.  If you only want some items destroyed and not all, use <dfn>unset_userdata()</dfn>.</p>
+<p class="important"><strong>Uwaga:</strong> Ta funkcja powinna być wywoływana jako ostatnia - nawet dane flashdata zostaną usunięte. Jeśli chcesz usunąć jedynie któryś z elementów sesji,
+użyj funkcji <dfn>unset_userdata()</dfn>.</p>
 
 
 
-<h2>Session Preferences</h2>
-<p>You'll find the following Session related preferences in your <kbd>application/config/config.php</kbd> file:</p>
+<h2>Ustawienia sesji</h2>
+<p>Wszystkie ustawienia konfiguracyjne sesji znajdziesz w pliku <kbd>application/config/config.php</kbd>:</p>
 
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-	<th>Preference</th>
-	<th>Default</th>
-	<th>Options</th>
-	<th>Description</th>
+	<th>Ustawienie</th>
+	<th>Domyślna wartość</th>
+	<th>Opcje</th>
+	<th>Opis</th>
 </tr>
 <tr>
 	<td class="td"><strong>sess_cookie_name</strong></td>
 	<td class="td">ci_session</td>
-	<td class="td">None</td>
-	<td class="td">The name you want the session cookie saved as.</td>
+	<td class="td">Brak</td>
+	<td class="td">Nazwa jaką ma mieć ciasteczko sesji.</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_expiration</strong></td>
 	<td class="td">7200</td>
-	<td class="td">None</td>
-	<td class="td">The number of seconds you would like the session to last. The default value is 2 hours (7200 seconds). If you would like a non-expiring session set the value to zero: 0</td>
+	<td class="td">Brak</td>
+	<td class="td">Ilość sekund przez którą sesja będzie ważna. Domyślną wartością są 2 godziny (7200 sekund). Jeśli chcesz, aby sesja nie miała określonego czasu wygaśnięcia, ustaw tę wartość na zero: 0</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_expire_on_close</strong></td>
 	<td class="td">FALSE</td>
 	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to cause the session to expire automatically when the browser window is closed.</td>
+	<td class="td">Czy sesja ma wygasnąć automatycznie w momencie zamknięcia okna przegądarki.</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_encrypt_cookie</strong></td>
 	<td class="td">FALSE</td>
 	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to encrypt the session data.</td>
+	<td class="td">Czy szyfrować dane sesji.</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_use_database</strong></td>
 	<td class="td">FALSE</td>
 	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to save the session data to a database.  You must create the table before enabling this option.</td>
+	<td class="td">Czy zapisywać dane sesji w bazie danych. Musisz stworzyć tabelę w bazie danych zanim zaczniesz używać tej opcji.</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_table_name</strong></td>
 	<td class="td">ci_sessions</td>
-	<td class="td">Any valid SQL table name</td>
-	<td class="td">The name of the session database table.</td>
+	<td class="td">Każda poprawna nazwa tabeli w języku SQL</td>
+	<td class="td">Nazwa tabeli w bazie danych</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_time_to_update</strong></td>
 	<td class="td">300</td>
-	<td class="td">Time in seconds</td>
-	<td class="td">This options controls how often the session class will regenerate itself and create a new session id.</td>
+	<td class="td">Czas liczony w sekundach</td>
+	<td class="td">Ta opcja określa jak często klasa sesji będzie się regenerować i tworzyć nowy id sesji.</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_match_ip</strong></td>
 	<td class="td">FALSE</td>
 	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to match the user's IP address when reading the session data.  Note that some ISPs dynamically
-	changes the IP, so if you want a non-expiring session you will likely set this to FALSE.</td>
+	<td class="td">Czy sprawdzać zgodność numeru IP podczas odczytu danych sesyjnych. Zauważ, że niektórzy dostawcy internetu dynamicznie zmieniają adres IP. Jeśli nie chcesz aby sesja wygasała najprawdopodobniej warto
+ustawić tę opcję na wartość FALSE.</td>
 </tr>
 <tr>
 	<td class="td"><strong>sess_match_useragent</strong></td>
 	<td class="td">TRUE</td>
 	<td class="td">TRUE/FALSE (boolean)</td>
-	<td class="td">Whether to match the User Agent when reading the session data.</td>
+	<td class="td">Czy sprawdzać zgodność nazwy przeglądarki podczas odczytu danych sesyjnych.</td>
 </tr>
 </table>
 
