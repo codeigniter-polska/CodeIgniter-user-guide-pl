@@ -49,14 +49,14 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/models.html">Modele</a></li>' +
 			'<li><a href="'+base+'general/helpers.html">Helpery</a></li>' +
 			'<li><a href="'+base+'general/libraries.html">Korzystanie z bibliotek CodeIgniter</a></li>' +
-			'<li><a href="'+base+'general/creating_libraries.html">Creating Your Own Libraries</a></li>' +
+			'<li><a href="'+base+'general/creating_libraries.html">Tworzenie własnych bibliotek</a></li>' +
 			'<li><a href="'+base+'general/drivers.html">Using CodeIgniter Drivers</a></li>' +
 			'<li><a href="'+base+'general/creating_drivers.html">Creating Your Own Drivers</a></li>' +
 			'<li><a href="'+base+'general/core_classes.html">Creating Core Classes</a></li>' +
 			'<li><a href="'+base+'general/hooks.html">Hooks - Extending the Core</a></li>' +
 			'<li><a href="'+base+'general/autoloader.html">Automatyczne ładowanie zasobów</a></li>' +
 			'<li><a href="'+base+'general/common_functions.html">Common Functions</a></li>' +
-			'<li><a href="'+base+'general/routing.html">URI Routing</a></li>' +
+			'<li><a href="'+base+'general/routing.html">Routing URI</a></li>' +
 			'<li><a href="'+base+'general/errors.html">Obsługa błędów</a></li>' +
 			'<li><a href="'+base+'general/caching.html">Caching</a></li>' +
 			'<li><a href="'+base+'general/profiling.html">Profiling Your Application</a></li>' +
