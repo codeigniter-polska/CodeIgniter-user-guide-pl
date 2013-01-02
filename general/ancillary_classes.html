@@ -112,17 +112,18 @@ Następny temat:&nbsp;&nbsp;<a href="autoloader.html">Auto-loading Resources</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
-<!-- Piwik -->
 <script type="text/javascript">
-	var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
-	document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-	try {
-		var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
-		piwikTracker.trackPageView();
-		piwikTracker.enableLinkTracking();
-	} catch( err ) {}
-</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
-<!-- End Piwik Tracking Code -->
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-629893-47']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>
