@@ -1,6 +1,7 @@
 function create_menu(basepath)
 {
 	var base = (basepath == 'null') ? '' : basepath;
+	var base = '/';
 
 	document.write(
 		'<table cellpadding="0" cellspaceing="0" border="0" style="width:98%"><tr>' +
