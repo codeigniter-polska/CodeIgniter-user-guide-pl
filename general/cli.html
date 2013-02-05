@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Running via the CLI : CodeIgniter podręcznik użytkownika</title>
+<title>Uruchamianie za pomocą wiersza poleceń : CodeIgniter podręcznik użytkownika</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -22,12 +22,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -38,11 +38,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Running via the CLI
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Uruchamianie za pomocą wiersza poleceń
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="podrecznik.codeigniter.org.pl/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -53,43 +53,43 @@ Running via the CLI
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Running via the CLI</h1>
+<h1>Uruchamianie za pomocą wiersza poleceń</h1>
 
 <p>
-	As well as calling an applications <a href="./controllers.html">Controllers</a> via the URL in a browser they can also be loaded via the command-line interface (CLI).
+	Najczęściej <a href="./controllers.html">kontrolery</a> w naszej aplikacji uruchamiamy za pomocą adresu URL w przeglądarce, ale możemy to zrobić również za pomocą wiersza poleceń (CLI - command-line interface).
 </p>
 
 
 <ul>
-<li><a href="#what">What is the CLI?</a></li>
-<li><a href="#why">Why use this method?</a></li>
-<li><a href="#how">How does it work?</a></li>
+<li><a href="#what">Czym jest CLI?</a></li>
+<li><a href="#why">Czemu używać tej metody?</a></li>
+<li><a href="#how">Jak to działa?</a></li>
 </ul>
 
 
 <a name="what"></a>
-<h2>What is the CLI?</h2>
+<h2>Czym jest CLI?</h2>
 
-<p><dfn>The command-line interface is a text-based method of interacting with computers.</dfn> For more information, check the <a href="http://en.wikipedia.org/wiki/Command-line_interface">Wikipedia article</a>.</p>
+<p><dfn>Wiersz poleceń jest tekstową metodą interakcji z komputerami.</dfn> Jeśli chcesz wiedzieć więcej, sprawdź <a href="http://pl.wikipedia.org/wiki/Wiersz_polece%C5%84">artykuł na Wikipedii</a>.</p>
 
 <a name="why"></a>
 
-<h2>Why run via the command-line?</h2>
+<h2>Czemu używać wiersza poleceń?</h2>
 
 <p>
-	There are many reasons for running CodeIgniter from the command-line, but they are not always obvious.</p>
+	Jest wiele powodów, dla których warto uruchamiać CodeIgnitera z poziomu linii poleceń, lecz nie zawsze są one oczywiste.</p>
 
 <ul>
-	<li>Run your cron-jobs without needing to use wget or curl</li>
-	<li>Make your cron-jobs inaccessible from being loaded in the URL by checking for <kbd>IS_CLI</kbd></li>
-	<li>Make interactive "tasks" that can do things like set permissions, prune cache folders, run backups, etc.</li>
-	<li>Integrate with other applications in other languages. For example, a random C++ script could call one command and run code in your models!</li>
+	<li>Uruchamiaj swoje zadania cron-jobs bez konieczności użycia wget lub curl</li>
+	<li>Zadbaj o to, aby Twoje zadania cron-jobs nie były dostępne za pośrednictwem adresu URL poprzez sprawdzanie wartości <kbd>IS_CLI</kbd></li>
+	<li>Twórz interaktywne "zadania", które mogą ustawiać uprawnienia, czyścić cache, tworzyć backupy itp.</li>
+	<li>Dokonaj integracji z innymi aplikacjami napisanymi w innych językach. Dla przykładu, skrypt w C++ może wywoływać jedną komendę i uruchamiać kod w Twoim modelu.</li>
 </ul>
 
 <a name="how"></a>
-<h2>Let's try it:&nbsp; Hello World!</h2>
+<h2>Wypróbujmy to:&nbsp; Hello World!</h2>
 
-<p>Let's create a simple controller so you can see it in action. Using your text editor, create a file called <dfn>tools.php</dfn>, and put the following code in it:</p>
+<p>Stwórzmy prosty kontroler, abyś mógł zobaczyć jak to działa. Używając swojego edytora tekstu, stwórz plik o nazwie <dfn>tools.php</dfn> o następującej treści:</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="10">
 &lt;?php
@@ -103,30 +103,31 @@ class Tools extends CI_Controller {
 ?&gt;
 </textarea>
 
-<p>Then save the file to your <dfn>application/controllers/</dfn> folder.</p>
+<p>Teraz zapisz ten plik w folderze <dfn>application/controllers/</dfn>.</p>
 
-<p>Now normally you would visit the your site using a URL similar to this:</p>
+<p>Teraz, normalnie wywołałbyś ten adres używając adresu podobnego do tego:</p>
 
 <code>example.com/index.php/<var>tools</var>/<var>message</var>/<var>to</var></code>
 
-<p>Instead, we are going to open Terminal in Mac/Lunix or go to Run > "cmd" in Windows and navigate to our CodeIgniter project.</p>
+<p>Zamiast tego otworzymy terminal w Mac/Lunix albo w Windowsie przejdziemy do Uruchom > "cmd" i przejdziemy do naszego projektu w CodeIgniterze.</p>
 
 <blockquote>
-	$ cd /path/to/project;<br/>
+	$ cd /ścieżka/do/codeignitera;<br/>
 	$ php index.php tools message
 </blockquote>
 
-<p>If you did it right, you should see <samp>Hello World!</samp>.</p>
+<p>Jeśli wszystko dobrze wykonałeś, powinieneś zobaczyć napis <samp>Hello World!</samp>.</p>
 
 <blockquote>
-	$ php index.php tools message "John Smith"
+	$ php index.php tools message "Stefek Burczymucha"
 </blockquote>
 
-<p>Here we are passing it a argument in the same way that URL parameters work. "John Smith" is passed as a argument and output is: <samp>Hello John Smith!</samp>.</p>
+<p>Teraz przypisujemy argument w ten sam sposób jak działają parametry w adresie URL.
+"Stefek Burczymucha" jest przekazany jako argument, w wyniku czego otrzymujemy <samp>Hello Stefek Burczymucha!</samp>.</p>
 
-<h2>That's it!</h2>
+<h2>To tyle!</h2>
 
-<p>That, in a nutshell, is all there is to know about controllers on the command line. Remember that this is just a normal controller, so routing and _remap works fine.</p>
+<p>To w sumie wszystko, co powinniśmy wiedzieć na temat kontrolerów i linii poleceń. Pamiętaj, że to jest normalny kontroler, więc routing i __remap działają.</p>
 
 
 
@@ -136,11 +137,11 @@ class Tools extends CI_Controller {
 
 <div id="footer">
 <p>
-Poprzedni rozdział:&nbsp;&nbsp;<a href="urls.html">CodeIgniter URLs</a>
+Poprzedni rozdział:&nbsp;&nbsp;<a href="urls.html">Adresy URL</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny rozdział:&nbsp;&nbsp;<a href="reserved_names.html">Reserved Names</a></p>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny rozdział:&nbsp;&nbsp;<a href="reserved_names.html">Zarezerwowane nazwy</a></p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 <script type="text/javascript">
