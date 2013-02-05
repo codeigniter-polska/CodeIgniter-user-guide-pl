@@ -43,7 +43,7 @@ function create_menu(basepath)
 
 		'<h3>Tematy ogólne</h3>' +
 		'<ul>' +
-			'<li><a href="'+base+'general/urls.html">CodeIgniter URLs</a></li>' +
+			'<li><a href="'+base+'general/urls.html">Adresy URL</a></li>' +
 			'<li><a href="'+base+'general/controllers.html">Kontrolery</a></li>' +
 			'<li><a href="'+base+'general/reserved_names.html">Zarezerwowane nazwy</a></li>' +
 			'<li><a href="'+base+'general/views.html">Widoki</a></li>' +
@@ -56,13 +56,13 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/core_classes.html">Creating Core Classes</a></li>' +
 			'<li><a href="'+base+'general/hooks.html">Hooks - Extending the Core</a></li>' +
 			'<li><a href="'+base+'general/autoloader.html">Automatyczne ładowanie zasobów</a></li>' +
-			'<li><a href="'+base+'general/common_functions.html">Common Functions</a></li>' +
+			'<li><a href="'+base+'general/common_functions.html">Funkcje wspólne</a></li>' +
 			'<li><a href="'+base+'general/routing.html">Routing URI</a></li>' +
 			'<li><a href="'+base+'general/errors.html">Obsługa błędów</a></li>' +
-			'<li><a href="'+base+'general/caching.html">Caching</a></li>' +
-			'<li><a href="'+base+'general/profiling.html">Profiling Your Application</a></li>' +
-			'<li><a href="'+base+'general/cli.html">Running via the CLI</a></li>' +
-			'<li><a href="'+base+'general/managing_apps.html">Managing Applications</a></li>' +
+			'<li><a href="'+base+'general/caching.html">Cache\'owanie</a></li>' +
+			'<li><a href="'+base+'general/profiling.html">Profilowanie aplikacji</a></li>' +
+			'<li><a href="'+base+'general/cli.html">Uruchamianie za pomocą wiersza poleceń</a></li>' +
+			'<li><a href="'+base+'general/managing_apps.html">Zarządzanie aplikacjami</a></li>' +
 			'<li><a href="'+base+'general/environments.html">Obsługa wielu środowisk</a></li>' +
 			'<li><a href="'+base+'general/alternative_php.html">Alternatywna składnia w plikach Widoku</a></li>' +
 			'<li><a href="'+base+'general/security.html">Bezpieczeństwo</a></li>' +
