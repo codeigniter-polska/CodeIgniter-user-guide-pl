@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Common Functions : CodeIgniter podręcznik użytkownika</title>
+<title>Funkcje wspólne : CodeIgniter podręcznik użytkownika</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -22,12 +22,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -38,11 +38,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://www.codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
-Auto-loading Resources
+Funkcje wspólne
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="podrecznik.codeigniter.org.pl/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -53,53 +53,54 @@ Auto-loading Resources
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Common Functions</h1>
+<h1>Funkcje wspólne</h1>
 
-<p>CodeIgniter uses a few functions for its operation that are globally defined, and are available to you at any point. These do not require loading any libraries or helpers.</p>
+<p>CodeIgniter używa kilku funkcji, które są zdefiniowane globalnie i dostępne w każdym punkcie aplikacji. Nie trzeba ładować żadnych bibliotek lub helperów aby mieć do nich dostęp.</p>
 
 <h2>is_php('<var>version_number</var>')</h2>
 
-<p>is_php() determines of the PHP version being used is greater than the supplied <var>version_number</var>.</p>
+<p>is_php() określa, czy wersja PHP której używamy jest wyższa od tej dostarczonej jako argument <var>version_number</var>.</p>
 
 <code>if (is_php('5.3.0'))<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;$str = quoted_printable_encode($str);<br />
 }</code>
 
-<p>Returns boolean <kbd>TRUE</kbd> if the installed version of PHP is equal to or greater than the supplied version number.  Returns  <kbd>FALSE</kbd> if the installed version of PHP is lower than the supplied version number.</p>
+<p>Zwraca <kbd>TRUE</kbd> (boolean) jeśli zainstalowana wersja PHP jest równa lub wyższa od tej dostarczonej jako argument. Zwraca <kbd>FALSE</kbd> jeśli zainstalowana wersja PHP jest niższa od tej dostarczonej jako argument.</p>
 
 
 <h2>is_really_writable('<var>path/to/file</var>')</h2>
 
-<p>is_writable() returns TRUE on Windows servers when you really can't write to the file as the OS reports to PHP as FALSE only if the read-only attribute is marked. This function determines if a file is actually writable by attempting to write to it first. Generally only recommended on platforms where this information may be unreliable.</p>
+<p>is_writable() zwraca TRUE na serwerach z Windowsem jeśli naprawdę nie można zapisać do pliku - OS zwraca do PHP wartość FALSE, tylko kiedy zaznaczony jest atrybut tylko-do-odczytu. Ta funkcja sprawdza, czy można zapisać dany plik poprzez próbę wcześniejszego zapisu do niego. Generalnie funkcja jest rekomendowana na platformach, gdzie taka informacja może nie być rzetelna.</p>
 
 <code>if (is_really_writable('file.txt'))<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;echo &quot;I could write to this if I wanted to&quot;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;echo &quot;Mogę zapisać coś do tego pliku, jeśli tylko chcę&quot;;<br />
 }<br />
 else<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;echo &quot;File is not writable&quot;;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;echo &quot;Ten plik nie jest do zapisu&quot;;<br />
 }</code>
 
 <h2>config_item('<var>item_key</var>')</h2>
-<p>The <a href="../libraries/config.html">Config library</a> is the preferred way of accessing configuration information, however config_item() can be used to retrieve single keys. See Config library documentation for more information.</p>
+<p><a href="../libraries/config.html">Biblioteka config</a> jest preferowanym sposobem na dostęp do wartości konfiguracyjnych, ale 
+config_item() może zostać uzyte do zwracania pojedynczych kluczy. Spójrz na dokumentację biblioteki config po więcej informacji.</p>
 
 <h2>show_error('<var>message</var>'), show_404('<var>page</var>'), log_message('<var>level</var>', '<samp>message</samp>')</h2>
-<p>These are each outlined on the <a href="errors.html">Error Handling</a> page.</p>
+<p>Każda z nich jest przedstawiona na stronie <a href="errors.html">obsługi błędów</a>.</p>
 
 <h2>set_status_header(<var>code</var>, '<var>text</var>');</h2>
 
-<p>Permits you to manually set a server status header.  Example:</p>
+<p>Pozwala na ręczne ustawienie statusu nagłówka serwera. Przykład:</p>
 
 <code>set_status_header(401);<br />
-// Sets the header as:  Unauthorized</code>
+// Ustawia nagłówek na:  Unauthorized</code>
 
-<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">See here</a> for a full list of headers.</p>
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">Zobacz tutaj</a> na pełną listę nagłówków.</p>
 
 
 <h2>remove_invisible_characters(<var>$str</var>)</h2>
-<p>This function prevents inserting null characters between ascii characters, like Java\0script.</p>
+<p>Ta funkcja zapobiega wstawianiu pustych znaków pomiędzy znaki ascii, jak Java\0script.</p>
 
 
 
@@ -111,11 +112,11 @@ else<br />
 
 <div id="footer">
 <p>
-Poprzedni rozdział:&nbsp;&nbsp;<a href="autoloader.html">Auto-loading Resources</a><a href="hooks.html"></a>
+Poprzedni rozdział:&nbsp;&nbsp;<a href="autoloader.html">Automatyczne ładowanie zasobów</a><a href="hooks.html"></a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny rozdział:&nbsp;&nbsp;<a href="routing.html">URI Routing</a></p>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny rozdział:&nbsp;&nbsp;<a href="routing.html">Routing URI</a></p>
 <p><a href="http://www.codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 <script type="text/javascript">
