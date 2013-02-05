@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Error Handling : Podręcznik użytkownika CodeIgniter</title>
+<title>Obsługa błędów : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Error Handling
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Obsługa błędów
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="podrecznik.codeigniter.org.pl/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -55,69 +55,67 @@ Error Handling
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Error Handling</h1>
+<h1>Obsługa błędów</h1>
 
-<p>CodeIgniter lets you build error reporting into your applications using the functions described below.
-In addition, it has an error logging class that permits error and debugging messages to be saved as text files.</p>
+<p>CodeIgniter pozwala na raportowanie błedów w aplikacji, przy użyciu funkcji opisanych ponizej.
+Dodatkowo, posiada też klasę logowania błędów, co pozwala na zapisywanie błedów i komunikatów debugowania w pliku tekstowym.</p>
 
-<p class="important"><strong>Note:</strong> By default, CodeIgniter displays all PHP errors.  You might
-wish to change this behavior once your development is complete.  You'll find the <dfn>error_reporting()</dfn>
-function located at the top of your main index.php file. Disabling error reporting will NOT prevent log files
-from being written if there are errors.</p>
+<p class="important"><strong>Uwaga:</strong> Domyślnie CodeIgniter wyświetla wszystkie błędy PHP. Możesz chcieć zmienić to zachowanie
+kiedy skończysz pisac aplikację. W głównym pliku index.php, znajdziesz funkcję <dfn>error_reporting()</dfn>. Wyłączenie raportowania błędów
+NIE spowoduje, że w momencie wystąpienia błędu nie zostanie on zapisany w logu.</p>
 
-<p>Unlike most systems in CodeIgniter, the error functions are simple procedural interfaces that are available
-globally throughout the application.  This approach permits error messages to get triggered without having to worry
-about class/function scoping.</p>
+<p>W przeciwieństwie do większości systemów jakie spotkamy wCodeIgniterze, funkcje błędów są prostymi proceduralnymi interfejsami,
+które są dostępne globalnie w aplikacji. To rozwiązanie, pozwala na wyświetlanie komunikatów błędów, bez potrzeby marwienia się o zakres klasy/funkcji.</p>
 
-<p>The following functions let you generate errors:</p>
+<p>Te funkcje pozolą na generowanie błędów:</p>
 
 <h2>show_error('<var>message</var>' [, int <var>$status_code</var>= 500 ] )</h2>
-<p>This function will display the error message supplied to it using the following error template:</p>
+<p>Ta funkcja wyświetli komunikat błędu za pośrednictwem następującego szablonu:</p>
 <p><dfn>application/errors/</dfn><kbd>error_general.php</kbd></p>
-<p>The optional parameter $status_code determines what HTTP status code should be sent with the error.</p>
+<p>Opcjonalny parametr $status_code decyduje o tym jaki kod nagłówka HTTP zostanie wysłany razem z komunikatem błędu.</p>
 
 <h2>show_404('<var>page</var>' [, '<var>log_error</var>'])</h2>
-<p>This function will display the 404 error message supplied to it using the following error template:</p>
+<p>Ta funkcja wyświetli komunikat błędu 404, za pośrednictwem następującego szablonu:</p>
 <p><dfn>application/errors/</dfn><kbd>error_404.php</kbd></p>
 
-<p>The function expects the string passed to it to be the file path to the page that isn't found.
-Note that CodeIgniter automatically shows 404 messages if controllers are not found.</p>
+<p>Ta funkcja oczekuje, że ciąg który zostanie do niej przypisany, będzie ścieżką do strony, która nie została znaleziona.
+Weź pod uwagę, że CodeIgniter automatycznie pokazuje komunikat 404, jeśli kontroler nie może zostać znaleziony.</p>
 
-<p>CodeIgniter automatically logs any show_404() calls. Setting the optional second parameter to FALSE will skip logging.</p>
+<p>CodeIgniter automatycznie zapisuje do loga każde wywołanie błędu show_404(). Ustawienie drugiego, opcjonalnego parametru na wartość FALSE, zapobiegnie temu.</p>
 
 
 <h2>log_message('<var>level</var>', '<samp>message</samp>')</h2>
 
-<p>This function lets you write messages to your log files.  You must supply one of three "levels"
-in the first parameter, indicating what type of message it is (debug, error, info), with the message
-itself in the second parameter.  Example:</p>
+<p>Ta funkcja pozwala na zapisanie wiadomości w pliku logu. Musisz dostarczyć jeden z trzech "poziomów"
+w pierwszym parametrze, w zależności od typu wiadomości (debug, error, info), natomiast w drugim parametrze samą treść wiadomości.
+Przykład:</p>
 
 <code>
 if ($some_var == "")<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;log_message('error', 'Some variable did not contain a value.');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;log_message('error', 'Pewna zmienna nie posiada wartości.');<br />
 }<br />
 else<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;log_message('debug', 'Some variable was correctly set');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;log_message('debug', 'Pewna zmienna została poprawnie ustawiona');<br />
 }<br />
 <br />
-log_message('info', 'The purpose of some variable is to provide some value.');<br />
+log_message('info', 'Celem niektórych zmiennych jest dostarczanie wartości.');<br />
 </code>
 
-<p>There are three message types:</p>
+<p>Mamy trzy rodzaje wiadomości:</p>
 
 <ol>
-<li>Error Messages.  These are actual errors, such as PHP errors or user errors.</li>
-<li>Debug Messages.  These are messages that assist in debugging. For example, if a class has been initialized, you could log this as debugging info.</li>
-<li>Informational Messages.  These are the lowest priority messages, simply giving information regarding some process.  CodeIgniter doesn't natively generate any info messages but you may want to in your application.</li>
+<li>Wiadomości błędów.  Są to rzeczywiste błędy, takie jak błędy PHP lub błędy użytkowników.</li>
+<li>Wiadomości debug.  Są to komunikaty, które pomagają w debugowaniu. Dla przykładu, jeśli klasa została zainicjalizowana, mozesz to zalogować jako wiadomość debug.</li>
+<li>Wiadomości informacyjne.  Są to wiadomości o najniższym priorytecie, które doatrczają informacji o jakimś procesie.  CodeIgniter natywnie, nie generuje żadnych informacji o tym statusie, ale Ty możesz chcieć użyć ich w swojej aplikacji.</li>
 </ol>
 
 
-<p class="important"><strong>Note:</strong> In order for the log file to actually be written, the
- "logs" folder must be writable.  In addition, you must set the "threshold" for logging in <dfn>application/config/config.php</dfn>.
-You might, for example, only want error messages to be logged, and not the other two types.
-If you set it to zero logging will be disabled.</p>
+<p class="important"><strong>Uwaga:</strong> Aby plik logu mógł być zapisany, folder "logs", musi posiadać odpowiednie uprawnienia. 
+Musisz również ustawić odpowiedni "próg" dla wiadomości logowania w pliku <dfn>application/config/config.php</dfn>.
+Dla przykładu, możesz chcieć, aby tylko wiadomości błędu były zapisywane w logu, a pozostałe dwa typy nie. 
+Jeśli ustawisz wartość na zero, to logowanie zostanie wyłączone.</p>
 
 
 
@@ -127,11 +125,11 @@ If you set it to zero logging will be disabled.</p>
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="routing.html">URI Routing</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="routing.html">Routing URI</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="caching.html">Page Caching</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="caching.html">Cache'owanie</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
