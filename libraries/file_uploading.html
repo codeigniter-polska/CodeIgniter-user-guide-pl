@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>File Uploading Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa przesyłania plików : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-File Uploading Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa przesyłania plików
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,32 +56,30 @@ File Uploading Class
 <div id="content">
 
 
-<h1>File Uploading Class</h1>
+<h1>Klasa przesyłania plików</h1>
 
-<p>CodeIgniter's File Uploading Class permits files to be uploaded.  You can set various
-preferences, restricting the type and size of the files.</p>
+<p>Klasa przesyłania plików, pozwala - jak sama nazwa wskazuje - na przesyłanie plików na serwer. Możesz ustawić wiele preferencji, m.in. określać typ i rozmiar plików.</p>
 
 
-<h2>The Process</h2>
+<h2>Proces</h2>
 
-<p>Uploading a file involves the following general process:</p>
+<p>Przesyłanie plików obejmuje następujące procesy:</p>
 
 
 <ul>
-<li>An upload form is displayed, allowing a user to select a file and upload it.</li>
-<li>When the form is submitted, the file is uploaded to the destination you specify.</li>
-<li>Along the way, the file is validated to make sure it is allowed to be uploaded based on the preferences you set.</li>
-<li>Once uploaded, the user will be shown a success message.</li>
+<li>Wyświetlany jest formularz uploadu, pozwalając użytkownikowi na wybór pliku do przesłania.</li>
+<li>Kiedy formularz zostaje wysłany, plik zostaje przesłany do lokalizacji, którą określiłeś.</li>
+<li>Po drodze, plik jest sprawdzany, aby przekonać się, czy może zostać przesłany i czy spełnia wszystkie warunki określone przez Ciebie w preferencjach.</li>
+<li>Po przesłaniu, użytkownik zobaczy wiadomość o powodzeniu.</li>
 </ul>
 
-<p>To demonstrate this process here is brief tutorial. Afterward you'll find reference information.</p>
+<p>Aby zademonstrować ten proces, poniżej znajdziesz krótki tutorial. Na końcu znajdziesz opis wszystkich dostępnych ustawień.</p>
 
-<h2>Creating the Upload Form</h2>
+<h2>Tworzenie formularza upload</h2>
 
 
 
-<p>Using a text editor, create a form called <dfn>upload_form.php</dfn>.  In it, place this code and save it to your <samp>applications/views/</samp>
-folder:</p>
+<p>Korzystając z edytora tekstu utwórz plik <dfn>upload_form.php</dfn>. Umieść w nim poniższy kod i zapisz w folderze <samp>applications/views/</samp>:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="23">
@@ -106,15 +104,13 @@ folder:</p>
 &lt;/body>
 &lt;/html></textarea>
 
-<p>You'll notice we are using a form helper to create the opening form tag.  File uploads require a multipart form, so the helper
-creates the proper syntax for you.  You'll also notice we have an $error variable.  This is so we can show error messages in the event
-the user does something wrong.</p>
+<p>Zauważ, że używamy helpera Form, aby utworzyć tag otwarcia formularza. Przesyłanie plików wymaga typu multipart, więc helper tworzy odpowiednią składnię za Ciebie. Zwróć również uwagę, że mamy zmienną $error. Istnieje ona po to, abyśmy mogli pokazać wiadomości o błędzie w przypadku kiedy użytkownik wykona coś błędnie.</p>
 
 
-<h2>The Success Page</h2>
+<h2>Strona sukcesu</h2>
 
-<p>Using a text editor, create a form called <dfn>upload_success.php</dfn>.
-In it, place this code and save it to your <samp>applications/views/</samp> folder:</p>
+<p>Korzystając z edytora tekstu utwórz plik <dfn>upload_success.php</dfn>.
+Umieść w nim poniższy kod i zapisz w folderze <samp>applications/views/</samp>:</p>
 
 <textarea class="textarea" style="width:100%" cols="50" rows="20">&lt;html>
 &lt;head>
@@ -136,10 +132,10 @@ In it, place this code and save it to your <samp>applications/views/</samp> fold
 &lt;/html></textarea>
 
 
-<h2>The Controller</h2>
+<h2>Kontroler</h2>
 
-<p>Using a text editor, create a controller called <dfn>upload.php</dfn>.  In it, place this code and save it to your <samp>applications/controllers/</samp>
-folder:</p>
+<p>Korzystając z edytora tekstu utwórz plik <dfn>upload.php</dfn>.  
+Umieść w nim poniższy kod i zapisz w folderze <samp>applications/controllers/</samp>:</p>
 
 
 <textarea class="textarea" style="width:100%" cols="50" rows="43">&lt;?php
@@ -184,20 +180,19 @@ class Upload extends CI_Controller {
 ?&gt;</textarea>
 
 
-<h2>The Upload Folder</h2>
+<h2>Folder do przesyłania plików</h2>
 
-<p>You'll need a destination folder for your uploaded images.  Create a folder at the root of your CodeIgniter installation called
-<dfn>uploads</dfn> and set its file permissions to 777.</p>
+<p>Potrzebny będzie docelowy folder do przesyłania zdjęć. Utwórz ten folder w głównym katalogu, w którym znajduje się instalacja CodeIgnitera, i nazwij go 
+<dfn>uploads</dfn>, a następnie ustaw jego prawa dostępu na 777.</p>
 
 
-<h2>Try it!</h2>
+<h2>Czas to wypróbować!</h2>
 
-<p>To try your form, visit your site using a URL similar to this one:</p>
+<p>Aby wypróbować swój formularz, odwiedz stronę za pomocą adresu URL podobnego do tego:</p>
 
 <code>example.com/index.php/<var>upload</var>/</code>
 
-<p>You should see an upload form. Try uploading an image file (either a jpg, gif, or png). If the path in your
-controller is correct it should work.</p>
+<p>Powinieneś zobaczyć formularz do przesyłania plików. Sprobuj przesłać plik graficzny (jpg, gif lub png). Jeśli ścieżki w Twoim kontrolerze są poprawne, to wszystko powinno działać prawidłowo.</p>
 
 
 <p>&nbsp;</p>
@@ -205,18 +200,18 @@ controller is correct it should work.</p>
 <h1>Reference Guide</h1>
 
 
-<h2>Initializing the Upload Class</h2>
+<h2>Inicjalizowanie klasy Upload</h2>
 
-<p>Like most other classes in CodeIgniter, the Upload class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<p>Tak jak większość innych klas w CodeIgniterze, klasa Upload est inicjalizowana w Twoim kontrolerze poprzez funkcję <dfn>$this->load->library</dfn>:</p>
 
 <code>$this->load->library('upload');</code>
-<p>Once the Upload class is loaded, the object will be available using: <dfn>$this->upload</dfn></p>
+<p>Po załadowaniu, obiekt klasy Upload będzie dostępny poprzez wywołanie: <dfn>$this->upload</dfn></p>
 
 
-<h2>Setting Preferences</h2>
+<h2>Ustawianie preferencji</h2>
 
-<p>Similar to other libraries, you'll control what is allowed to be upload based on your preferences.  In the controller you
-built above you set the following preferences:</p>
+<p>Podobnie jak w innych bibliotekach, będziesz kontrolował to, co może być przesyłane na podstawie własnych preferencji. W kontrolerze, który utworzyleś
+powyżej ustawione są następujące preferencje:</p>
 
 <code>$config['upload_path'] = './uploads/';<br />
 $config['allowed_types'] = 'gif|jpg|png';<br />
@@ -226,45 +221,48 @@ $config['max_height']  = '768';<br />
 <br />
 $this->load->library('upload', $config);<br /><br />
 
-// Alternately you can set preferences by calling the initialize function.  Useful if you auto-load the class:<br />
+// Alternatywnie, możesz ustawić preferencje poprzez wywołanie funkcji initialize. Jest to przydatne, kiedy automatycznie ładujesz tę klasę:<br />
 $this->upload->initialize($config);</code>
 
-<p>The above preferences should be fairly self-explanatory.  Below is a table describing all available preferences.</p>
+<p>Powyższe preferencje powinny być dość oczywiste. Poniżej w tabeli przedstawione są wszystkie dostępne preferencje.</p>
 
 
-<h2>Preferences</h2>
+<h2>Preferencje</h2>
 
-<p>The following preferences are available.  The default value indicates what will be used if you do not specify that preference.</p>
+<p>Dostępne są następujące preferencje.  Domyślne wartości określają jaka wartość zostanie użyta, jeśli nie ustawisz jej samodzielnie.</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-<th>Preference</th>
-<th>Default&nbsp;Value</th>
-<th>Options</th>
-<th>Description</th>
+<th>Preferencja</th>
+<th>Domyślna&nbsp;wartość</th>
+<th>Opcje</th>
+<th>Opis</th>
 </tr>
 
 <tr>
 <td class="td"><strong>upload_path</strong></td>
 <td class="td">None</td>
 <td class="td">None</td>
-<td class="td">The path to the folder where the upload should be placed.  The folder must be writable and the path can be absolute or relative.</td>
+<td class="td">Ścieżka do folderu w którym mają się znajdować przesłane pliki. 
+Folder musi mieć prawa do zapisu, a ścieżka może być absolutna lub relatywna.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>allowed_types</strong></td>
 <td class="td">None</td>
 <td class="td">None</td>
-<td class="td">The mime types corresponding to the types of files you allow to be uploaded.  Usually the file extension can be used as the mime type.  Separate multiple types with a pipe.</td>
+<td class="td">Typ mime odnoszący się do typów plików jakie mogą być przesyłane.
+Zazwyczaj rozszerzenie pliku może zostać użyte jako typ mime. Wiele typów oddzielamy od siebie za pomocą pionowej kreski.</td>
 </tr>
 
 
 <tr>
 <td class="td"><strong>file_name</strong></td>
 <td class="td">None</td>
-<td class="td">Desired file name</td>
+<td class="td">Pożądana nazwa pliku</td>
 <td class="td">
-	<p>If set CodeIgniter will rename the uploaded file to this name.  The extension provided in the file name must also be an allowed file type.</p>
+	<p>Jeśli ustawisz tą preferencję, CodeIgniter zmieni nazwę pliku na tą wartość. 
+		Rozszerzenie dla nowej nazwy pliku, musi również być jednym z dozwolonych typów plików.</p>
 </td>
 </tr>
 
@@ -272,7 +270,7 @@ $this->upload->initialize($config);</code>
 <td class="td"><strong>overwrite</strong></td>
 <td class="td">FALSE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">If set to true, if a file with the same name as the one you are uploading exists, it will be overwritten. If set to false, a number will be appended to the filename if another with the same name exists.</td>
+<td class="td">Ustawienie na wartość true sprawia, że pliki o tej samej nazwie są nadpisywane. Jeśli wartość jest ustawiona na false, to do nowego pliku o tej samej nazwie dołączany jest odpowiedni numer.</td>
 </tr>
 
 
@@ -280,67 +278,68 @@ $this->upload->initialize($config);</code>
 <td class="td"><strong>max_size</strong></td>
 <td class="td">0</td>
 <td class="td">None</td>
-<td class="td">The maximum size (in kilobytes) that the file can be.  Set to zero for no limit. Note:  Most PHP installations have their own limit, as specified in the php.ini file.  Usually 2 MB (or 2048 KB) by default.</td>
+<td class="td">Maksymalny rozmiar pliku (w kilobajtach).  Ustaw na zero dla zniesienia limitów. 
+Uwaga:  większość instalacji PHP ma swoje własne limity, które są określane w pliku php.ini.  Zazwyczaj 2 MB (lub 2048 KB) domyślnie.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>max_width</strong></td>
 <td class="td">0</td>
 <td class="td">None</td>
-<td class="td">The maximum width (in pixels) that the file can be.  Set to zero for no limit.</td>
+<td class="td">Maksymalna szerokość dla pliku (w pikselach).  Ustaw na zero dla zniesienia limitów.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>max_height</strong></td>
 <td class="td">0</td>
 <td class="td">None</td>
-<td class="td">The maximum height (in pixels) that the file can be.  Set to zero for no limit.</td>
+<td class="td">Maksymalna wysokość dla pliku (w pikselach).  Ustaw na zero dla zniesienia limitów.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>max_filename</strong></td>
 <td class="td">0</td>
 <td class="td">None</td>
-<td class="td">The maximum length that a file name can be.  Set to zero for no limit.</td>
+<td class="td">Maksymalna długość nazwy pliku.  Ustaw na zero dla zniesienia limitów.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>encrypt_name</strong></td>
 <td class="td">FALSE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">If set to TRUE the file name will be converted to a random encrypted string. This can be useful if you would like the file saved with a name that can not be discerned by the person uploading it.</td>
+<td class="td">Ustawienie na wartość TRUE, zmienia nazwę pliku na losowy zaszyfrowany ciąg. Może być przydatne, kiedy chcesz aby plik został zachowany pod nazwą, którą trudno będzie zgadnąć osobie która go wgrała.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>remove_spaces</strong></td>
 <td class="td">TRUE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">If set to TRUE, any spaces in the file name will be converted to underscores. This is recommended.</td>
+<td class="td">Ustawienie na TRUE sprawia, że wszystkie wystąpienia spacji w nazwie pliku zostaną zastąpione podreśleniami. To ustawienie jest zalecane.</td>
 </tr>
 </table>
 
 
-<h2>Setting preferences in a config file</h2>
+<h2>Ustawianie preferencji w pliku konfiguracyjnym</h2>
 
-<p>If you prefer not to set preferences using the above method, you can instead put them into a config file.
-Simply create a new file called the <var>upload.php</var>,  add the <var>$config</var>
-array in that file. Then save the file in: <var>config/upload.php</var> and it will be used automatically. You
-will NOT need to use the <dfn>$this->upload->initialize</dfn> function if you save your preferences in a config file.</p>
+<p>Jeśli nie chcesz ustawiać preferencji za pomocą powyższej metody, możesz umieścić je w pliku konfiguracyjnym.
+Po prostu utwórz nowy plik o nazwie <var>upload.php</var> z tablicą $config w środku i zapisz go w <var>config/upload.php</var>, 
+a zostanie onużyty automatycznie.
+Jeśli zapiszesz swoje preferencje w pliku konfiguracyjnym, nie będziesz musiał korzystać z funkcji <dfn>$this->upload->initialize</dfn>.</p>
 
 
-<h2>Function Reference</h2>
+<h2>Dostępne funkcje</h2>
 
-<p>The following functions are available</p>
+<p>Dostępne są następujące funkcje</p>
 
 
 <h2>$this->upload->do_upload()</h2>
 
-<p>Performs the upload based on the preferences you've set.  Note:  By default the upload routine expects the file to come from a form field
-called <dfn>userfile</dfn>, and the form must be a "multipart type:</p>
+<p>Dokonuje przesyłania na podstawie preferencji jakie określiłeś. Uwaga: Domyślnie procedura wysyłania oczekuje, że nazwa pola z formularza
+będzie nosiła nazwę <dfn>userfile</dfn>. Formularz musi być typu multipart:</p>
 
 <code>&lt;form method="post" action="some_action" enctype="multipart/form-data" /></code>
 
-<p>If you would like to set your own field name simply pass its value to the <dfn>do_upload</dfn> function:</p>
+<p>Jeśli chcesz ustawić swoją własną nazwę pola formularza, po prostu przypisz ją do funkcji <dfn>do_upload</dfn>:</p>
 
 <code>
 $field_name = "some_field_name";<br />
@@ -349,18 +348,18 @@ $this->upload->do_upload($field_name)</code>
 
 <h2>$this->upload->display_errors()</h2>
 
-<p>Retrieves any error messages if the <dfn>do_upload()</dfn> function returned false.  The function does not echo automatically, it
-returns the data so you can assign it however you need.</p>
+<p>Zwraca wiadomość błędu, jeśli funkcja <dfn>do_upload()</dfn> zwróci warrtość false. Funkcja nie wyświetla danych automatycznie, zwraca je
+abyś mógł je przypisać w sposób jaki chcesz.</p>
 
-<h3>Formatting Errors</h3>
-<p>By default the above function wraps any errors within &lt;p> tags.  You can set your own delimiters like this:</p>
+<h3>Formatowanie błędów</h3>
+<p>Domyślnie, powyższa funkcja otacza każdy błąd tagami &lt;p>. Możesz sam ustalić tagi, które mają otaczać wiadomość błędu:</p>
 
 <code>$this->upload->display_errors('<var>&lt;p></var>', '<var>&lt;/p></var>');</code>
 
 <h2>$this->upload->data()</h2>
 
-<p>This is a helper function that returns an array containing all of the data related to the file you uploaded.
-Here is the array prototype:</p>
+<p>To jest funkcja pomocnicza, która zwraca tablicę zawierającą wszystkie dane powiązane z plikiem, który został przesłany.
+Oto prototyp tablicy:</p>
 
 <code>Array<br />
 (<br />
@@ -380,54 +379,54 @@ Here is the array prototype:</p>
 &nbsp;&nbsp;&nbsp;&nbsp;[image_size_str] => width="800" height="200"<br />
 )</code>
 
-<h3>Explanation</h3>
+<h3>Wyjaśnienie</h3>
 
-<p>Here is an explanation of the above array items.</p>
+<p>Oto wyjaśnienie powyższych wartości tablicy.</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
-<tr><th>Item</th><th>Description</th></tr>
+<tr><th>Pozycja</th><th>Opis</th></tr>
 
 <tr><td class="td"><strong>file_name</strong></td>
-<td class="td">The name of the file that was uploaded including the file extension.</td></tr>
+<td class="td">Nazwa przesyłoanego pliku razem z rozszerzeniem.</td></tr>
 
 <tr><td class="td"><strong>file_type</strong></td>
-<td class="td">The file's Mime type</td></tr>
+<td class="td">Typ Mime pliku</td></tr>
 
 <tr><td class="td"><strong>file_path</strong></td>
-<td class="td">The absolute server path to the file</td></tr>
+<td class="td">Absolutna ścieżka serwerowa do pliku</td></tr>
 
 <tr><td class="td"><strong>full_path</strong></td>
 <td class="td">The absolute server path including the file name</td></tr>
 
 <tr><td class="td"><strong>raw_name</strong></td>
-<td class="td">The file name without the extension</td></tr>
+<td class="td">Nazwa pliku bez rozszerzenia</td></tr>
 
 <tr><td class="td"><strong>orig_name</strong></td>
-<td class="td">The original file name.  This is only useful if you use the encrypted name option.</td></tr>
+<td class="td">Oryginalna nazwa pliku.  Przydatne tylko jeśli używasz opcji szyfrowania nazwy.</td></tr>
 
 <tr><td class="td"><strong>client_name</strong></td>
-<td class="td">The file name as supplied by the client user agent, prior to any file name preparation or incrementing.</td></tr>
+<td class="td">Nazwa pliku przesłana przez użytkownika, przed przygotowaniem nazwy lub dodaniem ewentualnych liczb.</td></tr>
 
 <tr><td class="td"><strong>file_ext</strong></td>
-<td class="td">The file extension with period</td></tr>
+<td class="td">Rozszerzenie pliku razem z kropką</td></tr>
 
 <tr><td class="td"><strong>file_size</strong></td>
-<td class="td">The file size in kilobytes</td></tr>
+<td class="td">Rozmiar pliku w kilobajtach</td></tr>
 
 <tr><td class="td"><strong>is_image</strong></td>
-<td class="td">Whether the file is an image or not.  1 = image. 0 = not.</td></tr>
+<td class="td">Czy plik jest plikiem graficznym.  1 = tak. 0 = nie.</td></tr>
 
 <tr><td class="td"><strong>image_width</strong></td>
-<td class="td">Image width.</td></tr>
+<td class="td">Szerokość pliku graficznego.</td></tr>
 
 <tr><td class="td"><strong>image_height</strong></td>
-<td class="td">Image height</td></tr>
+<td class="td">Wysokość pliku graficznego</td></tr>
 
 <tr><td class="td"><strong>image_type</strong></td>
-<td class="td">Image type.  Typically the file extension without the period.</td></tr>
+<td class="td">Typ pliku graficznego.  Zazwyczaj nazwa rozszerzenia bez kropki.</td></tr>
 
 <tr><td class="td"><strong>image_size_str</strong></td>
-<td class="td">A string containing the width and height.  Useful to put into an image tag.</td></tr>
+<td class="td">Ciąg zawierający szerokość i wysokość pliku graficznego.  Przydatne do zastosowania w tagach html.</td></tr>
 
 
 </table>
@@ -438,11 +437,11 @@ Here is the array prototype:</p>
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="encryption.html">Encryption Helper</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="encryption.html">Klasa Encryption</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="form_validation.html">Form Validation Class</a>
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="form_validation.html">Klasa Form Validation</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">Ellislab, Inc.</a></p>
 </div>
