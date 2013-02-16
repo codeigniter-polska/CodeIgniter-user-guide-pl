@@ -83,10 +83,10 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/benchmark.html">Benchmarking Class</a></li>' +
 		'<li><a href="'+base+'libraries/calendar.html">Calendar Class</a></li>' +
 		'<li><a href="'+base+'libraries/cart.html">Cart Class</a></li>' +
-		'<li><a href="'+base+'libraries/config.html">Config Class</a></li>' +
-		'<li><a href="'+base+'libraries/email.html">Email Class</a></li>' +
-		'<li><a href="'+base+'libraries/encryption.html">Encryption Class</a></li>' +
-		'<li><a href="'+base+'libraries/file_uploading.html">File Uploading Class</a></li>' +
+		'<li><a href="'+base+'libraries/config.html">Klasa Config</a></li>' +
+		'<li><a href="'+base+'libraries/email.html">Klasa Email</a></li>' +
+		'<li><a href="'+base+'libraries/encryption.html">Klasa Encryption</a></li>' +
+		'<li><a href="'+base+'libraries/file_uploading.html">Klasa przesyłania plików</a></li>' +
 		'<li><a href="'+base+'libraries/form_validation.html">Klasa Form Validation</a></li>' +
 		'<li><a href="'+base+'libraries/ftp.html">FTP Class</a></li>' +
 		'<li><a href="'+base+'libraries/table.html">HTML Table Class</a></li>' +
