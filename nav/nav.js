@@ -91,7 +91,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/ftp.html">Klasa FTP</a></li>' +
 		'<li><a href="'+base+'libraries/table.html">HTML Table Class</a></li>' +
 		'<li><a href="'+base+'libraries/image_lib.html">Image Manipulation Class</a></li>' +
-		'<li><a href="'+base+'libraries/input.html">Input Class</a></li>' +
+		'<li><a href="'+base+'libraries/input.html">Klasa Input</a></li>' +
 		'<li><a href="'+base+'libraries/loader.html">Loader Class</a></li>' +
 		'<li><a href="'+base+'libraries/language.html">Language Class</a></li>' +
 		'<li><a href="'+base+'libraries/migration.html">Klasa Migration</a></li>' +
