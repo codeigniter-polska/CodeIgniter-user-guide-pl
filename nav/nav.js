@@ -80,7 +80,7 @@ function create_menu(basepath)
 
 		'<h3>Opisy klas</h3>' +
 		'<ul>' +
-		'<li><a href="'+base+'libraries/benchmark.html">Benchmarking Class</a></li>' +
+		'<li><a href="'+base+'libraries/benchmark.html">Klasa Benchmark</a></li>' +
 		'<li><a href="'+base+'libraries/calendar.html">Calendar Class</a></li>' +
 		'<li><a href="'+base+'libraries/cart.html">Cart Class</a></li>' +
 		'<li><a href="'+base+'libraries/config.html">Klasa Config</a></li>' +
@@ -88,11 +88,10 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/encryption.html">Klasa Encryption</a></li>' +
 		'<li><a href="'+base+'libraries/file_uploading.html">Klasa przesyłania plików</a></li>' +
 		'<li><a href="'+base+'libraries/form_validation.html">Klasa Form Validation</a></li>' +
-		'<li><a href="'+base+'libraries/ftp.html">FTP Class</a></li>' +
+		'<li><a href="'+base+'libraries/ftp.html">Klasa FTP</a></li>' +
 		'<li><a href="'+base+'libraries/table.html">HTML Table Class</a></li>' +
 		'<li><a href="'+base+'libraries/image_lib.html">Image Manipulation Class</a></li>' +
 		'<li><a href="'+base+'libraries/input.html">Input Class</a></li>' +
-		'<li><a href="'+base+'libraries/javascript.html">Javascript Class</a></li>' +
 		'<li><a href="'+base+'libraries/loader.html">Loader Class</a></li>' +
 		'<li><a href="'+base+'libraries/language.html">Language Class</a></li>' +
 		'<li><a href="'+base+'libraries/migration.html">Klasa Migration</a></li>' +
