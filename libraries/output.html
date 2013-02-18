@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Output Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa Output : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Output Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa Output
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,55 +56,56 @@ Output Class
 <div id="content">
 
 
-<h1>Output Class</h1>
+<h1>Klasa Output</h1>
 
-<p>The Output class is a small class with one main function:  To send the finalized web page to the requesting browser.  It is
-also responsible for <a href="../general/caching.html">caching</a> your web pages, if you use that feature.</p>
+<p>Klasa Output jest małą klasą, która spełnia jedną podstawową funkcję: wysyła gotową stronę internetową do przeglądarki.
+Jest również odpowiedzialna za <a href="../general/caching.html">cache'owanie</a> stron, jeśli korzystasz z takiej możliwości.</p>
 
-<p class="important"><strong>Note:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>Uwaga:</strong> Ta klasa jest ładowana automatycznie przez system, dlatego nie musisz tego robić samodzielnie.</p>
 
-<p>Under normal circumstances you won't even notice the Output class since it works transparently without your intervention.
-For example, when you use the <a href="../libraries/loader.html">Loader</a> class to load a view file, it's automatically
-passed to the Output class, which will be called automatically by CodeIgniter at the end of system execution.
-It is possible, however, for you to manually intervene with the output if you need to, using either of the two following functions:</p>
+<p>W normalnych okolicznościach nawet nie zauważysz klasy Output, dlatego że działa ona transparentnie bez Twojej pomocy.
+Dla przykładu, jeśli używasz klasy <a href="../libraries/loader.html">Loader</a> aby załadować plik widoku, jest ona automatycznie
+przypisywana do klasy Output, która zostanie wywołana automatycznie w momencie gdy CodeIgniter zakończy działanie.
+Jest jednak możliwe ręczne manipulowanie "wyjściem", jeśli tego potrzebujesz. Możesz to zrobić za pośrednictwem
+tych dwóch funkcji:</p>
 
 <h2>$this->output->set_output();</h2>
 
-<p>Permits you to manually set the final output string.  Usage example:</p>
+<p>Pozwala na samodzielne ustawienie finalnie zwracanego ciągu. Przykład użycia:</p>
 
 <code>$this->output->set_output($data);</code>
 
-<p><strong>Important:</strong> If you do set your output manually, it must be the last thing done in the function you call it from.
-For example, if you build a page in one of your controller functions, don't set the output until the end.</p>
+<p><strong>Ważne:</strong> Jeśli ustawisz "wyjście" samodzielnie, to funkcja ta musi zostać wywołana jako ostatnie danej w metodzie.
+Dla przykładu, jeśli budujesz stronę w jednej z metod swojego kontrolera, nie ustawiaj "wyjścia" do samego końca.</p>
 
 
 <h2>$this->output->set_content_type();</h2>
 
-<p>Permits you to set the mime-type of your page so you can serve JSON data, JPEG's, XML, etc easily.</p>
+<p>Pozwala na ustawienie typu mime Twojej strony, tak abyś mógł serwować w łatwy sposób dane JSON, XML, JPEG itp.</p>
 
 <code>$this->output<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;->set_content_type('application/json')<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;->set_output(json_encode(array('foo' => 'bar')));<br/>
 <br/>
 $this->output<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;->set_content_type('jpeg') // You could also use ".jpeg" which will have the full stop removed before looking in config/mimes.php<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;->set_content_type('jpeg') // Możesz także użyć ".jpeg", z którego zostanie usunięta kropka przed sprawdzeniem tablicy w config/mimes.php<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;->set_output(file_get_contents('files/something.jpg'));</code>
 
-<p><strong>Important:</strong> Make sure any non-mime string you pass to this method exists in config/mimes.php or it will have no effect.</p>
+<p><strong>Ważne:</strong> Upewnij się, że ciągi które nie są typami mime, znajdują się w pliku config/mimes.php, w innym przypadku takie ustawienie nie odniesie żadnego efektu.</p>
 
 
 <h2>$this->output->get_output();</h2>
 
-<p>Permits you to manually retrieve any output that has been sent for storage in the output class.  Usage example:</p>
+<p>Pozwala na samodzielne pobranie każdych danych "wyjściowych", które zostały wysłane do przechowywania w klasie Output. Przykład użycia:</p>
 <code>$string = $this->output->get_output();</code>
 
-<p>Note that data will only be retrievable from this function if it has been previously sent to the output class by one of the
-CodeIgniter functions like <var>$this->load->view()</var>.</p>
+<p>Zauważ, że dane będą mogły zostać zwrócone z tej funkcji tylko wtedy, gdy zostały wcześniej wysłane do klasy Output poprzez funkcję CodeIgnitera, 
+taką jak <var>$this->load->view()</var>.</p>
 
 
 <h2>$this->output->append_output();</h2>
 
-<p>Appends data onto the output string.  Usage example:</p>
+<p>Dołącza dane do ciągu "wyjściowego".  Przykład użycia:</p>
 
 <code>$this->output->append_output($data);</code>
 
@@ -112,7 +113,7 @@ CodeIgniter functions like <var>$this->load->view()</var>.</p>
 
 <h2>$this->output->set_header();</h2>
 
-<p>Permits you to manually set server headers, which the output class will send for you when outputting the final rendered display.  Example:</p>
+<p>Pozwala na samodzielne ustawienie nagłówków serwerowych, które zwróci klasa Output podczas wyświetlania ostatecznych danych. Przykład:</p>
 
 <code>
 $this->output->set_header("HTTP/1.0 200 OK");<br />
@@ -125,36 +126,39 @@ $this->output->set_header("Pragma: no-cache");	</code>
 
 <h2>$this->output->set_status_header(<var>code</var>, '<var>text</var>');</h2>
 
-<p>Permits you to manually set a server status header.  Example:</p>
+<p>Pozwala na samodzielne ustawienie nagłówku statusu serwera. Przykład:</p>
 
 <code>$this->output->set_status_header('401');<br />
-// Sets the header as:  Unauthorized</code>
+// Ustawia nagłówek na:  Unauthorized</code>
 
-<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">See here</a> for a full list of headers.</p>
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">Tutaj</a> możesz zobaczyć pełną listę dostępnych nagłówków.</p>
 
 <h2>$this->output->enable_profiler();</h2>
 
-<p>Permits you to enable/disable the <a href="../general/profiling.html">Profiler</a>, which will display benchmark and other data
-at the bottom of your pages for debugging and optimization purposes.</p>
+<p>Pozwala na włączenie/wyłączenie <a href="../general/profiling.html">profilera</a>, który będzie wyśwetlał benchmarki oraz inne dane
+na dole Twojej strony. Ma to ułatwić debuggowanie oraz optymalizację.</p>
 
-<p>To enable the profiler place the following function anywhere within your <a href="../general/controllers.html">Controller</a> functions:</p>
+<p>Aby włączyć profiler umieść następującą funkcję gdziekolwiek, w metodzie Twojego <a href="../general/controllers.html">kontrolera</a>:</p>
 <code>$this->output->enable_profiler(TRUE);</code>
 
-<p>When enabled a report will be generated and inserted at the bottom of your pages.</p>
+<p>Po włączeniu, zostanie wygenerowany raport i umieszczony na dole Twojej strony.</p>
 
-<p>To disable the profiler you will use:</p>
+<p>Aby wyłaczyć profiler, możesz użyć:</p>
 <code>$this->output->enable_profiler(FALSE);</code>
 
 <h2>$this->output->set_profiler_sections();</h2>
 
-<p>Permits you to enable/disable specific sections of the Profiler when enabled.  Please refer to the <a href="../general/profiling.html">Profiler</a> documentation for further information.</p>
+<p>Pozwala na włączenie/wyłączenie określonej sekcji profilera, kiedy jest on właczony. Po więcej informacji, proszę zajrzeć do rozdziału o
+ <a href="../general/profiling.html">profilowaniu aplikacji</a>.</p>
 
 <h2>$this->output->cache();</h2>
-<p>The CodeIgniter output library also controls caching.  For more information, please see the <a href="../general/caching.html">caching documentation</a>.</p>
+<p>Biblioteka Output jest również odpowiedzialna za kontrolowanie cache'owania. Po więcej informacji , proszę zajrzeć do rozdziału o
+<a href="../general/caching.html">cache</a>'owaniu.</p>
 
-<h2>Parsing Execution Variables</h2>
+<h2>Parsowanie zmiennych wykonawczych</h2>
 
-	<p>CodeIgniter will parse the pseudo-variables <var>{elapsed_time}</var> and <var>{memory_usage}</var> in your output by default.  To disable this, set the <var>$parse_exec_vars</var> class property to <var>FALSE</var> in your controller.
+	<p>Domyślnie CodeIgniter parsuje pseudo-zmienne <var>{elapsed_time}</var> i <var>{memory_usage}</var>. 
+  Aby wyłączyć tę opcję, ustaw w swoim kontrolerze właściwość klasy <var>$parse_exec_vars</var> na wartość FALSE.
 
 	<code>$this->output->parse_exec_vars = FALSE;</code>
 
@@ -164,10 +168,10 @@ at the bottom of your pages for debugging and optimization purposes.</p>
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="language.html">Language Class</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="language.html">Klasa Language</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 Następny temat:&nbsp;&nbsp;<a href="pagination.html">Pagination Class</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
