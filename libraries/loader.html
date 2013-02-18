@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Loader Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa Loader : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Loader Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa Loader
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,47 +56,48 @@ Loader Class
 <div id="content">
 
 
-<h1>Loader Class</h1>
+<h1>Klasa Loader</h1>
 
-<p>Loader, as the name suggests, is used to load elements.  These elements can be libraries (classes) <a href="../general/views.html">View files</a>,
-<a href="../general/helpers.html">Helpers</a>, <a href="../general/models.html">Models</a>, or your own files.</p>
+<p>Klasa Loader, jak sama nazwa wskazuje służy do ładowania elementów. Tymi elementami mogą być biblioteki (klasy),
+<a href="../general/views.html">pliki widoku</a>, <a href="../general/helpers.html">helpery</a>, <a href="../general/models.html">modele</a>,
+lub Twoje własne pliki.</p>
 
-<p class="important"><strong>Note:</strong> This class is initialized automatically by the system so there is no need to do it manually.</p>
+<p class="important"><strong>Uwaga:</strong> Ta klasa jest ładowana automatycznie przez system, dlatego nie musisz tego robić samodzielnie.</p>
 
-<p>The following functions are available in this class:</p>
+<p>W tej klasie dostępne są następujące funkcje:</p>
 
 
 <h2>$this->load->library('<var>class_name</var>', <samp>$config</samp>, <kbd>'object name'</kbd>)</h2>
 
 
-<p>This function is used to load core classes.  Where <var>class_name</var> is the name of the class you want to load.
-Note: We use the terms "class" and "library" interchangeably.</p>
+<p>Ta funkcja jest używana do ładowania podstawowych klas. Gdzie <var>class_name</var> jest nazwą klasy, którą chcesz załadować.
+Uwaga: Używamy tu zwrotu "klasa" i "biblioteka" wymiennie.</p>
 
-<p>For example, if you would like to send email with CodeIgniter, the first step is to load the email class within your controller:</p>
+<p>Dla przykładu, jeśli chciałbyś wysłać wiadomość email w CodeIgniterze, pierwszym krokiem byłoby załadowanie klasy email w kontrolerze:</p>
 
 <code>$this->load->library('email');</code>
 
-<p>Once loaded, the library will be ready for use, using <kbd>$this->email-></kbd><samp><em>some_function</em>()</samp>.</p>
+<p>Raz załadowana, biblioteka będzie gotowa do użycia za pomocą składni <kbd>$this->email-></kbd><samp><em>some_function</em>()</samp>.</p>
 
-<p>Library files can be stored in subdirectories within the main "libraries" folder, or within your personal <dfn>application/libraries</dfn> folder.
-To load a file located in a subdirectory, simply include the path, relative to the "libraries" folder.
-For example, if you have file located at:</p>
+<p>Pliki biblioteki mogą być przechowywane w podfolderach w głównym foderze bibliotek, lub w samym folderze <dfn>application/libraries</dfn>.
+Aby załadować plik znajdujący się w subfolderze, po prostu dołącz ścieżkę, relatywną do folderu "libraries".
+Dla przykładu, jeśli masz plik zlokalizowany w:</p>
 
 <code>libraries/flavors/chocolate.php</code>
 
-<p>You will load it using:</p>
+<p>Możesz go załadować w ten sposób:</p>
 
 <code>$this->load->library('flavors/chocolate');</code>
 
-<p>You may nest the file in as many subdirectories as you want.</p>
+<p>Możesz umieszczać pliki w tylu subfolderach, ilu tylko chcesz.</p>
 
-<p>Additionally, multiple libraries can be loaded at the same time by passing an array of libraries to the load function.</p>
+<p>Dodatkowo, możesz ładować wiele bibiotek na raz, poprzez przypisanie tablicy z bibliotekami do funkcji ładującej.</p>
 
 <code>$this->load->library(array('<var>email</var>', '<var>table</var>'));</code>
 
-<h3>Setting options</h3>
+<h3>Ustawienia opcji</h3>
 
-<p>The second (optional) parameter allows you to optionally pass configuration setting.  You will typically pass these as an array:</p>
+<p>Drugi parametr (opcjonalny), pozwala na przypisanie ustawień konfiguracyjnych. Zazwyczaj będzeisz je przypisywał w postaci tablicy:</p>
 
 <code>
 $config = array (<br />
@@ -107,105 +108,105 @@ $config = array (<br />
 <br />
 $this->load->library('email', $config);</code>
 
-<p>Config options can usually also be set via a config file. Each library is explained in detail in its own page, so please read the information regarding each one you would like to use.</p>
+<p>Konfiguracja opcji może się zazwyczaj również odbywać poprzez plik konfiguracyjny. Każda biblioteka posiada informacje na ten temat na swojej własnej
+stronie. Zapoznaj się z tymi informacjami, dla każdej z bibliotek, którą będziesz chciał użyć.</p>
 
-<p>Please take note, when multiple libraries are supplied in an array for the first parameter, each will receive the same parameter information.</p>
+<p>Proszę wziąść pod uwagę, że kiedy ładujemy wiele bibliotek za pomocą tablicy, to każda z nich otrzyma informacje korespondujące z indeksem w drugim parametrze.</p>
 
-<h3>Assigning a Library to a different object name</h3>
+<h3>Przypisywanie biblioteki do innej nazwy obiektu</h3>
 
-<p>If the third (optional) parameter is blank, the library will usually be assigned to an object with the same name as the library.  For example, if the library is named <dfn>Session</dfn>, it
-will be assigned to a variable named <dfn>$this->session</dfn>.</p>
+<p>Jeśli trzeci (opcjonalny) parametr jest pusty, biblioteka zwykle jest przypisywana do obiektu o takiej samej nazwie jak biblioteka. Dla przykładu,
+jeśli biblioteka ma nazwę <dfn>Session</dfn>, zostanie przypisana do zmeinnej o nazwie <dfn>$this->session</dfn>.</p>
 
-<p>If you prefer to set your own class names you can pass its value to the third parameter:</p>
+<p>Jeśli wolisz ustawić swoją własną nazwę klasy, możesz przypisać jej wartość w trzecim parametrze:</p>
 
 <code>$this->load->library('session', '', 'my_session');<br /><br />
 
-// Session class is now accessed using:<br /><br />
+// Klasa sesji jest teraz dostępna poprzez:<br /><br />
 
 $this->my_session
 
 </code>
 
-<p>Please take note, when multiple libraries are supplied in an array for the first parameter, this parameter is discarded.</p>
+<p>Proszę zwrócić uwagę, że kiedy ładujemy wiele bibliotek za pomocą tablicy, to ten parametr jest pomijany.</p>
 
 
 <h2>$this->load->view('<var>file_name</var>', <samp>$data</samp>, <kbd>true/false</kbd>)</h2>
 
-<p>This function is used to load your View files.  If you haven't read the <a href="../general/views.html">Views</a> section of the
-user guide it is recommended that you do since it shows you how this function is typically used.</p>
+<p>Ta funkcja jest używana do ładowania plików widoku. Jeśli nie czytałeś jeszcze rozdziału na temat <a href="../general/views.html">widoków</a>,
+to zalecamy abyś to zrobił, ponieważ znajdziesz tam informacje na temat tego w jaki sposób można korzystac z tej funcji.</p>
 
-<p>The first parameter is required.  It is the name of the view file you would like to load. &nbsp;Note: The .php file extension does not need to be specified unless you use something other than <kbd>.php</kbd>.</p>
+<p>Pierwszy parametr jest wymagany. Jest to nazwa pliku widoku, który chciałbyś załadować. &nbsp;Uwaga: 
+Nazwa rozszerzenia .php nie jest wymagana, chyba że używasz czegoś innego niż <kbd>.php</kbd>.</p>
 
-<p>The second <strong>optional</strong> parameter can take
-an associative array or an object as input, which it runs through the PHP <a href="http://www.php.net/extract">extract</a> function to
-convert to variables that can be used in your view files.  Again, read the <a href="../general/views.html">Views</a> page to learn
-how this might be useful.</p>
+<p>Drugi <strong>opcjonalny</strong> parametr za wartość może przyjmować tablicę asocjacyjną lub obiekt. Wartość ta jest później poddawana działaniu funkcji PHP <a href="http://www.php.net/extract">extract</a>, która konwertuje wspomnianą wartość do zmiennych, które mogą być później wykorzystane w plikach widoku.
+Ponownie prosimy, abyś zapoznał się z rozdziałem dotyczącym <a href="../general/views.html">widoków</a>, abyś mógł się nauczyć w jaki sposob możesz to wykorzystać.</p>
 
-<p>The third <strong>optional</strong> parameter lets you change the behavior of the function so that it returns data as a string
-rather than sending it to your browser.  This can be useful if you want to process the data in some way.  If you
-set the parameter to <kbd>true</kbd> (boolean) it will return data.  The default behavior is <kbd>false</kbd>, which sends it
-to your browser.  Remember to assign it to a variable if you want the data returned:</p>
+<p>Trzeci <strong>opcjonalny</strong> parametr, pozwala na zmianę zachowania funkcji, tak aby zwracała dane jako ciąg, a nie wysyłała je bezpośrednio do przeglądarki. Może być to przydatne, jeśli będziesz chciał w jakiś sposób przetworzyć te dane. Jeśli ustawisz parametr na <kbd>true</kbd> (boolean),
+to dane zostaną zwrócone. Domyślną wartością jest <kbd>false</kbd>, co powoduje wysłanie danych do przeglądarki. Pamiętaj o przypisaniu do zmiennej, jeśli chcesz aby dane zsotały zwrócone:</p>
 
 <code>$string = $this->load->view('<var>myfile</var>', '', <kbd>true</kbd>);</code>
 
 
 <h2>$this-&gt;load-&gt;model('<var>Model_name</var>');</h2>
 <p><code>$this-&gt;load-&gt;model('<var>Model_name</var>');</code></p>
-<p>If your model is located in a sub-folder, include the relative path from your models folder. For example, if you have a model located at application/models/blog/queries.php you'll load it using:</p>
+<p>Jeśli twój model znajduje się w subfolderze, dołącz relatywną ścieżkę z folderu modelu. Dla przykładu, jeśli Twój model znajduje się
+w application/models/blog/queries.php, załadujesz go w ten sposób:</p>
 <p><code>$this-&gt;load-&gt;model('<var>blog/queries</var>');</code></p>
-<p>If you would like your model assigned to a different object name you can specify it via the second parameter of the loading
-	function:</p>
+<p>Jeśli chcesz, aby Twój model został przypisany do innego obiektu, możesz określić jego nazwę poprzez drugi parametr funkcji ładującej:</p>
 <code> $this-&gt;load-&gt;model('<var>Model_name</var>', '<kbd>fubar</kbd>');<br />
 <br />
 $this-&gt;<kbd>fubar</kbd>-&gt;function();</code>
 <h2>$this->load->database('<var>options</var>', <kbd>true/false</kbd>)</h2>
-<p>This function lets you load the database class.  The two parameters are <strong>optional</strong>.  Please see the
-<a href="../database/index.html">database</a> section for more info.</p>
+<p>Ta funkcja pozwala na załadowanie klasy bazy danych. Obydwa parametry są <strong>opcjonalne</strong>. W celu uzyskania
+większej liczby informacji, prosimy się zapoznać z rozdziałem traktującym o <a href="../database/index.html">bazach danych</a>.</p>
 
 
 
 
 <h2>$this->load->vars(<samp>$array</samp>)</h2>
 
-<p>This function takes an associative array as input and generates variables using the PHP <a href="http://www.php.net/extract">extract</a> function.
-This function produces the same result as using the second parameter of the <dfn>$this->load->view()</dfn> function above.  The reason you might
-want to use this function independently is if you would like to set some global variables in the constructor of your controller
-and have them become available in any view file loaded from any function.  You can have multiple calls to this function.  The data get cached
-and merged into one array for conversion to variables.
+<p>Ta funkcja jako wartośc przyjmuje tablicę asocjacyjną i generuje zmienne za pomocą funkcji PHP <a href="http://www.php.net/extract">extract</a>.
+Dzięki tej funkcji otrzymamy takie same rezultay, jak w przypadku przekazania drugiego parametru do funkcji <dfn>$this->load->view()</dfn> powyżej.
+Powodem dla którego mógłbyś chcieć skorzystać z tej funkcji, jest możliwość niezależnego przekazywania zmiennych globalnych np. w konstruktorze
+Twojego kontrolera. W ten sposób zmienne staną się dostępne w każdym widoku załadowanym z każdej metody. Możesz się odwoływać do tej funkcji wielokrotnie.
+Dane zostaną zcacheowane i połączone w jedną tablicę przy konwersji na zmienne.
 </p>
 
 
 <h2>$this->load->get_var(<samp>$key</samp>)</h2>
 
-<p>This function checks the associative array of variables available to your views. This is useful if for any reason a var is set in a library or another controller method using $this->load->vars().
+<p>Ta funkcja sprawdza tablicę asocjacyjną zmiennych dostępnych dla Twoich widoków. Jest to przydatne jeśli z jakiegoś powodu zmienne są ustawiane
+w bibliotece lub innej metodzie kontrolera za pomocą $this->load->vars().
 </p>
 
 
 <h2>$this->load->helper('<var>file_name</var>')</h2>
-<p>This function loads helper files, where <var>file_name</var> is the name of the file, without the <kbd>_helper.php</kbd> extension.</p>
+<p>Ta biblioteka ładuje pliki helperów, gdzie <var>file_name</var> jest nazwą pliku, bez rozszerzenia <kbd>_helper.php</kbd>.</p>
 
 
 <h2>$this->load->file('<var>filepath/filename</var>', <kbd>true/false</kbd>)</h2>
-<p>This is a generic file loading function.  Supply the filepath and name in the first parameter and it will open and read the file.
-By default the data is sent to your browser, just like a View file, but if you set the second parameter to <kbd>true</kbd> (boolean)
-it will instead return the data as a string.</p>
+<p>To jest generyczna funkcja ładowania pliku. W pierwszym parametrze należy dostarczyć ścieżkę oraz anzwę pliku do wczytania.
+Domyślnie zawartośc pliku jest wysłyłana bezpośrednio do przeglądarki, tak samo jak w przypadku ładowania widoku. Jeśli ustawisz
+drugi parametr na wartość <kbd>true</kbd> (boolean), to dane zostaną zwrócone jako ciąg.</p>
 
 
 <h2>$this->load->language('<var>file_name</var>')</h2>
-<p>This function is an alias of the <a href="language.html">language loading function</a>: $this->lang->load()</p>
+<p>Ta funkcja jest aliasem <a href="language.html">funkcji ładującej język</a>: $this->lang->load()</p>
 
 <h2>$this->load->config('<var>file_name</var>')</h2>
-<p>This function is an alias of the <a href="config.html">config file loading function</a>: $this->config->load()</p>
+<p>Ta funkcja jest aliasem <a href="config.html">funkcji ładującej plik konfiguracyjny</a>: $this->config->load()</p>
 
 
-<h2>Application "Packages"</h2>
+<h2>"Pakiety" aplikacji</h2>
 
-<p>An application package allows for the easy distribution of complete sets of resources in a single directory, complete with its own libraries, models, helpers, config, and language files.  It is recommended that these packages be placed in the <dfn>application/third_party</dfn> folder.  Below is a sample map of an package directory</p>
+<p>Pakiety aplikacji, pozwalają na łatwą dystrybucję kompletnych zestawów zasobów w pojedynczym folderze. Kompletne pod względem własnych
+bibliotek, modeli, helperów, plików konfiguracyjnych i plików językowych. Zalecane jest aby te pakiety znajdowały się w folderze <dfn>application/third_party</dfn>. Poniżej przedstawiona jest prosta mapa folderu dla takiego pakietu</p>
 
 
-<h2>Sample Package "Foo Bar" Directory Map</h2>
+<h2>Mapa folderu dla prostego pakietu "Foo Bar"</h2>
 
-<p>The following is an example of a directory for an application package named "Foo Bar".</p>
+<p>Poniżej znajduje się przykład folderu dla pakietu o nazwie "Foo Bar".</p>
 
 <code>/application/third_party/foo_bar<br />
 <br />
@@ -216,42 +217,49 @@ libraries/<br />
 models/<br />
 </code>
 
-<p>Whatever the purpose of the "Foo Bar" application package, it has its own config files, helpers, language files, libraries, and models.  To use these resources in your controllers, you first need to tell the Loader that you are going to be loading resources from a package, by adding the package path.</p>
+<p>Niezależnie od celów jakie ma spełniać pakiet "Foo Bar", ma on własne pliki konfiguracyjne, helpery, pliki językowe, biblioteki i modele.
+Aby używać tych zasobów w Twoich kontrolerach, musisz najpierw poinformować Loader, ze będziesz ładował zasoby z pakietu, poprzez dodanie
+ścieżki pakietu.</p>
 
 <h3>$this->load->add_package_path()</h3>
 
-<p>Adding a package path instructs the Loader class to prepend a given path for subsequent requests for resources.  As an example, the "Foo Bar" application package above has a library named <dfn>Foo_bar.php</dfn>. In our controller, we'd do the following:</p>
+<p>Dodanie ścieżki pakietu, informuje klasę Loader, aby dopisać daną ścieżkę do sprawdzenia podczas wczytywania zasobów. Dla przykładu,
+pakiet "Foo Bar" ma bibliotekę o nazwie <dfn>Foo_bar.php</dfn>. W Twoim kontrolerze, moglibyśmy zrobić w ten sposób:</p>
 
 <code>$this->load->add_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');<br />
 $this->load->library('foo_bar');</code>
 
 <h3>$this->load->remove_package_path()</h3>
 
-<p>When your controller is finished using resources from an application package, and particularly if you have other application packages you want to work with, you may wish to remove the package path so the Loader no longer looks in that folder for resources.  To remove the last path added, simply call the method with no parameters.</p>
+<p>Kiedy twój kontroler przestaje używać zasoby pakietu, a szczegolnie, kiedy masz inny pakiet, z którym chciałbyś pracować, możesz chcieć
+usunąć ścieżkę pakietu, aby Loader nie sprawdzał tego folderu w poszukiwaniu zasobów. Aby usunąć ostatnio dodaną ścieżkę pakietu, po prostu
+wywołaj metodę bez żadnych parametrów.</p>
 
 <h3>$this->load->remove_package_path()</h3>
 
-<p>Or to remove a specific package path, specify the same path previously given to <kbd>add_package_path() for a package.</kbd>:</p>
+<p>Aby usunąć specyficzną ścieżkę pakietu, podaj taką samą nazwę jaką podałeś podczas wywołania <kbd>add_package_path() dla pakietu.</kbd>:</p>
 
 <code>$this->load->remove_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');</code>
 
 <h3>Package view files</h3>
 
-<p>By Default, package view files paths are set when <samp>add_package_path()</samp> is called.  View paths are looped through, and once a match is encountered that view is loaded.</p>
-<p>In this instance, it is possible for view naming collisions within packages to occur, and possibly the incorrect package being loaded.  To ensure against this, set an optional second parameter of <var>FALSE</var> when calling <samp>add_package_path()</samp>.</p>
+<p>Domyślnie ścieżki dla widoków pakietów są ustawiane kiedy wywoływana jest funkcja <samp>add_package_path()</samp>.
+Ścieżki widoków są przeszukiwane w pętli i kiedy nazwy się zgadzają, dany plik jest wczytywany.</p>
+<p>W tym wypadku, istnieje możliwośc wystąpienia kolicji nazw i tym samym wczytania nieodpowiedniego widoku.
+Aby tego uniknąć, ustaw drugi opcjonalny parametr na wartość <var>FALSE</var>, podczas wywoływania <samp>add_package_path()</samp>.</p>
 
 <code>
-$this->load->add_package_path(APPPATH.'my_app', TRUE);<br>
-$this->load->view('my_app_index'); // Loads<br>
-$this->load->view('welcome_message'); // Will not load the default welcome_message b/c the second param to add_package_path is TRUE<br>
+$this->load->add_package_path(APPPATH.'my_app', FALSE);<br>
+$this->load->view('my_app_index'); // Ładuje<br>
+$this->load->view('welcome_message'); // Domyślny widok welcome_message nie zostanie załadowany, ponieważ drugi parametr add_package_path ma wartość FALSE<br>
 <br>
 // Reset things<br>
 $this->load->remove_package_path(APPPATH.'my_app');<br>
 <br>
 // Again without the second parameter:<br>
-$this->load->add_package_path(APPPATH.'my_app', TRUE);<br>
-$this->load->view('my_app_index'); // Loads<br>
-$this->load->view('welcome_message'); // Loads<br>
+$this->load->add_package_path(APPPATH.'my_app');<br>
+$this->load->view('my_app_index'); // Ładuje<br>
+$this->load->view('welcome_message'); // Ładuje<br>
 </code>
 
 </div>
@@ -260,11 +268,11 @@ $this->load->view('welcome_message'); // Loads<br>
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="input.html">Input Class</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="input.html">Klasa Input</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="language.html">Language Class</a>
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="language.html">Klasa Language</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
