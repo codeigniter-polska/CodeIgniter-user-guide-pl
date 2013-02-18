@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Language Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa Language : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Language Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa Language
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,67 +56,67 @@ Language Class
 <div id="content">
 
 
-<h1>Language Class</h1>
+<h1>Klasa Language</h1>
 
-<p>The Language Class provides functions to retrieve language files and lines of text for purposes of internationalization.</p>
+<p>Klasa Language dostarcza funkcji do ładowania plików językowych i zwracania z nich określonych linii tekstu w celach internacjonalizacji.</p>
 
-<p>In your CodeIgniter system folder you'll find one called <dfn>language</dfn> containing sets of language files.  You can create
-your own language files as needed in order to display error and other messages in other languages.</p>
+<p>W Twojej instalacji CodeIgnitera, w folderze system, znajdziesz katalog <dfn>language</dfn>, który zawiera zestaw plków językowych.
+Jeśli potrzebujesz, możesz stworzyć swoje własne pliki aby wyświetlać komunikaty błędów lub inne wiadomości w innych językach.</p>
 
-<p>Language files are typically stored in your <dfn>system/language</dfn> directory.  Alternately you can create a folder called <kbd>language</kbd> inside
-your <kbd>application</kbd> folder and store them there.  CodeIgniter will look first in your <dfn>application/language</dfn>
-directory.  If the directory does not exist or the specified language is not located there CI will instead look in your global
-<dfn>system/language</dfn> folder.</p>
+<p>Pliki językowe są zazwyczaj przechowywane w folderze <dfn>system/language</dfn>. Można też stworzyć folder <kbd>language</kbd>
+wewnątrz katalogu <kbd>application</kbd> i tam przechowywac pliki językowe. CodeIgniter najpierw będzie sprawdzał folder <dfn>application/language</dfn>.
+Jeśli ten folder nie istnieje lub dany plik językowy się tam nie znajduje, CI zacznie sprawdzać globalny folder <dfn>system/language</dfn>.</p>
 
-<p class="important"><strong>Note:</strong>&nbsp; Each language should be stored in its own folder.  For example, the English files are located at:
-<dfn>system/language/english</dfn></p>
+<p class="important"><strong>Uwaga:</strong>&nbsp; Każdy z języków powinien być przechowywany w swoim własnym folderze. Dla przykładu, angielskie pliki językowe są przechowywane w: <dfn>system/language/english</dfn></p>
 
 
 
-<h2>Creating Language Files</h2>
+<h2>Tworzenie plików językowych</h2>
 
-<p>Language files must be named with <kbd>_lang.php</kbd> as the file extension.  For example, let's say you want to create a file
-containing error messages.  You might name it:  <kbd>error_lang.php</kbd></p>
+<p>Pliki językowe muszą mieć w nazwie <kbd>_lang.php</kbd> jako rozszerzenie. Dla przykładu, powiedzmy że chcesz stworzyć plik
+zawierający komunikaty błędu. Możesz go nazwać: <kbd>error_lang.php</kbd></p>
 
-<p>Within the file you will assign each line of text to an array called <var>$lang</var> with this prototype:</p>
+<p>Wewnątrz pliku, każda linijka tekstu musi zostać przypisana do tablicy o nazwie <var>$lang</var>, w ten sposób:</p>
 
 <code>$lang['language_key'] = "The actual message to be shown";</code>
 
-<p><strong>Note:</strong> It's a good practice to use a common prefix for all messages in a given file to avoid collisions with
-similarly named items in other files.  For example, if you are creating error messages you might prefix them with <var>error_</var></p>
+<p><strong>Uwaga:</strong> Dobrą zasadą jest używanie wspólnego prefiksu dla wszystkich wiadomości w danym pliku, w ten sposób unikamy 
+możliwości wystąpienia kolizji nazw, które mogłyby nastąpić po wczytaniu innych plików językowych. Dla przykładu, jeśli tworzysz komunikaty błędu, 
+możesz je poprzedzić ciągiem <var>error_</var></p>
 
 <code>$lang['<var>error</var>_email_missing'] = "You must submit an email address";<br />
 $lang['<var>error</var>_url_missing'] = "You must submit a URL";<br />
 $lang['<var>error</var>_username_missing'] = "You must submit a username";</code>
 
 
-<h2>Loading A Language File</h2>
+<h2>Ładowanie plików językowych</h2>
 
-<p>In order to fetch a line from a particular file you must load the file first.  Loading a language file is done with the following code:</p>
+<p>W celu pobrania linii tekstu, należy najpierw załadować plik językowy. Ładowanie plików językowych odbywa się za pomocą następującego kodu:</p>
 
 <code>$this->lang->load('<samp>filename</samp>', '<dfn>language</dfn>');</code>
 
-<p>Where <samp>filename</samp> is the name of the file you wish to load (without the file extension), and <dfn>language</dfn>
-is the language set containing it (ie, english).  If the second parameter is missing, the default language set in your
-<kbd>application/config/config.php</kbd> file will be used.</p>
+<p>Gdzie <samp>filename</samp> jest nazwą pliku, ktory chciałbyś załadować (bez rozszerzenia), a <dfn>language</dfn> określa wybraną wersję językową
+(np. english). Jeśli nie podasz drugiego parametru, zostanie wykorzystany domyślny język ustawiony w pliku <kbd>application/config/config.php</kbd>.</p>
 
 
-<h2>Fetching a Line of Text</h2>
+<h2>Pobieranie linii tekstu</h2>
 
-<p>Once your desired language file is loaded you can access any line of text using this function:</p>
+<p>Kiedy załadujesz już plik językowy, możesz odwołać się do każdej linii tekstu, za pomocą tej funkcji:</p>
 
 <code>$this->lang->line('<samp>language_key</samp>');</code>
 
-<p>Where <samp>language_key</samp> is the array key corresponding to the line you wish to show.</p>
+<p>Gdzie <samp>language_key</samp> jest kluczem tablicy, który odwołuje się do linii tekstu, którą chciałbyć pokazać.</p>
 
-<p>Note: This function simply returns the line.  It does not echo it for you.</p>
+<p>Uwaga: Ta funkcja tylko zwraca linię tekstu - nie wyświetla jej za Ciebie.</p>
 
-<h3>Using language lines as form labels</h3>
+<h3>Używanie linii tekstu w etykietach folmularza</h3>
 
-<p class="important">This feature has been deprecated from the language library and moved to the <kbd>lang()</kbd> function of the <a href="../helpers/language_helper.html">Language helper</a>.</p>
+<p class="important">Ta funkcja została przeniesiona do funkcji <kbd>lang()</kbd> <a href="../helpers/language_helper.html">helpera Language</a>.</p>
 
-<h2>Auto-loading Languages</h2>
-<p>If you find that you need a particular language globally throughout your application, you can tell CodeIgniter to <a href="../general/autoloader.html">auto-load</a> it during system initialization. This is done by opening the application/config/autoload.php file and adding the language(s) to the autoload array.</p>
+<h2>Automatyczne ładowanie języków</h2>
+<p>Jeśli uznasz, że potrzebujesz danego języka globalnie, w obrębie całej aplikacji, możesz nakazać aby CodeIgniter
+ładował ten język podczas inicjalizacji systemu. Możesz to zrobić poprzez otworzenie pliku application/config/autoload.php i dodanie
+języka/ów do tablicy automatycznego ładowania.</p>
 <p>&nbsp;</p>
 </div>
 <!-- END CONTENT -->
@@ -124,11 +124,11 @@ is the language set containing it (ie, english).  If the second parameter is mis
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="loader.html">Loader Class</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="loader.html">Klasa Loader</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="output.html">Output Class</a>
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="output.html">Klasa Output</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
