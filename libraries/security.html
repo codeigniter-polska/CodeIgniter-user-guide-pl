@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Security Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa Security : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Security Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa Security
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,54 +56,59 @@ Security Class
 <div id="content">
 
 
-<h1>Security Class</h1>
+<h1>Klasa Security</h1>
 
-<p>The Security Class contains methods that help you create a secure application, processing input data for security.</p>
+<p>Klasa Security zawiera metody, które pomagają tworzyć bezpieczne aplikacje, przetwarzać dane wejściowe pod kontem bezpieczeństwa.</p>
 
-<h2>XSS Filtering</h2>
+<h2>Filtrowanie XSS</h2>
 
-<p>CodeIgniter comes with a Cross Site Scripting Hack prevention filter which can either run automatically to filter
-all POST and COOKIE data that is encountered, or you can run it on a per item basis.  By default it does <strong>not</strong>
-run globally since it requires a bit of processing overhead, and since you may not need it in all cases.</p>
+<p>CodeIgniter dostarcza filtr pozwalający zapobiegać atakom typu Cross Site Scripting Hack, który możne automatycznie filtrować
+wszystkie dane POST i COOKIE przesyłane do aplikacji. Filtr ten może być również uruchamiany samodzielnie dla poszczególnych zmiennych.
+Domyślnie filtr ten <strong>nie</strong> jest włączony globalnie, ponieważ wymaga trochę większych nakładow pamięci oraz dlatego, 
+że nie musisz go zawsze potrzebować.</p>
 
-<p>The XSS filter looks for commonly used techniques to trigger Javascript or other types of code that attempt to hijack cookies
-or do other malicious things.  If anything disallowed is encountered it is rendered safe by converting the data to character entities.</p>
+<p>Filtr XSS szuka powszechnie stosowanych technik osadzania złośliwego kodu JavaScript w Twoich danych lub innego typu kodu, który może wykraść pliki cookies lub zrobić inne złośliwe rzeczy.  Jeśli zostaną wykryte jakieś zakazane dane, to zostaną wyświetlone w sposob bezpieczny poprzez konwersję do encji.</p>
 
 <p>
-Note: This function should only be used to deal with data upon submission. It's not something that should be used for general runtime processing since it requires a fair amount of processing overhead.</p>
+Uwaga: Ta funkcja powinna być używana tylko w odniesieniu do danych w momencie ich wysyłania. Nie jest to coś, czego powinno się używać w normalnym 
+procesie działania aplikacji, ponieważ operacje tego typu wymagają sporego nakładu pamięci.</p>
 
 
-<p>To filter data through the XSS filter use this function:</p>
+<p>Aby dokonać filtrowania XSS użyj następującej funcji:</p>
 
 <h2>$this->security->xss_clean()</h2>
 
-<p>Here is an usage example:</p>
+<p>Oto przykład użycia:</p>
 
 <code>$data = $this->security->xss_clean($data);</code>
 
-<p>If you want the filter to run automatically every time it encounters POST or COOKIE data you can enable it by opening your
-<kbd>application/config/config.php</kbd> file and setting this:</p>
+<p>Jeśli chcesz aby filtrowanie odbywało się automatycznie za każdym razie kiedy aplikacja będzie miała do czynienia z danymi POST lub COOKIE, mozesz właczyć
+taką opcję po przez otwarcie pliku <kbd>application/config/config.php</kbd> i edycję tej wartości:</p>
 
 <code>$config['global_xss_filtering'] = TRUE;</code>
 
-<p>Note: If you use the form validation class, it gives you the option of XSS filtering as well.</p>
+<p>Uwaga: Jeśli korzystasz z klasy Form validation, to ona również daje Ci możliwość przeprowadzenia filtrowania XSS.</p>
 
-<p>An optional second parameter, <dfn>is_image</dfn>, allows this function to be used to test images for potential XSS attacks, useful for file upload security.  When this second parameter is set to <dfn>TRUE</dfn>, instead of returning an altered string, the function returns TRUE if the image is safe, and FALSE if it contained potentially malicious information that a browser may attempt to execute.</p>
+<p>Drugi, opcjonalny parametr, <dfn>is_image</dfn>, pozwala na użycie tej funkcji do sprawdzenia pliku graficznego pod kontem ataku XSS.
+Funkcja jest przydatna przy zabezpieczaniu przesyłania plików. Kiedy drugi parametr jest ustawiony na wartość <dfn>TRUE</dfn>,
+funkcja zamiast zwracać zmieniony ciąg, zwraca wartość TRUE w przypadku kiedy plik jest bezpieczny i wartość FALSE, kiedy zawiera potencjalnie
+złośliwe informacje, które przeglądarka mogłaby wykonać.</p>
 
 <code>if ($this->security->xss_clean($file, TRUE) === FALSE)<br />
 {<br />
-&nbsp;&nbsp;&nbsp;&nbsp;// file failed the XSS test<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// plik nie przeszedł testu XSS<br />
 }</code>
 
 
 <h2>$this->security->sanitize_filename()</h2>
 
-<p>When accepting filenames from user input, it is best to sanitize them to prevent directory traversal and other security related issues.  To do so, use the <dfn>sanitize_filename()</dfn> method of the Security class.  Here is an example:</p>
+<p>Kiedy akceptujemy nazwy plików dostarczone przez użytkowników, najlepszym wyjściem jest "zdezynfekowanie" ich aby uniknąć ataków typu directory traversal
+i innych podobnych. Aby to zrobić, użyj metody <dfn>sanitize_filename()</dfn> klasy Security. Oto przykład:</p>
 
 <code>$filename = $this->security->sanitize_filename($this->input->post('filename'));</code>
 
-<p>If it is acceptable for the user input to include relative paths, e.g. <kbd>file/in/some/approved/folder.txt</kbd>, you can set the second optional parameter,
-	<samp>$relative_path</samp> to TRUE.</p>
+<p>Jeśli użytkownik może dołączać ścieżki relatywne, np. <kbd>file/in/some/approved/folder.txt</kbd>, możesz ustawić drugi, opcjonalny parametr 
+<samp>$relative_path</samp> na wartość TRUE.</p>
 
 <code>$filename = $this->security->sanitize_filename($this->input->post('filename'), TRUE);</code>
 
@@ -111,10 +116,11 @@ Note: This function should only be used to deal with data upon submission. It's 
 
 <h2>Cross-site request forgery (CSRF)</h2>
 
-<p>You can enable csrf protection by opening your <kbd>application/config/config.php</kbd> file and setting this:</p>
+<p>Możesz włączyć ochronę przed atakami typu CSRF po przez otwarcie pliku <kbd>application/config/config.php</kbd> i ustawienie wartości:</p>
 <code>$config['csrf_protection'] = TRUE;</code>
 
-<p>If you use the <a href="../helpers/form_helper.html">form helper</a> the <var>form_open()</var> function will automatically insert a hidden csrf field in your forms.</p>
+<p>Jeśli korzystasz z <a href="../helpers/form_helper.html">helpera form</a> i funkcji <var>form_open()</var>, to automatycznie zostanie dodane
+ukryte pole csrf do Twoich formularzy.</p>
 
 </div>
 <!-- END CONTENT -->
@@ -125,7 +131,7 @@ Note: This function should only be used to deal with data upon submission. It's 
 Poprzedni Temat:&nbsp;&nbsp;<a href="pagination.html">Pagination Class</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 Następny temat:&nbsp;&nbsp;<a href="sessions.html">Session Class</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
