@@ -92,12 +92,12 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/table.html">HTML Table Class</a></li>' +
 		'<li><a href="'+base+'libraries/image_lib.html">Image Manipulation Class</a></li>' +
 		'<li><a href="'+base+'libraries/input.html">Klasa Input</a></li>' +
-		'<li><a href="'+base+'libraries/loader.html">Loader Class</a></li>' +
-		'<li><a href="'+base+'libraries/language.html">Language Class</a></li>' +
+		'<li><a href="'+base+'libraries/loader.html">Klasa Loader</a></li>' +
+		'<li><a href="'+base+'libraries/language.html">Klasa Language</a></li>' +
 		'<li><a href="'+base+'libraries/migration.html">Klasa Migration</a></li>' +
-		'<li><a href="'+base+'libraries/output.html">Output Class</a></li>' +
-		'<li><a href="'+base+'libraries/pagination.html">Pagination Class</a></li>' +
-		'<li><a href="'+base+'libraries/security.html">Security Class</a></li>' +
+		'<li><a href="'+base+'libraries/output.html">Klasa Output</a></li>' +
+		'<li><a href="'+base+'libraries/pagination.html">Klasa Pagination</a></li>' +
+		'<li><a href="'+base+'libraries/security.html">Klasa Security</a></li>' +
 		'<li><a href="'+base+'libraries/sessions.html">Klasa Session</a></li>' +
 		'<li><a href="'+base+'libraries/trackback.html">Trackback Class</a></li>' +
 		'<li><a href="'+base+'libraries/parser.html">Template Parser Class</a></li>' +
