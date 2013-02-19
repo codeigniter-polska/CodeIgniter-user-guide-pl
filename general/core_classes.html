@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Creating Core System Classes : Podręcznik użytkownika CodeIgniter</title>
+<title>Tworzenie głównych klas systemowych : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Creating Core System Classes
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Tworzenie głównych klas systemowych
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -55,22 +55,22 @@ Creating Core System Classes
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Creating Core System Classes</h1>
+<h1>Tworzenie głównych klas systemowych</h1>
 
-<p>Every time CodeIgniter runs there are several base classes that are initialized automatically as part of the core framework.
-It is possible, however, to swap any of the core system classes with your own versions or even extend the core versions.</p>
+<p>Za każdym razem kiedy CodeIgniter jest uruchamiany, kilka podstawowych klas jest uruchamianych automatycznie, jako część główna frameworka.
+Istnieje jednak możliwość, zastąpienia każdej z głównych klas systemu Twoją własną wersją lub nawet jej rozszerzenie.</p>
 
-<p><strong>Most users will never have any need to do this,
-but the option to replace or extend them does exist for those who would like to significantly alter the CodeIgniter core.</strong>
+<p><strong>Większość użytkowników nigdy nie będzie miała potrzeby tego robić, ale opcja aby zastąpić lub rozszerzyć klasy istnieje
+dla tych osób, które chciałyby w znaczący sposób zmienić główne klasy CodeIgnitera.</strong>
 </p>
 
-<p class="important"><strong>Note:</strong>&nbsp; Messing with a core system class has a lot of implications, so make sure you
-know what you are doing before attempting it.</p>
+<p class="important"><strong>Uwaga:</strong>&nbsp; Zmiana głównych klas systemowych niesie ze sobą konsekwencje, upewnij się więc że wiesz co robisz zanim
+przystąpisz do tych czynności.</p>
 
 
-<h2>System Class List</h2>
+<h2>Lista klas systemowych</h2>
 
-<p>The following is a list of the core system files that are invoked every time CodeIgniter runs:</p>
+<p>Oto lista głównych klas systemowych, które są wywoływane za każdym razem, podczas uruchamiania CodeIgnitera:</p>
 
 <ul>
 <li>Benchmark</li>
@@ -88,17 +88,17 @@ know what you are doing before attempting it.</p>
 <li>Utf8</li>
 </ul>
 
-<h2>Replacing Core Classes</h2>
+<h2>Zastępowanie głównych klas</h2>
 
-<p>To use one of your own system classes instead of a default one simply place your version inside your local <dfn>application/core</dfn> directory:</p>
+<p>Aby używać jedną ze swoich własnych klas głównych, zamiast wersji domyślnej, wystarczy umieścić swoją wersję w folderze <dfn>application/core</dfn>:</p>
 
-<code>application/core/<dfn>some-class.php</dfn></code>
+<code>application/core/<dfn>some_class.php</dfn></code>
 
-<p>If this directory does not exist you can create it.</p>
+<p>Jeśli ten folder nie istnieje, możesz go utworzyć.</p>
 
-<p>Any file named identically to one from the list above will be used instead of the one normally used.</p>
+<p>Każdy plik o identycznej nazwie jak z powyższej listy, zostanie użyty zamiast tego wywoływanego normalnie.</p>
 
-<p>Please note that your class must use <kbd>CI</kbd> as a prefix. For example, if your file is named <kbd>Input.php</kbd> the class will be named:</p>
+<p>Zauważ, że Twoja klasa musi używać prefiksu <kbd>CI</kbd>. Dla przykładu, jeśli Twoj plik ma nazwę <kbd>Input.php</kbd> klasa musi mieć nazwę:</p>
 
 <code>
 class CI_Input {<br /><br />
@@ -108,25 +108,26 @@ class CI_Input {<br /><br />
 
 
 
-<h2>Extending Core Class</h2>
+<h2>Rozszerzanie klas głównych</h2>
 
-<p>If all you need to do is add some functionality to an existing library - perhaps add a function or two - then
-it's overkill to replace the entire library with your version.  In this case it's better to simply extend the class.
-Extending a class is nearly identical to replacing a class with a couple exceptions:</p>
+<p>Jeśli wszystko czego potrzebujesz, to dodanie pewnej funkcjonalności do istniejącej biblioteki - być może dodanie funkcji lub dwoch -  wtedy dużym
+nadużyciem wydaje się zastąpienie całej biblioteki swoją wersją. W takim przypadku lepszym rozwiązaniem jest po prostu rozszerzenie klasy.
+Rozszerzanie klasy jest prawie identyczne jak jej zastępowanie, z kilkoma wyjątkami:</p>
 
 <ul>
-<li>The class declaration must extend the parent class.</li>
-<li>Your new class name and filename must be prefixed with <kbd>MY_</kbd> (this item is configurable.  See below.).</li>
+<li>Deklaracja klasy musi rozszerzać klase rodzica.</li>
+<li>Nowa nazwa Twojej klasy oraz nazwa pliku myszą być poprzedzone prefiksem <kbd>MY_</kbd> (jest to konfigurowalne.  Sprawdź poniżej.).</li>
 </ul>
 
-<p>For example, to extend the native <kbd>Input</kbd> class you'll create a file named <dfn>application/core/</dfn><kbd>MY_Input.php</kbd>, and declare your class with:</p>
+<p>Dla przykładu, aby rozszerzyć natywną klasę <kbd>Input</kbd>, musisz utworzyć plik o nazwie <dfn>application/core/</dfn><kbd>MY_Input.php</kbd>
+i zadeklarować klasę w ten sposób:</p>
 
 <code>
 class MY_Input extends CI_Input {<br /><br />
 
 }</code>
 
-<p>Note: If you need to use a constructor in your class make sure you extend the parent constructor:</p>
+<p>Uwaga: Jeśli musisz użyć konstruktora w swojej klasie, upewnij się że rozszerza on kontruktor rodzica:</p>
 
 <code>
 class MY_Input extends CI_Input {<br />
@@ -137,11 +138,10 @@ class MY_Input extends CI_Input {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
-<p class="important"><strong>Tip:</strong>&nbsp; Any functions in your class that are named identically to the functions in the parent class will be used instead of the native ones
-(this is known as "method overriding").
-This allows you to substantially alter the CodeIgniter core.</p>
+<p class="important"><strong>Wskazówka:</strong>&nbsp; Każda funkcja w Twojej klasie, ktora ma identyczną nazwę jak ta w klasie rodzica, będzie użyta zamiast
+funkcji natywnej (nazywa się to przesłanianiem metod). Pozwala to w zasadniczy sposób zmieniać dziaalnie głównych klas.</p>
 
-<p>If you are extending the Controller core class, then be sure to extend your new class in your application controller's constructors.</p>
+<p>Jeśli rozszerzasz główną klasę kontrolera, pamiętaj aby rozszerzać swoją nową klasę w konstruktorach kontrolera aplikacji.</p>
 
 <code>class Welcome extends MY_Controller {<br />
 <br />
@@ -156,13 +156,13 @@ This allows you to substantially alter the CodeIgniter core.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br />
 }</code>
 
-<h3>Setting Your Own Prefix</h3>
+<h3>Ustawianie własnego prefiksu</h3>
 
-<p>To set your own sub-class prefix, open your <dfn>application/config/config.php</dfn> file and look for this item:</p>
+<p>Aby ustawić swój własny prefiks dla sub-klasy, otwórz plik <dfn>application/config/config.php</dfn> i spójrz na zmienną:</p>
 
 <code>$config['subclass_prefix'] = 'MY_';</code>
 
-<p>Please note that all native CodeIgniter libraries are prefixed with <kbd>CI_</kbd> so DO NOT use that as your prefix.</p>
+<p>Zauważ, że wszystkie natywne biblioteki CodeIgnitera mają prefiks <kbd>CI_</kbd>, tak więc NIE używaj tego ciągu jako własnego prefiksu.</p>
 
 
 
@@ -173,10 +173,10 @@ This allows you to substantially alter the CodeIgniter core.</p>
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="creating_libraries.html">Creating Your Own Libraries</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="creating_libraries.html">Tworzenie własnych bibliotek</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 Następny temat:&nbsp;&nbsp;<a href="hooks.html">Hooks - Extending the Core</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
