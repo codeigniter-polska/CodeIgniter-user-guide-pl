@@ -4,7 +4,7 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Using CodeIgniter Drivers : Podręcznik użytkownika CodeIgniter</title>
+	<title>Korzystanie ze sterowników : Podręcznik użytkownika CodeIgniter</title>
 
 	<style type='text/css' media='all'>@import url('../userguide.css');</style>
 	<link rel='stylesheet' type='text/css' media='all' href='../userguide.css'/>
@@ -24,45 +24,29 @@
 <body>
 
 <!-- START NAVIGATION -->
-<div id="nav">
-	<div id="nav_inner">
-		<script type="text/javascript">create_menu('../');</script>
-	</div>
-</div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img
-		src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents"
-		alt="Toggle Table of Contents"/></a></div>
+<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
-	<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-		<tr>
-			<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-			<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-		</tr>
-	</table>
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
+</tr>
+</table>
 </div>
 <!-- END NAVIGATION -->
 
 
 <!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-	<tr>
-		<td id="breadcrumb">
-			<a href="http://codeigniter.org.pl/">CodeIgniter podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
-			<a href="../index.html">podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
-			Korzystanie ze sterowników CodeIgniter
-		</td>
-		<td id="searchbox">
-			<form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch"
-			                                                                id="as_sitesearch"
-			                                                                value="codeigniter.org.pl/user_guide/"/>Przeszukaj
-				podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q"
-				                                    size="31" maxlength="255" value=""/>&nbsp;<input type="submit"
-				                                                                                     class="submit"
-				                                                                                     name="sa"
-				                                                                                     value="Idź"/>
-			</form>
-		</td>
-	</tr>
+<tr>
+<td id="breadcrumb">
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Korzystanie ze sterowników
+</td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+</tr>
 </table>
 <!-- END BREADCRUMB -->
 
@@ -72,7 +56,7 @@
 <!-- START CONTENT -->
 <div id="content">
 
-	<h1>Korzystanie ze sterowników CodeIgniter</h1>
+	<h1>Korzystanie ze sterowników</h1>
 
 	<p>Sterowniki są specjalnym rodzajem bibliotek, które mają klasę nadrzędną i dowolną liczbę potencjalnych klas
 		potomnych. Klasy dzieci mają dostęp do klasy nadrzędnej, ale nie ich rodzeństwa. Sterowniki umożliwiają
@@ -83,29 +67,27 @@
 	<p>Sterowniki znajdują się w folderze <dfn>system/libraries</dfn> we własnym folderze, który jest nazwany
 		identycznie jak klasy biblioteki macierzystej. Także wewnątrz tego folderu jest podkatalog o nazwie <dfn>Drivers</dfn>, który zawiera wszystkie możliwe pliki klas potomnych.</p>
 
-	<p>To use a driver you will initialize it within a controller using the following initialization function:</p>
+	<p>Aby skorzystać ze sterownika, musisz zainicjalizować go w kontrolerze za pomocą następującej funkcji:</p>
 
 	<code>$this->load->driver('<var>class name</var>'); </code>
 
-	<p>Where <var>class name</var> is the name of the driver class you want to invoke. For example, to load a driver
-		named "Some Parent" you would do this:</p>
+	<p>Gdzie <var>class name</var> jest nazwą klasy sterownika, którą chcesz wczytać. Dla przykładu, aby załadować sterownik o nazwie
+	"Some Parent" zrobiłbyś w ten sposób:</p>
 
 	<code>$this->load->driver('<var>some_parent</var>');</code>
 
-	<p>Methods of that class can then be invoked with:</p>
+	<p>Metody tej klasy mogą być wywoływane w ten sposób:</p>
 
 	<code>$this->some_parent->some_method();</code>
 
-	<p>The child classes, the drivers themselves, can then be called directly through the parent class, without
-		initializing them:</p>
+	<p>Klasy potomne sterowników mogą zostać wywołane bezpośrednio przez klasę rodzica, bez konieczności inicjalizowania:</p>
 
 	<code>$this->some_parent->child_one->some_method();<br/>
 		$this->some_parent->child_two->another_method();</code>
 
-	<h2>Creating Your Own Drivers</h2>
+	<h2>Tworzenie własnych sterowników</h2>
 
-	<p>Please read the section of the user guide that discusses how to <a href="creating_drivers.html">create your own
-		drivers</a>.</p>
+	<p>Proszę zapoznać się z rozdziałem, który mówi o tym w jaki sposób <a href="creating_drivers.html">tworzyć własne sterowniki</a>.</p>
 
 
 </div>
@@ -114,11 +96,11 @@
 
 <div id="footer">
 	<p>
-		Poprzedni Temat:&nbsp;&nbsp;<a href="creating_libraries.html">Tworzenie Bibliotek</a>
+		Poprzedni Temat:&nbsp;&nbsp;<a href="creating_libraries.html">Tworzenie własnych bibliotek</a>
 		&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 		<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-		<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-		Następny temat:&nbsp;&nbsp;<a href="creating_drivers.html">Tworzenie Sterowników</a>
+		<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+		Następny temat:&nbsp;&nbsp;<a href="creating_drivers.html">Tworzenie własnych sterowników</a>
 	</p>
 
 	<p><a href="http://codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2012 &nbsp;&middot;&nbsp;
