@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Zip Encoding Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa kodowania Zip : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Zip Encoding Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa kodowania Zip
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,21 +56,20 @@ Zip Encoding Class
 <div id="content">
 
 
-<h1>Zip Encoding Class</h1>
-<p>CodeIgniter's Zip Encoding Class classes permit you to create Zip archives. Archives can be downloaded to your
-desktop or saved to a directory.</p>
+<h1>Klasa kodowania Zip</h1>
+<p>Klasa kodowania Zip pozwala na tworzenie archiwów Zip. Archiwa te mogą zostać pobrane na Twój komputer lub zachowane w katalogu na serwerze.</p>
 
 
-<h2>Initializing the Class</h2>
-<p>Like most other classes in CodeIgniter, the Zip class is initialized in your controller using the <dfn>$this->load->library</dfn> function:</p>
+<h2>Inicjalizowanie klasy</h2>
+<p>Tak jak większość innych klas w CodeIgniterze, klasa Zip jest inicjalizowana w Twoim kontrolerze poprzez funkcję <dfn>$this->load->library</dfn>:</p>
 
 <code>$this->load->library('zip');</code>
-<p>Once loaded, the Zip library object will be available using: <dfn>$this->zip</dfn></p>
+<p>Po załadowaniu, obiekt klasy Zip będzie dostępny poprzez wywołanie: <dfn>$this->zip</dfn></p>
 
 
-<h2>Usage Example</h2>
+<h2>Przykład użycia</h2>
 
-<p>This example demonstrates how to compress a file, save it to a folder on your server, and download it to your desktop.</p>
+<p>Ten przykład demonstruje w jaki sposób skompresować pliki, zachować je w katalogu na serwerze i później pobrać na Twój komputer.</p>
 
 <code>
 $name = 'mydata1.txt';<br />
@@ -78,19 +77,19 @@ $data = 'A Data String!';<br />
 <br />
 $this->zip->add_data($name, $data);<br />
 <br />
-// Write the zip file to a folder on your server. Name it "my_backup.zip"<br />
+// Zapisz plik zip do folderu na serwerze. Plik nazwij "my_backup.zip"<br />
 $this->zip->archive('/path/to/directory/my_backup.zip');
 <br /><br />
- // Download the file to your desktop.  Name it "my_backup.zip"<br />
+ // Pobierz plik na swój komputer. Plik nazwij "my_backup.zip"<br />
 $this->zip->download('my_backup.zip');
 </code>
 
-<h1>Function Reference</h1>
+<h1>Spis funkcji</h1>
 
 <h2>$this->zip->add_data()</h2>
 
-<p>Permits you to add data to the Zip archive. The first parameter must contain the name you would like
-given to the file, the second parameter must contain the file data as a string:</p>
+<p>Pozwala na dodanie danych do archiwum Zip. Pierwszy parametr musi zawierać nazwę jaką chciałbyś nadać plikowi, a drugi parametr
+musi zawierać dane w postaci ciągu:</p>
 
 <code>
 $name = 'my_bio.txt';<br />
@@ -99,8 +98,7 @@ $data = 'I was born in an elevator...';<br />
 $this->zip->add_data($name, $data);
 </code>
 
-<p>You are allowed multiple calls to this function in order to
-add several files to your archive.  Example:</p>
+<p>Możesz wykonać wiele odwołań do tej funkcji, aby dodać kilka plików do archiwum. Przykład:</p>
 
 <code>
 $name = 'mydata1.txt';<br />
@@ -112,7 +110,7 @@ $data = 'Another Data String!';<br />
 $this->zip->add_data($name, $data);<br />
 </code>
 
-<p>Or you can pass multiple files using an array:</p>
+<p>Możesz również przypisać wiele plików za pomocą tablicy:</p>
 
 <code>
 $data = array(<br />
@@ -125,7 +123,7 @@ $this->zip->add_data($data);<br />
 $this->zip->download('my_backup.zip');
 </code>
 
-<p>If you would like your compressed data organized into sub-folders, include the path as part of the filename:</p>
+<p>Jeśli chcałbyś aby Twoje dane zostały umieszczone w subfolderach, dodaj ścieżkę jako część nazwy pliku:</p>
 
 <code>
 $name = '<kbd>personal/</kbd>my_bio.txt';<br />
@@ -134,97 +132,95 @@ $data = 'I was born in an elevator...';<br />
 $this->zip->add_data($name, $data);
 </code>
 
-<p>The above example will place <dfn>my_bio.txt</dfn> inside a folder called <kbd>personal</kbd>.</p>
+<p>Powyższy przykład umieści plik <dfn>my_bio.txt</dfn> wewnątrz folderu o nazwie <kbd>personal</kbd>.</p>
 
 
 <h2>$this->zip->add_dir()</h2>
 
-<p>Permits you to add a directory.  Usually this function is unnecessary since you can place your data into folders when
-using <dfn>$this->zip->add_data()</dfn>, but if you would like to create an empty folder you can do so.  Example:</p>
+<p>Pozwala na dodanie folderu. Zazwyczaj ta funkcja nie jest potrzebna, ponieważ możesz umieszczać dane w subfolderach za pomocą funkcji
+<dfn>$this->zip->add_data()</dfn>, ale jeśli będziesz chciał utworzyć pusty folder, to możesz to zrobić. Przykład:</p>
 
-<code>$this->zip->add_dir('myfolder'); // Creates a folder called "myfolder"</code>
+<code>$this->zip->add_dir('myfolder'); // Tworzy folder o nazwie "myfolder"</code>
 
 
 
 <h2>$this->zip->read_file()</h2>
 
-<p>Permits you to compress a file that already exists somewhere on your server.  Supply a file path and the zip class will
-read it and add it to the archive:</p>
+<p>Pozwala na skompresowanie pliku, który już istnieje gdzieś na Twoim serwerze. Wystarczy dostarczyć ścieżkę, a klasa Zip wczyta plik
+i doda go do archiwum:</p>
 
 <code>
 $path = '/path/to/photo.jpg';<br /><br />
 $this->zip->read_file($path);
 <br /><br />
- // Download the file to your desktop.  Name it "my_backup.zip"<br />
+ // Pobierz plik na swoj komputer.  Plik nazwij "my_backup.zip"<br />
 $this->zip->download('my_backup.zip');
 </code>
 
-<p>If you would like the Zip archive to maintain the directory structure of the file in it, pass <kbd>TRUE</kbd> (boolean) in the
-second parameter.  Example:</p>
+<p>Jeśli chcesz aby archiwum Zip zawierało również strukturę folderów dla danego pliku, wystarczy że przypiszesz wartość
+<kbd>TRUE</kbd> (boolean) w drugim parametrze.  Przykład:</p>
 
 
 <code>
 $path = '/path/to/photo.jpg';<br /><br />
 $this->zip->read_file($path, <kbd>TRUE</kbd>);
 <br /><br />
- // Download the file to your desktop.  Name it "my_backup.zip"<br />
+ // Pobierz plik na swoj komputer.  Plik nazwij "my_backup.zip"<br />
 $this->zip->download('my_backup.zip');
 </code>
 
-<p>In the above example, <dfn>photo.jpg</dfn> will be placed inside two folders:  <kbd>path/to/</kbd></p>
+<p>W powyższym przykładzie, plik <dfn>photo.jpg</dfn> zostanie umieszczony wewnątrz dwóch folderów:  <kbd>path/to/</kbd></p>
 
 
 
 <h2>$this->zip->read_dir()</h2>
 
-<p>Permits you to compress a folder (and its contents) that already exists somewhere on your server.  Supply a file path to the
-directory and the zip class will recursively read it and recreate it as a Zip archive.  All files contained within the
-supplied path will be encoded, as will any sub-folders contained within it.  Example:</p>
+<p>Pozwala na kompresję folderu (i jego zawartości), ktory istnieje już gdzieś na Twoim serwerze. Wystarczy dostarczyć
+ścieżkę do folderu, a klasa Zip przeszuka w sposób rekursywny cały folder i odtworzy całą strukturę w archiwum. Wszystkie pliki, które
+znajdują się w danym folderze oraz wszystkie subfoldery, zostaną zarchiwizowane. Przykład:</p>
 
 <code>
 $path = '/path/to/your/directory/';<br /><br />
 $this->zip->read_dir($path);
 <br /><br />
- // Download the file to your desktop.  Name it "my_backup.zip"<br />
+ // Pobierz plik na swoj komputer.  Plik nazwij "my_backup.zip"<br />
 $this->zip->download('my_backup.zip');
 </code>
 
-<p>By default the Zip archive will place all directories listed in the first parameter inside the zip. If you want the tree preceding the target folder to be ignored
-you can pass <kbd>FALSE</kbd> (boolean) in the second parameter.  Example:</p>
+<p>Domyślnie, archiwum Zip będzie zawierało wszystkie foldery, które zostały umieszczone w pierwszym parametrze. Jeśli chcesz, aby foldery poprzedzające docelowy katalog zostały pominięte, mozesz przypisać wartość <kbd>FALSE</kbd> (boolean) w drugim parametrze.  Przykład:</p>
 
 <code>
 $path = '/path/to/your/directory/';<br /><br />
 $this->zip->read_dir($path, FALSE);
 </code>
 
-<p>This will create a ZIP with the folder "directory" inside, then all sub-folders stored correctly inside that, but will not include the folders <samp>/path/to/your</samp>.</p>
+<p>To stworzy plik Zip z folderem "directory" w środku i pozostałymi subfolderami, ale nie dołączy katalogów <samp>/path/to/your</samp>.</p>
 
 
 
 
 <h2>$this->zip->archive()</h2>
 
-<p>Writes the Zip-encoded file to a directory on your server.  Submit a valid server path ending in the file name.  Make sure the
-directory is writable (666 or 777 is usually OK). Example:</p>
+<p>Zapisuje plik Zip do folderu na Twoim serwerze. Musisz podać poprawną ścieżkę serwerową, zakończoną nazwą pliku. Upewnij się,
+że folder ma prawa zapisu (zazwyczaj 666 lub 777). Przykład:</p>
 
-<code>$this->zip->archive('/path/to/folder/myarchive.zip'); // Creates a file named myarchive.zip</code>
+<code>$this->zip->archive('/path/to/folder/myarchive.zip'); // Tworzy plik o nazwie myarchive.zip</code>
 
 
 <h2>$this->zip->download()</h2>
 
-<p>Causes the Zip file to be downloaded from your server. The function must be passed the name you would like the zip file called.
-Example:</p>
+<p>Powoduje pobranie pliku Zip z Twojego serwera. Do tej funkcji musi być przypisana nazwa, jaką chcesz uzyskać dla pliku. Przykład:</p>
 
-<code>$this->zip->download('latest_stuff.zip'); // File will be named "latest_stuff.zip"</code>
+<code>$this->zip->download('latest_stuff.zip'); // Plik zostanie nazwany "latest_stuff.zip"</code>
 
-<p class="important"><strong>Note:</strong>&nbsp; Do not display any data in the controller in which you call this function since it sends various server headers
-that cause the download to happen and the file to be treated as binary.</p>
+<p class="important"><strong>Uwaga:</strong>&nbsp; Nie wyświetlaj żadnych danych w kontrolerze, w ktorym wywołujesz tę funkcję, ponieważ wysyła
+ona wiele nagłówków w celu uruchomienia ściągania pliku i traktowania go jako plik binarny.</p>
 
 
 <h2>$this->zip->get_zip()</h2>
 
-<p>Returns the Zip-compressed file data.  Generally you will not need this function unless you want to do something unique with the data.
-Example:</p>
+<p>Zwraca skompresowane dane pliku. Generalnie nie będziesz potrzebował tej funkcji, chyba że będziesz chciał zrobić coś unikalnego z danymi.
+Przykład:</p>
 
 <code>
 $name = 'my_bio.txt';<br />
@@ -238,8 +234,8 @@ $zip_file = $this->zip->get_zip();
 
 <h2>$this->zip->clear_data()</h2>
 
-<p>The Zip class caches your zip data so that it doesn't need to recompile the Zip archive for each function you use above.
-If, however, you need to create multiple Zips, each with different data, you can clear the cache between calls. Example:</p>
+<p>Klasa Zip cache'uje Twoje dane, aby nie musiały być dekompilowane przy każdorazowym użyciu powyższych funkcji.
+Jeśli jednak chcesz stworzyć wiele plików Zip, każdy z innymi danymi, możesz wyczyścić cache pomiędzy wywołaniami. Przykład:</p>
 
 <code>
 $name = 'my_bio.txt';<br />
@@ -252,7 +248,7 @@ $zip_file = $this->zip->get_zip();<br />
 <br /><br />
 
 $name = 'photo.jpg';<br />
-$this->zip->read_file("/path/to/photo.jpg"); // Read the file's contents<br />
+$this->zip->read_file("/path/to/photo.jpg"); // Odczytuje zawartość pliku<br />
 <br /><br />
 $this->zip->download('myphotos.zip');
 </code>
@@ -267,8 +263,8 @@ $this->zip->download('myphotos.zip');
 Poprzedni Temat:&nbsp;&nbsp;<a href="xmlrpc.html"> XML-RPC Class</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="caching.html">Caching Class</a>
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="caching.html">Klasa Cache</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
