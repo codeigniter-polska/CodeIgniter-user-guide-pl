@@ -49,11 +49,11 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/views.html">Widoki</a></li>' +
 			'<li><a href="'+base+'general/models.html">Modele</a></li>' +
 			'<li><a href="'+base+'general/helpers.html">Helpery</a></li>' +
-			'<li><a href="'+base+'general/libraries.html">Korzystanie z bibliotek CodeIgniter</a></li>' +
+			'<li><a href="'+base+'general/libraries.html">Korzystanie z bibliotek</a></li>' +
 			'<li><a href="'+base+'general/creating_libraries.html">Tworzenie własnych bibliotek</a></li>' +
-			'<li><a href="'+base+'general/drivers.html">Using CodeIgniter Drivers</a></li>' +
-			'<li><a href="'+base+'general/creating_drivers.html">Creating Your Own Drivers</a></li>' +
-			'<li><a href="'+base+'general/core_classes.html">Creating Core Classes</a></li>' +
+			'<li><a href="'+base+'general/drivers.html">Korzystanie ze sterowników</a></li>' +
+			'<li><a href="'+base+'general/creating_drivers.html">Tworzenie własnych sterowników</a></li>' +
+			'<li><a href="'+base+'general/core_classes.html">Tworzenie głównych klas systemowych</a></li>' +
 			'<li><a href="'+base+'general/hooks.html">Hooks - Extending the Core</a></li>' +
 			'<li><a href="'+base+'general/autoloader.html">Automatyczne ładowanie zasobów</a></li>' +
 			'<li><a href="'+base+'general/common_functions.html">Funkcje wspólne</a></li>' +
@@ -64,7 +64,7 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/cli.html">Uruchamianie za pomocą wiersza poleceń</a></li>' +
 			'<li><a href="'+base+'general/managing_apps.html">Zarządzanie aplikacjami</a></li>' +
 			'<li><a href="'+base+'general/environments.html">Obsługa wielu środowisk</a></li>' +
-			'<li><a href="'+base+'general/alternative_php.html">Alternatywna składnia w plikach Widoku</a></li>' +
+			'<li><a href="'+base+'general/alternative_php.html">Alternatywna składnia w plikach widoku</a></li>' +
 			'<li><a href="'+base+'general/security.html">Bezpieczeństwo</a></li>' +
 			'<li><a href="'+base+'general/styleguide.html">PHP Style Guide</a></li>' +
 			'<li><a href="'+base+'doc_style/index.html">Tworzenie dokumentacji</a></li>' +
@@ -104,16 +104,16 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/typography.html">Typography Class</a></li>' +
 		'<li><a href="'+base+'libraries/unit_testing.html">Unit Testing Class</a></li>' +
 		'<li><a href="'+base+'libraries/uri.html">Klasa URI</a></li>' +
-		'<li><a href="'+base+'libraries/user_agent.html">User Agent Class</a></li>' +
+		'<li><a href="'+base+'libraries/user_agent.html">Klasa User Agent</a></li>' +
 		'<li><a href="'+base+'libraries/xmlrpc.html">XML-RPC Class</a></li>' +
-		'<li><a href="'+base+'libraries/zip.html">Zip Encoding Class</a></li>' +
+		'<li><a href="'+base+'libraries/zip.html">Klasa kodowania Zip</a></li>' +
 		'</ul>' +
 
 		'</td><td class="td_sep" valign="top">' +
 
 		'<h3>Opisy sterowników</h3>' +
 		'<ul>' +
-		'<li><a href="'+base+'libraries/caching.html">Caching Class</a></li>' +
+		'<li><a href="'+base+'libraries/caching.html">Klasa Cache\'owania</a></li>' +
 		'<li><a href="'+base+'database/index.html">Klasa bazy danych</a></li>' +
 		'<li><a href="'+base+'libraries/javascript.html">Javascript Class</a></li>' +
 		'</ul>' +
