@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Image Manipulation Class : Podręcznik użytkownika CodeIgniter</title>
+<title>Klasa manipulowania plikiem graficznym : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.3</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Image Manipulation Class
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Klasa manipulowania plikiem graficznym
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,40 +56,38 @@ Image Manipulation Class
 <div id="content">
 
 
-<h1>Image Manipulation Class</h1>
+<h1>Klasa manipulowania plikiem graficznym</h1>
 
-<p>CodeIgniter's Image Manipulation class lets you perform the following actions:</p>
+<p>Klasa manipulowania plikiem graficznym pozwala na wykonywania następujących czynności:</p>
 
 <ul>
-<li>Image Resizing</li>
-<li>Thumbnail Creation</li>
-<li>Image Cropping</li>
-<li>Image Rotating</li>
-<li>Image Watermarking</li>
+<li>Zmianę rozmiaru pliku graficznego</li>
+<li>Tworzenie miniatur</li>
+<li>Przycinanie pliku graficznego</li>
+<li>Obracanie pliku graficznego</li>
+<li>Dołączanie znaku wodnego</li>
 </ul>
 
-<p>All three major image libraries are supported:  GD/GD2, NetPBM, and ImageMagick</p>
+<p>Wspierane są trzy podstawowe biblioteki:  GD/GD2, NetPBM i ImageMagick</p>
 
-<p class="important"><strong>Note:</strong> Watermarking is only available using the GD/GD2 library.
-In addition, even though other libraries are supported, GD is required in
-order for the script to calculate the image properties.  The image processing, however, will be performed with the
-library you specify.</p>
+<p class="important"><strong>Uwaga:</strong> Tworzenie znaków wodnych jest dostępne tylko za pomocą biblioteki GD/GD2.
+Dodatkowo, pomimo tego że inne biblioteki są wspierane, to biblioteka GD jest wymagana do obliczania właściwości pliku graficznego.
+Samo przetwarzanie pliku graficznego odbywać się jednak będzie za pomocą biblioteki, która została określona.</p>
 
 
-<h2>Initializing the Class</h2>
+<h2>Inicjalizowanie klasy</h2>
 
-<p>Like most other classes in CodeIgniter, the image class is initialized in your controller
-using the <dfn>$this->load-&gt;library</dfn> function:</p>
+<p>Tak jak większość innych klas w CodeIgniterze, klasa Image jest inicjalizowana w Twoim kontrolerze poprzez funkcję <dfn>$this->load-&gt;library</dfn>:</p>
 <code>$this->load->library('image_lib');</code>
 
-<p>Once the library is loaded it will be ready for use.  The image library object you will use to call all functions is: <dfn>$this->image_lib</dfn></p>
+<p>Po załadowaniu, obiekt klasy Image będzie dostępny poprzez wywołanie: <dfn>$this->image_lib</dfn></p>
 
 
-<h2>Processing an Image</h2>
+<h2>Przetwarzanie pliku graficznego</h2>
 
-<p>Regardless of the type of processing you would like to perform (resizing, cropping, rotation, or watermarking), the general process is
-identical. You will set some preferences corresponding to the action you intend to perform, then
-call one of four available processing functions.  For example, to create an image thumbnail you'll do this:</p>
+<p>Niezależnie od typu przetwarzania, które chciałbyś przeprowadzić (zmiana rozmiaru, przycinanie, obracanie, dołączenie znaku wodnego), główny
+proces jest zawsze taki sam. Musisz ustawić preferencje odnoszące się do czynności jaką chcesz wykonać i wywołać jedną z czterech dostępnych funkcji
+przetwarzania. Dla przykładu, aby utworzyć miniaturę pliku graficznego, możesz zrobic tak:</p>
 
 <code>$config['image_library'] = 'gd2';<br />
 $config['source_image']	= '/path/to/image/mypic.jpg';<br />
@@ -103,20 +101,21 @@ $this->load->library('image_lib', $config);
 <br />
 $this->image_lib->resize();</code>
 
-<p>The above code tells the <dfn>image_resize</dfn> function to look for an image called <em>mypic.jpg</em>
-located in the <dfn>source_image</dfn> folder, then create a thumbnail that is 75 X 50 pixels using the GD2 <dfn>image_library</dfn>.
-Since the <dfn>maintain_ratio</dfn> option is enabled, the thumb will be as close to the target <dfn>width</dfn> and
-<dfn>height</dfn> as possible while preserving the original aspect ratio.  The thumbnail will be called <em>mypic_thumb.jpg</em>
+<p>Powyższy kod, mówi funkcji <dfn>image_resize</dfn> aby szukała pliku o nazwie <em>mypic.jpg</em> w folderze <dfn>source_image</dfn>.
+następnie ma stworzyć miniaturę o wymiarach 75 na 50 pikseli, za pomocą biblioteki GD2.  
+W związku z tym, że opcja <dfn>maintain_ratio</dfn> jest włączona, miniatura będzie miała jak najbardziej zbliżoną <dfn>szerokość</dfn> i <dfn>wysokość</dfn>
+do docelowego rozmiaru pliku, przy jednoczesnym zachowaniu oryginalnych proporcji. Miniatura będzie miała nazwę <em>mypic_thumb.jpg</em>
 </p>
 
-<p class="important"><strong>Note:</strong> In order for the image class to be allowed to do any processing, the
-folder containing the image files must have write permissions.</p>
+<p class="important"><strong>Uwaga:</strong> Aby umożliwić klasie Image przeprowadzenie jakichkolwiek procesów, folder w którym znajdują się pliki 
+graficzne musi mieć	uprawnienia do zapisu.</p>
 
-<p class="important"><strong>Note:</strong> Image processing can require a considerable amount of server memory for some operations. If you are experiencing out of memory errors while processing images you may need to limit their maximum size, and/or adjust PHP memory limits.</p>
+<p class="important"><strong>Uwaga:</strong> Przetwarzanie plików graficznych może wymagać sporej ilości pamięci przy niektórych operacjach.
+Jeśli doświadczasz błędów związanych z brakiem pamięci podczas przetwarzania plików graficznych, możesz ograniczyć ich maksymalną wielkość i/lub dostosować wielkość limitu pamięci PHP.</p>
 
-<h2>Processing Functions</h2>
+<h2>Funkcje przetwarzania</h2>
 
-<p>There are four available processing functions:</p>
+<p>Dostępne są cztery funkcje przetwarzania:</p>
 
 <ul>
 <li>$this->image_lib->resize()</li>
@@ -126,39 +125,37 @@ folder containing the image files must have write permissions.</p>
 <li>$this-&gt;image_lib-&gt;clear()</li>
 </ul>
 
-<p>These functions return boolean TRUE upon success and FALSE for failure.  If they fail you can retrieve the
-error message using this function:</p>
+<p>Te funkcje zwracają wartość TRUE (boolean) w przypadku sukcesu i wartość FALSE w przypadku niepowodzenia.
+Dodatkowo w przypadku niepowodzenia, możesz zwrócić wiadomość błędu za pomocą tej funkcji:</p>
 
 <code>echo $this->image_lib->display_errors();</code>
 
-<p>A good practice is use the processing function conditionally, showing an error upon failure, like this:</p>
+<p>Dobrą praktyką jest używanie funkcji przetwarzania w warunku i wyświetlanie błędów w przypadku niepowodzenia, w ten sposób:</p>
 
 <code>if ( ! $this->image_lib->resize())<br />
 {<br />
 &nbsp;&nbsp;&nbsp;&nbsp;echo $this->image_lib->display_errors();<br />
 }</code>
 
-<p>Note:  You can optionally specify the HTML formatting to be applied to the errors, by submitting the opening/closing
-tags in the function, like this:</p>
+<p>Uwaga:  Opcjonalnie możesz określić formatowanie HTML, jakie ma zostać dołączone do błędów, poprzez określenie otwierającego/zamykającego
+tagu w funkcji:</p>
 
 <code>$this->image_lib->display_errors('<var>&lt;p></var>', '<var>&lt;/p></var>');</code>
 
 
-<h2>Preferences</h2>
+<h2>Preferencje</h2>
 
-<p>The  preferences described below allow you to tailor the image processing to suit your needs.</p>
+<p>Poniżej przedstawione preferencje pozwalają na dopasowanie przetwarzania pliku graficznego do Twoich potrzeb.</p>
 
-<p>Note that not all preferences are available for every
-function.  For example, the x/y axis preferences are only available for image cropping. Likewise, the width and height
-preferences have no effect on cropping.  The "availability" column indicates which functions support a given preference.</p>
+<p>Zauwąż, ze nie wszystkie preferencje są dostępne dla wszystkich funkcji. Dla przykładu, ustawienie osi x/y jest dostępne tylko dla przycicnania pliku graficznego. Tak samo, opcja szerokości i wysokości nie ma wpływu na przycinanie pliku graficznego. Kolumna "dostępności" określa, która funkcja wspiera daną preferencję.</p>
 
-<p>Availability Legend:</p>
+<p>Legenda dostępności:</p>
 
 <ul>
-<li><var>R</var> - Image Resizing</li>
-<li><var>C</var> - Image Cropping</li>
-<li><var>X</var> - Image Rotation</li>
-<li><var>W</var> - Image Watermarking</li>
+<li><var>R</var> - zmiana rozmiaru pliku graficznego</li>
+<li><var>C</var> - przycinanie pliku graficznego</li>
+<li><var>X</var> - obracanie pliku graficznego</li>
+<li><var>W</var> - znak wodny dla pliku graficznego</li>
 
 </ul>
 
@@ -168,34 +165,34 @@ preferences have no effect on cropping.  The "availability" column indicates whi
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-<th>Preference</th>
-<th>Default&nbsp;Value</th>
-<th>Options</th>
-<th>Description</th>
-<th>Availability</th>
+<th>Preferencja</th>
+<th>Domyślna&nbsp;wartość</th>
+<th>Opcje</th>
+<th>Opis</th>
+<th>Dostępność</th>
 </tr>
 
 <tr>
 <td class="td"><strong>image_library</strong></td>
 <td class="td">GD2</td>
 <td class="td">GD, GD2, ImageMagick, NetPBM</td>
-<td class="td">Sets the image library to be used.</td>
+<td class="td">Ustawia bibliotekę, która zostanie użyta.</td>
 <td class="td">R, C, X, W</td>
 </tr>
 
 <tr>
 <td class="td"><strong>library_path</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">Sets the server path to your ImageMagick or NetPBM library.  If you use either of those libraries you must supply the path.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ustawia ścieżkę serwerową do biblioteki ImageMagick lub NetPBM. Jeśli używasz którejkolwiek z tych bibliotek, musisz określić ścieżkę.</td>
 <td class="td">R, C, X</td>
 </tr>
 
 <tr>
 <td class="td"><strong>source_image</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">Sets the source image name/path.  The path must be a relative or absolute server path, not a URL.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ustawia źródłową nazwę/ścieżkę. Ścieżka musi być ścieżką relatywną lub absolutną, nie adresem URL.</td>
 <td class="td">R, C, S, W</td>
 </tr>
 
@@ -203,7 +200,7 @@ preferences have no effect on cropping.  The "availability" column indicates whi
 <td class="td"><strong>dynamic_output</strong></td>
 <td class="td">FALSE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">Determines whether the new image file should be written to disk or generated dynamically.  Note: If you choose the dynamic setting, only one image can be shown at a time, and it can't be positioned on the page. It simply outputs the raw image dynamically to your browser, along with image headers.</td>
+<td class="td">Określa, czy nowy plik graficzny powinien być zapisany na dysku, czy wygenerowany dynamicznie. Uwaga: Jeśli wybierzesz opcję "dynamiczną", na raz może zostać wyświetlony tylko jeden plik graficzny i nie może zostać umieszczony na stronie. Wysyłane są po prostu dane pliku graficznego razem z odpowiednimi nagłówkami bezpośredio do przeglądarki.</td>
 <td class="td">R, C, X, W</td>
 </tr>
 
@@ -212,32 +209,33 @@ preferences have no effect on cropping.  The "availability" column indicates whi
 <td class="td"><strong>quality</strong></td>
 <td class="td">90%</td>
 <td class="td">1 - 100%</td>
-<td class="td">Sets the quality of the image. The higher the quality the larger the file size.</td>
+<td class="td">Ustawia jakość pliku graficznego. Im wyższa jakość, tym większy rozmiar pliku.</td>
 <td class="td">R, C, X, W</td>
 </tr>
 
 
 <tr>
 <td class="td"><strong>new_image</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">Sets the destination image name/path.  You'll use this preference when creating an image copy. The path must be a relative or absolute server path, not a URL.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ustawia docelową nazwę/ścieżkę pliku graficznego. Będziesz używał tego ustawienia podczas tworzenia kopii pliku graficznego.
+Ścieżka musi być ścieżką relatywną lub absolutną, nie adresem URL.</td>
 <td class="td">R, C, X, W</td>
 </tr>
 
 <tr>
 <td class="td"><strong>width</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">Sets the width you would like the image set to.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ustawia szerokość dla pliku graficznego.</td>
 <td class="td">R, C </td>
 </tr>
 
 <tr>
 <td class="td"><strong>height</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">Sets the height you would like the image set to.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ustawia wysokość dla pliku graficznego.</td>
 <td class="td">R, C </td>
 </tr>
 
@@ -245,15 +243,15 @@ preferences have no effect on cropping.  The "availability" column indicates whi
 <td class="td"><strong>create_thumb</strong></td>
 <td class="td">FALSE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">Tells the image processing function to create a thumb.</td>
+<td class="td">Informuje funkcję przetwarzania, czy ma być tworzona miniatura.</td>
 <td class="td">R</td>
 </tr>
 
 <tr>
 <td class="td"><strong>thumb_marker</strong></td>
 <td class="td">_thumb</td>
-<td class="td">None</td>
-<td class="td">Specifies the thumbnail indicator.  It will be inserted just before the file extension, so mypic.jpg would become mypic_thumb.jpg</td>
+<td class="td">Brak</td>
+<td class="td">Określa wskaźnik miniatury. Będzie on dołączony do nazwy pliku zaraz przed rozszerzeniem pliku. Tak więc, mypic.jpg będzie teraz mypic_thumb.jpg</td>
 <td class="td">R</td>
 </tr>
 
@@ -261,7 +259,7 @@ preferences have no effect on cropping.  The "availability" column indicates whi
 <td class="td"><strong>maintain_ratio</strong></td>
 <td class="td">TRUE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">Specifies whether to maintain the original aspect ratio when resizing or use hard values.</td>
+<td class="td">Określa, czy utrzymac oryginalne proporcje podczas zmiany rozmiaru, czy dostosować się do "twardych" wartości.</td>
 <td class="td">R, C</td>
 </tr>
 
@@ -270,7 +268,10 @@ preferences have no effect on cropping.  The "availability" column indicates whi
 <td class="td"><strong>master_dim</strong></td>
 <td class="td">auto</td>
 <td class="td">auto, width, height</td>
-<td class="td">Specifies what to use as the master axis when resizing or creating thumbs. For example, let's say you want to resize an image to 100 X 75 pixels. If the source image size does not allow perfect resizing to those dimensions, this setting determines which axis should be used as the hard value. "auto" sets the axis automatically based on whether the image is taller then wider, or vice versa.</td>
+<td class="td">Określa co użyć jako główną oś podczas zmiany rozmiaru lub tworzenia miniatury. Dla przykładu, powiedzmy że chcesz
+zmienić rozmiar pliku graficznego do 100 na 75 pikseli. Jeśli źródłowy plik graficzny nie pozwala na idealną zmianę do tych rozmiarów,
+to to ustawienie określa, która oś powinna zostać użyta do zastosowania z "twardymi" wartościami. Ustawienie "auto" powoduje ustawienie osi automatycznie
+na podstawie tego, czy plik graficzny jest wyższy niż szerszy lub na odwrót.</td>
 <td class="td">R</td>
 </tr>
 
@@ -279,31 +280,34 @@ preferences have no effect on cropping.  The "availability" column indicates whi
 
 <tr>
 <td class="td"><strong>rotation_angle</strong></td>
-<td class="td">None</td>
+<td class="td">Brak</td>
 <td class="td">90, 180, 270, vrt, hor</td>
-<td class="td">Specifies the angle of rotation when rotating images.  Note that PHP rotates counter-clockwise, so a 90 degree rotation to the right must be specified as 270.</td>
+<td class="td">Określa kąt rotacji podczas obrotu pliku graficznego. Zwróć uwagę, że PHP wykonuje rotację w przeciwnym do ruchu wskazówek zegara kierunku.
+Dlatego rotacja o 90 stopni w prawo, musi zostać określona jako 270.</td>
 <td class="td">X</td>
 </tr>
 
 <tr>
 <td class="td"><strong>x_axis</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">Sets the X coordinate in pixels for image cropping. For example, a setting of 30 will crop an image 30 pixels from the left.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ustawia koordynat X w pikselach dla przycięcia pliku graficznego. Dla przykładu, ustawienie wartości 30, 
+przytnie plik graficzny o 30 pikseli od lewej strony.</td>
 <td class="td">C</td>
 </tr>
 <tr>
 <td class="td"><strong>y_axis</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">Sets the Y coordinate in pixels for image cropping. For example, a setting of 30 will crop an image 30 pixels from the top.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ustawia koordynat Y w pikselach dla przycięcia pliku graficznego. Dla przykładu, ustawienie wartości 30, 
+przytnie plik graficzny o 30 pikseli od góry.</td>
 <td class="td">C</td>
 </tr>
 
 </table>
 
 
-<h2>Setting preferences in a config file</h2>
+<h2>Ustawianie preferencji w pliku konfiguracyjnym</h2>
 
 <p>If you prefer not to set preferences using the above method, you can instead put them into a config file.
 Simply create a new file called <var>image_lib.php</var>,  add the <var>$config</var>
@@ -657,8 +661,8 @@ will be positioned at the bottom/center of the image, 20 pixels from the bottom 
 Poprzedni Temat:&nbsp;&nbsp;<a href="table.html">HTML Table Class</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="input.html">Input Class</a>
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="input.html">Klasa Input</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
