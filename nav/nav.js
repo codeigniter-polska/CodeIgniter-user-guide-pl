@@ -90,7 +90,7 @@ function create_menu(basepath)
 		'<li><a href="'+base+'libraries/form_validation.html">Klasa Form Validation</a></li>' +
 		'<li><a href="'+base+'libraries/ftp.html">Klasa FTP</a></li>' +
 		'<li><a href="'+base+'libraries/table.html">HTML Table Class</a></li>' +
-		'<li><a href="'+base+'libraries/image_lib.html">Image Manipulation Class</a></li>' +
+		'<li><a href="'+base+'libraries/image_lib.html">Klasa manipulowania plikiem graficznym</a></li>' +
 		'<li><a href="'+base+'libraries/input.html">Klasa Input</a></li>' +
 		'<li><a href="'+base+'libraries/loader.html">Klasa Loader</a></li>' +
 		'<li><a href="'+base+'libraries/language.html">Klasa Language</a></li>' +
