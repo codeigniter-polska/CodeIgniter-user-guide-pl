@@ -200,7 +200,7 @@ tagu w funkcji:</p>
 <td class="td"><strong>dynamic_output</strong></td>
 <td class="td">FALSE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">Określa, czy nowy plik graficzny powinien być zapisany na dysku, czy wygenerowany dynamicznie. Uwaga: Jeśli wybierzesz opcję "dynamiczną", na raz może zostać wyświetlony tylko jeden plik graficzny i nie może zostać umieszczony na stronie. Wysyłane są po prostu dane pliku graficznego razem z odpowiednimi nagłówkami bezpośredio do przeglądarki.</td>
+<td class="td">Określa, czy nowy plik graficzny powinien być zapisany na dysku, czy wygenerowany dynamicznie. Uwaga: Jeśli wybierzesz opcję "dynamiczną", na raz może zostać wyświetlony tylko jeden plik graficzny i nie może zostać umieszczony na stronie. Wysyłane są po prostu dane pliku graficznego razem z odpowiednimi nagłówkami bezpośrednio do przeglądarki.</td>
 <td class="td">R, C, X, W</td>
 </tr>
 
@@ -309,62 +309,60 @@ przytnie plik graficzny o 30 pikseli od góry.</td>
 
 <h2>Ustawianie preferencji w pliku konfiguracyjnym</h2>
 
-<p>If you prefer not to set preferences using the above method, you can instead put them into a config file.
-Simply create a new file called <var>image_lib.php</var>,  add the <var>$config</var>
-array in that file. Then save the file in: <var>config/image_lib.php</var> and it will be used automatically. You
-will NOT need to use the <dfn>$this->image_lib->initialize</dfn> function if you save your preferences in a config file.</p>
+<p>Jeśli nie chcesz usatwiac preferencji za pośrednictwem powyższej metody, możesz zamiast tego umieścić je w pliku konfiguracyjnym.
+Wystarczy, że stworzysz plik o nazwie <var>image_lib.php</var>, który będzie zawierał tablicę <var>$config</var>. Jeśli zachowasz ten plik
+w <var>config/image_lib.php</var>, będzie on używany automatycznie. Jeśli Twoje ustawienia preferencji znajdują się w pliku konfiguracyjnym, NIE będziesz musiał korzystać z funkcji <dfn>$this->image_lib->initialize()</dfn>.</p>
 
 
 <h2>$this->image_lib->resize()</h2>
 
-<p>The image resizing function lets you resize the original image, create a copy (with or without resizing),
-or create a thumbnail image.</p>
+<p>Funkcja pozwala na zmianę rozmiaru oryginalnego pliku graficznego, stworzenie kopii (z lub bez zmiany rozmiaru) lub utworzenie miniatury.</p>
 
-<p>For practical purposes there is no difference between creating a copy and creating
-a thumbnail except a thumb will have the thumbnail marker as part of the name (ie, mypic_thumb.jpg).</p>
+<p>Z praktycznego punktu widzenia nie ma różnicy między tworzeniem kopii pliku, a tworzeniem miniatury, za wyjątkiem tego, że
+miniatura otrzyma wskaźnik jako część nazwy (np. mypic_thumb.jpg).</p>
 
-<p>All preferences listed in the table above are available for this function except these three:  rotation_angle, x_axis, and y_axis.</p>
+<p>Wszystkie wymienione preferencje z powyższej tabeli są dostępne dla tej funkcji, z wyjątkiem tych trzech: rotation_angle, x_axis i y_axis.</p>
 
-<h3>Creating a Thumbnail</h3>
+<h3>Tworzenie miniatury</h3>
 
-<p>The resizing function will create a thumbnail file (and preserve the original) if you set this preference to TRUE:</p>
+<p>Funkcja zmiany rozmiaru utworzy plik miniatury (i zachowa plik oryginalny) jeśli ustawisz tą preferencję na wartość TRUE:</p>
 
 <code>$config['create_thumb'] = TRUE;</code>
 
-<p>This single preference determines whether a thumbnail is created or not.</p>
+<p>To ustawienie decyduje o tym, czy miniatura zostanie stworzona.</p>
 
-<h3>Creating a Copy</h3>
+<h3>Tworzenie kopii</h3>
 
-<p>The resizing function will create a copy of the image file (and preserve the original) if you set
-a path and/or a new filename using this preference:</p>
+<p>Funkcja zmiany rozmiaru stworzy kopię pliku graficznego (i zachowa plik oryginalny) jeśli ustawisz
+ścieżkę i/lub nową nazwę pliku za pomocą tego ustawienia:</p>
 
 <code>$config['new_image'] = '/path/to/new_image.jpg';</code>
 
-<p>Notes regarding this preference:</p>
+<p>Uwagi dotyczące tej preferencji:</p>
 <ul>
-<li>If only the new image name is specified it will be placed in the same folder as the original</li>
-<li>If only the path is specified, the new image will be placed in the destination with the same name as the original.</li>
-<li>If both the path and image name are specified it will placed in its own destination and given the new name.</li>
+<li>Jeśli zostanie określona tylko nowa nazwa pliku, kopia zostanie umieszczona w tym samym folderze co plik oryginalny.</li>
+<li>Jeśli zostanie określona tylko ścieżka, nowy plik graficzny zostanie umieszczony w danym folderze z tą samą nazwą co plik oryginalny.</li>
+<li>Jeśli zostanie określona zarówno ścieżka, jak i nazwa pliku, plik zostanie umieszczony pod wskazaną nazwą i ścieżką.</li>
 </ul>
 
 
-<h3>Resizing the Original Image</h3>
+<h3>Zmiana rozmiaru oryginalnego pliku graficznego</h3>
 
-<p>If neither of the two preferences listed above (create_thumb, and new_image) are used, the resizing function will instead
-target the original image for processing.</p>
+<p>Jeśli żaden z powyższych parametrów nie zotanie użyty (create_thumb i new_image), to funkcja zmiany rozmiaru będzie odnosiła się do 
+oryginalnego pliku.</p>
 
 
 <h2>$this->image_lib->crop()</h2>
 
-<p>The cropping function works nearly identically to the resizing function except it requires that you set
-preferences for the X and Y axis (in pixels) specifying where to crop, like this:</p>
+<p>Funkcja przycinania działa prawie identycznie jak funkcja zmiany rozmiaru, z tym wyjątkiem, że wymaga ustawienia preferencji dla
+osi X i Y (w pikselach), które określją w którym miejscu przyciąć obraz:</p>
 
 <code>$config['x_axis'] = '100';<br />
 $config['y_axis'] = '40';</code>
 
-<p>All preferences listed in the table above are available for this function except these:  rotation_angle, width, height, create_thumb, new_image.</p>
+<p>Wszystkie wymienione preferencje z powyższej tabeli są dostępne dla tej funkcji, za wyjątkiem tych: rotation_angle, width, height, create_thumb, new_image.</p>
 
-<p>Here's an example showing how you might crop an image:</p>
+<p>Oto przykład pokazujący w jaki sposób mozesz przyciąć obraz:</p>
 
 <code>$config['image_library'] = 'imagemagick';<br />
 $config['library_path'] = '/usr/X11R6/bin/';<br />
@@ -381,28 +379,25 @@ if ( ! $this->image_lib->crop())<br />
 }</code>
 
 
-<p>Note: Without a visual interface it is difficult to crop images, so this function is not very useful
-unless you intend to build such an interface.  That's exactly what we did using for the photo
-gallery module in ExpressionEngine, the CMS we develop.  We added a JavaScript UI that lets the cropping
-area be selected.</p>
+<p>Uwaga: Bez graficznego interfejsu trudno jest przyciąć obraz, więc ta funkcja nie jest zbyt przydatna, o ile nie chcesz zbudować właśnie takiego interfejsu. Tak własnie zrobiliśmy, używając tej funkcji dla galerii w module CMS ExpressionEngine. Dodaliśmy interfejs JavaScript, który pozwala na zaznaczenie obszaru, który ma zostać przycięty.</p>
 
 <h2>$this->image_lib->rotate()</h2>
 
-<p>The image rotation function requires that the angle of rotation be set via its preference:</p>
+<p>Funkcja obrotu pliku graficznego wymaga ustawienia kąta rotacji:</p>
 
 <code>$config['rotation_angle'] = '90';</code>
 
-<p>There are 5 rotation options:</p>
+<p>Mamy 5 opcji obrotu:</p>
 
 <ol>
-<li>90 - rotates counter-clockwise by 90 degrees.</li>
-<li>180 - rotates counter-clockwise by 180 degrees.</li>
-<li>270 - rotates counter-clockwise by 270 degrees.</li>
-<li>hor - flips the image horizontally.</li>
-<li>vrt - flips the image vertically.</li>
+<li>90 - obrót w przeciwną stronę do ruchu wskazówek zegara o 90 stopni.</li>
+<li>180 - obrót w przeciwną stronę do ruchu wskazówek zegara o 180 stopni.</li>
+<li>270 - obrót w przeciwną stronę do ruchu wskazówek zegara o 270 stopni.</li>
+<li>hor - poziomy obrót obrazu.</li>
+<li>vrt - pionowy obrót obrazu.</li>
 </ol>
 
-<p>Here's an example showing how you might rotate an image:</p>
+<p>Oto przykład pokazujący w jaki sposób możesz obrócić obraz:</p>
 
 <code>$config['image_library'] = 'netpbm';<br />
 $config['library_path'] = '/usr/bin/';<br />
@@ -420,34 +415,35 @@ if ( ! $this->image_lib->rotate())<br />
 
 
 <h2>$this-&gt;image_lib-&gt;clear()</h2>
-<p>The clear function resets all of the values used when processing an image. You will want to call this if you are processing images in a loop.</p>
+<p>Funkcja clear, resetuje wszystkie wartości użyte podczas przetwarzania pliku graficznego. Wywołanie tej funkcji będzie potrzebne w przypadku przetwarzania
+plików graficznych w pętli.</p>
 <p><code>$this-&gt;image_lib-&gt;clear();</code></p>
 <p>&nbsp;</p>
-<h1>Image Watermarking</h1>
+<h1>Dołączanie znaków wodnych</h1>
 
-<p>The Watermarking feature requires the GD/GD2 library.</p>
+<p>Ta funkcja wymaga biblioteki GD/GD2.</p>
 
 
-<h2>Two Types of Watermarking</h2>
+<h2>Dwa rodzaje znaków wodnych</h2>
 
-<p>There are two types of watermarking that you can use:</p>
+<p>Są dwa rodzaje znaków wodnych, których możesz używać:</p>
 
 <ul>
-<li><strong>Text</strong>: The watermark message will be generating using text, either with a True Type font that you specify, or
-using the native text output that the GD library supports. If you use the True Type version your GD installation
-must be compiled with True Type support (most are, but not all).</li>
+<li><strong>Tekst</strong>: Znak wodny zostanie wygenerowany za pomocą tekstu. Zarówno za pomocą fontu True Type lub natywnego tekstu wygenerowanego przez
+bibiotekę GD. Jeśli chcesz skorzystać z wersji True Type, Twoja instalacja GD musi być skompilowana ze wsparciem dla True Type 
+(zazwyczaj jest, ale nie zawsze).</li>
 
-<li><strong>Overlay</strong>: The watermark message will be generated by overlaying an image (usually a transparent PNG or GIF)
-containing your watermark over the source image.</li>
+<li><strong>Grafika</strong>: Znak wodny zostanie wygenerowany poprzez nałożenie obrazu (zazwyczaj przeźroczystego plik PNG lub GIF),
+który zawiera znak wodny, na Twój źródłowy plik graficzny.</li>
 
 </ul>
 
 
-<h2>Watermarking an Image</h2>
+<h2>Tworzenie znaku wodnego</h2>
 
-<p>Just as with the other functions (resizing, cropping, and rotating) the general process for watermarking
-involves setting the preferences corresponding to the action you intend to perform, then
-calling the watermark function.  Here is an example:</p>
+<p>Tak jak w przypadku innych funkcji (zmiany wielkości, przycinania i obracania), głównym procesem nakładania znaku wodnego
+jest ustawianie preferencji, które odpowiadać będą akcją, ktore chcemy wykonać, a na końcu wywołanie samej metody.
+Oto przykład:</p>
 
 <code>
 $config['source_image']	= '/path/to/image/mypic.jpg';<br />
@@ -466,144 +462,148 @@ $this->image_lib->initialize($config);
 $this->image_lib->watermark();</code>
 
 
-<p>The above example will use a 16 pixel True Type font to create the text "Copyright 2006 - John Doe".  The watermark
-will be positioned at the bottom/center of the image, 20 pixels from the bottom of the image.</p>
+<p>Powyższy przykład używa czcionki True Type o wielkości 16 pikseli i tworzy napis "Copyright 2006 - John Doe".  
+Znak wodny będzie umiejscowiony na środku, w odległości 20 pikseli od dołu obrazu.</p>
 
-<p class="important"><strong>Note:</strong> In order for the image class to be allowed to do any processing, the image file must have &quot;write&quot; file permissions. For example, 777.</p>
+<p class="important"><strong>Uwaga:</strong> Aby klasa manipulowania plikiem graficznym mogła wykonać przetwarzanie, dany plik musi mieć prawa
+do &quot;zapisu&quot;. Dla przykładu, 777.</p>
 
 
-<h2>Watermarking Preferences</h2>
+<h2>Preferencje znaku wodnego</h2>
 
-<p>This table shown the preferences that are available for both types of watermarking (text or overlay)</p>
+<p>Ta tabela przedstawia dostępne preferencje dla obu typów znakow wodnych (tekstowego i graficznego)</p>
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-<th>Preference</th>
-<th>Default&nbsp;Value</th>
-<th>Options</th>
-<th>Description</th>
+<th>Preferencja</th>
+<th>Domyślna&nbsp;wartość</th>
+<th>Opcje</th>
+<th>Opis</th>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_type</strong></td>
 <td class="td">text</td>
 <td class="td">text, overlay</td>
-<td class="td">Sets the type of watermarking that should be used.</td>
+<td class="td">Ustawia typ znaku wodnego.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>source_image</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">Sets the source image name/path.  The path must be a relative or absolute server path, not a URL.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ustawia nazwę/ścieżkę pliku źródłowego. Ścieżka musi być ścieżką relatywną lub absolutną, nie adresem URL.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>dynamic_output</strong></td>
 <td class="td">FALSE</td>
 <td class="td">TRUE/FALSE (boolean)</td>
-<td class="td">Determines whether the new image file should be written to disk or generated dynamically.  Note: If you choose the dynamic setting, only one image can be shown at a time, and it can't be positioned on the page. It simply outputs the raw image dynamically to your browser, along with image headers.</td>
+<td class="td">Określa, czy nowy plik graficzny powinien zostać zapisany na dysku, czy dynamicznie zwrócony. Uwaga: Jeśli wybierzesz opcję "dynamiczną", na raz może zostać wyświetlony tylko jeden plik graficzny i nie może zostać umieszczony na stronie. Wysyłane są po prostu dane pliku graficznego razem z odpowiednimi nagłówkami bezpośrednio do przeglądarki.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>quality</strong></td>
 <td class="td">90%</td>
 <td class="td">1 - 100%</td>
-<td class="td">Sets the quality of the image. The higher the quality the larger the file size.</td>
+<td class="td">Ustawia jakość pliku graficznego. Im wyższa jakość, tym większy rozmiar pliku.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>padding</strong></td>
-<td class="td">None</td>
-<td class="td">A number</td>
-<td class="td">The amount of padding, set in pixels, that will be applied to the watermark to set it away from the edge of your images.</td>
+<td class="td">Brak</td>
+<td class="td">Numer</td>
+<td class="td">Odstęp w pikselach, który będzie zastosowany do znaku wodnego, aby ustawić go z dala od krawędzi pliku graficznego.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_vrt_alignment</strong></td>
 <td class="td">bottom</td>
 <td class="td">top, middle, bottom</td>
-<td class="td">Sets the vertical alignment for the watermark image.</td>
+<td class="td">Ustawia wyrównanie w pionie dla znaku wodnego.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_hor_alignment</strong></td>
 <td class="td">center</td>
 <td class="td">left, center, right</td>
-<td class="td">Sets the horizontal alignment for the watermark image.</td>
+<td class="td">Ustawia wyrównanie w poziomie dla znaku wodnego.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_hor_offset</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">You may specify a horizontal offset (in pixels) to apply to the watermark position. The offset normally moves the watermark to the right, except if you have your alignment set to "right" then your offset value will move the watermark toward the left of the image.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Możesz ustawić przesunięcie poziome (w pikselach), które ma być zastosowane dla pozycji znaku wodnego. Normalnie, przesunięcie
+porusza znak w prawą stronę, chyba że wyrównanie jest ustawione na wartość "right" - wtedy przesunięcie następuje w lewą stronę.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_vrt_offset</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">You may specify a vertical offset (in pixels) to apply to the watermark position. The offset normally moves the watermark down, except if you have your alignment set to "bottom" then your offset value will move the watermark toward the top of the image.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Możesz ustawić przesunięcie pionowe (w pikselach), które ma być zastosowane dla pozycji znaku wodnego. Normalnie, przesunięcie
+porusza znak w dół, chyba że wyrównanie jest ustawione na wartość "bottom" - wtedy przesunięcie następuje w górę.</td>
 </tr>
 
 </table>
 
 
 
-<h3>Text Preferences</h3>
-<p>This table shown the preferences that are available for the text type of watermarking.</p>
+<h3>Preferencje dla tekstowego znaku wodnego</h3>
+<p>Ta tabela przedstawia preferencje, które są dostępne dla tekstowego typu znaku wodnego.</p>
 
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-<th>Preference</th>
-<th>Default&nbsp;Value</th>
-<th>Options</th>
-<th>Description</th>
+<th>Preferencje</th>
+<th>Domyślna&nbsp;Wartość</th>
+<th>Opcje</th>
+<th>Opis</th>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_text</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">The text you would like shown as the watermark.  Typically this will be a copyright notice.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Tekst który chciałbyś przedstawić jako znak wodny. Zazwyczaj będzie to nota o prawach autorskich.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_font_path</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">The server path to the True Type Font you would like to use.  If you do not use this option, the native GD font will be used.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ścieżka serwerowa do czcionki True Type, której chciałbyć użyć. Jeśli nie skorzystasz z tej opcji, zostanie użyta natywna czcionka biblioteki GD.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_font_size</strong></td>
 <td class="td">16</td>
-<td class="td">None</td>
-<td class="td">The size of the text.  Note: If you are not using the True Type option above, the number is set using a range of 1 - 5.  Otherwise, you can use any valid pixel size for the font you're using.</td>
+<td class="td">Brak</td>
+<td class="td">Rozmiar tekstu. Uwaga: Jeśli nie używasz powyższej opcji True Type, wartość jest ustawiana z przedziału 1 - 5. W innym przypadku
+możesz używać poprawnego rozmiaru w pikselach dla danego fontu.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_font_color</strong></td>
 <td class="td">ffffff</td>
-<td class="td">None</td>
-<td class="td">The font color, specified in hex.  Note, you must use the full 6 character hex value (ie, 993300), rather than the three character abbreviated version (ie fff).</td>
+<td class="td">Brak</td>
+<td class="td">Kolor czcionki w hexach. Zauważ, że musisz użyć pełnej 6 znakowej wartości (np. 993300), a nie trzyznakowej, skróconej wersji (np. fff).</td>
 </tr>
 
 
 <tr>
 <td class="td"><strong>wm_shadow_color</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">The color of the drop shadow, specified in hex. If you leave this blank a drop shadow will not be used. Note, you must use the full 6 character hex value (ie, 993300), rather than the three character abbreviated version (ie fff).</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Kolor dla cienia czcionki w hexach. Jeśli zostawisz to pole puste, cień dla czcionki nie zostanie użyty. auważ, że musisz użyć pełnej 6 znakowej wartości (np. 993300), a nie trzyznakowej, skróconej wersji (np. fff).</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_shadow_distance</strong></td>
 <td class="td">3</td>
-<td class="td">None</td>
-<td class="td">The distance (in pixels) from the font that the drop shadow should appear.</td>
+<td class="td">Brak</td>
+<td class="td">Dystans (w pikselach) od czcionki do miejsca w którym cien dla niej powinien się rozpoczynać.</td>
 </tr>
 
 </table>
@@ -611,44 +611,46 @@ will be positioned at the bottom/center of the image, 20 pixels from the bottom 
 
 
 
-<h3>Overlay Preferences</h3>
-<p>This table shown the preferences that are available for the overlay type of watermarking.</p>
+<h3>Preferencje dla graficznego znaku wodnego</h3>
+<p>Ta tabela zawiera preferencje, które są dostępne dla graficznego typu znaku wodnego.</p>
 
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
 <tr>
-<th>Preference</th>
-<th>Default&nbsp;Value</th>
-<th>Options</th>
-<th>Description</th>
+<th>Preferencja</th>
+<th>Domyślna&nbsp;wartość</th>
+<th>Opcje</th>
+<th>Opis</th>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_overlay_path</strong></td>
-<td class="td">None</td>
-<td class="td">None</td>
-<td class="td">The server path to the image you wish to use as your watermark. Required only if you are using the overlay method.</td>
+<td class="td">Brak</td>
+<td class="td">Brak</td>
+<td class="td">Ścieżka serwerowa do pliku graficznego, który ma zostać użyty jako znak wodny. Wymagane tylko w przypadku używania znaku graficznego.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_opacity</strong></td>
 <td class="td">50</td>
 <td class="td">1 - 100</td>
-<td class="td">Image opacity. You may specify the opacity (i.e. transparency) of your watermark image. This allows the watermark to be faint and not completely obscure the details from the original image behind it. A 50% opacity is typical.</td>
+<td class="td">Przeźroczystość obrazu. Możesz określić przeźroczystość dla Twojego obrazu znaku wodnego. Pozwala na to, aby znak wodny nie przysłaniał całkowicie oryginalnego obrazu. Zwyczajowo używana jest przeźroczystość na poziomie 50%.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_x_transp</strong></td>
 <td class="td">4</td>
-<td class="td">A number</td>
-<td class="td">If your watermark image is a PNG or GIF image, you may specify a color on the image to be "transparent". This setting (along with the next) will allow you to specify that color. This works by specifying the "X" and "Y" coordinate pixel (measured from the upper left) within the image that corresponds to a pixel representative of the color you want to be transparent.</td>
+<td class="td">Numer</td>
+<td class="td">Jeśli Twój obraz jest typu PNG lub GIF, możesz określić który kolor na obrazie będzie "przeźroczysty". To ustawienie (w połączeniu kolejnym)
+pozwala na określenie takiego koloru. Działa to na zasadzie określenia koordynatów ("X" i "Y" - mierzonych od lewej górnej strony) dla piksela, który będzie 
+odpowiadał kolorowi, który ma być przeźroczysty.</td>
 </tr>
 
 <tr>
 <td class="td"><strong>wm_y_transp</strong></td>
 <td class="td">4</td>
-<td class="td">A number</td>
-<td class="td">Along with the previous setting, this allows you to specify the coordinate to a pixel representative of the color you want to be transparent.</td>
+<td class="td">Numer</td>
+<td class="td">W połączeniu z poprzednim ustawieniem, pozwala na określenie koordynatow dla piksela, który będzei reprezentował kolor, który ma się stać przeźroczysty.</td>
 </tr>
 </table>
 
