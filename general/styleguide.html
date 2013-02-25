@@ -66,16 +66,16 @@ Style Guide
 <p>Strona opisuje ogólne zasady stylu kodowania i składni przy pracy z CodeIgniter.</p>
 
 
-<h2>Table of Contents</h2>
+<h2>Spis treści</h2>
 <ul class="minitoc">
-	<li><a href="#file_format">File Format</a></li>
-	<li><a href="#php_closing_tag">PHP Closing Tag</a></li>
+	<li><a href="#file_format">Format plików</a></li>
+	<li><a href="#php_closing_tag">Tag zamknięcia kodu</a></li>
 	<li><a href="#class_and_method_naming">Class and Method Naming</a></li>
 	<li><a href="#variable_names">Variable Names</a></li>
 	<li><a href="#commenting">Commenting</a></li>
 	<li><a href="#constants">Constants</a></li>
 	<li><a href="#true_false_and_null">TRUE, FALSE, and NULL</a></li>
-	<li><a href="#logical_operators">Logical Operators</a></li>
+	<li><a href="#logical_operators">Operatory Logiczne</a></li>
 	<li><a href="#comparing_return_values_and_typecasting">Comparing Return Values and Typecasting</a></li>
 	<li><a href="#debugging_code">Debugging Code</a></li>
 	<li><a href="#whitespace_in_files">Whitespace in Files</a></li>
@@ -99,10 +99,10 @@ Style Guide
 
 <li>
 
-		<h2><a name="file_format"></a>File Format</h2>
+		<h2><a name="file_format"></a>Format pliku</h2>
 		<div class="guidelineDetails">
-			<p>Files should be saved with Unicode (UTF-8) encoding.  The <abbr title="Byte Order Mark">BOM</abbr>
-				should <em>not</em> be used.  Unlike UTF-16 and UTF-32, there's no byte order to indicate in
+			<p>Pliki powinny być zapisywane w kodowaniu Unicode (UTF-8). Znacznik <abbr title="Byte Order Mark">BOM</abbr>
+				 <em>nie</em> powinien być używany.  Unlike UTF-16 and UTF-32, there's no byte order to indicate in
 				a UTF-8 encoded file, and the <abbr title="Byte Order Mark">BOM</abbr> can have a negative side effect in PHP of sending output,
 				preventing the application from being able to set its own headers.  Unix line endings should
 				be used (LF).</p>
@@ -555,7 +555,7 @@ _convert_text()		// private method</code>
 
 
 
-		<h2><a name="php_errors"></a>PHP Errors</h2>
+		<h2><a name="php_errors"></a>Błędy PHP</h2>
 		<div class="guidelineDetails">
 			<p>Code must run error free and not rely on warnings and notices to be hidden to meet this requirement.  For instance, never access a variable that you did not set yourself (such as $_POST array keys) without first checking to see that it isset().</p>
 
@@ -646,7 +646,7 @@ $query = $this->db->query("SELECT foo, bar, baz, foofoo, foobar AS raboof, fooba
 
 
 
-		<h2><a name="default_function_arguments"></a>Default Function Arguments</h2>
+		<h2><a name="default_function_arguments"></a>Domyślne argumenty funkcji</h2>
 		<div class="guidelineDetails">
 			<p>Whenever appropriate, provide function argument defaults, which helps prevent PHP errors with mistaken calls and provides common fallback values which can save a few lines of code. Example:</p>
 
@@ -665,13 +665,13 @@ $query = $this->db->query("SELECT foo, bar, baz, foofoo, foobar AS raboof, fooba
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="security.html">Security</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="security.html">Bezpieczeństwo</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="../doc_style/index.html">Writing Documentation</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="../doc_style/index.html">Tworzenie dokumentacji</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+<p><a href="http://codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2013 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 <script type="text/javascript">
 
