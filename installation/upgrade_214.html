@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Credits : Podręcznik użytkownika CodeIgniter</title>
+<title>Upgrading from 2.1.3 to 2.1.4 : CodeIgniter User Guide</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,7 +17,7 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='Podręcznik użytkownika CodeIgniter' />
+<meta name='description' content='CodeIgniter User Guide' />
 
 </head>
 <body>
@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.4</h1></td>
+<td><h1>CodeIgniter User Guide Version 2.1.4</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
 </tr>
 </table>
@@ -42,7 +42,7 @@
 <td id="breadcrumb">
 <a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Credits
+Upgrading from 2.1.3 to 2.1.4
 </td>
 <td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
@@ -55,18 +55,15 @@ Credits
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Credits</h1>
+<h1>Upgrading from 2.1.3 to 2.1.4</h1>
 
-<p>CodeIgniter was originally developed by <a href="http://www.ellislab.com/">Rick Ellis</a> (CEO of
-<a href="http://ellislab.com/">EllisLab, Inc.</a>).  The framework was written for performance in the real
-world, with many of the class libraries, helpers, and sub-systems borrowed from the code-base of
-<a href="http://www.expressionengine.com/">ExpressionEngine</a>.</p>
+<p>Before performing an update you should take your site offline by replacing the index.php file with a static one.</p>
 
-<p>It is currently developed and maintained by the ExpressionEngine Development Team.<br />
-Bleeding edge development is spearheaded by the handpicked contributors of the Reactor Team.</p>
+<h2>Step 1: Update your CodeIgniter files</h2>
 
-<p>A hat tip goes to Ruby on Rails for inspiring us to create a PHP framework, and for
-bringing frameworks into the general consciousness of the web community.</p>
+<p>Replace all files and directories in your "system" folder and replace your index.php file. If any modifications were made to your index.php they will need to be made fresh in this new one.</p>
+
+<p class="important"><strong>Note:</strong> If you have any custom developed files in these folders please make copies of them first.</p>
 
 </div>
 <!-- END CONTENT -->
@@ -74,26 +71,14 @@ bringing frameworks into the general consciousness of the web community.</p>
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="../changelog.html">Change Log</a>
+Previous Topic:&nbsp;&nbsp;<a href="index.html">Installation Instructions</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">Top of Page</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="../installation/downloads.html">Downloading CodeIgniter</a>
+Next Topic:&nbsp;&nbsp;<a href="troubleshooting.html">Troubleshooting</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2012 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
-<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-629893-47']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 </body>
 </html>
