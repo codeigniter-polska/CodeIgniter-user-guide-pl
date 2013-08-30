@@ -1,103 +1,76 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
-<head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Schemat działania aplikacji : CodeIgniter podręcznik użytkownika</title>
-
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
-
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
-
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='Podręcznik użytkownika CodeIgniter' />
-
-</head>
-<body>
-
-<!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="pokaż spis treści" alt="pokaż zpis treści" /></a></div>
-<div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.4</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
-</tr>
-</table>
-</div>
-<!-- END NAVIGATION -->
-
-
-<!-- START BREADCRUMB -->
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://www.codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
-Schemat działania aplikacji
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
-</tr>
-</table>
-<!-- END BREADCRUMB -->
-
-<br clear="all" />
-
-
-<!-- START CONTENT -->
-<div id="content">
-
-
-<h1>Schemat działania aplikacji</h1>
-
-<p>Poniższy schemat prezentuje przepływ danych przez system:</p>
-
-<div><img src="../images/appflowchart.gif" width="697" height="205" border="0" alt="CodeIgniter application flow" /></div>
-
-
-<ol>
-<li>Plik index.php obsługuje kontroler inicjując zasoby niezbędne do uruchomienia CodeIgniter'a.</li>
-<li>Router sprawdza żądanie HTTP aby rozpoznać, która część kodu ma być wykonana.</li>
-<li>Jeżeli plik z cache istnieje, jest wysyłany bezpośrednio do przeglądarki omijając normalne wykonanie operacji.</li>
-<li>Bezpieczeństwo. Przed załadowaniem kontrolera, żądanie HTTP i inne dane wysłane przez użytkownika są filtrowane pod kątem bezpieczeństwa zapytania.</li>
-<li>Kontroler ładuje model, źródłwe biblioteki, pomocników i inne zasoby powiązane z danym wywołaniem.</li>
-<li>Widok jest renderowany do przeglądarki. Jeżeli jest włączone cache'owanie widoków, jest on zapisany aby przy następnym wywołaniu przyspiszyć obsługę zapytania.</li>
-</ol>
-
-
-
-
-</div>
-<!-- END CONTENT -->
-
-
-<div id="footer">
-<p>
-Poprzedni rozdział:&nbsp;&nbsp;<a href="features.html">Funkcje CodeIgniter</a>
-&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny rozdział:&nbsp;&nbsp;<a href="mvc.html">Model-Widok-Kontroler</a>
-</p>
-<p><a href="http://www.codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
-</div>
-<!-- Piwik --> 
-<script type="text/javascript">
-var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.hib.pl/" : "http://piwik.hib.pl/");
-document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 24);
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
-} catch( err ) {}
-</script><noscript><p><img src="http://piwik.hib.pl/piwik.php?idsite=24" style="border:0" alt="" /></p></noscript>
-<!-- End Piwik Tracking Code -->
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Schemat działania aplikacji : CodeIgniter podręcznik użytkownika</title>
+		<style type='text/css' media='all'>@import url('../userguide.css');</style>
+		<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
+		<script type="text/javascript" src="../nav/nav.js"></script>
+		<script type="text/javascript" src="../nav/prototype.lite.js"></script>
+		<script type="text/javascript" src="../nav/moo.fx.js"></script>
+		<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
+		<meta name='robots' content='all' />
+		<meta name='author' content='ExpressionEngine Dev Team' />
+		<meta name='description' content='Podręcznik użytkownika CodeIgniter' />
+	</head>
+	<body>
+		<!-- START NAVIGATION -->
+		<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
+		<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.png" width="154" height="43" border="0" title="pokaż spis treści" alt="pokaż zpis treści" /></a></div>
+		<div id="masthead">
+			<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+				<tr>
+					<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.4</h1></td>
+					<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
+				</tr>
+			</table>
+		</div>
+		<!-- END NAVIGATION -->
+		<!-- START BREADCRUMB -->
+		<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+			<tr>
+				<td id="breadcrumb">
+					<a href="http://www.codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+					<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+					Schemat działania aplikacji
+				</td>
+				<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Idź" /></form></td>
+			</tr>
+		</table>
+		<!-- END BREADCRUMB -->
+		<br clear="all" />
+		<!-- START CONTENT -->
+		<div id="content">
+			<h1>Schemat działania aplikacji</h1>
+			<p>Poniższy schemat prezentuje przepływ danych przez system:</p>
+			<div><img src="../images/appflowchart.gif" width="697" height="205" border="0" alt="CodeIgniter application flow" /></div>
+			<ol>
+				<li>Plik index.php obsługuje kontroler inicjując zasoby niezbędne do uruchomienia CodeIgniter'a.</li>
+				<li>Router sprawdza żądanie HTTP aby rozpoznać, która część kodu ma być wykonana.</li>
+				<li>Jeżeli plik z cache istnieje, jest wysyłany bezpośrednio do przeglądarki omijając normalne wykonanie operacji.</li>
+				<li>Bezpieczeństwo. Przed załadowaniem kontrolera, żądanie HTTP i inne dane wysłane przez użytkownika są filtrowane pod kątem bezpieczeństwa zapytania.</li>
+				<li>Kontroler ładuje model, źródłwe biblioteki, pomocników i inne zasoby powiązane z danym wywołaniem.</li>
+				<li>Widok jest renderowany do przeglądarki. Jeżeli jest włączone cache'owanie widoków, jest on zapisany aby przy następnym wywołaniu przyspiszyć obsługę zapytania.</li>
+			</ol>
+		</div>
+		<!-- END CONTENT -->
+		<div id="footer">
+			<p>
+			Poprzedni rozdział:&nbsp;&nbsp;<a href="features.html">Funkcje CodeIgniter</a>
+			&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+			<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+			<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+			Następny rozdział:&nbsp;&nbsp;<a href="mvc.html">Model-Widok-Kontroler</a>
+			</p>
+			<p><a href="http://www.codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+		</div>
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-629893-58', 'codeigniter.org.pl');
+		ga('send', 'pageview');
+		</script>
+	</body>
 </html>

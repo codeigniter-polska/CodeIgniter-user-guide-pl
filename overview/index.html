@@ -1,83 +1,111 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>CodeIgniter Overview : Podręcznik użytkownika CodeIgniter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Witamy w CodeIgniter : CodeIgniter podręcznik użytkownika</title>
 
-<style type='text/css' media='all'>@import url('../userguide.css');</style>
-<link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
+	<style type='text/css' media='all'>@import url('userguide.css');</style>
+	<link rel='stylesheet' type='text/css' media='all' href='userguide.css'/>
 
-<script type="text/javascript" src="../nav/nav.js"></script>
-<script type="text/javascript" src="../nav/prototype.lite.js"></script>
-<script type="text/javascript" src="../nav/moo.fx.js"></script>
-<script type="text/javascript" src="../nav/user_guide_menu.js"></script>
+	<script type="text/javascript" src="nav/nav.js"></script>
+	<script type="text/javascript" src="nav/prototype.lite.js"></script>
+	<script type="text/javascript" src="nav/moo.fx.js"></script>
+	<script type="text/javascript" src="nav/user_guide_menu.js"></script>
 
-<meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
-<meta name='robots' content='all' />
-<meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='Podręcznik użytkownika CodeIgniter' />
+	<meta name='robots' content='all'/>
+	<meta name='author' content='ExpressionEngine Dev Team'/>
+	<meta name='description' content='Podręcznik użytkownika CodeIgniter'/>
 
 </head>
 <body>
 
 <!-- START NAVIGATION -->
-<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav">
+	<div id="nav_inner">
+		<script type="text/javascript">create_menu('null');</script>
+	</div>
+</div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img
+		src="images/nav_toggle_darker.png" width="154" height="43" border="0" title="Pokaż spis treści"
+		alt="Pokaż spis treści"/></a></div>
 <div id="masthead">
-<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.4</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
-</tr>
-</table>
+	<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+		<tr>
+			<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.4</h1></td>
+			<td id="breadcrumb_right"><a href="toc.html">Spis treści</a></td>
+		</tr>
+	</table>
 </div>
 <!-- END NAVIGATION -->
 
 
-<!-- START BREADCRUMB -->
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
-<tr>
-<td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Introduction
-</td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="podrecznik.codeigniter.org.pl" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
-</tr>
+	<tr>
+		<td id="breadcrumb">
+			<a href="http://www.codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp; CodeIgniter podręcznik
+			użytkownika
+		</td>
+		<td id="searchbox">
+			<form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch"
+			                                                                id="as_sitesearch"
+			                                                                value="podrecznik.codeigniter.org.pl"/>Przeszukaj
+				podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q"
+				                                    size="31" maxlength="255" value=""/>&nbsp;<input type="submit"
+				                                                                                     class="submit"
+				                                                                                     name="sa"
+				                                                                                     value="Idź"/>
+			</form>
+		</td>
+	</tr>
 </table>
-<!-- END BREADCRUMB -->
 
-<br clear="all" />
+
+<br clear="all"/>
+
+<div class="center"><img src="images/ci_logo_flame.jpg" width="150" height="164" border="0" alt="CodeIgniter"/></div>
 
 
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>CodeIgniter Overview</h1>
+	<h2>Witamy w CodeIgniter</h2>
 
-<p>The following pages describe the broad concepts behind CodeIgniter:</p>
+	<p>CodeIgniter to Framework do tworzenia aplikacji - narzędzie - dla osób tworzących strony w PHP.
+		Jego głównym założeniem jest tworzenie projektów znacznie szybciej niż w przypadku pisania kodu od podstaw.
+		CodeIgniter dostarcza zestaw narzędzi do najczęściej powtarzanych zadań oraz prostą i logiczną strukturę
+		umożliwiającą dostęp do bibliotek.
+		CodeIgniter pozwala Ci się skupić na projekcie minimalizując ilość kodu niezbędną dla danego zadania.</p>
+
+
+	<h2>Dla kogo jest CodeIgniter?</h2>
+
+	<p>CodeIgniter jest dla Ciebie jeżeli:</p>
 
 	<ul>
-		<li><a href="at_a_glance.html">CodeIgniter at a Glance</a></li>
-		<li><a href="features.html">Supported Features</a></li>
-		<li><a href="appflow.html">Application Flow Chart</a></li>
-		<li><a href="mvc.html">Introduction to the Model-View-Controller</a></li>
-		<li><a href="goals.html">Design and Architectural Goals</a></li>
-		<li><a href="package.html">Package Description</a></li>
+		<li>Szukasz frameworka z małym narzutem kodu.</li>
+		<li>Potrzebujesz wyjątkowej wydajności.</li>
+		<li>Oczekujesz szerokiej kompatybilności ze standardowymi kontami hostingowymi operującymi z różnymi wersjami
+			PHP.
+		</li>
+		<li>Chcesz framework, który nie wymaga specjalnej konfiguracji.</li>
+		<li>Chcesz framework, który nie wymaga operacji z linii poleceń.</li>
+		<li>Chcesz framework, który nie wymaga restrykcyjnego stylu kodowania.</li>
+		<li>Nie jesteś zainteresowany dużymi monolitycznymi biblitekami jak PEAR.</li>
+		<li>Nie chcesz uczyć się nowego języka szablonów (oczywiście możesz skorzystać z istniejącego jeśli chcesz).
+		</li>
+		<li>Unikasz złożoności, wolisz proste rozwiązania.</li>
+		<li>Poszukujesz przejrzystej dokumentacji.</li>
 	</ul>
-
-
-
 
 </div>
 <!-- END CONTENT -->
 
-
 <div id="footer">
-<p><a href="#top">Początek strony</a> &nbsp;&middot;&nbsp; <a href="../index.html">User Guide Home</a></p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+	<p><a href="#top">Początek strony</a></p>
+
+	<p><a href="http://www.codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp;
+		<a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 <script type="text/javascript">
 
