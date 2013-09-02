@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Troubleshooting : Podręcznik użytkownika CodeIgniter</title>
+<title>Rozwiązywanie problemów : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -28,8 +28,8 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter Version 2.1.3</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td><h1>Podręcznik użytkownika CodeIgniter 2.1.4</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
 </div>
@@ -55,18 +55,16 @@ Trouble Shooting
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Troubleshooting</h1>
+<h1>Rozwiązywanie problemów</h1>
 
-<p>If you find that no matter what you put in your URL only your default page is loading, it might be that your server
-does not support the PATH_INFO variable needed to serve search-engine friendly URLs.
+<p>Jeżeli okazauje się, że niezależnie od tego co wpiszesz w przeglądarce, aplikacja pokazuje jedynie domyślną stronę, może się okazać że serwer nie obsługuje zmiennej PATH_INFO. Jest ona potrzebna do obsługi przyjaznych adresów URLs.
 
-As a first step, open your <dfn>application/config/config.php</dfn> file and look for the <kbd>URI Protocol</kbd>
-information. It will recommend that you try a couple alternate settings.  If it still doesn't work after you've tried this you'll need
-to force CodeIgniter to add a question mark to your URLs.  To do this open your <kbd>application/config/config.php</kbd> file and change this:</p>
+Aby rozwiązać ten problem otwórz plik <dfn>application/config/config.php</dfn> poszukaj sekcji <kbd>URI Protocol</kbd>. Znajdziesz tam rekomendacje dla kilku alternatywnych ustawień.
+Jeżeli nie zadziała musisz wymusić na CodeIgniter aby dodawał znak zapytania do adresu URL. Otwórz plik <kbd>application/config/config.php</kbd> i zmień linijkę:</p>
 
 <code>$config['index_page'] = "index.php";</code>
 
-<p>To this:</p>
+<p>Na:</p>
 
 <code>$config['index_page'] = "index.php?";</code>
 
@@ -77,13 +75,13 @@ to force CodeIgniter to add a question mark to your URLs.  To do this open your 
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="upgrading.html">Upgrading from a Previous Version</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="upgrading.html">Aktualizacja z poprzedniej wersji</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 Następny temat:&nbsp;&nbsp;<a href="../overview/at_a_glance.html">CodeIgniter at a Glance</a>
 </p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+<p><a href="http://www.codeigniter.org.pl">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 <script type="text/javascript">
 
