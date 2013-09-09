@@ -54,7 +54,7 @@ function create_menu(basepath)
 			'<li><a href="'+base+'general/drivers.html">Korzystanie ze sterowników</a></li>' +
 			'<li><a href="'+base+'general/creating_drivers.html">Tworzenie własnych sterowników</a></li>' +
 			'<li><a href="'+base+'general/core_classes.html">Tworzenie głównych klas systemowych</a></li>' +
-			'<li><a href="'+base+'general/hooks.html">Hooks - Extending the Core</a></li>' +
+			'<li><a href="'+base+'general/hooks.html">Hooki - rozszerzanie frameworka</a></li>' +
 			'<li><a href="'+base+'general/autoloader.html">Automatyczne ładowanie zasobów</a></li>' +
 			'<li><a href="'+base+'general/common_functions.html">Funkcje wspólne</a></li>' +
 			'<li><a href="'+base+'general/routing.html">Routing URI</a></li>' +
