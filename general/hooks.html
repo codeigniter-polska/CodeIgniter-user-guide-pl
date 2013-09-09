@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Hooks : Podręcznik użytkownika CodeIgniter</title>
+<title>Hooki : Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -24,12 +24,12 @@
 
 <!-- START NAVIGATION -->
 <div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
-<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Toggle Table of Contents" alt="Toggle Table of Contents" /></a></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.4</h1></td>
-<td id="breadcrumb_right"><a href="../toc.html">Table of Contents Page</a></td>
+<td id="breadcrumb_right"><a href="../toc.html">Podręcznik użytkownika</a></td>
 </tr>
 </table>
 </div>
@@ -40,11 +40,11 @@
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
-<a href="http://codeigniter.com/">CodeIgniter Home</a> &nbsp;&#8250;&nbsp;
-<a href="../index.html">User Guide Home</a> &nbsp;&#8250;&nbsp;
-Hooks - Extending the Framework Core
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Hooki - rozszerzanie frameworka
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.com/user_guide/" />Search User Guide&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="podrecznik.codeigniter.org.pl/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -55,25 +55,23 @@ Hooks - Extending the Framework Core
 <!-- START CONTENT -->
 <div id="content">
 
-<h1>Hooks - Extending the Framework Core</h1>
+<h1>Hooki - Rozszerzanie frameworka</h1>
 
-<p>CodeIgniter's Hooks feature provides a means to tap into and modify the inner workings of the framework without hacking the core files.
-When CodeIgniter runs it follows a specific execution process, diagramed in the <a href="../overview/appflow.html">Application Flow</a> page.
-There may be instances, however, where you'd like to cause some action to take place at a particular stage in the execution process.
-For example, you might want to run a script right before your controllers get loaded, or right after, or you might want to trigger one of
-your own scripts in some other location.
+<p>Hooki w CodeIgniter pozwalają na wpięcie się i modyfikację wewnętrznych procesów działania frameworka, bez potrzeby zmieniania plików źródłowych.
+Kiedy uruchamiany jest CodeIgniter, wykonywane są następuje po sobie procesy, które można zobaczyć na diagramie <a href="../overview/appflow.html">schematu działanai aplikacji</a>.
+W określonym momencie wykonywania poszczególnych procesów, mamy możliwość wykonania naszego własnego kodu. Dla przykładu, możemy chceć wykonać jakiś skrypt zaraz przed/po tym jak załadowany zostanie kontroler lub wykonać skrypt, który znajduje się w innej lokalizacji.
 </p>
 
-<h2>Enabling Hooks</h2>
+<h2>Włączanie hooków</h2>
 
-<p>The hooks feature can be globally enabled/disabled by setting the following item in the <kbd>application/config/config.php</kbd> file:</p>
+<p>Hooki mogą zostać włączone/wyłączone globalnie, poprzez ustawienie następującej opcji w pliku <kbd>application/config/config.php</kbd>:</p>
 
 <code>$config['enable_hooks'] = TRUE;</code>
 
 
-<h2>Defining a Hook</h2>
+<h2>Definiowanie hooka</h2>
 
-<p>Hooks are defined in <dfn>application/config/hooks.php</dfn> file.  Each hook is specified as an array with this prototype:</p>
+<p>Definicje hooks znajduja się w pliku <dfn>application/config/hooks.php</dfn> file.  Każdy hook jest określany za pomocą tablicy, w ten sposób:</p>
 
 <code>
 $hook['pre_controller'] = array(<br />
@@ -84,22 +82,21 @@ $hook['pre_controller'] = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'params'&nbsp;&nbsp;&nbsp;=> array('beer', 'wine', 'snacks')<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</code>
 
-<p><strong>Notes:</strong><br />The array index correlates to the name of the particular hook point you want to
-use.  In the above example the hook point is <kbd>pre_controller</kbd>. A list of hook points is found below.
-The following items should be defined in your associative hook array:</p>
+<p><strong>Uwagi:</strong><br />Indeks tablicy odpowiada konkretnemu hookowi, którego chcesz użyć. W powyższym przykładzie hook wskazuje na <kbd>pre_controller</kbd>. Listę dostępnych punktów możesz znaleźć poniżej. W tablicy asocjacyjnej definiującej hook, powinny znaleźć się następujące elementy:</p>
 
 <ul>
-<li><strong>class</strong>&nbsp; The name of the class you wish to invoke. If you prefer to use a procedural function instead of a class, leave this item blank.</li>
-<li><strong>function</strong>&nbsp; The function name you wish to call.</li>
-<li><strong>filename</strong>&nbsp; The file name containing your class/function.</li>
-<li><strong>filepath</strong>&nbsp; The name of the directory containing your script.  Note: Your script must be located in a directory INSIDE your <kbd>application</kbd> folder, so the file path is relative to that folder.  For example, if your script is located in <dfn>application/hooks</dfn>, you will simply use <samp>hooks</samp> as your filepath.  If your script is located in <dfn>application/hooks/utilities</dfn> you will use <samp>hooks/utilities</samp> as your filepath. No trailing slash.</li>
-<li><strong>params</strong>&nbsp; Any parameters you wish to pass to your script. This item is optional.</li>
+<li><strong>class</strong>&nbsp; Nazwa klasy, którą chcesz wywołać. Jeśli zamiast klasy wolisz użyć funkcji proceduralnej, zostaw to pole puste.</li>
+<li><strong>function</strong>&nbsp; Nazwa funkcji, która ma zostać wywołana.</li>
+<li><strong>filename</strong>&nbsp; Nazwa pliku, w którym znajduje się Twoja klasa/funkcja.</li>
+<li><strong>filepath</strong>&nbsp; Nazwa folderu, w którym znajduje się Twój plik. Uwaga: Twój plik musi się znajdować w WEWNĄTRZ folderu <kbd>application</kbd>, dlatego ścieżka jest relatywna to tego katalogu.
+	Dla przykładu, jeśli Twój plik znajduje się w katalogu <dfn>application/hooks</dfn>, to użyjesz wartości <samp>hooks</samp> jako filepath. Jeśli Twój plik znajduje się w <dfn>application/hooks/utilities</dfn>, to będzie to wartość <samp>hooks/utilities</samp>. Bez ukośnika na końcu.</li>
+<li><strong>params</strong>&nbsp; Parametry jakie chcesz przypisać do Twojego skryptu. To pole jest opcjonalne.</li>
 </ul>
 
 
-<h2>Multiple Calls to the Same Hook</h2>
+<h2>Wiele odwołań do tego samego hooka</h2>
 
-<p>If want to use the same hook point with more then one script, simply make your array declaration multi-dimensional, like this:</p>
+<p>Jeśli chcesz użyć tego samego hooka, z więcej niż jednym skryptem wystarczy, że zadeklaryjesz tablicę jako wielowymiarową, w ten sposób:</p>
 
 <code>
 $hook['pre_controller']<kbd>[]</kbd> = array(<br />
@@ -118,33 +115,33 @@ $hook['pre_controller']<kbd>[]</kbd> = array(<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'params'&nbsp;&nbsp;&nbsp;=> array('red', 'yellow', 'blue')<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</code>
 
-<p>Notice the brackets after each array index:</p>
+<p>Zwróć uwagę na nawias kwadratowy, po każdym indeksie tablicy:</p>
 
 <code>$hook['pre_controller']<kbd>[]</kbd></code>
 
-<p>This permits you to have the same hook point with multiple scripts.  The order you define your array will be the execution order.</p>
+<p>To pozwala na posiadanie jednego hooku, który wywołuje wiele skryptów. Kolejność wykonywania skryptów, zależy od kolejności ich deklaracji.</p>
 
 
-<h2>Hook Points</h2>
+<h2>Dostępne hooki</h2>
 
-<p>The following is a list of available hook points.</p>
+<p>Poniżej znajduje się lista dostępnych hooków.</p>
 
 <ul>
 		<li><strong>pre_system</strong><br />
-			Called very early during system execution.  Only the benchmark and hooks class have been loaded at this point. No routing or other processes have happened.</li>
+			Wywoływany bardzo wcześnie podczas uruchamiania frameworka. Jedynie klasy benchmark i hooks zostały załadowane. Routingu oraz innye czynności nie miały jeszcze miejsca.</li>
 		<li><strong>pre_controller</strong><br />
-			Called immediately prior to any of your controllers being called. All base classes, routing, and security checks have been done.</li>
+			Wywoływany bezpośrednio przed uruchomieniem kontrolera. Wszystkie klasy bazowe, routing i kontrola bezpieczeństwa zostały wykonane.</li>
 		<li><strong>post_controller_constructor</strong><br />
-			Called immediately after your controller is instantiated, but prior to any method calls happening.</li>
+			Wywoływany bezpośrednio po tym, jak utworzony zostanie kontroler, ale przed wywołaniem konkretnej jego metody.</li>
 		<li><strong>post_controller</strong><br />
-			Called immediately after your controller is fully executed.</li>
+			Wywoływany zaraz po tym jak kontroler zostanie w pełni wykonany.</li>
 		<li><strong>display_override</strong><br />
-			Overrides the <dfn>_display()</dfn> function, used to send the finalized page to the web browser at the end of system execution.  This permits you to
-			use your own display methodology.  Note that you will need to reference the CI superobject with <dfn>$this->CI =&amp; get_instance()</dfn> and then the finalized data will be available by calling <dfn>$this->CI->output->get_output()</dfn></li>
+			Nadpisuje funkcję <dfn>_display()</dfn>, która jest używana do wysyłania ukończonej strony bezpośrednio do przeglądarki. To pozwala na użycie Twojej własnej metodologii wyświetlania.
+			Zwróć uwagę, że będziesz musiał zastosować referencję do superobiektu CI (<dfn>$this->CI =&amp; get_instance()</dfn>) i dopiero potem będziesz miał dostęp do ukończonych danych za pośrednictwem metody <dfn>$this->CI->output->get_output()</dfn></li>
 		<li><strong>cache_override</strong><br />
-			Enables you to call your own function instead of the <dfn>_display_cache()</dfn> function in the output class.  This permits you to use your own cache display mechanism.</li>
+			Pozwala na wywołanie Twojej własnej funkcji zamiast <dfn>_display_cache()</dfn> w klasie output. Dzięki temu masz możliwość użycia własnego mechanizmu wyświetlania cache.</li>
 		<li><strong>post_system</strong><br />
-			Called after the final rendered page is sent to the browser, at the end of system execution after the finalized data is sent to the browser.</li>
+			Wywoływany po tym jak wyrenderowana strona jest wysyłana do przeglądarki, na końcu działania frameworka.</li>
 	</ul>
 </div>
 <!-- END CONTENT -->
@@ -152,11 +149,11 @@ $hook['pre_controller']<kbd>[]</kbd> = array(<br />
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="core_classes.html">Creating Core Classes</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="core_classes.html">Tworzenie głównych klas systemowych</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">User Guide Home</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="autoloader.html">Auto-loading Resources</a>
+<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="autoloader.html">Automatyczne ładowanie zasobów</a>
 </p>
 <p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
