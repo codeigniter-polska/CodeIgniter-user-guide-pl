@@ -101,7 +101,7 @@ $this->config->load('<var>blog_settings</var>', <kbd>TRUE</kbd>);</code>
 
 <p>Aby dowiedzieć się w jaki sposób pobierać dane wczytane w taki sposób, proszę zapoznać się z sekcją o tytule <dfn>Pobieranie zmiennych konfiguracyjnych</dfn>, która dostępna jest ponizej.</p>
 
-<p>Trzeci parametr pozwala na uniknięcie wyświetlania komunkatów błędu w przypadku, gdy dany plik konfiguracyjny nie istnieje:</p>
+<p>Trzeci parametr pozwala na uniknięcie wyświetlania komunikatów błędu w przypadku, gdy dany plik konfiguracyjny nie istnieje:</p>
 
 <code>$this->config->load('<var>blog_settings</var>', <dfn>FALSE</dfn>, <kbd>TRUE</kbd>);</code>
 
@@ -126,7 +126,7 @@ Aby to zrobić, otwórz plik <strong>autoload.php</strong>, który znajduje się
 
 <p>Funkcja zwraca FALSE (boolean) jeśli wartość, którą próbujesz pobrać nie istnieje.</p>
 
-<p>Jeśl korzystasz w wywołaniu funkcji <kbd>$this->config->load</kbd> z drugiego parametru, aby przypisać zmienne konfiguracyjne do specyficznego indeksu, możesz sie odwoływać do takich zmiennych poprzez określenie indeksu w drugim parametrze funkcji <kbd>$this->config->item()</kbd>. Przykład:</p>
+<p>Jeśl korzystasz w wywołaniu funkcji <kbd>$this->config->load</kbd> z drugiego parametru, aby przypisać zmienne konfiguracyjne do specyficznego indeksu, możesz się odwoływać do takich zmiennych poprzez określenie indeksu w drugim parametrze funkcji <kbd>$this->config->item()</kbd>. Przykład:</p>
 
 <code>
 // Ładuje plik konfiguracyjny o nazwie blog_settings.php i przypisuje do indeksu o nazwie "blog_settings"<br />
@@ -195,7 +195,7 @@ $site_name = $blog_config['site_name'];</code>
 <h2>$this->config->base_url();</h2>
 <p>Ta funkcja zwraca adres URL Twojej strony, plus opcjonalną ścieżkę np. do styli lub pliku graficznego.</p>
 
-<p>Te dwie powyższe funkcje są normalnie dostępne przez analogiczne funkcje w <a href="../helpers/url_helper.html">Helperze URL</a>.</p>    
+<p>Te dwie powyższe funkcje, są normalnie dostępne przez analogiczne funkcje w <a href="../helpers/url_helper.html">Helperze URL</a>.</p>    
     
 <h2>$this->config->system_url();</h2>
 <p>Ta funkcja zwraca adres URL do folderu <dfn>system</dfn>.</p>

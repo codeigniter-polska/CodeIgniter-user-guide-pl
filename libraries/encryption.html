@@ -69,7 +69,7 @@ do zapisu wiadomości.</p>
 
 <p><em>Klucz</em> jest częścią informacji, która kontroluje proces kryptograficzny i pozwala na zdeszyfrowanie wcześniej zaszyfrowanego ciągu.
 Klucz, który zostanie wybrany będzie stanowił <strong>jedyny</strong> sposób na zdeszyfrowanie danych, które zostały zaszyfrowane przy pomocy
-tego klucza. Dlatego też, klucz należy wybierać ostarożnie i nigdy go nie zmieniać, jeśli mamy zamiar używac go do stałych danych.</p>
+tego klucza. Dlatego też, klucz należy wybierać ostrożnie i nigdy go nie zmieniać, jeśli mamy zamiar używac go do stałych danych.</p>
 
 <p>Nie trzeba chyba wspominać, że klucz powinien być starannie strzeżony.
 Jeśli ktoś uzyska dostęp do Twojego klucza, będzie mógł w bardzo łatwy sposób zdeszyfrować dane. Jeśli serwer nie jest całkowicie pod Twoją kontrolą
@@ -92,7 +92,7 @@ i przypisywać klucz dynamicznie podczas szyfrowania/deszyfrowania.</p>
 
 <p>Ważne jest abyś wiedział, że zaszyfrowana wiadomość będzie w przybliżeniu 2.6 razy dłuższa niż wiadomość oryginalna.
 Dla przykładu, jeśli zaszyfrujesz ciąg "my super secret data", który składa się z 21 znaków, to otrzymasz wiadomość, która będzie miała około 55 znaków
-(około, ponieważ zakodowany ciąg znaków zwiększa swoją doługość w klastrach co 64 bity, nie jest to więc do końca przyrost liniowy).
+(około, ponieważ zakodowany ciąg znaków zwiększa swoją długość w klastrach co 64 bity, nie jest to więc do końca przyrost liniowy).
 Weź to pod uwagę, kiedy wybierasz metodę składowania swoich danych. Dla przykładu, pliki cookies mogą pomieścić tylko 4K informacji.</p>
 
 
@@ -112,7 +112,7 @@ $msg = 'My secret message';<br />
 <br />
 $encrypted_string = $this->encrypt->encode($msg);</code>
 
-<p>Opcjonalnie, jako drugi parametr możesz przypisać klucz, jeśli nie chcesz skorzystać tego przechowywanego w pliku config:</p>
+<p>Opcjonalnie, jako drugi parametr możesz przypisać klucz, jeśli nie chcesz skorzystać z tego przechowywanego w pliku config:</p>
 
 <code>
 $msg = 'My secret message';<br />
@@ -130,7 +130,7 @@ $encrypted_string = 'APANtByIGI1BpVXZTJgcsAG8GZl8pdwwa84';<br />
 <br />
 $plaintext_string = $this->encrypt->decode($encrypted_string);</code>
 
-<p>Opcjonalnie, jako drugi parametr możesz przypisać klucz, jeśli nie chcesz skorzystać tego przechowywanego w pliku config:</p>
+<p>Opcjonalnie, jako drugi parametr możesz przypisać klucz, jeśli nie chcesz skorzystać z tego przechowywanego w pliku config:</p>
 
 <code>
 $msg = 'My secret message';<br />
@@ -167,12 +167,12 @@ $encrypted_string = $this->encrypt->decode($msg, $key);</code>
 <p>W przypadku, kiedy serwer nie obsługuje SHA1, możesz skorzystać z tej funkcji.</p>
 
 <h2 id="legacy">$this->encrypt->encode_from_legacy(<kbd>$orig_data</kbd>, <kbd>$legacy_mode</kbd> = MCRYPT_MODE_ECB, <kbd>$key</kbd> = '');</h2>
-<p>Pozwala na zdeszyfrowanie daych, które oryginalnie były zaszyfrowane z wykorzystaniem CodeIgnitera w wersji 1.x - dzięki temu możemy zachować kompatybilność z biblioteką Encryption w CodeIgniterze w wersji 2.x.
+<p>Pozwala na zdeszyfrowanie danych, które oryginalnie były zaszyfrowane z wykorzystaniem CodeIgnitera w wersji 1.x - dzięki temu możemy zachować kompatybilność z biblioteką Encryption w CodeIgniterze w wersji 2.x.
 Funkacja jest potrzebna tylko wtedy jeśli posiadasz zaszyfrowane dane zachowane na stałe, np. w pliku lub bazie danych, a serwer którego używasz wspiera bibliotekę Mcrypt. "Lekkie" użycie szyfrowania, jak szyfrowanie sesji lub zaszyfrowane dane flashdata będą wymagać interwencji z Twojej strony. Jednak istniejące zaszyfrowane sesje zostaną zniszczone, w związku z tym, że dane zaszyfrowane przed wersją 2.x nie zostaną zdeszyfrowane.</p>
 
 <p class="important"><strong>
 	Dlaczego dostarczona jest tylko metoda do odszyfrowania danych, zamiast opcja do szyfrowania i deszyfrowywania?</strong>
-	Algorytm w biliotece Encryption w CodeIgniterze 2.x został ulepszony pod względem wydajności i bezpieczeństwa, nie chcemy więc zachęcać do dalszego wykorzystania starych metod. Oczywiście możesz rozszerzyć klasę Encryption i zastąpić nowe metody, starymi - uzyskując tym samym całkowitą kompatybilność z CodeIgniterem 1.x, ale jest to decyzja, którą developer powinien ostrożnie i świadomie, o ile w ogóle.</p>
+	Algorytm w biliotece Encryption w CodeIgniterze 2.x został ulepszony pod względem wydajności i bezpieczeństwa, nie chcemy więc zachęcać do dalszego wykorzystania starych metod. Oczywiście możesz rozszerzyć klasę Encryption i zastąpić nowe metody, starymi - uzyskując tym samym całkowitą kompatybilność z CodeIgniterem 1.x, ale jest to decyzja, którą developer powinien podjąć ostrożnie i świadomie, o ile w ogóle.</p>
 
 <code>$new_data = $this->encrypt->encode_from_legacy(<kbd>$old_encrypted_string</kbd>);</code>
 

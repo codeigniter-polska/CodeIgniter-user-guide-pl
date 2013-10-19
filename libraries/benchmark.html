@@ -89,7 +89,7 @@ Klasa Benchmark
 <li>Uruchom funkcję, która obliczy ile czasu ułynęło pomiędzy punktami, aby zobaczyć wyniki</li>
 </ol>
 
-<p>Oto przykład za pomocą kawałka kodu:</p>
+<p>Oto przykładowy kawałek kodu:</p>
 
 <code>$this->benchmark->mark('code_start');<br />
 <br />
@@ -148,7 +148,7 @@ wystarczy że umieścisz poniższy kod w widoku:</p>
 
 <code>&lt;?php echo $this->benchmark->elapsed_time();?&gt;</code>
 
-<p>Zauważyłeś chyba, że to ta sama funkcja, której używaliśmy w przykłądach powyżej, aby obliczyć czas jaki upłynął pomiędzy dwoma punktami, z tym wyjątkiem, że
+<p>Zauważyłeś chyba, że to ta sama funkcja, której używaliśmy w przykładach powyżej, aby obliczyć czas jaki upłynął pomiędzy dwoma punktami, z tym wyjątkiem, że
 <strong>nie</strong> używa ona żadnego parametru. Kiedy nie podamy parametru dla funkcji, CodeIgniter kończy pomiar dopiero przed samym zwróceniem danych do przeglądarki.
 Nie ważne w którym miejscu wywołasz tę funkcję, czas będzie liczony do samego końca.</p>
 
@@ -164,7 +164,7 @@ Nie ważne w którym miejscu wywołasz tę funkcję, czas będzie liczony do sam
 za pomocą następującego kodu  umieszczonego w pliku widoku:</p>
 
 <code>&lt;?php echo $this->benchmark->memory_usage();?&gt;</code>
-<p>Uwaga: Ta funkcja moze być użyta tylko w Twoich plikach widoku. Zużycie pamięci, będzie odzwierciedlało całkowitą pamięć, użytą przez całą aplikację.</p>
+<p>Uwaga: Ta funkcja może być użyta tylko w Twoich plikach widoku. Zużycie pamięci, będzie odzwierciedlało całkowitą pamięć, użytą przez całą aplikację.</p>
 
 <p>Alternatywnym sposobem na wyświetlenie zużycia pamięci w Twoich plikach widoku, jest użycie pseudo-zmiennej, jeśli nie preferujesz użycia czystego kodu PHP:</p>
 <code>{memory_usage}</code>

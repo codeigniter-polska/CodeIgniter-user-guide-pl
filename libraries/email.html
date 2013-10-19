@@ -78,7 +78,7 @@ Klasa email
 
 <p>Wysyłanie wiadomości email jest nie tylko proste, możesz je skonfigurowac "w locie" lub ustawic preferencje w pliku konfiguracyjnym.</p>
 
-<p>Oto podstawowy przykład demonstrujący w jaki sposób możesz wywyłać wiadomości email. Ten przykład zakłada, że wysyłasz email z jednego ze swoich 
+<p>Oto podstawowy przykład demonstrujący w jaki sposób możesz wysyłać wiadomości email. Ten przykład zakłada, że wysyłasz email z jednego ze swoich 
 <a href="../general/controllers.html">kontrolerów</a>.</p>
 
 <code>$this->load->library('email');<br />
@@ -104,7 +104,7 @@ echo $this->email->print_debugger();</code>
 ustawić ręcznie, tak jak przedstawiliśmy to tutaj lub automatycznie za pośrednictwem pliku konfiguracyjnego, opisanego poniżej:</p>
 
 <p>Perferencje są ustawiane poprzez przypisanie tablicy zmiennych do funkcji <dfn>initialize</dfn>. 
-Oto przykład, w jaki sposób mozesz sutawić te preferencje:</p>
+Oto przykład, w jaki sposób możesz ustawić te preferencje:</p>
 
 <code>$config['protocol'] = 'sendmail';<br />
 $config['mailpath'] = '/usr/sbin/sendmail';<br />
@@ -117,7 +117,7 @@ $this->email->initialize($config);</code>
 
 ><h3>Ustawianie preferencji za pośrednictwem pliku konfiguracyjnego</h3>
 
-<p>Jeśli nie chcesz usatwiac preferencji za pośrednictwem powyższej metody, mozesz zamiast tego umieścić je w pliku konfiguracyjnym.
+<p>Jeśli nie chcesz ustawiać preferencji za pośrednictwem powyższej metody, możesz zamiast tego umieścić je w pliku konfiguracyjnym.
 Wystarczy, że stworzysz plik o nazwie <var>email.php</var>, który będzie zawierał tablicę <var>$config</var>. Jeśli zachowasz ten plik
 w <var>config/email.php</var>, będzie on używany automatycznie. Jeśli Twoje ustawienia preferencji znajdują się w pliku konfiguracyjnym, NIE będziesz musiał korzystać z funkcji <dfn>$this->email->initialize()</dfn>.</p>
 
@@ -126,7 +126,7 @@ w <var>config/email.php</var>, będzie on używany automatycznie. Jeśli Twoje u
 
 <h2>Preferencje email</h2>
 
-<p>Poniżej znajduje się lista preferencji, które można wykorzystac przy wysyłaniu wiadomości email.</p>
+<p>Poniżej znajduje się lista preferencji, które można wykorzystać przy wysyłaniu wiadomości email.</p>
 
 
 <table cellpadding="0" cellspacing="1" border="0" style="width:100%" class="tableborder">
@@ -188,7 +188,7 @@ w <var>config/email.php</var>, będzie on używany automatycznie. Jeśli Twoje u
 <code>$this->email->from('<var>you@example.com</var>', '<var>Your Name</var>');</code>
 
 <h3>$this->email->reply_to()</h3>
-<p>Ustawia adre na jaki ma zostać wysłana odpowiedź.  Jeśli ta informacja nie jest ustawiona, domyślnie ustawiane są informacje dostarczone za pośrednictwem funkcji "from". Przykład:</p>
+<p>Ustawia adres na jaki ma zostać wysłana odpowiedź.  Jeśli ta informacja nie jest ustawiona, domyślnie ustawiane są informacje dostarczone za pośrednictwem funkcji "from". Przykład:</p>
 <code>$this->email->reply_to('<var>you@example.com</var>', '<var>Your Name</var>');</code>
 
 
@@ -241,13 +241,13 @@ email za pomocą pętli, pozwala na resetowanie ustawień pomiędzy cyklami.</p>
 &nbsp;&nbsp;&nbsp;&nbsp;$this->email->send();<br />
 }</code>
 
-<p>Jeśli ustawisz parametr na TRUE zostana również wyczyszczone wszystkie załączniki:</p>
+<p>Jeśli ustawisz parametr na TRUE, zostaną również wyczyszczone wszystkie załączniki:</p>
 
 <code>$this->email->clear(TRUE);</code>
 
 
 <h3>$this->email->send()</h3>
-<p>Funkcja wywyłająca email. Zwraca TRUE lub FALSE (boolean) w zalezności od sukcesu lub porażki. Dzięki temu może być użyta w warunku:</p>
+<p>Funkcja wysyłająca email. Zwraca TRUE lub FALSE (boolean) w zalezności od sukcesu lub porażki. Dzięki temu może być użyta w warunku:</p>
 
 <code>if ( ! $this->email->send())<br />
 {<br />
@@ -256,7 +256,7 @@ email za pomocą pętli, pozwala na resetowanie ustawień pomiędzy cyklami.</p>
 
 
 <h3>$this->email->attach()</h3>
-<p>Pozwala na wysyłke załączników. W ppierwszym parametrze oczekuje ścieżki/nazwy pliku. Uwaga: Używaj ścieżki do pliku, nie adresu URL.
+<p>Pozwala na wysyłke załączników. W pierwszym parametrze oczekuje ścieżki/nazwy pliku. Uwaga: Używaj ścieżki do pliku, nie adresu URL.
 Aby załączyć więcej niż jeden plik, wywołuj funkcję kilka razy. Przykład:</p>
 
 <code>$this->email->attach('/path/to/photo1.jpg');<br />

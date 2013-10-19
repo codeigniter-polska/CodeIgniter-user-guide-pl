@@ -98,14 +98,13 @@ Walidacja formularza
 <h1>Przegląd</h1>
 
 
-<p>Zanim przejdziemy do przedstawienia podejścia do walidacji danych w CodeIgniterze, opiszmy scenariusz idealny:
-Before explaining CodeIgniter's approach to data validation, let's describe the ideal scenario:</p>
+<p>Zanim przejdziemy do przedstawienia podejścia do walidacji danych w CodeIgniterze, opiszmy scenariusz idealny:</p>
 
 <ol>
 <li>Formularz zostaje wyświetlony.</li>
 <li>Wypełniasz go i wysyłasz.</li>
 <li>Jeśli coś źle wpisałeś albo pominąłeś wymagane pole formularza, ponownie wyświetla się formularz zawierający dane, które wpisałeś oraz komunikat o błędzie, który opisuje zaistaniały problem.</li>
-<li>Ten proces powtarza się do momentu, aż wyśleślesz poprawny formularz.</li>
+<li>Ten proces powtarza się do momentu, aż wyślesz poprawny formularz.</li>
 </ol>
 
 <p>Po stronie serwera, skrypt musi:</p>
@@ -116,7 +115,7 @@ Before explaining CodeIgniter's approach to data validation, let's describe the 
 pod kontem dozwolonych znaków. Pole nie może być krótsze niż określona liczna znaków i nie może przekraczać maksymalnej dozwolonej liczby znaków. Pole nie może również
 zawierać nazwy już isniejącego użytkownika lub zawierać jakiegoś zarezerwowanego słowa, itd.</li>
 <li>Przefiltrować dane dla bezpieczeństwa.</li>
-<li>Odpowiednio przygotować dane jeśli jest taka potrzeba (wykonanie różnych operacji, np. trimm, czy encode itd.)</li>
+<li>Odpowiednio przygotować dane jeśli jest taka potrzeba (wykonanie różnych operacji, np. trim, czy encode itd.)</li>
 <li>Przygotować dane do dodania do bazy danych.</li>
 </ol>
 
@@ -133,11 +132,11 @@ Walidacja formularza jest teoretycznie prosta do stworzenia, ale o wiele trudnie
 <p>Poniżej znajduje się "praktyczny" tutorial stosowania walidacji formularza.</p>
 
 
-<p>Aby zaimplemetować frmularz walidacji, będziesz potrzebował trzech rzeczy:</p>
+<p>Aby zaimplemetować formularz walidacji, będziesz potrzebował trzech rzeczy:</p>
 
 <ol>
 <li>Pliku <a href="../general/views.html">widoku</a> zawierającego formularz.</li>
-<li>Plik widoku zawiera wiadomość o "sukcesie", która będzie wyświetlana po poprawnym wysłaniu formularza.</li>
+<li>Plik widoku zawierający wiadomość o "sukcesie", która będzie wyświetlana po poprawnym wysłaniu formularza.</li>
 <li>Funkcji <a href="../general/controllers.html">kontrolera</a>, aby odbierać i przetwarzać wysłane dane.</li>
 </ol>
 
@@ -258,8 +257,8 @@ Funkcja <samp>run()</samp> zwraca <kbd>TRUE</kbd> tylko wtedy, jeśli spełnione
 
 <ol>
 <li>Używa <dfn>helpera form</dfn>, aby utworzyć tag otwierający formularz.
-Z technicznego punku widzenia, nie jest to wymagane. Możesz utworzyć formularz korzystając ze standardowego kodu HTML. Jednak korzyścią płynącą z wykorzystania helpera, jest to, że
-generuje on za ciebie adres URL, który oparty jest na zmiennej z Twojego pliku konfiguracyjnego. To czyni Twoją aplikację bardziej przenośną w przypadku zmiany adresów URL.</li>
+Z technicznego punku widzenia, nie jest to wymagane. Możesz utworzyć formularz korzystając ze standardowego kodu HTML. Jednak korzyścią płynącą z wykorzystania helpera jest to, że
+generuje on za Ciebie adres URL, który oparty jest na zmiennej z Twojego pliku konfiguracyjnego. To czyni Twoją aplikację bardziej przenośną w przypadku zmiany adresów URL.</li>
 
 <li>Nad formularzem zauważysz wywołanie następującej funkcji:
 <code>&lt;?php echo validation_errors(); ?&gt;</code>
@@ -278,9 +277,7 @@ są używane w plikach widoku. Funkcja <samp>uruchamia</samp> również procedur
 
 <h2>Ustalanie reguł walidacji</h2>
 
-<p>CodeIgniter pozwala na ustalenie dowolnej liczby reguł walidacji dla pola formularza
-CodeIgniter lets you set as many validation rules as you need for a given field, cascading them in order, and it even lets you prep and pre-process the field data
-at the same time. To set validation rules you will use the <dfn>set_rules()</dfn> function:</p>
+<p>CodeIgniter pozwala na ustalenie dowolnej liczby reguł walidacji dla pola formularza, za pomocą funkcji <dfn>set_rules()</dfn>:</p>
 
 <code>$this->form_validation->set_rules();</code>
 
@@ -288,7 +285,7 @@ at the same time. To set validation rules you will use the <dfn>set_rules()</dfn
 
 <ol>
 	<li>Nazwa pola - dokładnie ta sama nazwa, którą nadałeś polu formularza</li>
-	<li>Nazwa "przyjazna" dla pola, która będzie włączona do wiadomości o błędzie. Dla przykładu, jeśli Twoje pola ma nazwę "user", możesz nadać mu "przyjazną" nazwę "Użytkownik".
+	<li>Nazwa "przyjazna" dla pola, która będzie włączona do wiadomości o błędzie. Dla przykładu, jeśli Twoje pole ma nazwę "user", możesz nadać mu "przyjazną" nazwę "Użytkownik".
 		<strong>Uwaga:</strong> Jeśli chciałbyś aby nazwa dla pola była przechowywana w pliku językowym, zapoznaj się z częścią <a href="#translatingfn">Tłumaczenie nazw pól</a>.</li>
 	<li>Reguły walidacji dla tego pola formularza.</li>
 </ol>
@@ -343,7 +340,7 @@ Jeśli wyślesz formularz z wypełnionymi wszystkimi polami, powinieneś zobaczy
 <a name="validationrulesasarray"></a>
 <h2>Ustalanie reguł walidacji za pomocą tablicy</h2>
 
-<p>Zanim przejdziemy dalej, warto zaznaczyć, że wszystkie reguły walidacji można przypisać do tablicy - jeśli preferujesz taki sposób pracy.
+<p>Zanim przejdziemy dalej, warto zaznaczyć, że wszystkie reguły walidacji można przypisać do tablicy - o ile preferujesz taki sposób pracy.
 Jeśli chcesz skorzystać z takiej możliowści musisz w odpowiedni sposób nazwać klucze w tablicy:</p>
 
 <code>
@@ -431,7 +428,7 @@ dane zostaną pokazane w polu formularza.</p>
 <a name="repopulatingform"></a>
 <h2>Ponowne wypełnianie formularza</h2>
 
-<p>Do tej pory mieliśmy do czynienia jedynie z błędami. Przyszedł czas na ponowne wypełnianie pól formulazra wcześniej wysłanymi danymi. CodeIgniter oferuje 
+<p>Do tej pory mieliśmy do czynienia jedynie z błędami. Przyszedł czas na ponowne wypełnianie pól formularza wcześniej wysłanymi danymi. CodeIgniter oferuje 
 kilka funkcji pomocniczych, które na to pozwalają. Jedną z nich, którą będziesz używać najczęściej jest:</p>
 
 <code>set_value('field name')</code>
@@ -493,7 +490,7 @@ kilka funkcji pomocniczych, które na to pozwalają. Jedną z nich, którą będ
 <h2>Callbacks: Twoje własne funkcjie walidacji</h2>
 
 <p>System walidacji wspiera odwołania do Twoich własnych funkcji walidacji. Pozwala to na rozszerzenie klasy walidacji, aby spełniała Twoje oczekiwania.
-Dla przykłądu, jeśli musisz wykonac zapytanie do bazy danych, aby zobaczyć, czy użytkownik podał unikalną nazwę użytkownika, możesz stworzyć funkcję, która to zrobi.
+Dla przykładu, jeśli musisz wykonać zapytanie do bazy danych, aby zobaczyć, czy użytkownik podał unikalną nazwę użytkownika, możesz stworzyć funkcję, która to zrobi.
 Stwórzmy podobny przykład.</p>
 
 <p>W kontrolerze zmień regułę "username" w ten sposób:</p>
@@ -550,7 +547,7 @@ class Form extends CI_Controller {
 <p><strong>Aby odwołać się do funkcji callback, dodaj nazwę funkcji do reguł walidacji i dodaj tam do niej prefix "callback_".</strong></p>
 
 <p>Możesz również przetwarzać dane z formularza, które są przekazywane do funkcji callback i zwracać je. Jeśli Twój callback zwraca cokolwiek innego niż TRUE/FALSE, to 
-zwrócone dane są traktowane jako nowe dane dla danego pola fiormularza.</p>
+zwrócone dane są traktowane jako nowe dane dla danego pola formularza.</p>
 
 
 
@@ -561,19 +558,19 @@ zwrócone dane są traktowane jako nowe dane dla danego pola fiormularza.</p>
 
 <p>Wszystkie natywne wiadomości błędu, znajdują się w następującym pliku językowym: <dfn>language/english/form_validation_lang.php</dfn></p>
 
-<p>Aby utworzyć swoje własne wiadomości błędu, mozesz edytować ten plik lub użyć następującej funkcji:</p>
+<p>Aby utworzyć swoje własne wiadomości błędu, możesz edytować ten plik lub użyć następującej funkcji:</p>
 
 <code>$this->form_validation->set_message('<var>reguła</var>', '<var>Wiadomość błędu</var>');</code>
 
-<p>Gdzie <var>reguła</var> odwołuje się do konkretniej reguły, a <var>Wiadomość błędu</var> to teks, który ma zostać zwrócony.</p>
+<p>Gdzie <var>reguła</var> odwołuje się do konkretniej reguły, a <var>Wiadomość błędu</var> to tekst, który ma zostać zwrócony.</p>
 
-<p>Jeśli dodasz znak <dfn>%s</dfn> do Twojej wiadomości błędu, to zostanie ona zastapiona "przyjazną" nazwą pola, która została użyta podczas ustalania reguły walidacji dla tego pola.</p>
+<p>Jeśli dodasz znak <dfn>%s</dfn> do Twojej wiadomości błędu, to zostanie ona zastąpiona "przyjazną" nazwą pola, która została użyta podczas ustalania reguły walidacji dla tego pola.</p>
 
 <p>W powyższym przykładzie z funkcją callback, wiadomość błędu została ustawiona poprzez przypisanie nazwy funkcji:</p>
 
 <code>$this->form_validation->set_message('username_check')</code>
 
-<p>Możesz również nadpisać każdą wiadomość błędu, która znajduje się w pliku językowym. Dla przykłądu, aby zmienić wiadomość dla reguły "required", możemy zrobić tak:</p>
+<p>Możesz również nadpisać każdą wiadomość błędu, która znajduje się w pliku językowym. Dla przykładu, aby zmienić wiadomość dla reguły "required", możemy zrobić tak:</p>
 
 <code>$this->form_validation->set_message('required', 'Twoja własna wiadomość błędu');</code>
 
@@ -718,7 +715,7 @@ $config = array(<br />
 <h3>Tworzenie zestawów reguł</h3>
 
 <p>Aby zorganizować Twoje reguły walidacji w grupy, należy podzielić tablicę na "subtablice". Następujący przykład pokazuje jak ustawić zestaw dwóch grup walidacji.
-Na potrzeby tego przykładu, grupy noszą nazwę "signup" i "email". Ty mozesz nazwać własne grupy jak tylko chcesz:</p>
+Na potrzeby tego przykładu, grupy noszą nazwę "signup" i "email". Ty możesz nazwać własne grupy jak tylko chcesz:</p>
 
 
 <code>$config = array(<br />
@@ -875,7 +872,7 @@ class <kbd>Member</kbd> extends CI_Controller {<br />
 
 <code>&lt;input type="text" name="<kbd>sports[nba][basketball]</kbd>" value="" size="50" /></code>
 
-<p>Tak samo jak w naszym pierwszym przykłądzie, musisz użyć dokładnie takiej samej tablicy jako nazwy w funkcji pomocniczej:</p>
+<p>Tak samo jak w naszym pierwszym przykładzie, musisz użyć dokładnie takiej samej tablicy jako nazwy w funkcji pomocniczej:</p>
 
 <code>&lt;?php echo form_error('<kbd>sports[nba][basketball]</kbd>'); ?></code>
 
@@ -1055,7 +1052,7 @@ class <kbd>Member</kbd> extends CI_Controller {<br />
 
 </table>
 
-<p><strong>Uwaga:</strong> Te reguły mogą być również wywołane jako dyskretne gunkcje. Dla przykładu:</p>
+<p><strong>Uwaga:</strong> Te reguły mogą być również wywołane jako dyskretne funkcje. Dla przykładu:</p>
 
 <code>$this->form_validation->required($string);</code>
 
@@ -1106,7 +1103,7 @@ class <kbd>Member</kbd> extends CI_Controller {<br />
 
 </table>
 
-<p class="important"><strong>Uwaga:</strong> Możesz również używać kazdej natywnej funkcji PHP, która dopuszcza jeden parametr, jak <kbd>trim</kbd>, <kbd>htmlspecialchars</kbd>, <kbd>urldecode</kbd>, itd.</p>
+<p class="important"><strong>Uwaga:</strong> Możesz również używać każdej natywnej funkcji PHP, która dopuszcza jeden parametr, jak <kbd>trim</kbd>, <kbd>htmlspecialchars</kbd>, <kbd>urldecode</kbd>, itd.</p>
 
 
 
@@ -1147,7 +1144,7 @@ class <kbd>Member</kbd> extends CI_Controller {<br />
 <a name="helperreference"></a>
 <h1>Spis funkcji pomocniczych</h1>
 
-<p>Następujące funkcje pomocnuicze są dostępne do użycia w widokach, które zawierają formularz. Zauważ, że są to funkcje proceduralne, więc nie jest wymagane poprzedzanie ich wywolaniem biblioteki $this->form_validation.</p>
+<p>Następujące funkcje pomocnicze są dostępne do użycia w widokach, które zawierają formularz. Zauważ, że są to funkcje proceduralne, więc nie jest wymagane poprzedzanie ich wywolaniem biblioteki $this->form_validation.</p>
 
 <h2>form_error()</h2>
 
