@@ -77,7 +77,7 @@ Wykonuje ona następujące czynności:</p>
 <li>Jeśli wartość $config['allow_get_array'] jest ustawiona na FALSE (domyślne ustawienie to TRUE), niszczona jest globalna tablica GET.</li>
 <li>Niszczone są wszystkie globalne zmienne na wypadek, gdyby register_globals było włączone.</li>
 <li>Filtrowane są klucze tablic GET/POST/COOKIE i przepuszczane są tylko alfa-numeryczne znaki (oraz kilka innych).</li>
-<li>Dostarczana jest możliwośc filtrowania XSS (Cross-site Scripting Hacks). Opcja ta może być włączona globalnie lub wykorzystywane przy danym żądaniu.</li>
+<li>Dostarczana jest możliwośc filtrowania XSS (Cross-site Scripting Hacks). Opcja ta może być włączona globalnie lub wykorzystywana przy danym żądaniu.</li>
 <li>Znak nowej linii zostaje ustandaryzowany do \n (w Widnowsie \r\n)</li>
 </ul>
 
@@ -85,12 +85,12 @@ Wykonuje ona następujące czynności:</p>
 <h2>Filtrowanie XSS</h2>
 
 <p>Klasa Input ma możliwość automatycznego filtrowania, aby przeciwdziałać atakom cross-site scripting. Jeśli chcesz aby filtr był uruchamiany automatycznie
-za każdym razem gdy napotka na dane typu POST lub COOKIE, mozesz go włączyć poprzez otwarcie pliku <kbd>application/config/config.php</kbd> i
+za każdym razem gdy napotka na dane typu POST lub COOKIE, możesz go włączyć poprzez otwarcie pliku <kbd>application/config/config.php</kbd> i
 ustawienie następującej zmiennej konfiguracyjnej:</p>
 
 <code>$config['global_xss_filtering'] = TRUE;</code>
 
-<p>Proszę zajrzeć do dokumentacji <a href="security.html">klasy Security</a> po więcej informacji, w jaki sposób używać filtrowania XSS w swojej aplikacji.</p>
+<p>Po więcej informacji na temat tego w jaki sposób używać filtrowania XSS w swojej aplikacji, proszę zajrzeć do dokumentacji <a href="security.html">klasy Security</a>.</p>
 
 
 <h2>Używanie danych typu POST, COOKIE i SERVER</h2>

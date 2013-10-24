@@ -86,11 +86,11 @@ powyżej. Minimalnie musisz użyć trzech zmiennych. Oto co one sobą reprezentu
 
 <ul>
 	<li><strong>base_url</strong> Jest to pełny adres URL do klasy kontrolera/funkcji zawierającej twoje "stronicowanie". W powyższym przykładzie
-	zmienna kieruje do kontrolera o nazwie "Test" i funkcji o nazwie "page". Pamiętaj, że mozesz skorzystać z <a href="../general/routing.html">routowania adresów URL</a>,	jeśli chcesz otrzymac inną strukturę linków.</li>
+	zmienna kieruje do kontrolera o nazwie "Test" i funkcji o nazwie "page". Pamiętaj, że możesz skorzystać z <a href="../general/routing.html">routowania adresów URL</a>,	jeśli chcesz otrzymać inną strukturę linków.</li>
 	<li><strong>total_rows</strong> Ta liczba reprezentuje liczbę wszystkich rekordów dla której tworzone jest stronicowanie.
 	Zazwyczaj będzie to liczba wszystkich rekordów jaką zwraca zapytanie do bazy danych.
 	</li>
-	<li><strong>per_page</strong> Liczba elementów jaką chcesz pokazac na jednej stronie. W powyższym przykładzie pokazywane będzie 20 rekordów na stronę.</li>
+	<li><strong>per_page</strong> Liczba elementów jaką chcesz pokazać na jednej stronie. W powyższym przykładzie pokazywane będzie 20 rekordów na stronę.</li>
 </ul>
 
 <p>Funkcja <var>create_links()</var> zwraca pusty ciąg, jeśli nie ma żadnych stron do pokazania.</p>
@@ -99,7 +99,7 @@ powyżej. Minimalnie musisz użyć trzech zmiennych. Oto co one sobą reprezentu
 <h3>Ustawianie preferencji za pomocą pliku konfiguracyjnego</h3>
 
 <p>Jeśli nie chcesz ustawiać preferencji za pomocą powyższej metody, możesz je umieścić w pliku konfiguracyjnym.
-Wystarczy, że utworzysz plik o nazwie <var>pagination.php</var> z tablicą <var>$config</var> w środku i zapisz go w <var>config/pagination.php</var>, 
+Wystarczy, że utworzysz plik o nazwie <var>pagination.php</var> z tablicą <var>$config</var> w środku i zapiszesz go w <var>config/pagination.php</var>, 
 a zostanie on użyty automatycznie. 
 Jeśli Twoje ustawienia preferencji znajdują się w pliku konfiguracyjnym, NIE będziesz musiał korzystać z funkcji <dfn>$this->pagination->initialize()</dfn>.</p>
 

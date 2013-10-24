@@ -79,8 +79,8 @@ Uwaga: Używamy tu zwrotu "klasa" i "biblioteka" wymiennie.</p>
 
 <p>Raz załadowana, biblioteka będzie gotowa do użycia za pomocą składni <kbd>$this->email-></kbd><samp><em>some_function</em>()</samp>.</p>
 
-<p>Pliki biblioteki mogą być przechowywane w podfolderach w głównym foderze bibliotek, lub w samym folderze <dfn>application/libraries</dfn>.
-Aby załadować plik znajdujący się w subfolderze, po prostu dołącz ścieżkę, relatywną do folderu "libraries".
+<p>Pliki biblioteki mogą być przechowywane w podkatalogach w głównym foderze bibliotek, lub w samym folderze <dfn>application/libraries</dfn>.
+Aby załadować plik znajdujący się w podkatalogu, po prostu dołącz ścieżkę relatywną do folderu "libraries".
 Dla przykładu, jeśli masz plik zlokalizowany w:</p>
 
 <code>libraries/flavors/chocolate.php</code>
@@ -97,7 +97,7 @@ Dla przykładu, jeśli masz plik zlokalizowany w:</p>
 
 <h3>Ustawienia opcji</h3>
 
-<p>Drugi parametr (opcjonalny), pozwala na przypisanie ustawień konfiguracyjnych. Zazwyczaj będzeisz je przypisywał w postaci tablicy:</p>
+<p>Drugi parametr (opcjonalny), pozwala na przypisanie ustawień konfiguracyjnych. Zazwyczaj będziesz je przypisywał w postaci tablicy:</p>
 
 <code>
 $config = array (<br />
@@ -109,7 +109,7 @@ $config = array (<br />
 $this->load->library('email', $config);</code>
 
 <p>Konfiguracja opcji może się zazwyczaj również odbywać poprzez plik konfiguracyjny. Każda biblioteka posiada informacje na ten temat na swojej własnej
-stronie. Zapoznaj się z tymi informacjami, dla każdej z bibliotek, którą będziesz chciał użyć.</p>
+stronie. Zapoznaj się z tymi informacjami dla każdej z bibliotek, którą będziesz chciał użyć.</p>
 
 <p>Proszę wziąść pod uwagę, że kiedy ładujemy wiele bibliotek za pomocą tablicy, to każda z nich otrzyma informacje korespondujące z indeksem w drugim parametrze.</p>
 
@@ -139,11 +139,11 @@ to zalecamy abyś to zrobił, ponieważ znajdziesz tam informacje na temat tego 
 <p>Pierwszy parametr jest wymagany. Jest to nazwa pliku widoku, który chciałbyś załadować. &nbsp;Uwaga: 
 Nazwa rozszerzenia .php nie jest wymagana, chyba że używasz czegoś innego niż <kbd>.php</kbd>.</p>
 
-<p>Drugi <strong>opcjonalny</strong> parametr za wartość może przyjmować tablicę asocjacyjną lub obiekt. Wartość ta jest później poddawana działaniu funkcji PHP <a href="http://www.php.net/extract">extract</a>, która konwertuje wspomnianą wartość do zmiennych, które mogą być później wykorzystane w plikach widoku.
+<p>Drugi <strong>opcjonalny</strong> parametr, za wartość może przyjmować tablicę asocjacyjną lub obiekt. Wartość ta jest później poddawana działaniu funkcji PHP <a href="http://www.php.net/extract">extract</a>, która konwertuje wspomnianą wartość do zmiennych, które mogą być później wykorzystane w plikach widoku.
 Ponownie prosimy, abyś zapoznał się z rozdziałem dotyczącym <a href="../general/views.html">widoków</a>, abyś mógł się nauczyć w jaki sposob możesz to wykorzystać.</p>
 
 <p>Trzeci <strong>opcjonalny</strong> parametr, pozwala na zmianę zachowania funkcji, tak aby zwracała dane jako ciąg, a nie wysyłała je bezpośrednio do przeglądarki. Może być to przydatne, jeśli będziesz chciał w jakiś sposób przetworzyć te dane. Jeśli ustawisz parametr na <kbd>true</kbd> (boolean),
-to dane zostaną zwrócone. Domyślną wartością jest <kbd>false</kbd>, co powoduje wysłanie danych do przeglądarki. Pamiętaj o przypisaniu do zmiennej, jeśli chcesz aby dane zsotały zwrócone:</p>
+to dane zostaną zwrócone. Domyślną wartością jest <kbd>false</kbd>, co powoduje wysłanie danych do przeglądarki. Pamiętaj o przypisaniu do zmiennej, jeśli chcesz aby dane zostały zwrócone:</p>
 
 <code>$string = $this->load->view('<var>myfile</var>', '', <kbd>true</kbd>);</code>
 
@@ -167,7 +167,7 @@ większej liczby informacji, prosimy się zapoznać z rozdziałem traktującym o
 <h2>$this->load->vars(<samp>$array</samp>)</h2>
 
 <p>Ta funkcja jako wartośc przyjmuje tablicę asocjacyjną i generuje zmienne za pomocą funkcji PHP <a href="http://www.php.net/extract">extract</a>.
-Dzięki tej funkcji otrzymamy takie same rezultay, jak w przypadku przekazania drugiego parametru do funkcji <dfn>$this->load->view()</dfn> powyżej.
+Dzięki tej funkcji otrzymamy takie same rezultaty, jak w przypadku przekazania drugiego parametru do funkcji <dfn>$this->load->view()</dfn> powyżej.
 Powodem dla którego mógłbyś chcieć skorzystać z tej funkcji, jest możliwość niezależnego przekazywania zmiennych globalnych np. w konstruktorze
 Twojego kontrolera. W ten sposób zmienne staną się dostępne w każdym widoku załadowanym z każdej metody. Możesz się odwoływać do tej funkcji wielokrotnie.
 Dane zostaną zcacheowane i połączone w jedną tablicę przy konwersji na zmienne.
@@ -186,13 +186,13 @@ w bibliotece lub innej metodzie kontrolera za pomocą $this->load->vars().
 
 
 <h2>$this->load->file('<var>filepath/filename</var>', <kbd>true/false</kbd>)</h2>
-<p>To jest generyczna funkcja ładowania pliku. W pierwszym parametrze należy dostarczyć ścieżkę oraz anzwę pliku do wczytania.
-Domyślnie zawartośc pliku jest wysłyłana bezpośrednio do przeglądarki, tak samo jak w przypadku ładowania widoku. Jeśli ustawisz
+<p>To jest generyczna funkcja ładowania pliku. W pierwszym parametrze należy dostarczyć ścieżkę oraz nazwę pliku do wczytania.
+Domyślnie zawartośc pliku jest wysyłana bezpośrednio do przeglądarki, tak samo jak w przypadku ładowania widoku. Jeśli ustawisz
 drugi parametr na wartość <kbd>true</kbd> (boolean), to dane zostaną zwrócone jako ciąg.</p>
 
 
 <h2>$this->load->language('<var>file_name</var>')</h2>
-<p>Ta funkcja jest aliasem <a href="language.html">funkcji ładującej język</a>: $this->lang->load()</p>
+<p>Ta funkcja jest aliasem <a href="language.html">funkcji ładującej plik językowy</a>: $this->lang->load()</p>
 
 <h2>$this->load->config('<var>file_name</var>')</h2>
 <p>Ta funkcja jest aliasem <a href="config.html">funkcji ładującej plik konfiguracyjny</a>: $this->config->load()</p>
@@ -231,7 +231,7 @@ $this->load->library('foo_bar');</code>
 
 <h3>$this->load->remove_package_path()</h3>
 
-<p>Kiedy twój kontroler przestaje używać zasoby pakietu, a szczegolnie, kiedy masz inny pakiet, z którym chciałbyś pracować, możesz chcieć
+<p>Kiedy twój kontroler przestaje używać zasoby pakietu, a szczegolnie kiedy masz inny pakiet, z którym chciałbyś pracować, możesz chcieć
 usunąć ścieżkę pakietu, aby Loader nie sprawdzał tego folderu w poszukiwaniu zasobów. Aby usunąć ostatnio dodaną ścieżkę pakietu, po prostu
 wywołaj metodę bez żadnych parametrów.</p>
 
@@ -241,7 +241,7 @@ wywołaj metodę bez żadnych parametrów.</p>
 
 <code>$this->load->remove_package_path(<var>APPPATH</var>.'third_party/<var>foo_bar</var>/');</code>
 
-<h3>Package view files</h3>
+<h3>Pliki widoku pakietu</h3>
 
 <p>Domyślnie ścieżki dla widoków pakietów są ustawiane kiedy wywoływana jest funkcja <samp>add_package_path()</samp>.
 Ścieżki widoków są przeszukiwane w pętli i kiedy nazwy się zgadzają, dany plik jest wczytywany.</p>

@@ -58,7 +58,7 @@ Klasa manipulowania plikiem graficznym
 
 <h1>Klasa manipulowania plikiem graficznym</h1>
 
-<p>Klasa manipulowania plikiem graficznym pozwala na wykonywania następujących czynności:</p>
+<p>Klasa manipulowania plikiem graficznym pozwala na wykonywanie następujących czynności:</p>
 
 <ul>
 <li>Zmianę rozmiaru pliku graficznego</li>
@@ -147,7 +147,7 @@ tagu w funkcji:</p>
 
 <p>Poniżej przedstawione preferencje pozwalają na dopasowanie przetwarzania pliku graficznego do Twoich potrzeb.</p>
 
-<p>Zauwąż, ze nie wszystkie preferencje są dostępne dla wszystkich funkcji. Dla przykładu, ustawienie osi x/y jest dostępne tylko dla przycicnania pliku graficznego. Tak samo, opcja szerokości i wysokości nie ma wpływu na przycinanie pliku graficznego. Kolumna "dostępności" określa, która funkcja wspiera daną preferencję.</p>
+<p>Zauważ, że nie wszystkie preferencje są dostępne dla wszystkich funkcji. Dla przykładu, ustawienie osi x/y jest dostępne tylko dla przycinania pliku graficznego. Tak samo, opcja szerokości i wysokości nie ma wpływu na przycinanie pliku graficznego. Kolumna "dostępności" określa, która funkcja wspiera daną preferencję.</p>
 
 <p>Legenda dostępności:</p>
 
@@ -309,7 +309,7 @@ przytnie plik graficzny o 30 pikseli od góry.</td>
 
 <h2>Ustawianie preferencji w pliku konfiguracyjnym</h2>
 
-<p>Jeśli nie chcesz usatwiac preferencji za pośrednictwem powyższej metody, możesz zamiast tego umieścić je w pliku konfiguracyjnym.
+<p>Jeśli nie chcesz ustawiać preferencji za pośrednictwem powyższej metody, możesz zamiast tego umieścić je w pliku konfiguracyjnym.
 Wystarczy, że stworzysz plik o nazwie <var>image_lib.php</var>, który będzie zawierał tablicę <var>$config</var>. Jeśli zachowasz ten plik
 w <var>config/image_lib.php</var>, będzie on używany automatycznie. Jeśli Twoje ustawienia preferencji znajdują się w pliku konfiguracyjnym, NIE będziesz musiał korzystać z funkcji <dfn>$this->image_lib->initialize()</dfn>.</p>
 
@@ -355,14 +355,14 @@ oryginalnego pliku.</p>
 <h2>$this->image_lib->crop()</h2>
 
 <p>Funkcja przycinania działa prawie identycznie jak funkcja zmiany rozmiaru, z tym wyjątkiem, że wymaga ustawienia preferencji dla
-osi X i Y (w pikselach), które określją w którym miejscu przyciąć obraz:</p>
+osi X i Y (w pikselach), które określą w którym miejscu przyciąć obraz:</p>
 
 <code>$config['x_axis'] = '100';<br />
 $config['y_axis'] = '40';</code>
 
 <p>Wszystkie wymienione preferencje z powyższej tabeli są dostępne dla tej funkcji, za wyjątkiem tych: rotation_angle, width, height, create_thumb, new_image.</p>
 
-<p>Oto przykład pokazujący w jaki sposób mozesz przyciąć obraz:</p>
+<p>Oto przykład pokazujący w jaki sposób możesz przyciąć obraz:</p>
 
 <code>$config['image_library'] = 'imagemagick';<br />
 $config['library_path'] = '/usr/X11R6/bin/';<br />
@@ -442,7 +442,7 @@ który zawiera znak wodny, na Twój źródłowy plik graficzny.</li>
 <h2>Tworzenie znaku wodnego</h2>
 
 <p>Tak jak w przypadku innych funkcji (zmiany wielkości, przycinania i obracania), głównym procesem nakładania znaku wodnego
-jest ustawianie preferencji, które odpowiadać będą akcją, ktore chcemy wykonać, a na końcu wywołanie samej metody.
+jest ustawianie preferencji, które odpowiadać będą akcjom, które chcemy wykonać, a na końcu wywołanie samej metody.
 Oto przykład:</p>
 
 <code>
