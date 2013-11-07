@@ -82,8 +82,8 @@ procesie działania aplikacji, ponieważ operacje tego typu wymagają sporego na
 
 <code>$data = $this->security->xss_clean($data);</code>
 
-<p>Jeśli chcesz aby filtrowanie odbywało się automatycznie za każdym razie kiedy aplikacja będzie miała do czynienia z danymi POST lub COOKIE, mozesz właczyć
-taką opcję po przez otwarcie pliku <kbd>application/config/config.php</kbd> i edycję tej wartości:</p>
+<p>Jeśli chcesz aby filtrowanie odbywało się automatycznie za każdym razem kiedy aplikacja będzie miała do czynienia z danymi POST lub COOKIE, możesz włączyć
+taką opcję poprzez otwarcie pliku <kbd>application/config/config.php</kbd> i edycję tej wartości:</p>
 
 <code>$config['global_xss_filtering'] = TRUE;</code>
 
@@ -116,7 +116,7 @@ i innych podobnych. Aby to zrobić, użyj metody <dfn>sanitize_filename()</dfn> 
 
 <h2>Cross-site request forgery (CSRF)</h2>
 
-<p>Możesz włączyć ochronę przed atakami typu CSRF po przez otwarcie pliku <kbd>application/config/config.php</kbd> i ustawienie wartości:</p>
+<p>Możesz włączyć ochronę przed atakami typu CSRF poprzez otwarcie pliku <kbd>application/config/config.php</kbd> i ustawienie wartości:</p>
 <code>$config['csrf_protection'] = TRUE;</code>
 
 <p>Jeśli korzystasz z <a href="../helpers/form_helper.html">helpera form</a> i funkcji <var>form_open()</var>, to automatycznie zostanie dodane
