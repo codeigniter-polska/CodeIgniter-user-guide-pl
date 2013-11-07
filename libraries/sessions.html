@@ -59,13 +59,13 @@ Klasa sesji
 <h1>Klasa sesji</h1>
 
 <p>Klasa sesji pozwala utrzymywać "stan" użytkowników i śledzić ich aktywności podczas gdy korzystają z Twojej strony.
-Klasa sesji przechowuje informacje sesyjne dla każdego użytkonika w postaci zserializowanej (i opcjonalnie szyfrowanej) w ciasteczku.
+Klasa sesji przechowuje informacje sesyjne dla każdego użytkownika w postaci zserializowanej (i opcjonalnie szyfrowanej) w ciasteczku.
 Dla dodatkowego bezpieczeństwa, dane sesyjne mogą być również przechowywane w bazie danych - wtedy identyfikator sesji w ciasteczku jest porównywany
 z identyfikatorem sesji zapisanym w bazie danych. Domyślnie używane są tylko ciasteczka. Jeśli zdecydujesz się na wykorzystanie bazy danych, będziesz musiał
 stworzyć w niej tabelę do zapisu sesji, co opisano na dole tej strony.
 </p>
 
-<p class="important"><strong>Uwaga:</strong> Klasa sesji <strong>nie</strong> korzysta z natywnych sesji PHP. Generuje własne dane sesyjne, które są bardziej elastyczne dla developerów.</p>
+<p class="important"><strong>Uwaga:</strong> Klasa sesji <strong>nie</strong> korzysta z natywnych sesji PHP. Generuje własne dane sesyjne, które są bardziej elastyczne dla deweloperów.</p>
 
 <p class="important"><strong>Uwaga:</strong> Nawet jeśli nie używasz szyfrowania sesji, musisz ustawić <a href="./encryption.html">klucz szyfrowania</a> w pliku konfiguracyjnym,
 który jest wykorzystywany do zapobiegania manipulowaniu danymi sesyjnymi.</p>
@@ -77,10 +77,10 @@ który jest wykorzystywany do zapobiegania manipulowaniu danymi sesyjnymi.</p>
 <a href="../general/libraries.html">zainicjalizowana</a> w Twoim konstruktorze
 <a href="../general/controllers.html">kontrolera</a> lub 
 <a href="../general/autoloader.html">ładowana automatycznie</a> przez system.
-Przez większość czasu klasa sesji będzie działała w tle, inicjlizacja sesji pozwoli na odczyt, tworzenie i aktualizację danych sesyjnych.</p>
+Przez większość czasu klasa sesji będzie działała w tle. Inicjalizacja sesji pozwoli na odczyt, tworzenie i aktualizację danych sesyjnych.</p>
 
 
-<p>Aby zainicjować klasę sesji ręcznie w Twoim konstrukorze kontrolera, użyj funkcji <dfn>$this->load->library</dfn>:</p>
+<p>Aby zainicjować klasę sesji ręcznie w Twoim konstruktorze kontrolera, użyj funkcji <dfn>$this->load->library</dfn>:</p>
 
 <code>$this->load->library('session');</code>
 <p>Raz załadowany obiekt biblioteki Session będzie dostępny przez wywołanie <dfn>$this->session</dfn></p>
@@ -92,8 +92,8 @@ Przez większość czasu klasa sesji będzie działała w tle, inicjlizacja sesj
 Jeśli taki identyfikator <strong>nie</strong> istnieje (lub stracił swoją ważność) zostanie stworzona nowa sesja i zapisana w ciasteczku.
 Jeśli sesja istnieje, informacje w niej zawarte zostaną zaktualizowane i zapisane w ciasteczku. Przy każdej aktualizacji session_id zostanie zregenerowane.</p>
 
-<p>Ważne jest abyś zrozumiał, że raz zainicjowana klasa sesji działa już automatycznie. Nie musisz nic robić, aby powyżej opisane działania mialy miejsce.
-Możesz pracować z danymi zapisanymi w sesji lub dodawać do niej własne dane, ale proces proces odczytu, zapisu i aktualizacji sesji jest automatyczny.</p>
+<p>Ważne jest abyś zrozumiał, że raz zainicjowana klasa sesji działa już automatycznie. Nie musisz nic robić, aby powyżej opisane działania miały miejsce.
+Możesz pracować z danymi zapisanymi w sesji lub dodawać do niej własne dane, ale proces odczytu, zapisu i aktualizacji sesji jest automatyczny.</p>
 
 
 <h2>Czym są dane sesyjne?</h2>
@@ -146,7 +146,7 @@ Czemu chciałbyś to robić? Oto jeden z przykładów:</p>
 <p>Załóżmy, że jeden z użytkowników loguje się na Twoją stronę. Kiedy zostanie uwieżytelniony, możesz dodać jego nazwę i adres email, do ciasteczka sesji - powodując, że
 dane te będą dostępne globalnie bez potrzeby uruchamiania zapytania do bazy danych, za każdym razem kiedy będziesz chciał z tych danych skorzystać.</p>
 
-<p>Aby dodać własne dane do tablicy sesji. musisz przypisać tablicę zawierającą nowe dane do funkcji:</p>
+<p>Aby dodać własne dane do tablicy sesji, musisz przypisać tablicę zawierającą nowe dane do funkcji:</p>
 
 <code>$this->session->set_userdata(<samp>$array</samp>);</code>
 
@@ -163,7 +163,7 @@ dane te będą dostępne globalnie bez potrzeby uruchamiania zapytania do bazy d
 <p>Jeśli chcesz dodać tylko jedną wartość na raz, to funkcja set_userdata() wspiera również tę składnię:</p>
 <p><code>$this-&gt;session-&gt;set_userdata('nazwa', 'wartość');</code></p>
 <p class="important"><strong>Uwaga:</strong> Ciasteczka mogą przechowywać jedynie do 4KB danych, bądź więc ostrożny i nie przekrocz tej wartości.
-Proces szyfrowania w szczególności przyczynia się do tworzenia dłuższych ciągów niż te orginalne, dlatego bądź ostarożny i sprawdzaj ile danych przechowujesz.</p>
+Proces szyfrowania w szczególności przyczynia się do tworzenia dłuższych ciągów niż te orginalne, dlatego bądź ostrożny i sprawdzaj ile danych przechowujesz.</p>
 
 <h2>Zwracanie wszystkich danych sesyjnych</h2>
 <p>Cała tablica danych sesyjnych może być zwrócona za pomocą funkcji:</p>
@@ -202,14 +202,9 @@ używana do przechowywania informacji i wiadomości (np.: &quot;usunięto 2 reko
 <p>Jeśli będziesz chciał "zatrzymać" wartości flashdata przez jeszcze jedno żądanie, możesz to zrobić za pomocą funkcji keep_flashdata().</p>
 <p><code>$this-&gt;session-&gt;keep_flashdata('item');</code></p>
 <h2>Przechowywanie sesji w bazie danych</h2>
-<p>While the session data array stored in the user's cookie contains a Session ID,
-unless you store session data in a database there is no way to validate it.  For some applications that require little or no
-security, session ID validation may not be needed, but if your application requires security, validation is mandatory.  Otherwise, an old session
-could be restored by a user modifying their cookies.</p>
+<p>Z racji tego, że dane sesyjne przechowywane w ciasteczku zawierają identyfikator sesji, to o ile nie przechowujesz danych sesyjnych w bazie danych, nie ma tak naprawdę sposobu na zweryfikowanie poprawności sesji. Dla niektórych aplikacji, które wymagają tylko podstawowego bezpieczeństwa, lub nie wymagają go wcale, weryfikacja poprawności identyfikatora sesji może nie być potrzebna. Jeśli jednak wymagamy dobrego poziomu bezpieczeństwa, to taka weryfikacja jest konieczna. W innym wypadku istnieje niebezpieczeństwo, że stara sesja może zostać przywrócona poprzez modyfikację ciasteczka przez użytkownika.</p>
 
-<p>When session data is available in a database, every time a valid session is found in the user's cookie, a database
-query is performed to match it.  If the session ID does not match, the session is destroyed.  Session IDs can never
-be updated, they can only be generated when a new session is created.</p>
+<p>Kiedy dane sesyjne są składowane w bazie danych, za każdym razem kiedy ważna sesja zostanie odnaleziona w ciasteczku, wykonywane jest zapytanie do bazy w celu weryfikacji sesji. Jeśli identyfikator sesji nie znajduje się w bazie danych - sesja jest usuwana. Identyfikatory sesji nie mogą być nigdy modyfikowane. Są generowane tylko w momencie kiedy sesja jest tworzona lub regenerowana.</p>
 
 
 <p>W celu przechowywania sesji w bazie danych, musisz najpierw utworzyć odpowiednią tabelę. Oto podstawowa struktura (dla MySQL), wymagana przez klasę sesji:</p>
@@ -226,7 +221,7 @@ CREATE TABLE IF NOT EXISTS  `ci_sessions` (
 );
 </textarea>
 
-<p><strong>Uwaga:</strong> Domyslnie tabela nosi nazwę <dfn>ci_sessions</dfn>, ale możesz ją nazwać jak tylko chcesz, jeśli tylko dokonasz odpowiedniej zmiany w pliku
+<p><strong>Uwaga:</strong> Domyślnie tabela nosi nazwę <dfn>ci_sessions</dfn>, ale możesz ją nazwać jak tylko chcesz, jeśli tylko dokonasz odpowiedniej zmiany w pliku
 <kbd>application/config/config.php</kbd>. Jeśli utworzysz tabelę w bazie danych, możesz uaktywnić opcję przechowywania sesji w bazie danych, zmieniając pliku config.php zmienną:</p>
 
 <code>$config['sess_use_database'] = TRUE;</code>
