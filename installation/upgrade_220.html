@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<style type='text/css' media='all'>@import url('userguide.css');</style>
+<link rel='stylesheet' type='text/css' media='all' href='userguide.css' />
+
+<script type="text/javascript" src="./nav/nav.js"></script>
+<script type="text/javascript" src="./nav/prototype.lite.js"></script>
+<script type="text/javascript" src="./nav/moo.fx.js"></script>
+<script type="text/javascript" src="./nav/user_guide_menu.js"></script>
+
+<meta http-equiv='expires' content='-1' />
+<meta http-equiv= 'pragma' content='no-cache' />
+<meta name='robots' content='all' />
+<meta name='author' content='ExpressionEngine Dev Team' />
+<meta name='description' content='CodeIgniter User Guide' />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Upgrade z 2.1.4 do 2.2.0 : Podręcznik użytkownika CodeIgniter</title>
+
+</head>
+<body>
+
+<!-- START NAVIGATION -->
+<div id="nav"><div id="nav_inner"><script type="text/javascript">create_menu('../');</script></div></div>
+<div id="nav2"><a name="top"></a><a href="javascript:void(0);" onclick="myHeight.toggle();"><img src="../images/nav_toggle_darker.jpg" width="154" height="43" border="0" title="Pokaż spis treści" alt="Pokaż spis treści" /></a></div>
+<div id="masthead">
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.2.0</h1></td>
+<td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
+</tr>
+</table>
+</div>
+<!-- END NAVIGATION -->
+
+
+<!-- START BREADCRUMB -->
+<table cellpadding="0" cellspacing="0" border="0" style="width:100%">
+<tr>
+<td id="breadcrumb">
+<a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
+<a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
+Upgrade z 2.1.4 do 2.2.0
+</td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+</tr>
+</table>
+<!-- END BREADCRUMB -->
+
+<br clear="all" />
+
+
+<!-- START CONTENT -->
+<div id="content">
+
+<h1>Upgrade z 2.1.4 do 2.2.0</h1>
+
+<p class="important"><strong>Uwaga:</strong> Klasa Encryption wymaga teraz rozszerzenia Mcrypt na serwerze. Jeśli wcześniej używałeś klasy Encryption bez Mcrypt, to jest to zmiana, która uniemożliwi korzystanie z tej klasy. Aby upgrade'ować framework musisz wcześniej zainstalować rozszerzenie Mcrypt na serwerze. Aby uzyskac informacje na temat instalacji rozszerzenia Mcrypt, zajrzyj do <a href="http://php.net/manual/en/mcrypt.setup.php">dokumentacji</a> PHP.</p>
+
+<p>Zanim dokonasz upgrade'u, powinieneś przełączyć stronę w stan offline, np. poprzez podmianę pliku index.php na statyczną stonę.</p>
+
+<h2>Krok 1: Zaktualizuj pliki CodeIgnitera</h2>
+
+<p>Zamień wszystkie pliki i katalogi w folderze "system" oraz podmień plik index.php. Jeśli wcześniej dokonywałeś jakichś zmian w Twoim pliku index.php - musisz je wprowadzić na nowo.</p>
+
+<p class="important"><strong>Uwaga:</strong> Jeśli w folderze "system" (lub podkatalogach) masz jakiekolwiek własne pliki, musisz najpierw wykonać ich kopię.</p>
+
+</div>
+<!-- END CONTENT -->
+
+
+<div id="footer">
+<p>
+Poprzedni Temat:&nbsp;&nbsp;<a href="index.html">Installation Instructions</a>
+&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="troubleshooting.html">Troubleshooting</a>
+</p>
+<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-629893-58', 'codeigniter.org.pl');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
