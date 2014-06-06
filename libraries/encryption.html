@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../nav/user_guide_menu.js"></script>
 
 <meta http-equiv='expires' content='-1' />
-<meta http-equiv= 'pragma' content='no-cache' />
+<meta http-equiv='pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
 <meta name='description' content='Podręcznik użytkownika CodeIgniter' />
@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.1.4</h1></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.2.0</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
@@ -58,11 +58,8 @@ Klasa Encryption
 
 <h1>Klasa Encryption</h1>
 
-<p>Klasa Encryption zapewnia dwukierunkowe szyfrowanie danych. Wykorzystuje schemat, w którym
-wiadomość jest kompilowana za pomocą hashowanego losowo, bitowego kodowania XOR lub jest szyfrowana za pomocą biblioteki Mcrypt.
-Jeśli biblioteka Mcrypt nie jest dostępna na Twoim serwerze, to zakodowana wiadomość nadal będzie zapewniać rozsądny posiom bezpieczeństwa
-do szyfrowania sesji lub podobnych "lekkich" celów. Jeśli bibiloteka Mcrypt jest dostępna, otrzymamy wyższy stopień bezpieczeństwa, odpowiedni
-do zapisu wiadomości.</p>
+<p>Klasa Encryption zapewnia dwukierunkowe szyfrowanie danych. Wykorzystuje bibliotekę Mcrypt.
+Aby działać poprawnie, biblioteka Encryption potrzebuje rozszerzenia Mcrypt zainstalowanego na serwerze.</p>
 
 
 <h2>Ustawianie klucza</h2>
