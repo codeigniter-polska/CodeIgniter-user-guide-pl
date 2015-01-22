@@ -539,7 +539,7 @@ $data = array(<br/>
 &nbsp;&nbsp;&nbsp;)<br/>
 );<br />
 <br />
-$this->db->update_batch('mytable', $data);
+$this->db->insert_batch('mytable', $data);
 <br /><br />
 // Daje: INSERT INTO mytable (title, name, date) VALUES ('My title', 'My name', 'My date'),  ('Another title', 'Another name', 'Another date')</code>
 
@@ -661,6 +661,41 @@ Możesz opcjonalnie przypisać tę informację do funkcji update, jako ciąg zna
 <code>$this->db->update('mytable', $data, array('id' => $id));</code>
 
 <p>Możesz również użyć funkcji <dfn>$this->db->set()</dfn> opisanej wyżej i dokonywać aktualizacji.</p>
+
+<h2>$this->db->update_batch();</h2>
+<p>Generuje ciąg znaków odpowiedzialny za aktualizację danych, na podstawie dostarczonych wcześniej wartości i uruchamia zapytanie. 
+Do tej funkcji możesz przypisać <strong>tablicę</strong> lub <strong>obiekt</strong>. Oto przykład wykorzystujący tablicę:</p>
+
+<code>
+$data = array(<br/>
+&nbsp;&nbsp;&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'My title' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' => 'My Name 2' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => 'My date 2'<br />
+&nbsp;&nbsp;&nbsp;),<br />
+&nbsp;&nbsp;&nbsp;array(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'title' => 'Another title' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'name' => 'Another Name 2' ,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'date' => 'Another date 2'<br />
+&nbsp;&nbsp;&nbsp;)<br/>
+);<br />
+<br />
+$this->db->update_batch('mytable', $data, 'title');
+<br /><br />
+// Daje: <br />
+// UPDATE `mytable` SET `name` = CASE<br />
+// WHEN `title` = 'My title' THEN 'My Name 2'<br />
+// WHEN `title` = 'Another title' THEN 'Another Name 2'<br />
+// ELSE `name` END,<br />
+// `date` = CASE <br />
+// WHEN `title` = 'My title' THEN 'My date 2'<br />
+// WHEN `title` = 'Another title' THEN 'Another date 2'<br />
+// ELSE `date` END<br />
+// WHERE `title` IN ('My title','Another title')</code>
+
+<p>Pierwszy parametr zawiera nazwę tabeli, a drugi tablicę asocjacyją z przypisanymi wartościami - trzeci natomiast jest kluczem where.</p>
+
+<p class="important"><strong>Uwaga:</strong> Wszystkie wartości są automatycznie escapowane, co w rezultacie daje bezpieczniejsze zapytanie.</p>
 
 
 <a name="delete">&nbsp;</a>
