@@ -1,9 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Helper Download: Podręcznik użytkownika CodeIgniter</title>
 
 <style type='text/css' media='all'>@import url('../userguide.css');</style>
 <link rel='stylesheet' type='text/css' media='all' href='../userguide.css' />
@@ -17,7 +14,10 @@
 <meta http-equiv= 'pragma' content='no-cache' />
 <meta name='robots' content='all' />
 <meta name='author' content='ExpressionEngine Dev Team' />
-<meta name='description' content='Podręcznik użytkownika CodeIgniter' />
+<meta name='description' content='CodeIgniter User Guide' />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Upgrade z 2.2.0 do 2.2.1 : Podręcznik użytkownika CodeIgniter</title>
 
 </head>
 <body>
@@ -37,15 +37,14 @@
 
 
 <!-- START BREADCRUMB -->
-
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
 <td id="breadcrumb">
 <a href="http://codeigniter.org.pl/">CodeIgniter</a> &nbsp;&#8250;&nbsp;
 <a href="../index.html">Podręcznik użytkownika</a> &nbsp;&#8250;&nbsp;
-Helper Download
+Upgrade z 2.2.0 do 2.2.1
 </td>
-<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszujak podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
+<td id="searchbox"><form method="get" action="http://www.google.com/search"><input type="hidden" name="as_sitesearch" id="as_sitesearch" value="codeigniter.org.pl/user_guide/" />Przeszukaj podręcznik użytkownika&nbsp; <input type="text" class="input" style="width:200px;" name="q" id="q" size="31" maxlength="255" value="" />&nbsp;<input type="submit" class="submit" name="sa" value="Go" /></form></td>
 </tr>
 </table>
 <!-- END BREADCRUMB -->
@@ -56,43 +55,15 @@ Helper Download
 <!-- START CONTENT -->
 <div id="content">
 
+<h1>Upgrade z 2.2.0 do 2.2.1</h1>
 
-<h1>Helper Download</h1>
+<p>Zanim dokonasz upgrade'u, powinieneś przełączyć stronę w stan offline, np. poprzez podmianę pliku index.php na statyczną stonę.</p>
 
-<p>Helper Download pozwala na ściąganie danych na komputer.</p>
+<h2>Krok 1: Zaktualizuj pliki CodeIgnitera</h2>
 
+<p>Zamień wszystkie pliki i katalogi w folderze "system" oraz podmień plik index.php. Jeśli wcześniej dokonywałeś jakichś zmian w Twoim pliku index.php - musisz je wprowadzić na nowo.</p>
 
-<h2>Ładowanie helpera</h2>
-
-<p>Ten helper jest ładowany za pomocą poniższego kodu:</p>
-<code>$this->load->helper('download');</code>
-
-<p>Dostępne są następujące funkcje:</p>
-
-<h2>force_download('<var>nazwapliku</var>', '<var>dane</var>')</h2>
-
-<p>Funkcja generuje nagłówki HTTP, które wymuszają pobranie danych na komputer. Użyteczne przy pobieraniu plików.
-Pierwszy parametr to <strong>nazwa dla ściąganego pliku</strong>, drugi parametr do dane dla pliku.
-Przykład:</p>
-
-<code>
-$data = 'To jest jakiś tekst!';<br />
-$name = 'mojtekst.txt';<br />
-<br />
-force_download($name, $data);
-</code>
-
-<p>Jeśli chcesz ściągnąć plik istniejący na Twoim serwerze, będziesz musiał wczytać plik do zmiennej:</p>
-
-<code>
-$data = file_get_contents("/sciezka/do/zdjecia.jpg"); // Wczytujemy zawartość pliku<br />
-$name = 'mojezdjecie.jpg';<br />
-<br />
-force_download($name, $data);
-</code>
-
-
-
+<p class="important"><strong>Uwaga:</strong> Jeśli w folderze "system" (lub podkatalogach) masz jakiekolwiek własne pliki, musisz najpierw wykonać ich kopię.</p>
 
 </div>
 <!-- END CONTENT -->
@@ -100,12 +71,13 @@ force_download($name, $data);
 
 <div id="footer">
 <p>
-Poprzedni Temat:&nbsp;&nbsp;<a href="directory_helper.html">Helper Directory</a>
+Poprzedni Temat:&nbsp;&nbsp;<a href="index.html">Installation Instructions</a>
 &nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
 <a href="#top">Początek strony</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-<a href="../index.html">Podręcznik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
-Następny temat:&nbsp;&nbsp;<a href="email_helper.html">Helper Email</a></p>
-<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2011 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
+<a href="../index.html">Przewodnik użytkownika</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;
+Następny temat:&nbsp;&nbsp;<a href="troubleshooting.html">Troubleshooting</a>
+</p>
+<p><a href="http://codeigniter.com">CodeIgniter</a> &nbsp;&middot;&nbsp; Copyright &#169; 2006 - 2014 &nbsp;&middot;&nbsp; <a href="http://ellislab.com/">EllisLab, Inc.</a></p>
 </div>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

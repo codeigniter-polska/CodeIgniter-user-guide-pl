@@ -28,7 +28,7 @@
 <div id="masthead">
 <table cellpadding="0" cellspacing="0" border="0" style="width:100%">
 <tr>
-<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.2.0</h1></td>
+<td><h1>Podręcznik użytkownika CodeIgniter wersja 2.2.1</h1></td>
 <td id="breadcrumb_right"><a href="../toc.html">Spis treści</a></td>
 </tr>
 </table>
@@ -56,6 +56,33 @@ Lista zmian</td>
 
 <h1>Lista zmian</h1>
 
+
+<h2>Wersja 2.2.1</h2>
+<p>Data wydania: 22 stycznia, 2015</p>
+
+<ul>
+	<li>Główne zmiany
+		<ul>
+			<li>Poprawa bezpieczeństwa w <kbd>xss_clean()</kbd>.</li>
+			<li>Aktualizacja stref czasowych w <a href="helpers/date_helper.html">helperze Date</a>.</li>
+		</ul>
+	</li>
+</ul>
+
+<h3>Bug fixes:</h3>
+<ul>
+	<li>Naprawa błędu (#3094) - <samp>CI_Input::_clean_input_data()</samp> breaks encrypted session cookies.</li>
+	<li>Naprawa błędu (#2268) - <samp>CI_Security::xss_clean()</samp> didn't properly match JavaScript events.</li>
+	<li>Naprawa błędu (#3309) - <samp>CI_Security::xss_clean()</samp> used an overly-invasive pattern to strip JS event handlers.</li>
+	<li>Naprawa błędu (#2771) - <samp>CI_Security::xss_clean()</samp> didn't take into account HTML5 entities.</li>
+	<li>Naprawa błędu (#73) - <samp>CI_Security::sanitize_filename()</samp> could be tricked by an XSS attack.</li>
+	<li>Naprawa błędu (#2681) - <samp>CI_Security::entity_decode()</samp> used the PREG_REPLACE_EVAL flag, which is deprecated since PHP 5.5.</li>
+	<li>Naprawa błędu (#3302) - Internal function <samp>get_config()</samp> triggered an E_NOTICE message on PHP 5.6.</li>
+	<li>Naprawa błędu (#2508) - <a href="libraries/config.html">Config Library</a> didn't properly detect if the current request is via HTTPS.</li>
+	<li>Naprawa błędu (#3314) - SQLSRV <a href="database/index.html">Database driver</a>'s method <samp>count_all()</samp> didn't escape the supplied table name.</li>
+	<li>Naprawa błędu (#3404) - MySQLi <a href="database/index.html">Database driver</a>'s method <samp>escape_str()</samp> had a wrong fallback to <samp>mysql_escape_string()</samp> when there was no active connection.</li>
+	<li>Naprawa błędu w <a href="libraries/sessions.html">klasie Session</a> kiedy regeneracja ID sesji następuje podczas żadania AJAX.</li>
+</ul>
 
 <h2>Wersja 2.2.0</h2>
 <p>Data wydania: 5 czerwca 2014</p>
